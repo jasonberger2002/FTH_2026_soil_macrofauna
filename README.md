@@ -7,5 +7,7 @@ Students: Jason BERGER; Nina FARAH; Juliette KIFFER; Nelle KONCZAK
 Project supervisors: Vincent FREYCON; Raphaël MARICHAL; Ariane MIRABEL
 
 index.qmd includes main statistical analysis and figures
+
 data folder includes raw data file used for the analyses
+
 qgis folder includes produced QGIS layers as well as an R script used to map field sampling points into coordinate system
