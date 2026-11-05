@@ -9,8 +9,9 @@ author:
   
 format:
     html:
+      embed-resources: true
       toc: true
-      toc-depth: 5
+      toc-depth: 3
       toc-location: left
       number-sections: true
       
@@ -39,7 +40,8 @@ execute:
 # Necessary packages
 packages_required <- c(
   "knitr", "tidyverse", "vegan", "permute",
-  "ggrepel", "grid", "dplyr", "readxl"
+  "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
+  "DHARMa", "car", "emmeans"
 )
 # Already installed?
 packages_installed <- vapply(
@@ -90,6 +92,11 @@ layer_colors <- c(
   "10" = "#E69F00",  
   "20" = "#5678A8"   
 )
+
+soil_colors <- c(
+  "alt" = "#211111",
+  "dls" = "#900000"
+)
 ```
 
 # Statistical Analysis
@@ -98,25 +105,149 @@ layer_colors <- c(
 
 ### Key values
 
-f
-
-```{r}
-1 + 1
-```
-
 ### PCA
 
-f
+## GLMM with abundances
+
+### GLMM global
+
+#### Data preparation for GLMM:
 
 ```{r}
-2 * 2
+# identify taxa columns
+taxa_cols <- names(df)[7:34]
+
+# long-format dataset
+df_long <- df %>%
+  pivot_longer(
+    cols = all_of(taxa_cols),
+    names_to = "taxon",
+    values_to = "count"
+  ) %>%
+  mutate(
+    taxon = factor(taxon)
+  )
+
+# sample-level abundance (per m²)
+df_total <- df %>%
+  mutate(
+    total_count = rowSums(
+      across(all_of(taxa_cols)),
+      na.rm = FALSE
+    ),
+    density = total_count * 16, #25x25cm monoliths = 1/16 m²
+    soil_type = factor(soil_type),
+    layer = factor(layer, levels = c("L", "10", "20")),
+    monolith_ID = factor(monolith_ID)
+  )
 ```
 
-## GLM with abundances
+#### Fitting the models:
 
-### GLM global
+Models to investigate effects of soil_type and layer on abundance.
+Poisson and negative binomial models are considered since abundances are counts and there may be a tendency to overdispersion or zero-inflation.
 
-### GLM ecosystem engineers
+```{r}
+# M1: Poisson, additive effects
+m_p_add <- glmmTMB(
+  total_count ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_total
+)
+
+# M2: Poisson, interaction
+m_p_int <- glmmTMB(
+  total_count ~ soil_type * layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_total
+)
+
+# M3: Negative binomial, additive effects
+m_nb_add <- glmmTMB(
+  total_count ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_total
+)
+
+# M4: Negative binomial, interaction
+m_nb_int <- glmmTMB(
+  total_count ~ soil_type * layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_total
+)
+```
+
+#### Comparing models using Akaike's An Information Criterion
+
+```{r}
+AIC_values <- AIC(m_p_add, m_p_int, m_nb_add, m_nb_int)
+
+AIC_values$delta_AIC <- AIC_values$AIC - min(AIC_values$AIC)
+
+AIC_values[order(AIC_values$AIC), ]
+```
+
+Negative binomial distribution describes data much better according to AIC and is retained.
+
+#### Comparing nb additive vs. model with interaction:
+
+```{r}
+
+anova(m_nb_add, m_nb_int) #likelihood ratio test LRT
+
+summary(m_nb_add)
+summary(m_nb_int)
+```
+
+Given the interactive model has a higher AIC and does not significantly improve model fit compared to additive model (according to LRT), m_nb_add is retained.
+
+#### Model diagnostics with DHARMa:
+
+```{r}
+res_nb <- simulateResiduals(m_nb_add, n = 1000)
+plot(res_nb)
+
+testDispersion(res_nb)
+testZeroInflation(res_nb)
+```
+
+No issues detected, model is valid.
+
+#### Investigation of model estimates:
+
+```{r}
+Anova(m_nb_add)
+summary(m_nb_add)
+
+```
+
+Type II Wald chi-square tests revealed a highly significant effect of soil layer (χ² = 106.85, df = 2, p \< 0.001).
+Soil type was not significant (χ² = 0.52, df = 1, p = 0.469).
+
+Estimated random-effect variance (monolith) was 0.437 (SD = 0.661), indicating variation in baseline macrofauna abundance among monoliths.
+
+#### Pairwise testing for layers:
+
+```{r}
+# Estimated marginal means for layers (response scale)
+emm_layers <- emmeans(m_nb_add, ~ layer, type = "response")
+
+# Pairwise comparisons (Tukey correction)
+pairwise_layers <- as.data.frame(
+  pairs(emmeans(m_nb_add, ~ layer), adjust = "tukey")
+)
+
+# Back-transform estimates to abundance ratios
+pairwise_layers$ratio <- exp(pairwise_layers$estimate)
+pairwise_layers
+
+# Plot estimated abundance on the response scale
+plot(emm_layers)
+```
+
+Pairwise comparisons with Tukey adjustment shows that macrofauna abundance was significantly higher in layer 10 than in layers L (7.42 times) and 20 (6.18 times), while no significant difference was found between layers L and 20 (p = 0.714).
+
+### GLMM ecosystem engineers
 
 ## PERMANOVA
 
@@ -145,8 +276,6 @@ dim(comm)
 
 ### PERMANOVA layer effects
 
-```{r}
-```
 ```{r}
 # Bray-Curtis PERMANOVA
 # set seed for reproducible permutation chain
@@ -244,6 +373,7 @@ print(pairwise_results)
 ```
 
 ### PERMANOVA for soil types
+
 ```{r}
 # sum across all layers within each monolith => to test independent of layer effects, since dependent of monolith
 comm_mono <- rowsum(
@@ -302,9 +432,8 @@ print(dispersion_soil)
 plot(bd_soil)
 ```
 
-
-
 ### PCoA for layers
+
 ```{r}
 # calculate, using bray like in PERMANOVA
 dist_layer <- vegdist(comm, method = "bray")
@@ -340,8 +469,8 @@ taxa_results <- data.frame(
 
 taxa_results$p_adjusted <- p.adjust(
   taxa_results$p_value,
-  method = "bonferroni"
-) # BH correction also tested, since no different result in taxa with p < 0.05, more conservative bonferroni kept
+  method = "BH"
+) # BH p value adjustment for multiple testing 
 
 # extract taxon vectors 
 vec <- as.data.frame(scores(fit, display = "vectors"))
@@ -432,4 +561,3 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
 
 print(p)
 ```
-
