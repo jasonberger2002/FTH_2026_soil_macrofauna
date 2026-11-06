@@ -249,6 +249,91 @@ Pairwise comparisons with Tukey adjustment shows that macrofauna abundance was s
 
 ### GLMM ecosystem engineers
 
+FORMICIDAE
+
+```{r}
+df_ants <- df_total %>%
+  select(Formicidae, layer, monolith_ID, soil_type)
+
+
+# M1: Poisson, additive effects
+ants_p_add <- glmmTMB(
+  Formicidae ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_ants
+)
+
+# M2: Poisson, interaction
+ants_p_int <- glmmTMB(
+  Formicidae ~ soil_type * layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_ants
+)
+
+# M3: Negative binomial, additive effects
+ants_nb_add <- glmmTMB(
+  Formicidae ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_ants
+)
+
+# M4: Negative binomial, interaction
+ants_nb_int <- glmmTMB(
+  Formicidae~ soil_type * layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_ants
+)
+
+AIC_ants <- AIC(ants_p_add, ants_p_int, ants_nb_add,ants_nb_int)
+
+AIC_ants$delta_AIC <- AIC_ants$AIC - min(AIC_ants$AIC)
+
+AIC_ants[order(AIC_ants$AIC), ]
+```
+
+We keep the negative binomial distribution for the engineers because the AIC is lower that Poisson distribution models.
+
+```{r}
+
+anova(ants_nb_add, ants_nb_int) #likelihood ratio test LRT
+
+summary(ants_nb_add)
+
+res_nb_ants <- simulateResiduals(ants_nb_add, n = 1000)
+plot(res_nb_ants)
+
+testDispersion(res_nb_ants)
+testZeroInflation(res_nb_ants)
+```
+
+The signification of the dispersion test invalided the transformation of our model, but for hight values, and with a small risk, so we keep it.
+
+```{r}
+Anova(ants_nb_add)
+summary(ants_nb_add)
+```
+
+We have the same results for the effect of layer, on Formicidae abondance.
+
+```{r}
+# Estimated marginal means for layers (response scale)
+emm_layers_ants <- emmeans(ants_nb_add, ~ layer, type = "response")
+
+# Pairwise comparisons (Tukey correction)
+pairwise_layers_ants <- as.data.frame(
+  pairs(emmeans(ants_nb_add, ~ layer), adjust = "tukey")
+)
+
+# Back-transform estimates to abundance ratios
+pairwise_layers_ants$ratio <- exp(pairwise_layers_ants$estimate)
+pairwise_layers_ants
+
+# Plot estimated abundance on the response scale
+plot(emm_layers_ants)
+```
+
+Les tendances pour les fourmis sont les mêmes que pour le groupe en général, il y a une différence sur la couche 10 avec 3x plus dans 10 que dans 20 et 0.19x plus dans 10 que dans L.
+
 ## PERMANOVA
 
 ### Data preparation
