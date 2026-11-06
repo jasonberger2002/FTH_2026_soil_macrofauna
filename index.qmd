@@ -313,7 +313,10 @@ Anova(ants_nb_add)
 summary(ants_nb_add)
 ```
 
-We have the same results for the effect of layer, on Formicidae abondance.
+Type II Wald chi-square tests revealed a highly significant effect of soil layer (χ² = 27.99, df = 2, p \< 0.001).
+Soil type was not significant (χ² = 0.48, df = 1, p = 0.48).
+
+Estimated random-effect variance (monolith) was 0.437 (SD = 0.81), indicating variation in baseline ants abundance among monoliths.
 
 ```{r}
 # Estimated marginal means for layers (response scale)
@@ -332,7 +335,96 @@ pairwise_layers_ants
 plot(emm_layers_ants)
 ```
 
-Les tendances pour les fourmis sont les mêmes que pour le groupe en général, il y a une différence sur la couche 10 avec 3x plus dans 10 que dans 20 et 0.19x plus dans 10 que dans L.
+Pairwise comparisons with Tukey adjustment shows that ants abundance was significantly higher in layer 10 than in layers L (0.20 times) and 20 (3.27 times), while no significant difference was found between layers L and 20 (p = 0.40).
+
+TERMITES
+
+```{r}
+df_termites <- df_total %>%
+  select(Isoptera, layer, monolith_ID, soil_type)
+
+
+# M1: Poisson, additive effects
+termites_p_add <- glmmTMB(
+  Isoptera ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_termites
+)
+
+# M2: Poisson, interaction
+termites_p_int <- glmmTMB(
+  Isoptera ~ soil_type * layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_termites
+)
+
+# M3: Negative binomial, additive effects
+termites_nb_add <- glmmTMB(
+  Isoptera ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_termites
+)
+
+# M4: Negative binomial, interaction
+termites_nb_int <- glmmTMB(
+  Isoptera~ soil_type * layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_termites
+)
+
+AIC_termites <- AIC(termites_p_add, termites_p_int, termites_nb_add,termites_nb_int)
+
+AIC_termites$delta_AIC <- AIC_termites$AIC - min(AIC_termites$AIC)
+
+AIC_termites[order(AIC_termites$AIC), ]
+```
+
+Because the AIC is lower for negative binomial distribution model, we keep it rather than Poisson's one.
+
+```{r}
+anova(termites_nb_add, termites_nb_int) #likelihood ratio test LRT
+
+summary(termites_nb_add)
+
+res_nb_termites <- simulateResiduals(termites_nb_add, n = 1000)
+plot(res_nb_termites)
+
+testDispersion(res_nb_termites)
+testZeroInflation(res_nb_termites)
+
+```
+
+The model fit with the data according the DARMHA test.
+
+```{r}
+Anova(termites_nb_add)
+summary(termites_nb_add)
+
+#pairwise
+# Estimated marginal means for layers (response scale)
+emm_layers_termites <- emmeans(termites_nb_add, ~ layer, type = "response")
+
+# Pairwise comparisons (Tukey correction)
+pairwise_layers_termites <- as.data.frame(
+  pairs(emmeans(termites_nb_add, ~ layer), adjust = "tukey")
+)
+
+# Back-transform estimates to abundance ratios
+pairwise_layers_termites$ratio <- exp(pairwise_layers_termites$estimate)
+pairwise_layers_termites
+
+# Plot estimated abundance on the response scale
+plot(emm_layers_termites)
+```
+
+Type II Wald chi-square tests revealed a highly significant effect of soil layer (χ² = 36.56, df = 2, p \< 0.001).
+Soil type was not significant (χ² = 0.89, df = 1, p = 0.35).
+
+Estimated random-effect variance (monolith) was 0.437 (SD = 9.07\*10\^-5), indicating variation in baseline ants abundance among monoliths.
+
+PAIRWISE: Pairwise comparisons with Tukey adjustment shows that ants abundance was significantly higher in layer 10 than in layers L (0.06 times), 20 (745.48 times) and between L and 20 (41.23 times).
+
+EARTHWORMS
 
 ## PERMANOVA
 
