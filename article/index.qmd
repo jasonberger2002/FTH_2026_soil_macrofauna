@@ -391,12 +391,7 @@ Type II Wald chi-square tests revealed a highly significant effect of soil layer
 
 Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ≤ 0.0073).
 
-
-<<<<<<< HEAD
 ::: {#tbl-pairwise fig-env="table*"}
-=======
-::: {#tbl-pairwise fig-env="table"}
->>>>>>> 8557f11e8c8b80b581155fa5290b4338bc4f3b2c
 ```{r}
 #| label: GLMM pairwise comparisons TABLE
 #| size: normalsize
