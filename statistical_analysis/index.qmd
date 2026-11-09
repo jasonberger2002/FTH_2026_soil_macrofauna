@@ -19,6 +19,9 @@ format:
       toc: true
       toc-depth: 3
       number-sections: true
+      header-includes:
+        - \usepackage{fvextra}
+        - \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true, breakanywhere=true, fontsize=\small}
     
 editor: visual
 # https://quarto.org/docs/computations/execution-options.html#output-options
@@ -74,6 +77,9 @@ knitr::knit_hooks$set(
 
 #load all packages
 invisible(lapply(packages_required, library, character.only = TRUE))
+
+# Set output width to prevent long model summaries overflowing PDF margins
+knitr::opts_chunk$set(width = 65)
 
 #set seed for reproducible simulations throughout the document
 set.seed(123)
@@ -266,6 +272,7 @@ Pairwise comparisons with Tukey adjustment shows that macrofauna abundance was s
 
 ```{r}
 #| label: Select ant data, run models and compare with AIC
+
 df_ants <- df_total %>%
   select(Formicidae, layer, monolith_ID, soil_type)
 
@@ -324,7 +331,8 @@ Some relatively high-abundance observations may not be adequately captured by th
 Since all the other tests do not show any significant issues, ants_nb_add is retained as best-supported model regardless, though unexplained structure might remain.
 
 ```{r}
-#| label: Model effects and pairwise comparison for ant model 
+#| label: Model effects and pairwise comparison for ant model
+
 Anova(ants_nb_add)
 summary(ants_nb_add)
 
@@ -386,7 +394,8 @@ termites_nb_int <- glmmTMB(
   data = df_termites
 )
 
-AIC_termites <- AIC(termites_p_add, termites_p_int, termites_nb_add,termites_nb_int)
+AIC_termites <- AIC(termites_p_add, termites_p_int,
+                    termites_nb_add,termites_nb_int)
 
 AIC_termites$delta_AIC <- AIC_termites$AIC - min(AIC_termites$AIC)
 
@@ -473,7 +482,8 @@ earthworms_nb_int <- glmmTMB(
   data = df_earthworms
 )
 
-AIC_earthworms <- AIC(earthworms_p_add, earthworms_p_int, earthworms_nb_add,earthworms_nb_int)
+AIC_earthworms <- AIC(earthworms_p_add, earthworms_p_int,
+                      earthworms_nb_add,earthworms_nb_int)
 
 AIC_earthworms$delta_AIC <- AIC_earthworms$AIC - min(AIC_earthworms$AIC)
 
@@ -549,7 +559,9 @@ df_perm <- df
 # defining taxonomic abundance columns
 community_cols <- names(df_perm)[7:ncol(df_perm)]
 
-# remove zero-abundance samples (decision following vegan handbook, since zero-abundance layer does not convey community composition information)
+# remove zero-abundance samples (decision following vegan
+#handbook, since zero-abundance layer does not convey community
+#composition information)
 keep <- rowSums(df_perm[, community_cols], na.rm = TRUE) > 0
 df_perm <- df_perm[keep, , drop = FALSE]
 
@@ -569,11 +581,13 @@ dist_layer <- vegdist(comm, method = "bray")
 ```{r}
 #| label: Setting permutation scheme and fitting the layer PERMANOVA
 # Bray-Curtis PERMANOVA
-# define permutation scheme, limit WITHIN monoliths (due to spatial dependence of the three layers)
+# define permutation scheme, limit WITHIN monoliths (due to
+#spatial dependence of the three layers)
 perm_layer <- how(
   nperm = 9999,
   blocks = meta_layer$monolith_ID
-) # chose large number of perms for stabilizing p value, increase for borderline p values
+) # chose large number of perms for stabilizing p value, increase
+#for borderline p values
 
 # run based on defined scheme
 permanova_layer <- adonis2(
@@ -591,7 +605,10 @@ Soil layer explained around 16.3% of variation in the community composition, ind
 
 ```{r}
 #| label: Betadisper homogeneity of variance test for layers
-# check dispersion using betadisper (if significant, permanova result might only be due to unequal dispersion; a bit like homogeneity of variance in anova) / is like non-parametric Levene test
+# check dispersion using betadisper (if significant, permanova
+#result might only be due to unequal dispersion; a bit like
+#homogeneity of variance in anova) / is like non-parametric
+#Levene test
 
 bd_layer <- betadisper(
   dist_layer,
@@ -679,7 +696,7 @@ Significant differences were observed between L and 10 (F = 6.05, R² = 0.141, a
 # calculate, using same distance matrix like in PERMANOVA
 pcoa_layer <- cmdscale(
   dist_layer, k = 2, eig = TRUE, add = TRUE
-) # set k for number of dimensions +> k =2 two dimensional representation
+) # set k for number of dimensions +> k = 2 two dimensional
 
 # sample scores
 pcoa_df_perm <- data.frame(
@@ -693,14 +710,15 @@ hull_df_perm <- pcoa_df_perm %>%
   group_by(layer) %>%
   slice(chull(PCoA1, PCoA2))
 
-# fit taxon abundances to the PCoA (using same permutation scheme as in PERMANOVA)
+# fit taxon abundances to the PCoA (using same permutation scheme
+#as in PERMANOVA)
 fit <- envfit(
   pcoa_layer$points,
   comm,
   permutations = perm_layer
 )
 
-# extract taxon results and adjust p-values (since we do multiple testing)
+# extract taxon results and adjust p-values (multiple testing)
 taxa_results <- data.frame(
   taxon = rownames(fit$vectors$arrows),
   R2 = fit$vectors$r,
@@ -710,7 +728,7 @@ taxa_results <- data.frame(
 taxa_results$p_adjusted <- p.adjust(
   taxa_results$p_value,
   method = "BH"
-) # BH p value adjustment for multiple testing (false discovery rate)
+) # BH adjustment for multiple testing (false discovery rate)
 
 # extract taxon vectors 
 vec <- as.data.frame(scores(fit, display = "vectors"))
@@ -821,7 +839,8 @@ Isoptera showed the strongest association with the ordination.
 
 ```{r}
 #| label: Create new community matrix for soil type accumulated per monolith
-# sum across all layers within each monolith => to test independent of layer effects, since dependent of monolith
+# sum across all layers within each monolith => to test
+#independent of layer effects, since dependent of monolith
 comm_mono <- rowsum(
   comm,
   group = df_perm$monolith_ID,
@@ -847,6 +866,7 @@ Only tests between soils on monolith level.
 
 ```{r}
 #| label: Distance matrix, PERMANOVA and betadisper for soil type
+
 dist_soil <- vegdist(comm_mono, method = "bray")
 # Bray-Curtis PERMANOVA
 
