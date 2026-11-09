@@ -1,5 +1,6 @@
+
 # RStudio files and folders
-.Rproj.user
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
@@ -7,15 +8,19 @@
 # Mac OS
 .DS_Store
 
-# Output
+# Quarto cache and working folders (including subfolders)
+.quarto/
+_freeze/
+*_cache/
+*_files/
+
+# Output files (project root only)
 /*.html
 /*.pdf
 /*.tex
+
 # Intermediate files
 /nul
 /*.aux
 /*.log
 /*.toc
-# Working folders
-/*_files/
-/*_cache/
