@@ -1,0 +1,520 @@
+---
+title: "Cool macrofauna title"
+# Output formats
+format:
+  stylisharticle-pdf:
+    keep-tex: true
+    # Color example, see "Text color"
+    header-includes:
+      \definecolor{grey}{RGB}{191, 191, 191}
+  stylisharticle-html:
+    # Color example, see "Text color"
+    css: colors.css
+# Authors (https://quarto.org/docs/journals/authors.html#author-schema)
+author:
+  - name: Jason Berger
+    corresponding: true
+    affiliations:
+      - name: FTH 2026 student Université de Guyane
+        department: UMR EcoFoG
+        address: Campus agronomique
+        city: Kourou
+        country: French Guiana, France
+        postal-code: 97310
+    email: jasonberger2002@gmail.com
+  - name: Nina Farah
+    corresponding: true
+    affiliations:
+      - name: FTH 2026 student Université de Guyane
+        department: UMR EcoFoG
+        address: Campus agronomique
+        city: Kourou
+        country: French Guiana, France
+        postal-code: 97310
+    email: ninafarah@free.fr 
+  - name: Juliette Kiffer
+    corresponding: true
+    affiliations:
+      - name: FTH 2026 student AgroParisTech
+        department: UMR EcoFoG
+        address: Campus agronomique
+        city: Kourou
+        country: French Guiana, France
+        postal-code: 97310
+    email: jujukiffer95@gmail.com
+  - name: Nelle Konczak
+    corresponding: true
+    affiliations:
+      - name: FTH 2026 student Université de Guyane
+        department: UMR EcoFoG
+        address: Campus agronomique
+        city: Kourou
+        country: French Guiana, France
+        postal-code: 97310
+    email: konczaknelle@gmail.com
+# Abstract and Keywords
+abstract: |
+  This document is only a demo explaining how to use the Stylish Article template.
+keywords: [soil macrofauna, Paracou, Amazon forest, ecology]
+# Bibliography
+reference-section-title: References
+bibliography: references.bib
+# Language
+lang: en-US
+otherlangs: fr-FR
+# Code options 
+# https://quarto.org/docs/computations/execution-options.html
+execute:
+  # show code chunk output
+  include: true
+  # Show the code in the output
+  echo: false
+  # Show messages
+  message: false
+  # Show warnings
+  warning: false
+  # Cache code results
+  cache: false
+# Template specific
+keywordlabel: Keywords
+corrauthorlabel: Corresponding Author
+---
+
+```{r}
+#| label: Options
+#| include: false
+### Customized R options for this document
+# Delete this chunk if you don't use R
+
+# Necessary packages. Add all packages used in the code here.
+packages_required <- c(
+  # R tools, do not modify
+  "knitr",   # to run the code chunks
+  "formatR", # if tidy = TRUE below
+  # Add specific packages here
+  "tidyverse", 
+  "gt"
+)
+# Already installed?
+packages_installed <- vapply(
+  packages_required, 
+  FUN = requireNamespace, 
+  FUN.VALUE = TRUE, 
+  quietly = TRUE
+) 
+# Install missing packages
+install.packages(
+  names(packages_installed)[!packages_installed],
+  repos = "https://cran.rstudio.com/",
+  quiet = TRUE
+)
+
+# Allow size='small' or any valid Latex font size in chunk options
+def.chunk.hook <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(
+  chunk = function(x, options) {
+    x <- def.chunk.hook(x, options)
+    ifelse(
+      options$size == "normalsize", 
+      yes = x,
+      no = paste0("\n \\", options$size, "\n\n", x, "\n\n \\normalsize")
+    )
+  }
+)
+
+# knitr options (https://yihui.org/knitr/options/)
+knitr::opts_chunk$set(
+  # Code chunk automatic format if tidy is TRUE
+  tidy = TRUE, 
+  # Tidy code options: remove blank lines and cut lines after 50 characters
+  tidy.opts = list(blank = FALSE, width.cutoff = 50),
+  # Font size in PDF output
+  size = "scriptsize", 
+  # Select PDF figures in PDF output if PDF file exists beside PNG file
+  knitr.graphics.auto_pdf = TRUE
+)
+# Text width of R functions output
+options(width = 50)
+
+# ggplot style
+library("tidyverse")
+# Function to call in each chunk that produces a figure
+ggtheme_set <- function() {
+  theme_set(theme_bw())
+  theme_update(
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background = element_rect(fill = "transparent", colour = NA)
+  )
+}
+knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
+
+# Random seed
+set.seed(123)
+```
+
+# Introduction
+
+This template allows writing stylish articles in Markdown with Quarto[^1].
+It directly produces well-formatted PDF articles for self-archiving or in other formats, for example HTML.
+
+[^1]: <https://quarto.org/>
+
+# Markdown {#markdown}
+
+Markdown is a very simple language for producing various types of documents: HTML, PDF, and Word among others.
+Its documentation is available on the Quarto website[^2].
+
+[^2]: <https://quarto.org/docs/authoring/markdown-basics.html>
+
+This document was made RStudio, but other tools are available[^3]: Quarto processes the Markdown code, passes it to Pandoc for transformation into LaTeX based on the Stylish Article template provided in this Quarto extension; finally LaTeX compiles it into PDF.
+
+[^3]: <https://quarto.org/docs/get-started/>
+
+## Motivation
+
+Markdown is very easy to learn.
+
+Markdown allows integrating your R, Python and more code for a *reproducible* result.
+
+Markdown allows to produce, without rewriting the text, a document in different formats: HTML, LaTeX or Word for example.
+
+# Code
+
+The main features of Markdown are summarized here.
+The full documentation is on-line[^4].
+
+[^4]: <https://quarto.org/docs/authoring/markdown-basics.html/>
+
+## R and other code
+
+R code is included in code chunks:
+
+```{r}
+#| label: cars
+#| echo: true
+head(cars)
+```
+
+Similar chunks support other languages such as Python.
+This template focuses on R but can be used with any other code language supported by Quarto.
+
+## Figures
+
+::: {#fig-pressure fig-env="figure*"}
+```{r}
+#| label: pressure
+#| out-width: 80%
+plot(pressure)
+```
+
+Comparison of motorway and city driving ranges for 38 car models.
+:::
+
+Figures can be created by R code (@fig-pressure) in a division whose name starts with `#fig-`.
+Cross-references are made with the command `@label`, e.g.: `@fig-pressure`.
+
+In PDF, a figure can use the full width of the page by adding the options `fig-env="figure*"` to the header of the division.
+
+Images stored in a file are integrated into a piece of code by the `include_graphics()` function, see @fig-logo.
+
+::: {#fig-logo}
+```{r}
+#| label: logo
+#| out-width: 30%
+knitr::include_graphics("images/logo.png")
+```
+
+This is a logo.
+:::
+
+Systematically place these files in the `images` folder for the automation of GitHub pages.
+
+## Tables
+
+The horizontal `-` and vertical separators `|` allow you to draw a table according to Markdown syntax, but this is not the best method in R.
+
+Tables can also be produced by R code.
+The content of the table is in a dataframe.
+The `gt()` function from package *gt* formats it.
+Refer to the documentation of the package for details about formatting the output.
+
+::: {#tbl-iris}
+```{r}
+#| label: iris
+names(iris) <- c(
+  "Sepal length", 
+  "Sepal width", 
+  "Petal length",
+  "Petal width", 
+  "Species"
+)
+library("gt")
+head(iris) %>%
+  gt() ->
+  the_table
+
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(9))
+} else {
+  # Simply print the table
+  the_table
+}
+```
+
+Table created by R in a data frame.
+:::
+
+By default, the tables is contained in its column.
+
+A full-width table is @tbl-Paracou.
+It is obtained with the option `fig-env="table*"` in the header of the division.
+
+::: {#tbl-Paracou fig-env="table*"}
+```{r}
+#| label: Paracou
+
+Intervention <- data.frame(
+  Treatment = c("Control", "T1", "T2", "T3"),
+  Timber = c(
+    "", 
+    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha", 
+    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha",
+    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha"
+  ),
+  Thinning = c(
+    "", 
+    "", 
+    "DBH $\\geq$ 40 cm, non-valuable species, $\\approx$ 30 trees/ha", 
+    "DBH $\\geq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha  "
+  ),
+  Fuelwood = c(
+    "", 
+    "", 
+    "", 
+    "40 cm $\\leq$ DBH $\\leq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha"
+  ),
+  AGBLost = c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
+)
+names(Intervention)[5] <- "%AGB lost"
+Intervention %>% 
+  gt() %>% 
+  # Interpret cell contents as markdow
+  fmt_markdown() %>% 
+  # Set column widths in %
+  cols_width(
+    Treatment ~ pct(10),
+    Timber ~ pct(25),
+    Thinning ~ pct(25),
+    Fuelwood ~ pct(30),
+    `%AGB lost` ~ pct(10)
+  ) ->
+  the_table
+
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(11))
+} else {
+  # Simply print the table
+  the_table
+}
+```
+
+Large table with maths, on two columns in PDF.
+:::
+
+Note that tables can't be shown on the first page of the PDF output of the Stylish Article template: they would conflict with the table of contents.
+
+## Lists
+
+Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or numbers `1.`, `i.` and `A.` (numbered lists).
+Indentation of lists indicates their level: `*`, `+` and `-` may be replaced by `-` at all levels, but four spaces are needed to nest a list into another.
+
+- First element of a list
+  - sub-list
+- Second element
+- Continuation of the list
+
+Leave an empty line before and after the list, but not between its items.
+
+## Math
+
+Equations in LaTeX format can be inserted inline, like $A = \pi r^2$ or isolated like $$e^{i \pi} = -1.$$
+
+They can be numbered, see @eq-disk, after adding them a label:
+
+$$  A = \pi r^2.$$ {#eq-disk}
+
+## Cross-references
+
+Figures and tables have a label declared in their division `tbl-xxx` or `fig-yyy`, starting with `fig-` or `tbl-`.
+
+For equations, the label is added manually by the code `{#eq-xxx}` after the end of the equation.
+
+Sections can be tagged by ending their title with `{#sec-yyy}`.
+
+In all cases, the call to the reference is made by `@`.
+
+## Bibliography
+
+Bibliographic references included in the `.bib` file declared in the document header can be called by `[@CitationKey]`, in parentheses [@Xie2018], or without square brackets, in the text, as @Xie2016.
+
+The bibliographic style can be specified, by adding the line
+
+```         
+csl: file_name.csl
+```
+
+in the document header and copying the *.csl* style file to the project folder.
+More than a thousand styles are available[^5] and their URL can be used instead of copying the file, e.g.:
+
+[^5]: <https://github.com/citation-style-language/styles>
+
+```         
+csl: https://www.zotero.org/styles/xxx
+```
+
+## Forcing line breaks
+
+Hyphenation is handled automatically in LaTeX.
+If a word is not hyphenated correctly, add its hyphenation in the preamble of the file with the command `hyphenation` (words are separated by spaces, hyphenation locations are represented by dashes).
+
+If LaTeX can't find a solution for the line break, for example because some code is too long a non-breaking block, add the LaTeX command `\break` to the line break location.
+Do not leave a space before the command.
+The HTML document ignores LaTeX commands.
+
+## Languages
+
+Languages are declared in the document header.
+
+The main language of the document (`lang`) changes the name of some elements, such as the table of contents.
+The change of language in the document (one of `otherlangs`) is managed in LaTeX (but not fully in HTML).
+
+For a single word, to ensure correct hyphenation in LaTeX, use the following command, ignored un HTML:
+
+```         
+\foreignlanguage{italian}{ciao}
+```
+
+For a paragraph, to also ensure correct quotes and punctuation spacing, use
+
+```         
+::: {lang=fr}
+"Bonjour": en français!
+:::
+```
+
+to obtain:
+
+::: {lang="fr"}
+"Bonjour": en français!
+:::
+
+The current language has an effect only in LaTeX output: a space is added before double punctuation in French, the size of spaces is larger at the beginning of sentences in English, etc.
+
+## Text color
+
+This template includes the "color-text" filter for Quarto.
+It makes colored text possible using the `[content]{color=<name>}` syntax.
+[This is a red example]{color="red"}.
+Defined colors are blue, green and red.
+To add more colors, they must be defined in the document header in `format:`, `stylisharticle-pdf:`, `header-includes:` .
+This is the code for "grey":
+
+```         
+    \definecolor{grey}{RGB}{191, 191, 191}
+```
+
+They must also be included in a `.css` file declared in `format:`, `stylisharticle-html:`
+
+```         
+    css: colors.css
+```
+
+In this css, colors are declared by
+
+```         
+.color-grey {color: rgb(191, 191, 191);}
+```
+
+# .gitignore
+
+Copy this content to the `.gitignore` file:
+
+```         
+# RStudio files and folders
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Mac OS
+.DS_Store
+
+# Output
+/*.html
+/*.pdf
+/*.tex
+# Intermediate files
+/nul
+/*.aux
+/*.log
+/*.toc
+# Working folders
+/*_files/
+/*_cache/
+
+# Template (copied from _extensions)
+/stylisharticle.cls
+```
+
+# GitHub Action
+
+Create a file named `quarto_publish.yml` in the folder `.github/workflows` (to be created) to activate continuous integration:
+
+```         
+on:
+  push:
+    branches: [main, master]
+
+name: Render and Publish
+
+jobs:
+  build-deploy:
+    runs-on: macOS-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tinytex: true
+      - name: Install dependencies
+        run: |
+          options(pkgType = "binary")
+          options(install.packages.check.source = "no")
+          install.packages(c("rmarkdown", "knitr"))
+        shell: Rscript {0}
+      - name: Publish to GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          path: index.qmd
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+# Caveats
+
+Quarto does not yet support all features of R Markdown.
+Unsolved issues are listed here, as of version 1.9:
+
+- The `column` options in code chunks or `{.column-xxx}` div's can't be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.

@@ -1,0 +1,873 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+% Code above from https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/passoptions.latex
+% Customization below
+\PassOptionsToPackage{babel}{csquotes}
+%
+\documentclass[
+  french,
+  american,
+  11pt,
+]{stylisharticle}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{2}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+\usepackage[]{csquotes}
+
+% -------------- Additional packages
+\usepackage{orcidlink}  % Orcid logo and link to author page
+
+% -------------- Font size
+% R code: scriptsize
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}, fontsize=\scriptsize}
+% R output: footnotesize
+\makeatletter
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\footnotesize}
+  {}{}
+% References font size whether bibtex is used or not
+\@ifundefined{bibfont}
+  {%
+    \AtBeginEnvironment{CSLReferences}{\footnotesize}
+  }
+  {%
+    \renewcommand*{\bibfont}{\footnotesize}
+  }%
+\makeatother
+
+% -------------- longtable 2 columns
+% https://tex.stackexchange.com/questions/161431/how-to-solve-longtable-is-not-in-1-column-mode-error
+\makeatletter
+\let\oldlt\longtable
+\let\endoldlt\endlongtable
+\def\longtable{\@ifnextchar[\longtable@i \longtable@ii}
+\def\longtable@i[#1]{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt[#1]
+}
+\def\longtable@ii{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt
+}
+\def\endlongtable{\endoldlt
+\end{minipage}
+\twocolumn
+\end{figure}}
+\makeatother
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
+\definecolor{red}{RGB}{255, 0, 0}
+\definecolor{green}{RGB}{0, 255, 0}
+\definecolor{blue}{RGB}{0, 0, 255}
+\definecolor{grey}{RGB}{191, 191, 191}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Cool macrofauna title},
+  pdfauthor={Jason Berger; Nina Farah; Juliette Kiffer; Nelle Konczak},
+  pdflang={en-US},
+  pdfkeywords={\xmpquote{soil
+macrofauna}, \xmpquote{Paracou}, \xmpquote{Amazon
+forest}, \xmpquote{ecology}},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+% Set up hyperref, after loading it
+\hypersetup{
+  linkcolor=black,
+  citecolor=black,
+  colorlinks=true
+}
+
+% Journal information
+  \JournalInfo{\ }
+
+% Additional notes (e.g. copyright, DOI, review/research article)
+  \Archive{\ }
+
+% Article title
+\PaperTitle{Cool macrofauna title}
+
+% Authors
+\Authors{
+      {Jason Berger}%
+    \textsuperscript{%
+      %
+      1%
+      *%
+    }%
+    ,
+      {Nina Farah}%
+    \textsuperscript{%
+      %
+      1%
+      *%
+    }%
+    ,
+      {Juliette Kiffer}%
+    \textsuperscript{%
+      %
+      2%
+      *%
+    }%
+    ,
+      {Nelle Konczak}%
+    \textsuperscript{%
+      %
+      1%
+      *%
+    }%
+    }
+
+% Affiliations
+    \affiliation{%
+      \textsuperscript{1}%
+      FTH 2026 student Université de Guyane%
+      , UMR EcoFoG%
+      %
+      , Campus agronomique%
+      , Kourou%
+      %
+      , French Guiana, France%
+      , 97310%
+      %
+    }
+    \affiliation{%
+      \textsuperscript{2}%
+      FTH 2026 student AgroParisTech%
+      , UMR EcoFoG%
+      %
+      , Campus agronomique%
+      , Kourou%
+      %
+      , French Guiana, France%
+      , 97310%
+      %
+    }
+
+% Corresponding author
+  %
+    \affiliation{%
+      *\textbf{Corresponding Author}: jasonberger2002@gmail.com%
+    }%
+  %
+  %
+    \affiliation{%
+      *\textbf{Corresponding Author}: ninafarah@free.fr%
+    }%
+  %
+  %
+    \affiliation{%
+      *\textbf{Corresponding Author}: jujukiffer95@gmail.com%
+    }%
+  %
+  %
+    \affiliation{%
+      *\textbf{Corresponding Author}: konczaknelle@gmail.com%
+    }%
+  %
+
+% Keywords
+\Keywords{soil macrofauna, Paracou, Amazon forest, ecology}
+\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+
+%	Abstract
+\Abstract{
+  This document is only a demo explaining how to use the Stylish Article
+  template.
+}
+\begin{document}
+% Makes all text pages the same height
+\flushbottom
+
+% Print the title and abstract box
+\maketitle
+
+% Print the contents section
+\tableofcontents
+
+% Remove page numbering from the first page
+\thispagestyle{empty}
+
+\section{Introduction}\label{introduction}
+
+This template allows writing stylish articles in Markdown with
+Quarto\footnote{\url{https://quarto.org/}}. It directly produces
+well-formatted PDF articles for self-archiving or in other formats, for
+example HTML.
+
+\section{Markdown}\label{markdown}
+
+Markdown is a very simple language for producing various types of
+documents: HTML, PDF, and Word among others. Its documentation is
+available on the Quarto website\footnote{\url{https://quarto.org/docs/authoring/markdown-basics.html}}.
+
+This document was made RStudio, but other tools are
+available\footnote{\url{https://quarto.org/docs/get-started/}}: Quarto
+processes the Markdown code, passes it to Pandoc for transformation into
+LaTeX based on the Stylish Article template provided in this Quarto
+extension; finally LaTeX compiles it into PDF.
+
+\subsection{Motivation}\label{motivation}
+
+Markdown is very easy to learn.
+
+Markdown allows integrating your R, Python and more code for a
+\emph{reproducible} result.
+
+Markdown allows to produce, without rewriting the text, a document in
+different formats: HTML, LaTeX or Word for example.
+
+\section{Code}\label{code}
+
+The main features of Markdown are summarized here. The full
+documentation is on-line\footnote{\url{https://quarto.org/docs/authoring/markdown-basics.html/}}.
+
+\subsection{R and other code}\label{r-and-other-code}
+
+R code is included in code chunks:
+
+\scriptsize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  speed dist
+1     4    2
+2     4   10
+3     7    4
+4     7   22
+5     8   16
+6     9   10
+\end{verbatim}
+
+\normalsize
+
+Similar chunks support other languages such as Python. This template
+focuses on R but can be used with any other code language supported by
+Quarto.
+
+\subsection{Figures}\label{figures}
+
+\begin{figure*}
+
+\centering{
+
+\scriptsize
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/pressure-1.pdf}
+
+\normalsize
+
+}
+
+\caption{\label{fig-pressure}Comparison of motorway and city driving
+ranges for 38 car models.}
+
+\end{figure*}%
+
+Figures can be created by R code (Figure~\ref{fig-pressure}) in a
+division whose name starts with \texttt{\#fig-}. Cross-references are
+made with the command \texttt{@label}, e.g.: \texttt{@fig-pressure}.
+
+In PDF, a figure can use the full width of the page by adding the
+options \texttt{fig-env="figure*"} to the header of the division.
+
+Images stored in a file are integrated into a piece of code by the
+\texttt{include\_graphics()} function, see Figure~\ref{fig-logo}.
+
+\begin{figure}
+
+\centering{
+
+\scriptsize
+
+\includegraphics[width=0.3\linewidth,height=\textheight,keepaspectratio]{images/logo.png}
+
+\normalsize
+
+}
+
+\caption{\label{fig-logo}This is a logo.}
+
+\end{figure}%
+
+Systematically place these files in the \texttt{images} folder for the
+automation of GitHub pages.
+
+\subsection{Tables}\label{tables}
+
+The horizontal \texttt{-} and vertical separators \texttt{\textbar{}}
+allow you to draw a table according to Markdown syntax, but this is not
+the best method in R.
+
+Tables can also be produced by R code. The content of the table is in a
+dataframe. The \texttt{gt()} function from package \emph{gt} formats it.
+Refer to the documentation of the package for details about formatting
+the output.
+
+\begin{table}
+
+\caption{\label{tbl-iris}Table created by R in a data frame.}
+
+\centering{
+
+\scriptsize
+
+\fontsize{7.0pt}{8.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
+\toprule
+Sepal length & Sepal width & Petal length & Petal width & Species \\ 
+\midrule\addlinespace[2.5pt]
+5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
+4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
+4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
+4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
+5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
+5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
+\bottomrule
+\end{tabular*}
+
+\normalsize
+
+}
+
+\end{table}%
+
+By default, the tables is contained in its column.
+
+A full-width table is Table~\ref{tbl-Paracou}. It is obtained with the
+option \texttt{fig-env="table*"} in the header of the division.
+
+\begin{table*}
+
+\caption{\label{tbl-Paracou}Large table with maths, on two columns in
+PDF.}
+
+\centering{
+
+\scriptsize
+
+\fontsize{8.0pt}{10.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{\dimexpr 0.10\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.25\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.25\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.30\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.10\linewidth -2\tabcolsep-1.5\arrayrulewidth}}
+\toprule
+Treatment & Timber & Thinning & Fuelwood & \%AGB lost \\ 
+\midrule\addlinespace[2.5pt]
+Control &  &  &  & 0 \\ 
+T1 & DBH \(\geq\) 50 cm, commercial species, \(\approx\) 10 trees/ha &  &  & \([12\%-33\%]\) \\ 
+T2 & DBH \(\geq\) 50 cm, commercial species, \(\approx\) 10 trees/ha & DBH \(\geq\) 40 cm, non-valuable species, \(\approx\) 30 trees/ha &  & \([33\%-56\%]\) \\ 
+T3 & DBH \(\geq\) 50 cm, commercial species, \(\approx\) 10 trees/ha & DBH \(\geq\) 50 cm, non-valuable species, \(\approx\) 15 trees/ha & 40 cm \(\leq\) DBH \(\leq\) 50 cm, non-valuable species, \(\approx\) 15 trees/ha & \([35\%-56\%]\) \\ 
+\bottomrule
+\end{tabular*}
+
+\normalsize
+
+}
+
+\end{table*}%
+
+Note that tables can't be shown on the first page of the PDF output of
+the Stylish Article template: they would conflict with the table of
+contents.
+
+\subsection{Lists}\label{lists}
+
+Lists are indicated by \texttt{*}, \texttt{+} and \texttt{-} (three
+hierarchical levels) or numbers \texttt{1.}, \texttt{i.} and \texttt{A.}
+(numbered lists). Indentation of lists indicates their level:
+\texttt{*}, \texttt{+} and \texttt{-} may be replaced by \texttt{-} at
+all levels, but four spaces are needed to nest a list into another.
+
+\begin{itemize}
+\tightlist
+\item
+  First element of a list
+
+  \begin{itemize}
+  \tightlist
+  \item
+    sub-list
+  \end{itemize}
+\item
+  Second element
+\item
+  Continuation of the list
+\end{itemize}
+
+Leave an empty line before and after the list, but not between its
+items.
+
+\subsection{Math}\label{math}
+
+Equations in LaTeX format can be inserted inline, like \(A = \pi r^2\)
+or isolated like \[e^{i \pi} = -1.\]
+
+They can be numbered, see Equation~\ref{eq-disk}, after adding them a
+label:
+
+\begin{equation}\protect\phantomsection\label{eq-disk}{  A = \pi r^2.}\end{equation}
+
+\subsection{Cross-references}\label{cross-references}
+
+Figures and tables have a label declared in their division
+\texttt{tbl-xxx} or \texttt{fig-yyy}, starting with \texttt{fig-} or
+\texttt{tbl-}.
+
+For equations, the label is added manually by the code
+\texttt{\{\#eq-xxx\}} after the end of the equation.
+
+Sections can be tagged by ending their title with
+\texttt{\{\#sec-yyy\}}.
+
+In all cases, the call to the reference is made by \texttt{@}.
+
+\subsection{Bibliography}\label{bibliography}
+
+Bibliographic references included in the \texttt{.bib} file declared in
+the document header can be called by \texttt{{[}@CitationKey{]}}, in
+parentheses (Xie et al. 2018), or without square brackets, in the text,
+as Xie (2016).
+
+The bibliographic style can be specified, by adding the line
+
+\begin{verbatim}
+csl: file_name.csl
+\end{verbatim}
+
+in the document header and copying the \emph{.csl} style file to the
+project folder. More than a thousand styles are available\footnote{\url{https://github.com/citation-style-language/styles}}
+and their URL can be used instead of copying the file, e.g.:
+
+\begin{verbatim}
+csl: https://www.zotero.org/styles/xxx
+\end{verbatim}
+
+\subsection{Forcing line breaks}\label{forcing-line-breaks}
+
+Hyphenation is handled automatically in LaTeX. If a word is not
+hyphenated correctly, add its hyphenation in the preamble of the file
+with the command \texttt{hyphenation} (words are separated by spaces,
+hyphenation locations are represented by dashes).
+
+If LaTeX can't find a solution for the line break, for example because
+some code is too long a non-breaking block, add the LaTeX command
+\texttt{\textbackslash{}break} to the line break location. Do not leave
+a space before the command. The HTML document ignores LaTeX commands.
+
+\subsection{Languages}\label{languages}
+
+Languages are declared in the document header.
+
+The main language of the document (\texttt{lang}) changes the name of
+some elements, such as the table of contents. The change of language in
+the document (one of \texttt{otherlangs}) is managed in LaTeX (but not
+fully in HTML).
+
+For a single word, to ensure correct hyphenation in LaTeX, use the
+following command, ignored un HTML:
+
+\begin{verbatim}
+\foreignlanguage{italian}{ciao}
+\end{verbatim}
+
+For a paragraph, to also ensure correct quotes and punctuation spacing,
+use
+
+\begin{verbatim}
+::: {lang=fr}
+"Bonjour": en français!
+:::
+\end{verbatim}
+
+to obtain:
+
+\begin{otherlanguage}{french}
+
+\enquote{Bonjour}: en français!
+
+\end{otherlanguage}
+
+The current language has an effect only in LaTeX output: a space is
+added before double punctuation in French, the size of spaces is larger
+at the beginning of sentences in English, etc.
+
+\subsection{Text color}\label{text-color}
+
+This template includes the \enquote{color-text} filter for Quarto. It
+makes colored text possible using the
+\texttt{{[}content{]}\{color=\textless{}name\textgreater{}\}} syntax.
+\textcolor{red}{This is a red example}. Defined colors are blue, green
+and red. To add more colors, they must be defined in the document header
+in \texttt{format:}, \texttt{stylisharticle-pdf:},
+\texttt{header-includes:} . This is the code for \enquote{grey}:
+
+\begin{verbatim}
+    \definecolor{grey}{RGB}{191, 191, 191}
+\end{verbatim}
+
+They must also be included in a \texttt{.css} file declared in
+\texttt{format:}, \texttt{stylisharticle-html:}
+
+\begin{verbatim}
+    css: colors.css
+\end{verbatim}
+
+In this css, colors are declared by
+
+\begin{verbatim}
+.color-grey {color: rgb(191, 191, 191);}
+\end{verbatim}
+
+\section{.gitignore}\label{gitignore}
+
+Copy this content to the \texttt{.gitignore} file:
+
+\begin{verbatim}
+# RStudio files and folders
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Mac OS
+.DS_Store
+
+# Output
+/*.html
+/*.pdf
+/*.tex
+# Intermediate files
+/nul
+/*.aux
+/*.log
+/*.toc
+# Working folders
+/*_files/
+/*_cache/
+
+# Template (copied from _extensions)
+/stylisharticle.cls
+\end{verbatim}
+
+\section{GitHub Action}\label{github-action}
+
+Create a file named \texttt{quarto\_publish.yml} in the folder
+\texttt{.github/workflows} (to be created) to activate continuous
+integration:
+
+\begin{verbatim}
+on:
+  push:
+    branches: [main, master]
+
+name: Render and Publish
+
+jobs:
+  build-deploy:
+    runs-on: macOS-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tinytex: true
+      - name: Install dependencies
+        run: |
+          options(pkgType = "binary")
+          options(install.packages.check.source = "no")
+          install.packages(c("rmarkdown", "knitr"))
+        shell: Rscript {0}
+      - name: Publish to GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          path: index.qmd
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+\end{verbatim}
+
+\section{Caveats}\label{caveats}
+
+Quarto does not yet support all features of R Markdown. Unsolved issues
+are listed here, as of version 1.9:
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{column} options in code chunks or \texttt{\{.column-xxx\}}
+  div's can't be used in this template. They interfere with the
+  two-column LaTeX layout. The template relies on other techniques to
+  print full-width figures and tables.
+\end{itemize}
+
+\section*{References}\label{bibliography}
+\addcontentsline{toc}{section}{References}
+
+\protect\phantomsection\label{refs}
+\begin{CSLReferences}{1}{1}
+\bibitem[\citeproctext]{ref-Xie2016}
+Xie, Yihui. 2016. \emph{Bookdown: Authoring Books and Technical
+Documents with {R} Markdown}. Chapman; Hall/CRC.
+\url{https://github.com/rstudio/bookdown}.
+
+\bibitem[\citeproctext]{ref-Xie2018}
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. \emph{R
+Markdown: The Definitive Guide}. Chapman; Hall/CRC.
+\url{https://bookdown.org/yihui/rmarkdown}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
