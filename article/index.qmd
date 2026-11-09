@@ -96,8 +96,13 @@ packages_required <- c(
   "formatR", # if tidy = TRUE below
   # Add specific packages here
   "tidyverse", 
-  "gt"
+  "gt",
+  # Necessary packages
+  "vegan", "permute",
+  "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
+  "DHARMa", "car", "emmeans"
 )
+
 # Already installed?
 packages_installed <- vapply(
   packages_required, 
@@ -139,8 +144,9 @@ knitr::opts_chunk$set(
 # Text width of R functions output
 options(width = 50)
 
-# ggplot style
-library("tidyverse")
+#load all packages
+invisible(lapply(packages_required, library, character.only = TRUE))
+
 # Function to call in each chunk that produces a figure
 ggtheme_set <- function() {
   theme_set(theme_bw())
@@ -153,6 +159,30 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 
 # Random seed
 set.seed(123)
+```
+
+```{r}
+#| label: loading data
+#| include: false
+df <- read_excel("../data/macrofaune_counts.xlsx")
+df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
+df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
+str(df)
+```
+
+```{r}
+#| label: setting color scheme
+#| include: false
+layer_colors <- c(
+  "L"  = "#009E73",  
+  "10" = "#E69F00",  
+  "20" = "#5678A8"   
+)
+
+soil_colors <- c(
+  "alt" = "#211111",
+  "dls" = "#900000"
+)
 ```
 
 # Introduction
@@ -294,6 +324,172 @@ text
 
 text
 
+```{r} 
+#| label: Run permanova and PCoA
+#| include: false
+
+df_perm <- df
+# defining taxonomic abundance columns
+community_cols <- names(df_perm)[7:ncol(df_perm)]
+
+# remove zero-abundance layers (decision following vegan handbook, since zero-abundance layer does not convey community composition information)
+keep <- rowSums(df_perm[, community_cols], na.rm = TRUE) > 0
+df_perm <- df_perm[keep, , drop = FALSE]
+
+# create the community matrix
+comm <- as.matrix(df_perm[, community_cols])
+storage.mode(comm) <- "numeric" # making sure its num
+
+# define meta_layer for tested variables + monoliths
+meta_layer <- df_perm[, c("monolith_ID", "soil_type", "layer")] 
+
+
+# Bray-Curtis PERMANOVA
+# define permutation scheme, limit WITHIN monoliths (due to spatial dependence of the three layers)
+perm_layer <- how(
+  nperm = 9999,
+  blocks = meta_layer$monolith_ID
+) # chose large number of perms for stabilizing p value, increase for borderline p values
+
+# run based on defined scheme
+permanova_layer <- adonis2(
+  comm ~ layer,
+  data = meta_layer,
+  method = "bray",
+  permutations = perm_layer
+)
+
+print(permanova_layer)
+
+
+
+# calculate PCoA, using bray like in PERMANOVA
+dist_layer <- vegdist(comm, method = "bray")
+pcoa_layer <- cmdscale(
+  dist_layer, k = 2, eig = TRUE, add = TRUE
+) # set k for number of dimensions +> k =2 two dimensional representation
+
+# sample scores
+pcoa_df_perm <- data.frame(
+  PCoA1 = pcoa_layer$points[, 1],
+  PCoA2 = pcoa_layer$points[, 2],
+  layer = factor(df_perm$layer, levels = c("L", "10", "20"))
+)
+
+# calculate hulls around samples
+hull_df_perm <- pcoa_df_perm %>%
+  group_by(layer) %>%
+  slice(chull(PCoA1, PCoA2))
+
+# fit taxon abundances to the PCoA (using same permutation scheme as in PERMANOVA)
+fit <- envfit(
+  pcoa_layer$points,
+  comm,
+  permutations = perm_layer
+)
+
+# extract taxon results and adjust p-values (since we do multiple testing)
+taxa_results <- data.frame(
+  taxon = rownames(fit$vectors$arrows),
+  R2 = fit$vectors$r,
+  p_value = fit$vectors$pvals
+)
+
+taxa_results$p_adjusted <- p.adjust(
+  taxa_results$p_value,
+  method = "BH"
+) # BH p value adjustment for multiple testing 
+
+# extract taxon vectors 
+vec <- as.data.frame(scores(fit, display = "vectors"))
+vec$taxon <- rownames(vec)
+names(vec)[1:2] <- c("PCoA1", "PCoA2")
+
+# match adjusted p-values by taxon
+vec$p_adjusted <- taxa_results$p_adjusted[
+  match(vec$taxon, taxa_results$taxon)
+]
+
+# keep those with adjusted p < 0.05
+vec <- vec[
+  !is.na(vec$p_adjusted) &
+    vec$p_adjusted < 0.05,
+]
+
+# calculate dim1 and dim2 percentages
+eig <- pcoa_layer$eig
+positive_eig <- eig[eig > 0]
+
+pc1_pct <- 100 * eig[1] / sum(positive_eig)
+pc2_pct <- 100 * eig[2] / sum(positive_eig)
+
+
+# plot PCoA
+p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
+  geom_polygon(
+    data = hull_df_perm,
+    aes(x = PCoA1, y = PCoA2, fill = layer, group = layer),
+    alpha = 0.12,
+    color = NA,
+    inherit.aes = FALSE
+  ) +
+  geom_point(size = 3, alpha = 0.9) +
+  scale_color_manual(values = layer_colors) +
+  scale_fill_manual(values = layer_colors) +
+  theme_classic(base_size = 12) +
+  labs(
+    color = "Layer",
+    fill = "Layer",
+    x = sprintf("PCoA1 (%.1f%%)", pc1_pct),
+    y = sprintf("PCoA2 (%.1f%%)", pc2_pct)
+  ) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    legend.position = "right"
+  )
+
+
+# taxon arrows and labels
+  p <- p +
+    geom_segment(
+      data = vec,
+      aes(
+        x = 0, y = 0,
+        xend = PCoA1, yend = PCoA2
+      ),
+      inherit.aes = FALSE,
+      color = "grey25",
+      linewidth = 0.9,
+      arrow = arrow(
+        length = unit(0.2, "cm"),
+        type = "closed"
+      )
+    ) +
+    geom_label_repel(
+      data = vec,
+      aes(
+        x = PCoA1, y = PCoA2,
+        label = taxon
+      ),
+      inherit.aes = FALSE,
+      color = "grey15",
+      fill = alpha("white", 0.6),
+      label.size = NA,
+      size = 3.5,
+      fontface = "italic",
+      box.padding = 0.6,
+      point.padding = 0.5,
+      force = 3,
+      max.overlaps = Inf,
+      min.segment.length = Inf,
+      segment.color = NA,
+      seed = 123
+    )
+
+print(p)
+```
+
+
 ::: {#tbl-permanova}
 ```{r}
 #| label: Table PERMANOVA results
@@ -322,21 +518,16 @@ if (knitr::is_latex_output()) {
 Table for all the PERMANOVA results?
 :::
 
-
-```{r}
-
-
-```
-
 ::: {#fig-pressure fig-env="figure*"}
 ```{r}
 #| label: PCoA
 #| out-width: 80%
-plot(pressure)
+plot(p)
 ```
 
 Bray-Curtis PERMANOVA for layers here
 :::
+
 
 # Discussion
 
