@@ -1,5 +1,5 @@
 ---
-title: "FTH 2026 Soil Macrofauna"
+title: "FTH 2026 Soil Macrofauna statistical analysis"
 
 author:
   - name: "Jason Berger"
@@ -15,6 +15,11 @@ format:
       toc-location: left
       number-sections: true
       
+    pdf:
+      toc: true
+      toc-depth: 3
+      number-sections: true
+    
 editor: visual
 # https://quarto.org/docs/computations/execution-options.html#output-options
 
@@ -24,17 +29,17 @@ execute:
   # Show the code in the output
   echo: true
   # Show messages
-  message: true
+  message: false
   # Show warnings
-  warning: true
+  warning: false
   # Cache code results
-  cache: true
+  cache: false
 #bibliography: references.bib
 ---
 
 ```{r}
 #| label: Install and load packages, set seed
-#| #include: false
+#| include: true
 ### Utilities for R.
 
 # Necessary packages
@@ -195,7 +200,7 @@ AIC_values$delta_AIC <- AIC_values$AIC - min(AIC_values$AIC)
 AIC_values[order(AIC_values$AIC), ]
 ```
 
-Negative binomial distribution describes data much better according to AIC and is retained.
+Negative binomial distribution is strongly preferred according to AIC and is retained.
 
 #### Comparing nb additive vs. model with interaction:
 
@@ -219,7 +224,7 @@ testDispersion(res_nb)
 testZeroInflation(res_nb)
 ```
 
-No issues detected, model is valid.
+No significant deviations detected, model is retained.
 
 #### Investigation of model estimates:
 
@@ -402,7 +407,7 @@ testDispersion(res_nb_termites)
 testZeroInflation(res_nb_termites)
 ```
 
-termites_nb_add is retained since adding the interaction has no significant effect and DHARMa model diagnostics are valid.
+termites_nb_add is retained since adding the interaction does not significantly improve model fit and DHARMa model diagnostics are valid.
 
 ```{r}
 #| label: Model effects and pairwise comparison for termite model 
@@ -539,11 +544,12 @@ No earthworms were observed in layer L during the sampling, which explains the h
 ### Data preparation
 
 ```{r}
+#| label: Data preparation for PERMANOVA and PCoA
 df_perm <- df
 # defining taxonomic abundance columns
 community_cols <- names(df_perm)[7:ncol(df_perm)]
 
-# remove zero-abundance layers (decision following vegan handbook, since zero-abundance layer does not convey community composition information)
+# remove zero-abundance samples (decision following vegan handbook, since zero-abundance layer does not convey community composition information)
 keep <- rowSums(df_perm[, community_cols], na.rm = TRUE) > 0
 df_perm <- df_perm[keep, , drop = FALSE]
 
@@ -554,14 +560,14 @@ storage.mode(comm) <- "numeric" # making sure its num
 # define meta_layer for tested variables + monoliths
 meta_layer <- df_perm[, c("monolith_ID", "soil_type", "layer")] 
 
-# check dimensions (should be 59 34 for df, and 59 28 for comm)
-dim(df_perm)
-dim(comm)
+# create Bray-Curtis dissimilarity matrix
+dist_layer <- vegdist(comm, method = "bray")
 ```
 
 ### PERMANOVA layer effects
 
 ```{r}
+#| label: Setting permutation scheme and fitting the layer PERMANOVA
 # Bray-Curtis PERMANOVA
 # define permutation scheme, limit WITHIN monoliths (due to spatial dependence of the three layers)
 perm_layer <- how(
@@ -571,17 +577,21 @@ perm_layer <- how(
 
 # run based on defined scheme
 permanova_layer <- adonis2(
-  comm ~ layer,
+  dist_layer ~ layer,
   data = meta_layer,
-  method = "bray",
   permutations = perm_layer
 )
 
 print(permanova_layer)
 # => significant, R2 16% 
+```
 
-# check dispersion using betadisper (if significant, permanova result might only be due to unequal dispersion; a bit like homogeneity of variance in anova)
-dist_layer <- vegdist(comm, method = "bray")
+PERMANOVA shows a significant effect of soil layer on macrofauna community composition (Bray–Curtis dissimilarity: F = 5.46, R² = 0.163, p = 0.0001).
+Soil layer explained around 16.3% of variation in the community composition, indicating that macrofauna community composition differed significantly among layers.
+
+```{r}
+#| label: Betadisper homogeneity of variance test for layers
+# check dispersion using betadisper (if significant, permanova result might only be due to unequal dispersion; a bit like homogeneity of variance in anova) / is like non-parametric Levene test
 
 bd_layer <- betadisper(
   dist_layer,
@@ -598,11 +608,17 @@ dispersion_layer <- permutest(
 )
 
 print(dispersion_layer)
-# not significant, permanova significance due to actual differences 
 
 # quick visualisation (PCoA)
 plot(bd_layer)
 
+```
+
+Homogeneity of multivariate dispersion was assessed using a permutation test based on betadisper.
+No significant differences in dispersion were detected for soil layers (F = 0.75, p = 0.321), suggesting that the PERMANOVA result was not driven by differences in within-group dispersion.
+
+```{r}
+#| label: Pairwise PERMANOVA for soil layers
 # pairwise PERMANOVA testing for layers
 layer_pairs <- list(
   c("L", "10"),
@@ -616,8 +632,10 @@ pairwise_results <- lapply(layer_pairs, function(pair) {
   # Keep only the two layers being compared
   keep_pair <- meta_layer$layer %in% pair
   
-  comm_pair <- comm[keep_pair, , drop = FALSE]
   meta_pair <- droplevels(meta_layer[keep_pair, , drop = FALSE])
+  
+  # subset the original Bray-Curtis distance object for this pair
+  dist_pair <- as.dist(as.matrix(dist_layer)[keep_pair, keep_pair])
   
   # restrict perms to monoliths, like in global PERMANOVA
   perm_pair <- how(
@@ -627,11 +645,11 @@ pairwise_results <- lapply(layer_pairs, function(pair) {
   
   # perform PERMANOVA
   res <- adonis2(
-    comm_pair ~ layer,
+    dist_pair ~ layer,
     data = meta_pair,
-    method = "bray",
     permutations = perm_pair
   )
+  
   #for nice table notation
   data.frame(
     comparison = paste(pair, collapse = " vs "),
@@ -646,73 +664,19 @@ pairwise_results <- do.call(rbind, pairwise_results)
 # Correct for the three pairwise tests
 pairwise_results$p_adjusted <- p.adjust(
   pairwise_results$p_value,
-  method = "bonferroni" ) # BH correction also tested, in both corrections all pairs significant, more conservative bonferroni kept
-
+  method = "bonferroni" ) # Bonferroni correction
 
 print(pairwise_results)
 ```
 
-### PERMANOVA for soil types
-
-```{r}
-# sum across all layers within each monolith => to test independent of layer effects, since dependent of monolith
-comm_mono <- rowsum(
-  comm,
-  group = df_perm$monolith_ID,
-  reorder = FALSE
-)
-
-# one metadata row per monolith
-meta_mono <- df_perm[
-  !duplicated(df_perm$monolith_ID),
-  c("monolith_ID", "soil_type")
-]
-
-# aligning matrix with metadata
-comm_mono <- comm_mono[
-  as.character(meta_mono$monolith_ID),
-  ,
-  drop = FALSE
-]
-
-# Bray-Curtis PERMANOVA
-
-permanova_soil <- adonis2(
-  comm_mono ~ soil_type,
-  data = meta_mono,
-  method = "bray",
-  permutations = 9999
-) 
-
-print(permanova_soil)
-# not significant, no differences by soil type
-
-# betadisper
-dist_soil <- vegdist(comm_mono, method = "bray")
-
-bd_soil <- betadisper(
-  dist_soil,
-  group = meta_mono$soil_type,
-  type = "median",
-  bias.adjust = TRUE
-)
-
-dispersion_soil <- permutest(
-  bd_soil,
-  permutations = 9999
-)
-
-print(dispersion_soil)
-
-# simple plot
-plot(bd_soil)
-```
+Pairwise PERMANOVA suggests significant differences in macrofauna community composition for all soil layers.
+Significant differences were observed between L and 10 (F = 6.05, R² = 0.141, adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p = 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012), using Bonferroni correction.
 
 ### PCoA for layers
 
 ```{r}
-# calculate, using bray like in PERMANOVA
-dist_layer <- vegdist(comm, method = "bray")
+#| label: Represent layer composition in PCoA using Bray-Curtis distances
+# calculate, using same distance matrix like in PERMANOVA
 pcoa_layer <- cmdscale(
   dist_layer, k = 2, eig = TRUE, add = TRUE
 ) # set k for number of dimensions +> k =2 two dimensional representation
@@ -746,7 +710,7 @@ taxa_results <- data.frame(
 taxa_results$p_adjusted <- p.adjust(
   taxa_results$p_value,
   method = "BH"
-) # BH p value adjustment for multiple testing 
+) # BH p value adjustment for multiple testing (false discovery rate)
 
 # extract taxon vectors 
 vec <- as.data.frame(scores(fit, display = "vectors"))
@@ -837,3 +801,83 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
 
 print(p)
 ```
+
+```{r}
+#| label: Print taxa significantly associated with ordination
+taxa_results %>%
+  filter(p_adjusted < 0.05) %>%
+  arrange(p_adjusted)
+
+```
+
+The first two PCoA axes accounted for 26.1% of the variation in macrofauna community composition (PCoA1: 15.8%; PCoA2: 10.3%).
+The ordination showed partial separation of communities among soil layers.
+Samples from layers L and 20 exhibited substantial overlap, whereas samples from layer 10 were more distinctly shifted towards the right of the ordination.
+
+The envfit analysis identified four taxa significantly associated with the ordination: Isoptera (R² = 0.501, adjusted p = 0.0014), Chilopoda (R² = 0.183, adjusted p = 0.0014), Opiliones (R² = 0.155, adjusted p = 0.0103) and Lumbricina_oligochaetes (R² = 0.238, adjusted p = 0.0154).
+Isoptera showed the strongest association with the ordination.
+
+### PERMANOVA for soil types
+
+```{r}
+#| label: Create new community matrix for soil type accumulated per monolith
+# sum across all layers within each monolith => to test independent of layer effects, since dependent of monolith
+comm_mono <- rowsum(
+  comm,
+  group = df_perm$monolith_ID,
+  reorder = FALSE
+)
+
+# one metadata row per monolith
+meta_mono <- df_perm[
+  !duplicated(df_perm$monolith_ID),
+  c("monolith_ID", "soil_type")
+]
+
+# aligning matrix with metadata
+comm_mono <- comm_mono[
+  as.character(meta_mono$monolith_ID),
+  ,
+  drop = FALSE
+]
+```
+
+Is aggregated per monolith since layers are not independent.
+Only tests between soils on monolith level.
+
+```{r}
+#| label: Distance matrix, PERMANOVA and betadisper for soil type
+dist_soil <- vegdist(comm_mono, method = "bray")
+# Bray-Curtis PERMANOVA
+
+permanova_soil <- adonis2(
+  dist_soil ~ soil_type,
+  data = meta_mono,
+  permutations = 9999
+) 
+
+print(permanova_soil)
+# not significant, no differences by soil type
+
+# betadisper
+
+bd_soil <- betadisper(
+  dist_soil,
+  group = meta_mono$soil_type,
+  type = "median",
+  bias.adjust = TRUE
+)
+
+dispersion_soil <- permutest(
+  bd_soil,
+  permutations = 9999
+)
+
+print(dispersion_soil)
+
+# simple plot
+plot(bd_soil)
+```
+
+PERMANOVA did not show a significant difference in macrofaunal community composition between soil types (F = 1.68, R² = 0.085, p = 0.139).
+The test for homogeneity of multivariate dispersion was also non-significant (F = 0.11, p = 0.742), indicating no detectable difference in within-group dispersion between soil types.
