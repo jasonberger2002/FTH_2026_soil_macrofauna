@@ -71,7 +71,8 @@ otherlangs: fr-FR
 # https://quarto.org/docs/computations/execution-options.html
 execute:
   # show code chunk output
-  include: true
+  include: false 
+  # set to false by default, define true for figures/tables/imgs
   # Show the code in the output
   echo: false
   # Show messages
@@ -90,7 +91,6 @@ editor:
 
 ```{r}
 #| label: Options
-#| include: false
 ### Customized R options for this document
 # Delete this chunk if you don't use R
 
@@ -168,7 +168,6 @@ set.seed(123)
 
 ```{r}
 #| label: loading data
-#| include: false
 df <- read_excel("../data/macrofaune_counts.xlsx")
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
@@ -177,7 +176,6 @@ str(df)
 
 ```{r}
 #| label: setting color scheme
-#| include: false
 layer_colors <- c(
   "L"  = "#009E73",  
   "10" = "#E69F00",  
@@ -191,6 +189,7 @@ soil_colors <- c(
 ```
 
 # Introduction
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ## Context 1
 
@@ -209,10 +208,11 @@ Refer to @fig-map for texts
 ```{r}
 #| label: map FIGURE
 #| out-width: 30%
+#| include: true
 knitr::include_graphics("images/logo.png")
 ```
 
-Enter our map here.
+PLACEHOLDER Enter our map here.
 :::
 text
 
@@ -222,7 +222,7 @@ text
 
 ## Statistical analysis
 
-text
+negative binomial (NB2) and Poisson tested
 
 ### Explorative Analysis
 
@@ -245,6 +245,7 @@ and refer to @tbl-density for table
 ::: {#tbl-density}
 ```{r}
 #| label: Density TABLE
+#| include: true
 names(iris) <- c(
   "Sepal length", 
   "Sepal width", 
@@ -267,7 +268,7 @@ if (knitr::is_latex_output()) {
 }
 ```
 
-Table with densities here (mean etc?)
+PLACEHOLDER Table with densities here (mean etc?)
 :::
 
 
@@ -275,10 +276,11 @@ Table with densities here (mean etc?)
 ```{r}
 #| label: General FIGURE
 #| out-width: 80%
+#| include: true
 plot(pressure)
 ```
 
-Our first plot for general results here
+PLACEHOLDER Our first plot for general results here
 :::
 
 
@@ -286,11 +288,14 @@ Our first plot for general results here
 ```{r}
 #| label: PCA FIGURE
 #| out-width: 80%
+#| include: true
+
 plot(pressure)
 ```
 
-Our PCA figure
+PLACEHOLDER Our PCA figure
 :::
+
 ## GLMM
 ```{r}
 #| label: Preparing data for GLMM
@@ -322,6 +327,9 @@ df_total <- df %>%
   )
 ```
 
+Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in @tbl-models.
+
+
 ### Global Abundance
 ```{r}
 #| label: Global GLMM
@@ -330,39 +338,111 @@ m_nb_add <- glmmTMB(
   family = nbinom2(link = "log"),
   data = df_total
 )
+
+Anova(m_nb_add)
+summary(m_nb_add)
 ```
 
-text
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p < 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52, df = 1, p = 0.469). Estimated random-effect variance (monolith) was 0.437 (SD = 0.661), indicating variation in baseline macrofauna abundance among monoliths.
 
-::: {#tbl-glmm}
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that macrofauna abundance was significantly higher in layer 10 than in layers L (7.42 times) and 20 (6.18 times), while no significant difference was found between layers L and 20 (p = 0.714).
+
+
+### Formicidae
 ```{r}
-#| label: GLMM pairwise results TABLE
-#| size: normalsize
+#| label: Ant GLMM
+#| include: false
 
-# Estimated marginal means for layers
-emm_layers <- emmeans(m_nb_add, ~ layer, type = "response")
+df_ants <- df_total %>%
+  select(Formicidae, layer, monolith_ID, soil_type)
+
+ants_nb_add <- glmmTMB(
+  Formicidae ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_ants
+)
+
+Anova(ants_nb_add)
+summary(ants_nb_add)
+```
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance (χ² = 28.00, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths. Quantile deviation was detected in the DHARMa residuals for the presented model. Specifically, upper quantile deviated significantly and thus relatively high-abundance observations may not be adequately captured by the model. Since the diagnostics did not indicate deviations regarding dispersion, zero-inflation, uniformity as well outliers, and the model has the best AIC support, it was retained, regardless.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference was found between layers L and 20 (p = 0.3995).
+
+### Isoptera
+```{r}
+#| label: Termite GLMM
+#| include: false
+
+df_termites <- df_total %>%
+  select(Isoptera, layer, monolith_ID, soil_type)
+
+termites_nb_add <- glmmTMB(
+  Isoptera ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_termites
+)
+
+Anova(termites_nb_add)
+summary(termites_nb_add)
+```
+
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance (χ² = 36.56, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ≤ 0.0073).
+
+
+::: {#tbl-pairwise fig-env="table*"}
+```{r}
+#| label: GLMM pairwise comparisons TABLE
+#| size: normalsize
+#| include: true
+
+library(emmeans)
+library(dplyr)
+library(gt)
+
+# Estimated marginal means for layers (response scale)
+emm_layers_total <- emmeans(m_nb_add, ~ layer, type = "response")
+emm_layers_ants <- emmeans(ants_nb_add, ~ layer, type = "response")
+emm_layers_termites <- emmeans(termites_nb_add, ~ layer, type = "response")
 
 # Pairwise comparisons (Tukey correction)
-pairwise_layers <- as.data.frame(
+pairwise_layers_total <- as.data.frame(
   pairs(emmeans(m_nb_add, ~ layer), adjust = "tukey")
 )
 
+pairwise_layers_ants <- as.data.frame(
+  pairs(emmeans(ants_nb_add, ~ layer), adjust = "tukey")
+)
+
+pairwise_layers_termites <- as.data.frame(
+  pairs(emmeans(termites_nb_add, ~ layer), adjust = "tukey")
+)
+
 # Back-transform estimates to abundance ratios
-pairwise_layers$ratio <- exp(pairwise_layers$estimate)
+pairwise_layers_total$ratio <- exp(pairwise_layers_total$estimate)
+pairwise_layers_ants$ratio <- exp(pairwise_layers_ants$estimate)
+pairwise_layers_termites$ratio <- exp(pairwise_layers_termites$estimate)
 
-library(gt)
-library(dplyr)
+# Combine results
+pairwise_results <- bind_rows(
+  pairwise_layers_total %>% mutate(Taxon = "Total macrofauna"),
+  pairwise_layers_ants %>% mutate(Taxon = "Ants (Formicidae)"),
+  pairwise_layers_termites %>% mutate(Taxon = "Termites (Isoptera)")
+)
 
-glmm_table <- pairwise_layers %>%
+# Format table
+glmm_pairwise_table <- pairwise_results %>%
   mutate(
     ratio = round(ratio, 2),
     z.ratio = round(z.ratio, 2),
 
     stars = case_when(
       p.value < 0.001 ~ "***",
-      p.value < 0.01  ~ "**",
-      p.value < 0.05  ~ "*",
-      TRUE            ~ ""
+      p.value < 0.01 ~ "**",
+      p.value < 0.05 ~ "*",
+      TRUE ~ ""
     ),
 
     p_display = ifelse(
@@ -377,6 +457,7 @@ glmm_table <- pairwise_layers %>%
     )
   ) %>%
   select(
+    Taxon,
     Comparison = contrast,
     `Abundance ratio` = ratio,
     `z-ratio` = z.ratio,
@@ -392,7 +473,121 @@ glmm_table <- pairwise_layers %>%
   ) %>%
   tab_source_note(
     source_note = md(
-      "Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
+      "Abundance ratios are exponentiated log-scale contrasts. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001. P-values adjusted using the Tukey method within each taxon."
+    )
+  )
+
+if (knitr::is_latex_output()) {
+  glmm_pairwise_table %>%
+    opt_table_font(size = px(10))
+} else {
+  glmm_pairwise_table
+}
+```
+
+Pairwise emmeans comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera).
+:::
+
+
+### Lumbricina Oligochaetes
+
+results text
+
+```{r}
+#| label: Earthworm GLMM
+#| include: false
+
+df_earthworms <- df_total %>%
+  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
+
+earthworms_p_add <- glmmTMB(
+  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_earthworms
+)
+
+Anova(earthworms_p_add)
+summary(earthworms_p_add)
+```
+
+::: {#tbl-models fig-env="table*"}
+```{r}
+#| label: SummaryModels
+#| include: true
+#| size: normalsize
+
+library(car)
+library(dplyr)
+library(gt)
+
+models <- list(
+  "Total macrofauna" = m_nb_add,
+  "Ants" = ants_nb_add,
+  "Termites" = termites_nb_add,
+  "Earthworms" = earthworms_p_add
+)
+
+glmm_summary <- lapply(names(models), function(model_name) {
+
+  model <- models[[model_name]]
+
+  anova_results <- as.data.frame(
+    car::Anova(model, type = 2)
+  )
+
+  anova_results$Predictor <- rownames(anova_results)
+
+  distribution <- if (model_name == "Earthworms") {
+    "Poisson"
+  } else {
+    "Negative binomial"
+  }
+
+  anova_results %>%
+    transmute(
+      Response = model_name,
+      Distribution = distribution,
+      Predictor = Predictor,
+      `Chi-square` = round(Chisq, 2),
+      df = Df,
+      p_value = `Pr(>Chisq)`
+    )
+
+}) %>%
+  bind_rows()
+
+glmm_table <- glmm_summary %>%
+  mutate(
+    stars = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01  ~ "**",
+      p_value < 0.05  ~ "*",
+      TRUE ~ ""
+    ),
+    p_display = ifelse(
+      p_value < 0.0001,
+      "<0.0001",
+      format.pval(p_value, digits = 3)
+    ),
+    p_display = paste0(p_display, "<sup>", stars, "</sup>")
+  ) %>%
+  select(
+    Response,
+    Distribution,
+    Predictor,
+    `Chi-square`,
+    df,
+    `p-value` = p_display
+  ) %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  fmt_markdown(columns = `p-value`) %>%
+  tab_source_note(
+    source_note = md(
+      "Type II Wald chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
     )
   )
 
@@ -403,19 +598,95 @@ if (knitr::is_latex_output()) {
   glmm_table
 }
 ```
-Global abundance pairwise comparison between layers for model total_count ~ soil_type + layer + (1 | monolith_ID) with family nb2 and log-link
+
+Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
 :::
 
-### Bioengineer Abundances
-text
-
 ## PERMANOVA
+```{r}
+#| label: Data preparation for PERMANOVA and PCoA
+df_perm <- df
+# defining taxonomic abundance columns
+community_cols <- names(df_perm)[7:ncol(df_perm)]
 
-text
+# remove zero-abundance samples (decision following vegan
+#handbook, since zero-abundance layer does not convey community
+#composition information)
+keep <- rowSums(df_perm[, community_cols], na.rm = TRUE) > 0
+df_perm <- df_perm[keep, , drop = FALSE]
+
+# create the community matrix
+comm <- as.matrix(df_perm[, community_cols])
+storage.mode(comm) <- "numeric" # making sure its num
+
+# define meta_layer for tested variables + monoliths
+meta_layer <- df_perm[, c("monolith_ID", "soil_type", "layer")] 
+
+# create Bray-Curtis dissimilarity matrix
+dist_layer <- vegdist(comm, method = "bray")
+```
+
+
+```{r}
+#| label: Create new community matrix for soil type accumulated per monolith and fit model
+# sum across all layers within each monolith => to test
+#independent of layer effects, since dependent of monolith
+comm_mono <- rowsum(
+  comm,
+  group = df_perm$monolith_ID,
+  reorder = FALSE
+)
+
+# one metadata row per monolith
+meta_mono <- df_perm[
+  !duplicated(df_perm$monolith_ID),
+  c("monolith_ID", "soil_type")
+]
+
+# aligning matrix with metadata
+comm_mono <- comm_mono[
+  as.character(meta_mono$monolith_ID),
+  ,
+  drop = FALSE
+]
+
+dist_soil <- vegdist(comm_mono, method = "bray")
+# Bray-Curtis PERMANOVA
+
+permanova_soil <- adonis2(
+  dist_soil ~ soil_type,
+  data = meta_mono,
+  permutations = 9999
+) 
+
+print(permanova_soil)
+# not significant, no differences by soil type
+
+# betadisper
+
+bd_soil <- betadisper(
+  dist_soil,
+  group = meta_mono$soil_type,
+  type = "median",
+  bias.adjust = TRUE
+)
+
+dispersion_soil <- permutest(
+  bd_soil,
+  permutations = 9999
+)
+
+print(dispersion_soil)
+
+# simple plot
+plot(bd_soil)
+```
+
+PERMANOVA did not show a significant difference in macrofaunal community composition between soil types (F = 1.68, R² = 0.085, p = 0.139). The test for homogeneity of multivariate dispersion was also non-significant (F = 0.11, p = 0.742), indicating no detectable difference in within-group dispersion between soil types. Layers were aggregated per monolith to account for spatial dependence.
+
 
 ```{r} 
 #| label: Run permanova and PCoA
-#| include: false
 
 df_perm <- df
 # defining taxonomic abundance columns
@@ -449,9 +720,191 @@ permanova_layer <- adonis2(
 )
 
 print(permanova_layer)
+```
+
+PERMANOVA revealed a significant effect of soil layer on macrofauna community composition (Bray–Curtis dissimilarity: F = 5.46, R² = 0.163, p = 0.0001). Soil layer explained around 16.3% of variation in the community composition, indicating that macrofauna community composition differed significantly among layers. Permutation was restricted within monolith to account for spatial dependence of layers. Homogeneity of multivariate dispersion was assessed using a permutation test based on betadisper. No significant differences in dispersion were detected for soil layers (F = 0.75, p = 0.321), suggesting that the PERMANOVA result was not driven by differences in within-group dispersion.
+
+
+```{r}
+#| label: Pairwise PERMANOVA for soil layers
+# pairwise PERMANOVA testing for layers
+layer_pairs <- list(
+  c("L", "10"),
+  c("L", "20"),
+  c("10", "20")
+)
+
+# function based to apply to all pairs
+pairwise_results <- lapply(layer_pairs, function(pair) {
+  
+  # Keep only the two layers being compared
+  keep_pair <- meta_layer$layer %in% pair
+  
+  meta_pair <- droplevels(meta_layer[keep_pair, , drop = FALSE])
+  
+  # subset the original Bray-Curtis distance object for this pair
+  dist_pair <- as.dist(as.matrix(dist_layer)[keep_pair, keep_pair])
+  
+  # restrict perms to monoliths, like in global PERMANOVA
+  perm_pair <- how(
+    nperm = 9999,
+    blocks = meta_pair$monolith_ID
+  )
+  
+  # perform PERMANOVA
+  res <- adonis2(
+    dist_pair ~ layer,
+    data = meta_pair,
+    permutations = perm_pair
+  )
+  
+  #for nice table notation
+  data.frame(
+    comparison = paste(pair, collapse = " vs "),
+    F = res$F[1],
+    R2 = res$R2[1],
+    p_value = res$`Pr(>F)`[1]
+  )
+})
+
+pairwise_results <- do.call(rbind, pairwise_results)
+
+# Correct for the three pairwise tests
+pairwise_results$p_adjusted <- p.adjust(
+  pairwise_results$p_value,
+  method = "bonferroni" ) # Bonferroni correction
+
+print(pairwise_results)
+```
+
+Pairwise PERMANOVA suggests significant differences in macrofauna community composition for all soil layers (@tbl-permanova). Significant differences were observed between L and 10 (F = 6.05, R² = 0.141, adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p = 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012), using Bonferroni correction.
+
+::: {#tbl-permanova}
+```{r}
+#| label: Pairwise PERMANOVA results TABLE
+#| size: normalsize
+#| include: true
+
+library(vegan)
+library(permute)
+library(dplyr)
+library(gt)
+
+# Pairwise PERMANOVA testing for layers
+layer_pairs <- list(
+  c("L", "10"),
+  c("L", "20"),
+  c("10", "20")
+)
+
+# Apply PERMANOVA to all pairs
+pairwise_results <- lapply(layer_pairs, function(pair) {
+
+  # Keep only the two layers being compared
+  keep_pair <- meta_layer$layer %in% pair
+
+  meta_pair <- droplevels(
+    meta_layer[keep_pair, , drop = FALSE]
+  )
+
+  # Subset the original Bray-Curtis distance matrix
+  dist_pair <- as.dist(
+    as.matrix(dist_layer)[keep_pair, keep_pair]
+  )
+
+  # Restrict permutations within monoliths
+  perm_pair <- how(
+    nperm = 9999,
+    blocks = meta_pair$monolith_ID
+  )
+
+  # Perform PERMANOVA
+  res <- adonis2(
+    dist_pair ~ layer,
+    data = meta_pair,
+    permutations = perm_pair
+  )
+
+  # Extract results
+  data.frame(
+    comparison = paste(pair, collapse = " - "),
+    F = res$F[1],
+    R2 = res$R2[1],
+    p_value = res$`Pr(>F)`[1]
+  )
+})
+
+# Combine results
+pairwise_results <- do.call(rbind, pairwise_results)
+
+# Bonferroni correction for the three pairwise tests
+pairwise_results$p_adjusted <- p.adjust(
+  pairwise_results$p_value,
+  method = "bonferroni"
+)
+
+# Format results for publication
+permanova_table <- pairwise_results %>%
+  mutate(
+    F = round(F, 2),
+    R2 = round(R2, 3),
+
+    stars = case_when(
+      p_adjusted < 0.001 ~ "***",
+      p_adjusted < 0.01  ~ "**",
+      p_adjusted < 0.05  ~ "*",
+      TRUE               ~ ""
+    ),
+
+    p_display = ifelse(
+      p_adjusted < 0.0001,
+      "<0.0001",
+      format.pval(p_adjusted, digits = 3)
+    ),
+
+    p_display = paste0(
+      p_display,
+      "<sup>", stars, "</sup>"
+    )
+  ) %>%
+  select(
+    Comparison = comparison,
+    `F-statistic` = F,
+    `R²` = R2,
+    `Adjusted p-value` = p_display
+  ) %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  fmt_markdown(
+    columns = `Adjusted p-value`
+  ) %>%
+  tab_source_note(
+    source_note = md(
+      "Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001; p-values adjusted using Bonferroni method"
+    )
+  )
+
+# Adapt font size depending on output format
+if (knitr::is_latex_output()) {
+  permanova_table %>%
+    opt_table_font(size = px(10))
+} else {
+  permanova_table
+}
+
+```
+
+Pairwise PERMANOVA for community composition comparisons between layers.
+:::
 
 
 
+
+```{r} 
+#| label: calculation and plot for PCoA
 # calculate PCoA, using bray like in PERMANOVA
 dist_layer <- vegdist(comm, method = "bray")
 pcoa_layer <- cmdscale(
@@ -574,47 +1027,18 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
       segment.color = NA,
       seed = 123
     )
-
-print(p)
 ```
 
-
-::: {#tbl-permanova}
-```{r}
-#| label: Table PERMANOVA results
-names(iris) <- c(
-  "Sepal length", 
-  "Sepal width", 
-  "Petal length",
-  "Petal width", 
-  "Species"
-)
-library("gt")
-head(iris) %>%
-  gt() ->
-  the_table
-
-if (knitr::is_latex_output()) {
-  # Reduce font size in PDF output
-  the_table %>% 
-    opt_table_font(size = px(9))
-} else {
-  # Simply print the table
-  the_table
-}
-```
-
-Table for all the PERMANOVA results?
-:::
-
-::: {#fig-pressure fig-env="figure*"}
+::: {#fig-pcoa fig-env="figure*"}
 ```{r}
 #| label: PCoA FIGURE
 #| out-width: 80%
+#| include: true
+
 plot(p)
 ```
 
-Bray-Curtis PERMANOVA for layers here
+Bray-Curtis PCoA for layers here
 :::
 
 
@@ -626,144 +1050,8 @@ text
 
 text
 
-# layout stuff, remove after
 
-## Figures
-
-::: {#fig-pressure fig-env="figure*"}
-```{r}
-#| label: pressure
-#| out-width: 80%
-plot(pressure)
-```
-
-Comparison of motorway and city driving ranges for 38 car models.
-:::
-
-Figures can be created by R code (@fig-pressure) in a division whose
-name starts with `#fig-`. Cross-references are made with the command
-`@label`, e.g.: `@fig-pressure`.
-
-In PDF, a figure can use the full width of the page by adding the
-options `fig-env="figure*"` to the header of the division.
-
-Images stored in a file are integrated into a piece of code by the
-`include_graphics()` function, see @fig-logo.
-
-::: {#fig-logo}
-```{r}
-#| label: logo
-#| out-width: 30%
-knitr::include_graphics("images/logo.png")
-```
-
-This is a logo.
-:::
-
-Systematically place these files in the `images` folder for the
-automation of GitHub pages.
-
-## Tables
-
-The horizontal `-` and vertical separators `|` allow you to draw a table
-according to Markdown syntax, but this is not the best method in R.
-
-Tables can also be produced by R code. The content of the table is in a
-dataframe. The `gt()` function from package *gt* formats it. Refer to
-the documentation of the package for details about formatting the
-output.
-
-::: {#tbl-iris}
-```{r}
-#| label: iris
-names(iris) <- c(
-  "Sepal length", 
-  "Sepal width", 
-  "Petal length",
-  "Petal width", 
-  "Species"
-)
-library("gt")
-head(iris) %>%
-  gt() ->
-  the_table
-
-if (knitr::is_latex_output()) {
-  # Reduce font size in PDF output
-  the_table %>% 
-    opt_table_font(size = px(9))
-} else {
-  # Simply print the table
-  the_table
-}
-```
-
-Table created by R in a data frame.
-:::
-
-By default, the tables is contained in its column.
-
-A full-width table is @tbl-Paracou. It is obtained with the option
-`fig-env="table*"` in the header of the division.
-
-::: {#tbl-Paracou fig-env="table*"}
-```{r}
-#| label: Paracou
-
-Intervention <- data.frame(
-  Treatment = c("Control", "T1", "T2", "T3"),
-  Timber = c(
-    "", 
-    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha", 
-    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha",
-    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha"
-  ),
-  Thinning = c(
-    "", 
-    "", 
-    "DBH $\\geq$ 40 cm, non-valuable species, $\\approx$ 30 trees/ha", 
-    "DBH $\\geq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha  "
-  ),
-  Fuelwood = c(
-    "", 
-    "", 
-    "", 
-    "40 cm $\\leq$ DBH $\\leq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha"
-  ),
-  AGBLost = c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
-)
-names(Intervention)[5] <- "%AGB lost"
-Intervention %>% 
-  gt() %>% 
-  # Interpret cell contents as markdow
-  fmt_markdown() %>% 
-  # Set column widths in %
-  cols_width(
-    Treatment ~ pct(10),
-    Timber ~ pct(25),
-    Thinning ~ pct(25),
-    Fuelwood ~ pct(30),
-    `%AGB lost` ~ pct(10)
-  ) ->
-  the_table
-
-if (knitr::is_latex_output()) {
-  # Reduce font size in PDF output
-  the_table %>% 
-    opt_table_font(size = px(11))
-} else {
-  # Simply print the table
-  the_table
-}
-```
-
-Large table with maths, on two columns in PDF.
-:::
-
-Note that tables can't be shown on the first page of the PDF output of
-the Stylish Article template: they would conflict with the table of
-contents.
-
+# INSTRUCTIONS TEMPLATE, REMOVE LATER
 ## Lists
 
 Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or
@@ -833,74 +1121,3 @@ If LaTeX can't find a solution for the line break, for example because
 some code is too long a non-breaking block, add the LaTeX command
 `\break` to the line break location. Do not leave a space before the
 command. The HTML document ignores LaTeX commands.
-
-## Languages
-
-Languages are declared in the document header.
-
-The main language of the document (`lang`) changes the name of some
-elements, such as the table of contents. The change of language in the
-document (one of `otherlangs`) is managed in LaTeX (but not fully in
-HTML).
-
-For a single word, to ensure correct hyphenation in LaTeX, use the
-following command, ignored un HTML:
-
-```         
-\foreignlanguage{italian}{ciao}
-```
-
-For a paragraph, to also ensure correct quotes and punctuation spacing,
-use
-
-```         
-::: {lang=fr}
-"Bonjour": en français!
-:::
-```
-
-to obtain:
-
-::: {lang="fr"}
-"Bonjour": en français!
-:::
-
-The current language has an effect only in LaTeX output: a space is
-added before double punctuation in French, the size of spaces is larger
-at the beginning of sentences in English, etc.
-
-## Text color
-
-This template includes the "color-text" filter for Quarto. It makes
-colored text possible using the `[content]{color=<name>}` syntax. [This
-is a red example]{color="red"}. Defined colors are blue, green and red.
-To add more colors, they must be defined in the document header in
-`format:`, `stylisharticle-pdf:`, `header-includes:` . This is the code
-for "grey":
-
-```         
-    \definecolor{grey}{RGB}{191, 191, 191}
-```
-
-They must also be included in a `.css` file declared in `format:`,
-`stylisharticle-html:`
-
-```         
-    css: colors.css
-```
-
-In this css, colors are declared by
-
-```         
-.color-grey {color: rgb(191, 191, 191);}
-```
-
-# Caveats
-
-Quarto does not yet support all features of R Markdown. Unsolved issues
-are listed here, as of version 1.9:
-
-- The `column` options in code chunks or `{.column-xxx}` div's can't be
-  used in this template. They interfere with the two-column LaTeX
-  layout. The template relies on other techniques to print full-width
-  figures and tables.
