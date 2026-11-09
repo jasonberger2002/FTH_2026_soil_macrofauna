@@ -8,7 +8,6 @@
 \PassOptionsToPackage{babel}{csquotes}
 %
 \documentclass[
-  french,
   american,
   11pt,
 ]{stylisharticle}
@@ -394,6 +393,14 @@ forest}, \xmpquote{ecology}},
 
 \section{Introduction}\label{introduction}
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
 \subsection{Context 1}\label{context-1}
 
 text
@@ -420,7 +427,7 @@ Refer to Figure~\ref{fig-map} for texts
 
 }
 
-\caption{\label{fig-map}Enter our map here.}
+\caption{\label{fig-map}PLACEHOLDER Enter our map here.}
 
 \end{figure}%
 
@@ -433,7 +440,7 @@ text
 
 \subsection{Statistical analysis}\label{statistical-analysis}
 
-text
+negative binomial (NB2) and Poisson tested
 
 \subsubsection{Explorative Analysis}\label{explorative-analysis}
 
@@ -457,7 +464,8 @@ and refer to Table~\ref{tbl-density} for table
 
 \begin{table}
 
-\caption{\label{tbl-density}Table with densities here (mean etc?)}
+\caption{\label{tbl-density}PLACEHOLDER Table with densities here (mean
+etc?)}
 
 \centering{
 
@@ -495,7 +503,8 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 }
 
-\caption{\label{fig-general}Our first plot for general results here}
+\caption{\label{fig-general}PLACEHOLDER Our first plot for general
+results here}
 
 \end{figure}%
 
@@ -511,82 +520,182 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 }
 
-\caption{\label{fig-pca}Our PCA figure}
+\caption{\label{fig-pca}PLACEHOLDER Our PCA figure}
 
 \end{figure}%
 
 \subsection{GLMM}\label{glmm}
 
-\scriptsize
-
-\normalsize
+Effects of soil type and layer were tested on global, ant, termite and
+earthworm abundances. All retained models described below are listed in
+Table~\ref{tbl-models}.
 
 \subsubsection{Global Abundance}\label{global-abundance}
 
-\scriptsize
+Type II Wald chi-square tests revealed a highly significant effect of
+soil layer on total soil macrofauna abundance (\(\chi^2\) = 106.85, df =
+2, p \textless{} 0.001). The effect of soil type was not significant
+(\(\chi^2\) = 0.52, df = 1, p = 0.469). Estimated random-effect variance
+(monolith) was 0.437 (SD = 0.661), indicating variation in baseline
+macrofauna abundance among monoliths.
 
-\normalsize
+Pairwise comparisons with Tukey adjustment (Table~\ref{tbl-pairwise})
+showed that macrofauna abundance was significantly higher in layer 10
+than in layers L (7.42 times) and 20 (6.18 times), while no significant
+difference was found between layers L and 20 (p = 0.714).
 
-text
+\subsubsection{Formicidae}\label{formicidae}
+
+Type II Wald chi-square tests revealed a highly significant effect of
+soil layer on ant abundance (χ² = 28.00, df = 2, p \textless{} 0.001).
+The effect of soil type was not significant (χ² = 0.48, df = 1, p =
+0.486). The estimated random-effect variance for monolith was 0.655 (SD
+= 0.810), indicating variation in baseline ant abundance among
+monoliths. Quantile deviation was detected in the DHARMa residuals for
+the presented model. Specifically, upper quantile deviated significantly
+and thus relatively high-abundance observations may not be adequately
+captured by the model. Since the diagnostics did not indicate deviations
+regarding dispersion, zero-inflation, uniformity as well outliers, and
+the model has the best AIC support, it was retained, regardless.
+
+Pairwise comparisons with Tukey adjustment (Table~\ref{tbl-pairwise})
+showed that ant abundance was significantly higher in layer 10 than in
+layer L (5.05 times) and layer 20 (3.27 times), while no significant
+difference was found between layers L and 20 (p = 0.3995).
+
+\subsubsection{Isoptera}\label{isoptera}
+
+Type II Wald chi-square tests revealed a highly significant effect of
+soil layer on termite abundance (χ² = 36.56, df = 2, p \textless{}
+0.001). The effect of soil type was not significant (χ² = 0.89, df = 1,
+p = 0.347). The estimated random-effect variance for monolith was
+effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no
+remaining variation in baseline termite abundance among monoliths after
+accounting for the fixed effects.
+
+Pairwise comparisons with Tukey adjustment (Table~\ref{tbl-pairwise})
+showed that termite abundance was significantly higher in layer 10 than
+in layer L (18.08 times) and layer 20 (745.48 times; estimated richness
+for 20 nearing zero). Abundance was also significantly higher in layer L
+than in layer 20 (41.23 times; all p ≤ 0.0073).
 
 \begin{table}
 
-\caption{\label{tbl-glmm}Global abundance pairwise comparison between
-layers for model total\_count \textasciitilde{} soil\_type + layer + (1
-\textbar{} monolith\_ID) with family nb2 and log-link}
+\caption{\label{tbl-pairwise}Pairwise emmeans comparisons of abundance
+by layer for total macrofauna, ants (Formicidae) and termites
+(Isoptera).}
 
 \centering{
 
 \fontsize{8.0pt}{9.0pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cccc}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccc}
 \toprule
-Comparison & Abundance ratio & z-ratio & Adjusted p-value \\ 
+Taxon & Comparison & Abundance ratio & z-ratio & Adjusted p-value \\ 
 \midrule\addlinespace[2.5pt]
-L - 10 & 0.13 & -9.12 & \textless{}0.0001*** \\ 
-L - 20 & 0.83 & -0.78 & 0.714 \\ 
-10 - 20 & 6.18 & 8.34 & \textless{}0.0001*** \\ 
+Total macrofauna & L - 10 & 0.13 & -9.12 & \textless{}0.0001*** \\ 
+Total macrofauna & L - 20 & 0.83 & -0.78 & 0.713689 \\ 
+Total macrofauna & 10 - 20 & 6.18 & 8.34 & \textless{}0.0001*** \\ 
+Ants (Formicidae) & L - 10 & 0.20 & -4.96 & \textless{}0.0001*** \\ 
+Ants (Formicidae) & L - 20 & 0.65 & -1.29 & 0.399482 \\ 
+Ants (Formicidae) & 10 - 20 & 3.27 & 3.84 & 0.000363*** \\ 
+Termites (Isoptera) & L - 10 & 0.06 & -4.06 & 0.000145*** \\ 
+Termites (Isoptera) & L - 20 & 41.23 & 3.01 & 0.007262** \\ 
+Termites (Isoptera) & 10 - 20 & 745.48 & 5.42 & \textless{}0.0001*** \\ 
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
 \vspace{.05em}
-Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textless{} 0.001\\
+Abundance ratios are exponentiated log-scale contrasts. Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textless{} 0.001. P-values adjusted using the Tukey method within each taxon.\\
 \end{minipage}
 
 }
 
 \end{table}%
 
-\subsubsection{Bioengineer Abundances}\label{bioengineer-abundances}
+\subsubsection{Lumbricina Oligochaetes}\label{lumbricina-oligochaetes}
 
-text
+results text
 
-\subsection{PERMANOVA}\label{permanova}
+\begin{table*}
 
-text
-
-\begin{table}
-
-\caption{\label{tbl-permanova}Table for all the PERMANOVA results?}
+\caption{\label{tbl-models}Summary of retained GLMMs for global
+abundance, ants (Formicidae), termites (Isoptera) and earthworms
+(Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE}
 
 \centering{
 
-\scriptsize
-
-\fontsize{7.0pt}{8.0pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
+\fontsize{8.0pt}{9.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cccccc}
 \toprule
-Sepal length & Sepal width & Petal length & Petal width & Species \\ 
+Response & Distribution & Predictor & Chi-square & df & p-value \\ 
 \midrule\addlinespace[2.5pt]
-5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
-4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
-4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
-4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
-5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
-5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
+Total macrofauna & Negative binomial & soil\_type & 0.52 & 1 & 0.46933 \\ 
+Total macrofauna & Negative binomial & layer & 106.85 & 2 & \textless{}0.0001*** \\ 
+Ants & Negative binomial & soil\_type & 0.48 & 1 & 0.48633 \\ 
+Ants & Negative binomial & layer & 28.00 & 2 & \textless{}0.0001*** \\ 
+Termites & Negative binomial & soil\_type & 0.89 & 1 & 0.34664 \\ 
+Termites & Negative binomial & layer & 36.56 & 2 & \textless{}0.0001*** \\ 
+Earthworms & Poisson & soil\_type & 0.35 & 1 & 0.55692 \\ 
+Earthworms & Poisson & layer & 12.69 & 2 & 0.00176** \\ 
 \bottomrule
 \end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{.05em}
+Type II Wald chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textless{} 0.001\\
+\end{minipage}
 
-\normalsize
+}
+
+\end{table*}%
+
+\subsection{PERMANOVA}\label{permanova}
+
+PERMANOVA did not show a significant difference in macrofaunal community
+composition between soil types (F = 1.68, R² = 0.085, p = 0.139). The
+test for homogeneity of multivariate dispersion was also non-significant
+(F = 0.11, p = 0.742), indicating no detectable difference in
+within-group dispersion between soil types. Layers were aggregated per
+monolith to account for spatial dependence.
+
+PERMANOVA revealed a significant effect of soil layer on macrofauna
+community composition (Bray--Curtis dissimilarity: F = 5.46, R² = 0.163,
+p = 0.0001). Soil layer explained around 16.3\% of variation in the
+community composition, indicating that macrofauna community composition
+differed significantly among layers. Permutation was restricted within
+monolith to account for spatial dependence of layers. Homogeneity of
+multivariate dispersion was assessed using a permutation test based on
+betadisper. No significant differences in dispersion were detected for
+soil layers (F = 0.75, p = 0.321), suggesting that the PERMANOVA result
+was not driven by differences in within-group dispersion.
+
+Pairwise PERMANOVA suggests significant differences in macrofauna
+community composition for all soil layers (Table~\ref{tbl-permanova}).
+Significant differences were observed between L and 10 (F = 6.05, R² =
+0.141, adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p
+= 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012),
+using Bonferroni correction.
+
+\begin{table}
+
+\caption{\label{tbl-permanova}Pairwise PERMANOVA for community
+composition comparisons between layers.}
+
+\centering{
+
+\fontsize{8.0pt}{9.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cccc}
+\toprule
+Comparison & F-statistic & R² & Adjusted p-value \\ 
+\midrule\addlinespace[2.5pt]
+L - 10 & 6.05 & 0.141 & 0.0003*** \\ 
+L - 20 & 4.55 & 0.110 & 0.0003*** \\ 
+10 - 20 & 5.76 & 0.132 & 0.0021** \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{.05em}
+Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textless{} 0.001; p-values adjusted using Bonferroni method\\
+\end{minipage}
 
 }
 
@@ -604,7 +713,7 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 }
 
-\caption{\label{fig-pressure}Bray-Curtis PERMANOVA for layers here}
+\caption{\label{fig-pcoa}Bray-Curtis PCoA for layers here}
 
 \end{figure*}%
 
@@ -616,130 +725,8 @@ text
 
 text
 
-\section{layout stuff, remove after}\label{layout-stuff-remove-after}
-
-\subsection{Figures}\label{figures}
-
-\begin{figure*}
-
-\centering{
-
-\scriptsize
-
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/pressure-1.pdf}
-
-\normalsize
-
-}
-
-\caption{\label{fig-pressure}Comparison of motorway and city driving
-ranges for 38 car models.}
-
-\end{figure*}%
-
-Figures can be created by R code (Figure~\ref{fig-pressure}) in a
-division whose name starts with \texttt{\#fig-}. Cross-references are
-made with the command \texttt{@label}, e.g.: \texttt{@fig-pressure}.
-
-In PDF, a figure can use the full width of the page by adding the
-options \texttt{fig-env="figure*"} to the header of the division.
-
-Images stored in a file are integrated into a piece of code by the
-\texttt{include\_graphics()} function, see Figure~\ref{fig-logo}.
-
-\begin{figure}
-
-\centering{
-
-\scriptsize
-
-\includegraphics[width=0.3\linewidth,height=\textheight,keepaspectratio]{images/logo.png}
-
-\normalsize
-
-}
-
-\caption{\label{fig-logo}This is a logo.}
-
-\end{figure}%
-
-Systematically place these files in the \texttt{images} folder for the
-automation of GitHub pages.
-
-\subsection{Tables}\label{tables}
-
-The horizontal \texttt{-} and vertical separators \texttt{\textbar{}}
-allow you to draw a table according to Markdown syntax, but this is not
-the best method in R.
-
-Tables can also be produced by R code. The content of the table is in a
-dataframe. The \texttt{gt()} function from package \emph{gt} formats it.
-Refer to the documentation of the package for details about formatting
-the output.
-
-\begin{table}
-
-\caption{\label{tbl-iris}Table created by R in a data frame.}
-
-\centering{
-
-\scriptsize
-
-\fontsize{7.0pt}{8.0pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
-\toprule
-Sepal length & Sepal width & Petal length & Petal width & Species \\ 
-\midrule\addlinespace[2.5pt]
-5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
-4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
-4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
-4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
-5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
-5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
-\bottomrule
-\end{tabular*}
-
-\normalsize
-
-}
-
-\end{table}%
-
-By default, the tables is contained in its column.
-
-A full-width table is Table~\ref{tbl-Paracou}. It is obtained with the
-option \texttt{fig-env="table*"} in the header of the division.
-
-\begin{table*}
-
-\caption{\label{tbl-Paracou}Large table with maths, on two columns in
-PDF.}
-
-\centering{
-
-\scriptsize
-
-\fontsize{8.0pt}{10.0pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{\dimexpr 0.10\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.25\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.25\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.30\linewidth -2\tabcolsep-1.5\arrayrulewidth}>{\raggedright\arraybackslash}p{\dimexpr 0.10\linewidth -2\tabcolsep-1.5\arrayrulewidth}}
-\toprule
-Treatment & Timber & Thinning & Fuelwood & \%AGB lost \\ 
-\midrule\addlinespace[2.5pt]
-Control &  &  &  & 0 \\ 
-T1 & DBH \(\geq\) 50 cm, commercial species, \(\approx\) 10 trees/ha &  &  & \([12\%-33\%]\) \\ 
-T2 & DBH \(\geq\) 50 cm, commercial species, \(\approx\) 10 trees/ha & DBH \(\geq\) 40 cm, non-valuable species, \(\approx\) 30 trees/ha &  & \([33\%-56\%]\) \\ 
-T3 & DBH \(\geq\) 50 cm, commercial species, \(\approx\) 10 trees/ha & DBH \(\geq\) 50 cm, non-valuable species, \(\approx\) 15 trees/ha & 40 cm \(\leq\) DBH \(\leq\) 50 cm, non-valuable species, \(\approx\) 15 trees/ha & \([35\%-56\%]\) \\ 
-\bottomrule
-\end{tabular*}
-
-\normalsize
-
-}
-
-\end{table*}%
-
-Note that tables can't be shown on the first page of the PDF output of
-the Stylish Article template: they would conflict with the table of
-contents.
+\section{INSTRUCTIONS TEMPLATE, REMOVE
+LATER}\label{instructions-template-remove-later}
 
 \subsection{Lists}\label{lists}
 
@@ -824,84 +811,6 @@ If LaTeX can't find a solution for the line break, for example because
 some code is too long a non-breaking block, add the LaTeX command
 \texttt{\textbackslash{}break} to the line break location. Do not leave
 a space before the command. The HTML document ignores LaTeX commands.
-
-\subsection{Languages}\label{languages}
-
-Languages are declared in the document header.
-
-The main language of the document (\texttt{lang}) changes the name of
-some elements, such as the table of contents. The change of language in
-the document (one of \texttt{otherlangs}) is managed in LaTeX (but not
-fully in HTML).
-
-For a single word, to ensure correct hyphenation in LaTeX, use the
-following command, ignored un HTML:
-
-\begin{verbatim}
-\foreignlanguage{italian}{ciao}
-\end{verbatim}
-
-For a paragraph, to also ensure correct quotes and punctuation spacing,
-use
-
-\begin{verbatim}
-::: {lang=fr}
-"Bonjour": en français!
-:::
-\end{verbatim}
-
-to obtain:
-
-\begin{otherlanguage}{french}
-
-\enquote{Bonjour}: en français!
-
-\end{otherlanguage}
-
-The current language has an effect only in LaTeX output: a space is
-added before double punctuation in French, the size of spaces is larger
-at the beginning of sentences in English, etc.
-
-\subsection{Text color}\label{text-color}
-
-This template includes the \enquote{color-text} filter for Quarto. It
-makes colored text possible using the
-\texttt{{[}content{]}\{color=\textless{}name\textgreater{}\}} syntax.
-\textcolor{red}{This is a red example}. Defined colors are blue, green
-and red. To add more colors, they must be defined in the document header
-in \texttt{format:}, \texttt{stylisharticle-pdf:},
-\texttt{header-includes:} . This is the code for \enquote{grey}:
-
-\begin{verbatim}
-    \definecolor{grey}{RGB}{191, 191, 191}
-\end{verbatim}
-
-They must also be included in a \texttt{.css} file declared in
-\texttt{format:}, \texttt{stylisharticle-html:}
-
-\begin{verbatim}
-    css: colors.css
-\end{verbatim}
-
-In this css, colors are declared by
-
-\begin{verbatim}
-.color-grey {color: rgb(191, 191, 191);}
-\end{verbatim}
-
-\section{Caveats}\label{caveats}
-
-Quarto does not yet support all features of R Markdown. Unsolved issues
-are listed here, as of version 1.9:
-
-\begin{itemize}
-\tightlist
-\item
-  The \texttt{column} options in code chunks or \texttt{\{.column-xxx\}}
-  div's can't be used in this template. They interfere with the
-  two-column LaTeX layout. The template relies on other techniques to
-  print full-width figures and tables.
-\end{itemize}
 
 \section*{References}\label{bibliography}
 \addcontentsline{toc}{section}{References}
