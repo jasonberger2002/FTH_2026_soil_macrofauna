@@ -34,7 +34,7 @@ execute:
 
 ```{r}
 #| label: Install and load
-#| include: false
+#| #include: false
 ### Utilities for R.
 
 # Necessary packages
