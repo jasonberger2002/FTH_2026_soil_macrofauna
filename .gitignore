@@ -24,3 +24,12 @@ _freeze/
 /*.aux
 /*.log
 /*.toc
+
+# RStudio files and folders
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Template (copied from _extensions)
+/stylisharticle.cls
