@@ -82,7 +82,7 @@ set.seed(123)
 
 ```{r}
 #| label: Load and set variable types
-df <- read_excel("data/macrofaune_counts.xlsx")
+df <- read_excel("../data/macrofaune_counts.xlsx")
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
 str(df)
@@ -90,7 +90,7 @@ str(df)
 
 ## Setting figure color scheme
 
-```{r} 
+```{r}
 #| label: Color scheme
 layer_colors <- c(
   "L"  = "#009E73",  
@@ -113,9 +113,10 @@ soil_colors <- c(
 ### PCA
 
 ## GLMM with abundances
+
 ### Data preparation for GLMM:
 
-```{r} 
+```{r}
 #| label: Preparing data for GLMM
 # identify taxa columns
 taxa_cols <- names(df)[7:34]
@@ -146,6 +147,7 @@ df_total <- df %>%
 ```
 
 ### GLMM global
+
 #### Fitting the models:
 
 Models to investigate effects of soil_type and layer on abundance.
@@ -299,7 +301,7 @@ AIC_ants[order(AIC_ants$AIC), ]
 
 We keep the negative binomial distribution for the engineers because the AIC is lower that Poisson distribution models.
 
-```{r} 
+```{r}
 #| label: LRT and DHARMa residual diagnostics for ant models
 
 anova(ants_nb_add, ants_nb_int) #likelihood ratio test LRT
@@ -312,9 +314,11 @@ testZeroInflation(res_nb_ants)
 
 ```
 
-Quantile deviation detected (upper quantile specifically). Some relatively high-abundance observations may not be adequately captured by the model. Since all the other tests do not show any significant issues, ants_nb_add is retained as best-supported model regardless, though unexplained structure might remain.
+Quantile deviation detected (upper quantile specifically).
+Some relatively high-abundance observations may not be adequately captured by the model.
+Since all the other tests do not show any significant issues, ants_nb_add is retained as best-supported model regardless, though unexplained structure might remain.
 
-```{r} 
+```{r}
 #| label: Model effects and pairwise comparison for ant model 
 Anova(ants_nb_add)
 summary(ants_nb_add)
@@ -334,12 +338,16 @@ pairwise_layers_ants
 # Plot estimated abundance on the response scale
 plot(emm_layers_ants)
 ```
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance (χ² = 28.00, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths.
+
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance (χ² = 28.00, df = 2, p \< 0.001).
+The effect of soil type was not significant (χ² = 0.48, df = 1, p = 0.486).
+The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths.
 
 Pairwise comparisons with Tukey adjustment showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference was found between layers L and 20 (p = 0.3995).
 
 #### Isoptera (Termites)
-```{r} 
+
+```{r}
 #| label: Select termite data, run and compare models (AIC)
 df_termites <- df_total %>%
   select(Isoptera, layer, monolith_ID, soil_type)
@@ -379,6 +387,7 @@ AIC_termites$delta_AIC <- AIC_termites$AIC - min(AIC_termites$AIC)
 
 AIC_termites[order(AIC_termites$AIC), ]
 ```
+
 We keep the negative binomial distribution for the engineers because the AIC is lower that Poisson distribution models.
 
 ```{r}
@@ -392,6 +401,7 @@ plot(res_nb_termites)
 testDispersion(res_nb_termites)
 testZeroInflation(res_nb_termites)
 ```
+
 termites_nb_add is retained since adding the interaction has no significant effect and DHARMa model diagnostics are valid.
 
 ```{r}
@@ -414,11 +424,16 @@ pairwise_layers_termites
 # Plot estimated abundance on the response scale
 plot(emm_layers_termites)
 ```
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance (χ² = 36.56, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
 
-Pairwise comparisons with Tukey adjustment showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ≤ 0.0073).
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance (χ² = 36.56, df = 2, p \< 0.001).
+The effect of soil type was not significant (χ² = 0.89, df = 1, p = 0.347).
+The estimated random-effect variance for monolith was effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
+
+Pairwise comparisons with Tukey adjustment showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero).
+Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ≤ 0.0073).
 
 #### Lumbricina oligochaetes (Earthworms)
+
 ```{r}
 #| label: Earthworm data, fit models, test (AIC + LRT)
 df_earthworms <- df_total %>%
@@ -463,7 +478,9 @@ anova(earthworms_nb_add, earthworms_nb_int) #likelihood ratio test LRT
 anova(earthworms_p_add, earthworms_p_int) #likelihood ratio test LRT
 ```
 
-AIC is very similar between all models, though models without interaction have lowest AIC. LRT shows no significant effect of adding the interaction. The two additive models are provisionally retained.
+AIC is very similar between all models, though models without interaction have lowest AIC.
+LRT shows no significant effect of adding the interaction.
+The two additive models are provisionally retained.
 
 ```{r}
 #| label: DHARMa model diagnostics for earthworm models
@@ -505,10 +522,17 @@ pairwise_layers_earthworms
 # Plot estimated abundance on the response scale
 plot(emm_layers_earthworms)
 ```
-Type II Wald chi-square tests revealed a significant effect of soil layer on earthworm abundance (χ² = 12.69, df = 2, p = 0.0018). The effect of soil type was not significant (χ² = 0.35, df = 1, p = 0.557). The estimated random-effect variance for monolith was 0.510 (SD = 0.714), indicating variation in baseline earthworm abundance among monoliths. The model summary shows that estimates including layer were highly instable, with standard errors of around 10511. Coefficients can therefore not be correctly interpreted for layers.
 
-Pairwise comparisons with Tukey adjustment showed significantly higher abundance in layer 10 than in layer 20 (2.31 times). No significant differences were detected between layer L and either layer 10 or layer 20 (both p = 1.000). However, the estimated abundance of earthworms in layer L was zero with an unbounded confidence interval. No earthworms were observed in layer L during the sampling, which explains the high errors in the models and the unbounded confidence interval.
+Type II Wald chi-square tests revealed a significant effect of soil layer on earthworm abundance (χ² = 12.69, df = 2, p = 0.0018).
+The effect of soil type was not significant (χ² = 0.35, df = 1, p = 0.557).
+The estimated random-effect variance for monolith was 0.510 (SD = 0.714), indicating variation in baseline earthworm abundance among monoliths.
+The model summary shows that estimates including layer were highly instable, with standard errors of around 10511.
+Coefficients can therefore not be correctly interpreted for layers.
 
+Pairwise comparisons with Tukey adjustment showed significantly higher abundance in layer 10 than in layer 20 (2.31 times).
+No significant differences were detected between layer L and either layer 10 or layer 20 (both p = 1.000).
+However, the estimated abundance of earthworms in layer L was zero with an unbounded confidence interval.
+No earthworms were observed in layer L during the sampling, which explains the high errors in the models and the unbounded confidence interval.
 
 ## PERMANOVA
 
