@@ -69,46 +69,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \newcounter{none} % for unnumbered tables
@@ -429,65 +389,222 @@ forest}, \xmpquote{ecology}},
 
 \section{Introduction}\label{introduction}
 
-This template allows writing stylish articles in Markdown with
-Quarto\footnote{\url{https://quarto.org/}}. It directly produces
-well-formatted PDF articles for self-archiving or in other formats, for
-example HTML.
+\subsection{Context 1}\label{context-1}
 
-\section{Markdown}\label{markdown}
+text
 
-Markdown is a very simple language for producing various types of
-documents: HTML, PDF, and Word among others. Its documentation is
-available on the Quarto website\footnote{\url{https://quarto.org/docs/authoring/markdown-basics.html}}.
+\subsection{Context 2}\label{context-2}
 
-This document was made RStudio, but other tools are
-available\footnote{\url{https://quarto.org/docs/get-started/}}: Quarto
-processes the Markdown code, passes it to Pandoc for transformation into
-LaTeX based on the Stylish Article template provided in this Quarto
-extension; finally LaTeX compiles it into PDF.
+text
 
-\subsection{Motivation}\label{motivation}
+\section{Material and Methods}\label{material-and-methods}
 
-Markdown is very easy to learn.
+\subsection{Study Site}\label{study-site}
 
-Markdown allows integrating your R, Python and more code for a
-\emph{reproducible} result.
+Refer to Figure~\ref{fig-map} for texts
 
-Markdown allows to produce, without rewriting the text, a document in
-different formats: HTML, LaTeX or Word for example.
+\begin{figure}
 
-\section{Code}\label{code}
-
-The main features of Markdown are summarized here. The full
-documentation is on-line\footnote{\url{https://quarto.org/docs/authoring/markdown-basics.html/}}.
-
-\subsection{R and other code}\label{r-and-other-code}
-
-R code is included in code chunks:
+\centering{
 
 \scriptsize
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{(cars)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-  speed dist
-1     4    2
-2     4   10
-3     7    4
-4     7   22
-5     8   16
-6     9   10
-\end{verbatim}
+\includegraphics[width=0.3\linewidth,height=\textheight,keepaspectratio]{images/logo.png}
 
 \normalsize
 
-Similar chunks support other languages such as Python. This template
-focuses on R but can be used with any other code language supported by
-Quarto.
+}
+
+\caption{\label{fig-map}Enter our map here.}
+
+\end{figure}%
+
+text
+
+\subsection{Sampling and
+Identification}\label{sampling-and-identification}
+
+text
+
+\subsection{Statistical analysis}\label{statistical-analysis}
+
+text
+
+\subsubsection{Explorative Analysis}\label{explorative-analysis}
+
+text
+
+\subsubsection{Analysis of Abundances (Generalized Linear Mixed
+Models)}\label{analysis-of-abundances-generalized-linear-mixed-models}
+
+text
+
+\subsubsection{Analysis of Community Composition
+(PERMANOVA)}\label{analysis-of-community-composition-permanova}
+
+text
+
+\section{Results}\label{results}
+
+\subsection{General}\label{general}
+
+and refer to Table~\ref{tbl-density} for table
+
+\begin{table}
+
+\caption{\label{tbl-density}Table with densities here (mean etc?)}
+
+\centering{
+
+\scriptsize
+
+\fontsize{7.0pt}{8.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
+\toprule
+Sepal length & Sepal width & Petal length & Petal width & Species \\ 
+\midrule\addlinespace[2.5pt]
+5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
+4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
+4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
+4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
+5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
+5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
+\bottomrule
+\end{tabular*}
+
+\normalsize
+
+}
+
+\end{table}%
+
+\begin{figure}
+
+\centering{
+
+\scriptsize
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/General plot-1.pdf}
+
+\normalsize
+
+}
+
+\caption{\label{fig-general}Our first plot for general results here}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\scriptsize
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCA-1.pdf}
+
+\normalsize
+
+}
+
+\caption{\label{fig-pca}Our PCA figure}
+
+\end{figure}%
+
+\subsection{GLMM}\label{glmm}
+
+text
+
+\begin{table}
+
+\caption{\label{tbl-glmm}Table for all the emmeans results?}
+
+\centering{
+
+\scriptsize
+
+\fontsize{7.0pt}{8.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
+\toprule
+Sepal length & Sepal width & Petal length & Petal width & Species \\ 
+\midrule\addlinespace[2.5pt]
+5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
+4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
+4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
+4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
+5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
+5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
+\bottomrule
+\end{tabular*}
+
+\normalsize
+
+}
+
+\end{table}%
+
+text
+
+\subsection{PERMANOVA}\label{permanova}
+
+text
+
+\begin{table}
+
+\caption{\label{tbl-permanova}Table for all the PERMANOVA results?}
+
+\centering{
+
+\scriptsize
+
+\fontsize{7.0pt}{8.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
+\toprule
+Sepal length & Sepal width & Petal length & Petal width & Species \\ 
+\midrule\addlinespace[2.5pt]
+5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
+4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
+4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
+4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
+5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
+5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
+\bottomrule
+\end{tabular*}
+
+\normalsize
+
+}
+
+\end{table}%
+
+\scriptsize
+
+\normalsize
+
+\begin{figure*}
+
+\centering{
+
+\scriptsize
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCoA-1.pdf}
+
+\normalsize
+
+}
+
+\caption{\label{fig-pressure}Bray-Curtis PERMANOVA for layers here}
+
+\end{figure*}%
+
+\section{Discussion}\label{discussion}
+
+text
+
+\section{Conclusion}\label{conclusion}
+
+text
+
+\section{layout stuff, remove after}\label{layout-stuff-remove-after}
 
 \subsection{Figures}\label{figures}
 

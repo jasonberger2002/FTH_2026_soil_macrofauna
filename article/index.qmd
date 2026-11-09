@@ -78,6 +78,9 @@ execute:
 # Template specific
 keywordlabel: Keywords
 corrauthorlabel: Corresponding Author
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r}
@@ -154,49 +157,196 @@ set.seed(123)
 
 # Introduction
 
-This template allows writing stylish articles in Markdown with Quarto[^1].
-It directly produces well-formatted PDF articles for self-archiving or in other formats, for example HTML.
+## Context 1
 
-[^1]: <https://quarto.org/>
+text
 
-# Markdown {#markdown}
+## Context 2
 
-Markdown is a very simple language for producing various types of documents: HTML, PDF, and Word among others.
-Its documentation is available on the Quarto website[^2].
+text
 
-[^2]: <https://quarto.org/docs/authoring/markdown-basics.html>
+# Material and Methods
 
-This document was made RStudio, but other tools are available[^3]: Quarto processes the Markdown code, passes it to Pandoc for transformation into LaTeX based on the Stylish Article template provided in this Quarto extension; finally LaTeX compiles it into PDF.
+## Study Site
+Refer to @fig-map for texts
 
-[^3]: <https://quarto.org/docs/get-started/>
-
-## Motivation
-
-Markdown is very easy to learn.
-
-Markdown allows integrating your R, Python and more code for a *reproducible* result.
-
-Markdown allows to produce, without rewriting the text, a document in different formats: HTML, LaTeX or Word for example.
-
-# Code
-
-The main features of Markdown are summarized here.
-The full documentation is on-line[^4].
-
-[^4]: <https://quarto.org/docs/authoring/markdown-basics.html/>
-
-## R and other code
-
-R code is included in code chunks:
-
+::: {#fig-map}
 ```{r}
-#| label: cars
-#| echo: true
-head(cars)
+#| label: map
+#| out-width: 30%
+knitr::include_graphics("images/logo.png")
 ```
 
-Similar chunks support other languages such as Python.
-This template focuses on R but can be used with any other code language supported by Quarto.
+Enter our map here.
+:::
+text
+
+## Sampling and Identification
+
+text
+
+## Statistical analysis
+
+text
+
+### Explorative Analysis
+
+text
+
+### Analysis of Abundances (Generalized Linear Mixed Models)
+
+text
+
+### Analysis of Community Composition (PERMANOVA)
+
+text
+
+# Results
+
+## General
+
+and refer to @tbl-density for table
+
+::: {#tbl-density}
+```{r}
+#| label: Density table
+names(iris) <- c(
+  "Sepal length", 
+  "Sepal width", 
+  "Petal length",
+  "Petal width", 
+  "Species"
+)
+library("gt")
+head(iris) %>%
+  gt() ->
+  the_table
+
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(9))
+} else {
+  # Simply print the table
+  the_table
+}
+```
+
+Table with densities here (mean etc?)
+:::
+
+
+::: {#fig-general fig-env="figure"}
+```{r}
+#| label: General plot
+#| out-width: 80%
+plot(pressure)
+```
+
+Our first plot for general results here
+:::
+
+
+::: {#fig-pca fig-env="figure"}
+```{r}
+#| label: PCA
+#| out-width: 80%
+plot(pressure)
+```
+
+Our PCA figure
+:::
+## GLMM
+
+text
+
+::: {#tbl-glmm}
+```{r}
+#| label: Table GLMM pairwise results
+names(iris) <- c(
+  "Sepal length", 
+  "Sepal width", 
+  "Petal length",
+  "Petal width", 
+  "Species"
+)
+library("gt")
+head(iris) %>%
+  gt() ->
+  the_table
+
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(9))
+} else {
+  # Simply print the table
+  the_table
+}
+```
+
+Table for all the emmeans results?
+:::
+
+text
+
+## PERMANOVA
+
+text
+
+::: {#tbl-permanova}
+```{r}
+#| label: Table PERMANOVA results
+names(iris) <- c(
+  "Sepal length", 
+  "Sepal width", 
+  "Petal length",
+  "Petal width", 
+  "Species"
+)
+library("gt")
+head(iris) %>%
+  gt() ->
+  the_table
+
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(9))
+} else {
+  # Simply print the table
+  the_table
+}
+```
+
+Table for all the PERMANOVA results?
+:::
+
+
+```{r}
+
+
+```
+
+::: {#fig-pressure fig-env="figure*"}
+```{r}
+#| label: PCoA
+#| out-width: 80%
+plot(pressure)
+```
+
+Bray-Curtis PERMANOVA for layers here
+:::
+
+# Discussion
+
+text
+
+# Conclusion
+
+text
+
+# layout stuff, remove after
 
 ## Figures
 
@@ -210,12 +360,15 @@ plot(pressure)
 Comparison of motorway and city driving ranges for 38 car models.
 :::
 
-Figures can be created by R code (@fig-pressure) in a division whose name starts with `#fig-`.
-Cross-references are made with the command `@label`, e.g.: `@fig-pressure`.
+Figures can be created by R code (@fig-pressure) in a division whose
+name starts with `#fig-`. Cross-references are made with the command
+`@label`, e.g.: `@fig-pressure`.
 
-In PDF, a figure can use the full width of the page by adding the options `fig-env="figure*"` to the header of the division.
+In PDF, a figure can use the full width of the page by adding the
+options `fig-env="figure*"` to the header of the division.
 
-Images stored in a file are integrated into a piece of code by the `include_graphics()` function, see @fig-logo.
+Images stored in a file are integrated into a piece of code by the
+`include_graphics()` function, see @fig-logo.
 
 ::: {#fig-logo}
 ```{r}
@@ -227,16 +380,18 @@ knitr::include_graphics("images/logo.png")
 This is a logo.
 :::
 
-Systematically place these files in the `images` folder for the automation of GitHub pages.
+Systematically place these files in the `images` folder for the
+automation of GitHub pages.
 
 ## Tables
 
-The horizontal `-` and vertical separators `|` allow you to draw a table according to Markdown syntax, but this is not the best method in R.
+The horizontal `-` and vertical separators `|` allow you to draw a table
+according to Markdown syntax, but this is not the best method in R.
 
-Tables can also be produced by R code.
-The content of the table is in a dataframe.
-The `gt()` function from package *gt* formats it.
-Refer to the documentation of the package for details about formatting the output.
+Tables can also be produced by R code. The content of the table is in a
+dataframe. The `gt()` function from package *gt* formats it. Refer to
+the documentation of the package for details about formatting the
+output.
 
 ::: {#tbl-iris}
 ```{r}
@@ -268,8 +423,8 @@ Table created by R in a data frame.
 
 By default, the tables is contained in its column.
 
-A full-width table is @tbl-Paracou.
-It is obtained with the option `fig-env="table*"` in the header of the division.
+A full-width table is @tbl-Paracou. It is obtained with the option
+`fig-env="table*"` in the header of the division.
 
 ::: {#tbl-Paracou fig-env="table*"}
 ```{r}
@@ -325,23 +480,29 @@ if (knitr::is_latex_output()) {
 Large table with maths, on two columns in PDF.
 :::
 
-Note that tables can't be shown on the first page of the PDF output of the Stylish Article template: they would conflict with the table of contents.
+Note that tables can't be shown on the first page of the PDF output of
+the Stylish Article template: they would conflict with the table of
+contents.
 
 ## Lists
 
-Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or numbers `1.`, `i.` and `A.` (numbered lists).
-Indentation of lists indicates their level: `*`, `+` and `-` may be replaced by `-` at all levels, but four spaces are needed to nest a list into another.
+Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or
+numbers `1.`, `i.` and `A.` (numbered lists). Indentation of lists
+indicates their level: `*`, `+` and `-` may be replaced by `-` at all
+levels, but four spaces are needed to nest a list into another.
 
 - First element of a list
   - sub-list
 - Second element
 - Continuation of the list
 
-Leave an empty line before and after the list, but not between its items.
+Leave an empty line before and after the list, but not between its
+items.
 
 ## Math
 
-Equations in LaTeX format can be inserted inline, like $A = \pi r^2$ or isolated like $$e^{i \pi} = -1.$$
+Equations in LaTeX format can be inserted inline, like $A = \pi r^2$ or
+isolated like $$e^{i \pi} = -1.$$
 
 They can be numbered, see @eq-disk, after adding them a label:
 
@@ -349,9 +510,11 @@ $$  A = \pi r^2.$$ {#eq-disk}
 
 ## Cross-references
 
-Figures and tables have a label declared in their division `tbl-xxx` or `fig-yyy`, starting with `fig-` or `tbl-`.
+Figures and tables have a label declared in their division `tbl-xxx` or
+`fig-yyy`, starting with `fig-` or `tbl-`.
 
-For equations, the label is added manually by the code `{#eq-xxx}` after the end of the equation.
+For equations, the label is added manually by the code `{#eq-xxx}` after
+the end of the equation.
 
 Sections can be tagged by ending their title with `{#sec-yyy}`.
 
@@ -359,7 +522,9 @@ In all cases, the call to the reference is made by `@`.
 
 ## Bibliography
 
-Bibliographic references included in the `.bib` file declared in the document header can be called by `[@CitationKey]`, in parentheses [@Xie2018], or without square brackets, in the text, as @Xie2016.
+Bibliographic references included in the `.bib` file declared in the
+document header can be called by `[@CitationKey]`, in parentheses
+[@Xie2018], or without square brackets, in the text, as @Xie2016.
 
 The bibliographic style can be specified, by adding the line
 
@@ -367,10 +532,11 @@ The bibliographic style can be specified, by adding the line
 csl: file_name.csl
 ```
 
-in the document header and copying the *.csl* style file to the project folder.
-More than a thousand styles are available[^5] and their URL can be used instead of copying the file, e.g.:
+in the document header and copying the *.csl* style file to the project
+folder. More than a thousand styles are available[^1] and their URL can
+be used instead of copying the file, e.g.:
 
-[^5]: <https://github.com/citation-style-language/styles>
+[^1]: <https://github.com/citation-style-language/styles>
 
 ```         
 csl: https://www.zotero.org/styles/xxx
@@ -378,27 +544,34 @@ csl: https://www.zotero.org/styles/xxx
 
 ## Forcing line breaks
 
-Hyphenation is handled automatically in LaTeX.
-If a word is not hyphenated correctly, add its hyphenation in the preamble of the file with the command `hyphenation` (words are separated by spaces, hyphenation locations are represented by dashes).
+Hyphenation is handled automatically in LaTeX. If a word is not
+hyphenated correctly, add its hyphenation in the preamble of the file
+with the command `hyphenation` (words are separated by spaces,
+hyphenation locations are represented by dashes).
 
-If LaTeX can't find a solution for the line break, for example because some code is too long a non-breaking block, add the LaTeX command `\break` to the line break location.
-Do not leave a space before the command.
-The HTML document ignores LaTeX commands.
+If LaTeX can't find a solution for the line break, for example because
+some code is too long a non-breaking block, add the LaTeX command
+`\break` to the line break location. Do not leave a space before the
+command. The HTML document ignores LaTeX commands.
 
 ## Languages
 
 Languages are declared in the document header.
 
-The main language of the document (`lang`) changes the name of some elements, such as the table of contents.
-The change of language in the document (one of `otherlangs`) is managed in LaTeX (but not fully in HTML).
+The main language of the document (`lang`) changes the name of some
+elements, such as the table of contents. The change of language in the
+document (one of `otherlangs`) is managed in LaTeX (but not fully in
+HTML).
 
-For a single word, to ensure correct hyphenation in LaTeX, use the following command, ignored un HTML:
+For a single word, to ensure correct hyphenation in LaTeX, use the
+following command, ignored un HTML:
 
 ```         
 \foreignlanguage{italian}{ciao}
 ```
 
-For a paragraph, to also ensure correct quotes and punctuation spacing, use
+For a paragraph, to also ensure correct quotes and punctuation spacing,
+use
 
 ```         
 ::: {lang=fr}
@@ -412,22 +585,25 @@ to obtain:
 "Bonjour": en français!
 :::
 
-The current language has an effect only in LaTeX output: a space is added before double punctuation in French, the size of spaces is larger at the beginning of sentences in English, etc.
+The current language has an effect only in LaTeX output: a space is
+added before double punctuation in French, the size of spaces is larger
+at the beginning of sentences in English, etc.
 
 ## Text color
 
-This template includes the "color-text" filter for Quarto.
-It makes colored text possible using the `[content]{color=<name>}` syntax.
-[This is a red example]{color="red"}.
-Defined colors are blue, green and red.
-To add more colors, they must be defined in the document header in `format:`, `stylisharticle-pdf:`, `header-includes:` .
-This is the code for "grey":
+This template includes the "color-text" filter for Quarto. It makes
+colored text possible using the `[content]{color=<name>}` syntax. [This
+is a red example]{color="red"}. Defined colors are blue, green and red.
+To add more colors, they must be defined in the document header in
+`format:`, `stylisharticle-pdf:`, `header-includes:` . This is the code
+for "grey":
 
 ```         
     \definecolor{grey}{RGB}{191, 191, 191}
 ```
 
-They must also be included in a `.css` file declared in `format:`, `stylisharticle-html:`
+They must also be included in a `.css` file declared in `format:`,
+`stylisharticle-html:`
 
 ```         
     css: colors.css
@@ -441,7 +617,10 @@ In this css, colors are declared by
 
 # Caveats
 
-Quarto does not yet support all features of R Markdown.
-Unsolved issues are listed here, as of version 1.9:
+Quarto does not yet support all features of R Markdown. Unsolved issues
+are listed here, as of version 1.9:
 
-- The `column` options in code chunks or `{.column-xxx}` div's can't be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.
+- The `column` options in code chunks or `{.column-xxx}` div's can't be
+  used in this template. They interfere with the two-column LaTeX
+  layout. The template relies on other techniques to print full-width
+  figures and tables.
