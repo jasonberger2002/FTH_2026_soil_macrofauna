@@ -69,6 +69,9 @@ knitr::knit_hooks$set(
 
 #load all packages
 invisible(lapply(packages_required, library, character.only = TRUE))
+
+#set seed for reproducible simulations throughout the document
+set.seed(123)
 ```
 
 ------------------------------------------------------------------------
@@ -78,6 +81,7 @@ invisible(lapply(packages_required, library, character.only = TRUE))
 ## Loading data
 
 ```{r}
+#| label: Load and set variable types
 df <- read_excel("data/macrofaune_counts.xlsx")
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
@@ -86,7 +90,8 @@ str(df)
 
 ## Setting figure color scheme
 
-```{r}
+```{r} 
+#| label: Color scheme
 layer_colors <- c(
   "L"  = "#009E73",  
   "10" = "#E69F00",  
@@ -108,12 +113,10 @@ soil_colors <- c(
 ### PCA
 
 ## GLMM with abundances
+### Data preparation for GLMM:
 
-### GLMM global
-
-#### Data preparation for GLMM:
-
-```{r}
+```{r} 
+#| label: Preparing data for GLMM
 # identify taxa columns
 taxa_cols <- names(df)[7:34]
 
@@ -142,12 +145,14 @@ df_total <- df %>%
   )
 ```
 
+### GLMM global
 #### Fitting the models:
 
 Models to investigate effects of soil_type and layer on abundance.
 Poisson and negative binomial models are considered since abundances are counts and there may be a tendency to overdispersion or zero-inflation.
 
 ```{r}
+#| label: Fitting total abundance models
 # M1: Poisson, additive effects
 m_p_add <- glmmTMB(
   total_count ~ soil_type + layer + (1 | monolith_ID),
@@ -180,6 +185,7 @@ m_nb_int <- glmmTMB(
 #### Comparing models using Akaike's An Information Criterion
 
 ```{r}
+#| label: Global model comparison using AIC
 AIC_values <- AIC(m_p_add, m_p_int, m_nb_add, m_nb_int)
 
 AIC_values$delta_AIC <- AIC_values$AIC - min(AIC_values$AIC)
@@ -192,11 +198,9 @@ Negative binomial distribution describes data much better according to AIC and i
 #### Comparing nb additive vs. model with interaction:
 
 ```{r}
+#| label: LRT for global abundance models
 
 anova(m_nb_add, m_nb_int) #likelihood ratio test LRT
-
-summary(m_nb_add)
-summary(m_nb_int)
 ```
 
 Given the interactive model has a higher AIC and does not significantly improve model fit compared to additive model (according to LRT), m_nb_add is retained.
@@ -204,6 +208,8 @@ Given the interactive model has a higher AIC and does not significantly improve 
 #### Model diagnostics with DHARMa:
 
 ```{r}
+#| label: Total abundance model diagnostics (including overdispersion + zero-inflation) with DHARMa
+
 res_nb <- simulateResiduals(m_nb_add, n = 1000)
 plot(res_nb)
 
@@ -216,19 +222,19 @@ No issues detected, model is valid.
 #### Investigation of model estimates:
 
 ```{r}
+#| label: Total abundance model effects
 Anova(m_nb_add)
 summary(m_nb_add)
-
 ```
 
-Type II Wald chi-square tests revealed a highly significant effect of soil layer (χ² = 106.85, df = 2, p \< 0.001).
-Soil type was not significant (χ² = 0.52, df = 1, p = 0.469).
-
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on total soil macrofauna abundance (χ² = 106.85, df = 2, p \< 0.001).
+The effect of soil type was not significant (χ² = 0.52, df = 1, p = 0.469).
 Estimated random-effect variance (monolith) was 0.437 (SD = 0.661), indicating variation in baseline macrofauna abundance among monoliths.
 
 #### Pairwise testing for layers:
 
 ```{r}
+#| label: Pairwise testing using emmeans for total abundance
 # Estimated marginal means for layers (response scale)
 emm_layers <- emmeans(m_nb_add, ~ layer, type = "response")
 
@@ -249,12 +255,12 @@ Pairwise comparisons with Tukey adjustment shows that macrofauna abundance was s
 
 ### GLMM ecosystem engineers
 
-FORMICIDAE
+#### Formicidae (Ants)
 
 ```{r}
+#| label: Select ant data, run models and compare with AIC
 df_ants <- df_total %>%
   select(Formicidae, layer, monolith_ID, soil_type)
-
 
 # M1: Poisson, additive effects
 ants_p_add <- glmmTMB(
@@ -293,29 +299,26 @@ AIC_ants[order(AIC_ants$AIC), ]
 
 We keep the negative binomial distribution for the engineers because the AIC is lower that Poisson distribution models.
 
-```{r}
+```{r} 
+#| label: LRT and DHARMa residual diagnostics for ant models
 
 anova(ants_nb_add, ants_nb_int) #likelihood ratio test LRT
-
-summary(ants_nb_add)
 
 res_nb_ants <- simulateResiduals(ants_nb_add, n = 1000)
 plot(res_nb_ants)
 
 testDispersion(res_nb_ants)
 testZeroInflation(res_nb_ants)
+
 ```
 
-The signification of the dispersion test invalided the transformation of our model, but for hight values, and with a small risk, so we keep it.
+Quantile deviation detected (upper quantile specifically). Some relatively high-abundance observations may not be adequately captured by the model. Since all the other tests do not show any significant issues, ants_nb_add is retained as best-supported model regardless, though unexplained structure might remain.
 
-```{r}
+```{r} 
+#| label: Model effects and pairwise comparison for ant model 
 Anova(ants_nb_add)
 summary(ants_nb_add)
-```
 
-We have the same results for the effect of layer, on Formicidae abondance.
-
-```{r}
 # Estimated marginal means for layers (response scale)
 emm_layers_ants <- emmeans(ants_nb_add, ~ layer, type = "response")
 
@@ -331,8 +334,181 @@ pairwise_layers_ants
 # Plot estimated abundance on the response scale
 plot(emm_layers_ants)
 ```
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance (χ² = 28.00, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths.
 
-Les tendances pour les fourmis sont les mêmes que pour le groupe en général, il y a une différence sur la couche 10 avec 3x plus dans 10 que dans 20 et 0.19x plus dans 10 que dans L.
+Pairwise comparisons with Tukey adjustment showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference was found between layers L and 20 (p = 0.3995).
+
+#### Isoptera (Termites)
+```{r} 
+#| label: Select termite data, run and compare models (AIC)
+df_termites <- df_total %>%
+  select(Isoptera, layer, monolith_ID, soil_type)
+
+
+# M1: Poisson, additive effects
+termites_p_add <- glmmTMB(
+  Isoptera ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_termites
+)
+
+# M2: Poisson, interaction
+termites_p_int <- glmmTMB(
+  Isoptera ~ soil_type * layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_termites
+)
+
+# M3: Negative binomial, additive effects
+termites_nb_add <- glmmTMB(
+  Isoptera ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_termites
+)
+
+# M4: Negative binomial, interaction
+termites_nb_int <- glmmTMB(
+  Isoptera~ soil_type * layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_termites
+)
+
+AIC_termites <- AIC(termites_p_add, termites_p_int, termites_nb_add,termites_nb_int)
+
+AIC_termites$delta_AIC <- AIC_termites$AIC - min(AIC_termites$AIC)
+
+AIC_termites[order(AIC_termites$AIC), ]
+```
+We keep the negative binomial distribution for the engineers because the AIC is lower that Poisson distribution models.
+
+```{r}
+#| label: LRT and DHARMa residual diagnostics for termite models
+
+anova(termites_nb_add, termites_nb_int) #likelihood ratio test LRT
+
+res_nb_termites <- simulateResiduals(termites_nb_add, n = 1000)
+plot(res_nb_termites)
+
+testDispersion(res_nb_termites)
+testZeroInflation(res_nb_termites)
+```
+termites_nb_add is retained since adding the interaction has no significant effect and DHARMa model diagnostics are valid.
+
+```{r}
+#| label: Model effects and pairwise comparison for termite model 
+Anova(termites_nb_add)
+summary(termites_nb_add)
+
+# Estimated marginal means for layers (response scale)
+emm_layers_termites <- emmeans(termites_nb_add, ~ layer, type = "response")
+
+# Pairwise comparisons (Tukey correction)
+pairwise_layers_termites <- as.data.frame(
+  pairs(emmeans(termites_nb_add, ~ layer), adjust = "tukey")
+)
+
+# Back-transform estimates to abundance ratios
+pairwise_layers_termites$ratio <- exp(pairwise_layers_termites$estimate)
+pairwise_layers_termites
+
+# Plot estimated abundance on the response scale
+plot(emm_layers_termites)
+```
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance (χ² = 36.56, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
+
+Pairwise comparisons with Tukey adjustment showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ≤ 0.0073).
+
+#### Lumbricina oligochaetes (Earthworms)
+```{r}
+#| label: Earthworm data, fit models, test (AIC + LRT)
+df_earthworms <- df_total %>%
+  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
+
+
+# M1: Poisson, additive effects
+earthworms_p_add <- glmmTMB(
+  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_earthworms
+)
+
+# M2: Poisson, interaction
+earthworms_p_int <- glmmTMB(
+  Lumbricina_oligochaetes ~ soil_type * layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_earthworms
+)
+
+# M3: Negative binomial, additive effects
+earthworms_nb_add <- glmmTMB(
+  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_earthworms
+)
+
+# M4: Negative binomial, interaction
+earthworms_nb_int <- glmmTMB(
+  Lumbricina_oligochaetes~ soil_type * layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_earthworms
+)
+
+AIC_earthworms <- AIC(earthworms_p_add, earthworms_p_int, earthworms_nb_add,earthworms_nb_int)
+
+AIC_earthworms$delta_AIC <- AIC_earthworms$AIC - min(AIC_earthworms$AIC)
+
+AIC_earthworms[order(AIC_earthworms$AIC), ]
+
+anova(earthworms_nb_add, earthworms_nb_int) #likelihood ratio test LRT
+anova(earthworms_p_add, earthworms_p_int) #likelihood ratio test LRT
+```
+
+AIC is very similar between all models, though models without interaction have lowest AIC. LRT shows no significant effect of adding the interaction. The two additive models are provisionally retained.
+
+```{r}
+#| label: DHARMa model diagnostics for earthworm models
+
+res_p_earthworms <- simulateResiduals(earthworms_p_add, n = 1000)
+plot(res_p_earthworms)
+
+testDispersion(res_p_earthworms)
+testZeroInflation(res_p_earthworms)
+
+res_nb_earthworms <- simulateResiduals(earthworms_nb_add, n = 1000)
+plot(res_nb_earthworms)
+
+testDispersion(res_nb_earthworms)
+testZeroInflation(res_nb_earthworms)
+```
+
+Both Poisson and negative binomial models do not show any significant issues in DHARMa residuals, dispersion test and zero inflation test.
+The Poisson model is retained because it has a slightly lower AIC and a more parsimonious structure (df lost 5, vs 6 in negative binomial).
+
+```{r}
+#| label: Model effects and pairwise comparison for earthworm model
+Anova(earthworms_p_add)
+summary(earthworms_p_add)
+
+# Estimated marginal means for layers (response scale)
+emm_layers_earthworms <- emmeans(earthworms_p_add, ~ layer, type = "response")
+emm_layers_earthworms
+
+# Pairwise comparisons (Tukey correction)
+pairwise_layers_earthworms <- as.data.frame(
+  pairs(emmeans(earthworms_p_add, ~ layer), adjust = "tukey")
+)
+
+# Back-transform estimates to abundance ratios
+pairwise_layers_earthworms$ratio <- exp(pairwise_layers_earthworms$estimate)
+pairwise_layers_earthworms
+
+# Plot estimated abundance on the response scale
+plot(emm_layers_earthworms)
+```
+Type II Wald chi-square tests revealed a significant effect of soil layer on earthworm abundance (χ² = 12.69, df = 2, p = 0.0018). The effect of soil type was not significant (χ² = 0.35, df = 1, p = 0.557). The estimated random-effect variance for monolith was 0.510 (SD = 0.714), indicating variation in baseline earthworm abundance among monoliths. The model summary shows that estimates including layer were highly instable, with standard errors of around 10511. Coefficients can therefore not be correctly interpreted for layers.
+
+Pairwise comparisons with Tukey adjustment showed significantly higher abundance in layer 10 than in layer 20 (2.31 times). No significant differences were detected between layer L and either layer 10 or layer 20 (both p = 1.000). However, the estimated abundance of earthworms in layer L was zero with an unbounded confidence interval. No earthworms were observed in layer L during the sampling, which explains the high errors in the models and the unbounded confidence interval.
+
 
 ## PERMANOVA
 
@@ -363,9 +539,6 @@ dim(comm)
 
 ```{r}
 # Bray-Curtis PERMANOVA
-# set seed for reproducible permutation chain
-set.seed(123)
-
 # define permutation scheme, limit WITHIN monoliths (due to spatial dependence of the three layers)
 perm_layer <- how(
   nperm = 9999,
@@ -393,8 +566,7 @@ bd_layer <- betadisper(
   bias.adjust = TRUE
 )
 
-# set seed again for reproducibility, same permutation scheme
-set.seed(123)
+# same permutation scheme
 
 dispersion_layer <- permutest(
   bd_layer,
@@ -430,7 +602,6 @@ pairwise_results <- lapply(layer_pairs, function(pair) {
   )
   
   # perform PERMANOVA
-  set.seed(123)
   res <- adonis2(
     comm_pair ~ layer,
     data = meta_pair,
@@ -481,8 +652,6 @@ comm_mono <- comm_mono[
 ]
 
 # Bray-Curtis PERMANOVA
-#set seed again
-set.seed(123)
 
 permanova_soil <- adonis2(
   comm_mono ~ soil_type,
@@ -503,8 +672,6 @@ bd_soil <- betadisper(
   type = "median",
   bias.adjust = TRUE
 )
-
-set.seed(123)
 
 dispersion_soil <- permutest(
   bd_soil,
