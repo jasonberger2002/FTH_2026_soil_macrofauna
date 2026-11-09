@@ -33,7 +33,7 @@ execute:
 ---
 
 ```{r}
-#| label: Install and load
+#| label: Install and load packages, set seed
 #| #include: false
 ### Utilities for R.
 
