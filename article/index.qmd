@@ -4,9 +4,14 @@ title: "Cool macrofauna title"
 format:
   stylisharticle-pdf:
     keep-tex: true
-    # Color example, see "Text color"
     header-includes:
-      \definecolor{grey}{RGB}{191, 191, 191}
+    - '\usepackage{xcolor}'
+    - '\usepackage{caption}'
+    - '\definecolor{grey}{RGB}{112,128,144}'
+    - '\DeclareCaptionFont{ninept}{\fontsize{9pt}{11pt}\selectfont}'
+    - '\captionsetup[table]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
+    - '\captionsetup[figure]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
+      
   stylisharticle-html:
     # Color example, see "Text color"
     css: colors.css
@@ -202,7 +207,7 @@ Refer to @fig-map for texts
 
 ::: {#fig-map}
 ```{r}
-#| label: map
+#| label: map FIGURE
 #| out-width: 30%
 knitr::include_graphics("images/logo.png")
 ```
@@ -239,7 +244,7 @@ and refer to @tbl-density for table
 
 ::: {#tbl-density}
 ```{r}
-#| label: Density table
+#| label: Density TABLE
 names(iris) <- c(
   "Sepal length", 
   "Sepal width", 
@@ -268,7 +273,7 @@ Table with densities here (mean etc?)
 
 ::: {#fig-general fig-env="figure"}
 ```{r}
-#| label: General plot
+#| label: General FIGURE
 #| out-width: 80%
 plot(pressure)
 ```
@@ -279,7 +284,7 @@ Our first plot for general results here
 
 ::: {#fig-pca fig-env="figure"}
 ```{r}
-#| label: PCA
+#| label: PCA FIGURE
 #| out-width: 80%
 plot(pressure)
 ```
@@ -287,37 +292,121 @@ plot(pressure)
 Our PCA figure
 :::
 ## GLMM
+```{r}
+#| label: Preparing data for GLMM
+# identify taxa columns
+taxa_cols <- names(df)[7:34]
+
+# long-format dataset
+df_long <- df %>%
+  pivot_longer(
+    cols = all_of(taxa_cols),
+    names_to = "taxon",
+    values_to = "count"
+  ) %>%
+  mutate(
+    taxon = factor(taxon)
+  )
+
+# sample-level abundance (per m²)
+df_total <- df %>%
+  mutate(
+    total_count = rowSums(
+      across(all_of(taxa_cols)),
+      na.rm = FALSE
+    ),
+    density = total_count * 16, #25x25cm monoliths = 1/16 m²
+    soil_type = factor(soil_type),
+    layer = factor(layer, levels = c("L", "10", "20")),
+    monolith_ID = factor(monolith_ID)
+  )
+```
+
+### Global Abundance
+```{r}
+#| label: Global GLMM
+m_nb_add <- glmmTMB(
+  total_count ~ soil_type + layer + (1 | monolith_ID),
+  family = nbinom2(link = "log"),
+  data = df_total
+)
+```
 
 text
 
 ::: {#tbl-glmm}
 ```{r}
-#| label: Table GLMM pairwise results
-names(iris) <- c(
-  "Sepal length", 
-  "Sepal width", 
-  "Petal length",
-  "Petal width", 
-  "Species"
+#| label: GLMM pairwise results TABLE
+#| size: normalsize
+
+# Estimated marginal means for layers
+emm_layers <- emmeans(m_nb_add, ~ layer, type = "response")
+
+# Pairwise comparisons (Tukey correction)
+pairwise_layers <- as.data.frame(
+  pairs(emmeans(m_nb_add, ~ layer), adjust = "tukey")
 )
-library("gt")
-head(iris) %>%
-  gt() ->
-  the_table
+
+# Back-transform estimates to abundance ratios
+pairwise_layers$ratio <- exp(pairwise_layers$estimate)
+
+library(gt)
+library(dplyr)
+
+glmm_table <- pairwise_layers %>%
+  mutate(
+    ratio = round(ratio, 2),
+    z.ratio = round(z.ratio, 2),
+
+    stars = case_when(
+      p.value < 0.001 ~ "***",
+      p.value < 0.01  ~ "**",
+      p.value < 0.05  ~ "*",
+      TRUE            ~ ""
+    ),
+
+    p_display = ifelse(
+      p.value < 0.0001,
+      "<0.0001",
+      format.pval(p.value, digits = 3)
+    ),
+
+    p_display = paste0(
+      p_display,
+      "<sup>", stars, "</sup>"
+    )
+  ) %>%
+  select(
+    Comparison = contrast,
+    `Abundance ratio` = ratio,
+    `z-ratio` = z.ratio,
+    `Adjusted p-value` = p_display
+  ) %>%
+  gt() %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  fmt_markdown(
+    columns = `Adjusted p-value`
+  ) %>%
+  tab_source_note(
+    source_note = md(
+      "Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
+    )
+  )
 
 if (knitr::is_latex_output()) {
-  # Reduce font size in PDF output
-  the_table %>% 
-    opt_table_font(size = px(9))
+  glmm_table %>%
+    opt_table_font(size = px(10))
 } else {
-  # Simply print the table
-  the_table
+  glmm_table
 }
 ```
-
-Table for all the emmeans results?
+Global abundance pairwise comparison between layers for model total_count ~ soil_type + layer + (1 | monolith_ID) with family nb2 and log-link
 :::
 
+### Bioengineer Abundances
 text
 
 ## PERMANOVA
@@ -520,7 +609,7 @@ Table for all the PERMANOVA results?
 
 ::: {#fig-pressure fig-env="figure*"}
 ```{r}
-#| label: PCoA
+#| label: PCoA FIGURE
 #| out-width: 80%
 plot(p)
 ```

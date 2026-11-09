@@ -207,7 +207,12 @@
 \definecolor{red}{RGB}{255, 0, 0}
 \definecolor{green}{RGB}{0, 255, 0}
 \definecolor{blue}{RGB}{0, 0, 255}
-\definecolor{grey}{RGB}{191, 191, 191}
+\usepackage{xcolor}
+\usepackage{caption}
+\definecolor{grey}{RGB}{112,128,144}
+\DeclareCaptionFont{ninept}{\fontsize{9pt}{11pt}\selectfont}
+\captionsetup[table]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}
+\captionsetup[figure]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -484,7 +489,7 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 \scriptsize
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/General plot-1.pdf}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/General FIGURE-1.pdf}
 
 \normalsize
 
@@ -500,7 +505,7 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 \scriptsize
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCA-1.pdf}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCA FIGURE-1.pdf}
 
 \normalsize
 
@@ -512,35 +517,46 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 \subsection{GLMM}\label{glmm}
 
+\scriptsize
+
+\normalsize
+
+\subsubsection{Global Abundance}\label{global-abundance}
+
+\scriptsize
+
+\normalsize
+
 text
 
 \begin{table}
 
-\caption{\label{tbl-glmm}Table for all the emmeans results?}
+\caption{\label{tbl-glmm}Global abundance pairwise comparison between
+layers for model total\_count \textasciitilde{} soil\_type + layer + (1
+\textbar{} monolith\_ID) with family nb2 and log-link}
 
 \centering{
 
-\scriptsize
-
-\fontsize{7.0pt}{8.0pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
+\fontsize{8.0pt}{9.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cccc}
 \toprule
-Sepal length & Sepal width & Petal length & Petal width & Species \\ 
+Comparison & Abundance ratio & z-ratio & Adjusted p-value \\ 
 \midrule\addlinespace[2.5pt]
-5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
-4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
-4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
-4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
-5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
-5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
+L - 10 & 0.13 & -9.12 & \textless{}0.0001*** \\ 
+L - 20 & 0.83 & -0.78 & 0.714 \\ 
+10 - 20 & 6.18 & 8.34 & \textless{}0.0001*** \\ 
 \bottomrule
 \end{tabular*}
-
-\normalsize
+\begin{minipage}{\linewidth}
+\vspace{.05em}
+Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textless{} 0.001\\
+\end{minipage}
 
 }
 
 \end{table}%
+
+\subsubsection{Bioengineer Abundances}\label{bioengineer-abundances}
 
 text
 
@@ -582,7 +598,7 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 \scriptsize
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCoA-1.pdf}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCoA FIGURE-1.pdf}
 
 \normalsize
 

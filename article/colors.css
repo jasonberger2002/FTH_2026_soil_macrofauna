@@ -1,2 +1,18 @@
 .color-grey {color: rgb(191, 191, 191);}
 
+.quarto-float-tbl .quarto-float-caption,
+.table .caption,
+table caption {
+  font-size: 0.85rem;
+  color: #666666;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Figure captions: "Figure 1: ..." */
+.quarto-float-fig figcaption {
+  font-size: 0.85rem;
+  color: #666666;
+  text-align: center;
+  font-weight: bold;
+}
