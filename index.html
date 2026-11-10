@@ -35,6 +35,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -256,7 +257,7 @@ Figure&nbsp;1: PLACEHOLDER Enter our map here.
 </figcaption>
 </figure>
 </div>
-<p>text</p>
+<p>PLACEHOLDER citation <span class="citation" data-cites="Ramos2025">Ramos et al. (<a href="#ref-Ramos2025" role="doc-biblioref">2025</a>)</span> or <span class="citation" data-cites="Ramos2025">(<a href="#ref-Ramos2025" role="doc-biblioref">Ramos et al., 2025</a>)</span>, or <span class="citation" data-cites="Freycon2003">Freycon et al. (<a href="#ref-Freycon2003" role="doc-biblioref">2003</a>)</span> or <span class="citation" data-cites="Pavlicek2012">Pavlíček &amp; Csuzdi (<a href="#ref-Pavlicek2012" role="doc-biblioref">2012</a>)</span></p>
 </section>
 <section id="sampling-and-identification" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sampling-and-identification"><span class="header-section-number">2.2</span> Sampling and Identification</h2>
@@ -2029,7 +2030,7 @@ Figure&nbsp;5: Bray-Curtis PCoA for layers here
 </section>
 <section id="bibliography" class="level2 page-columns page-full" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">6.4</span> Bibliography</h2>
-<p>Bibliographic references included in the <code>.bib</code> file declared in the document header can be called by <code>[@CitationKey]</code>, in parentheses <span class="citation" data-cites="Xie2018">(<a href="#ref-Xie2018" role="doc-biblioref">Xie et al. 2018</a>)</span>, or without square brackets, in the text, as <span class="citation" data-cites="Xie2016">Xie (<a href="#ref-Xie2016" role="doc-biblioref">2016</a>)</span>.</p>
+<p>Bibliographic references included in the <code>.bib</code> file declared in the document header can be called by <code>[@CitationKey]</code>, in parentheses <span class="citation" data-cites="Ramos2025">(<a href="#ref-Ramos2025" role="doc-biblioref">Ramos et al., 2025</a>)</span>, or without square brackets, in the text, as <span class="citation" data-cites="Ramos2025">Ramos et al. (<a href="#ref-Ramos2025" role="doc-biblioref">2025</a>)</span>.</p>
 <p>The bibliographic style can be specified, by adding the line</p>
 <pre><code>csl: file_name.csl</code></pre>
 <p>in the document header and copying the <em>.csl</em> style file to the project folder. More than a thousand styles are available<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and their URL can be used instead of copying the file, e.g.:</p>
@@ -2047,12 +2048,15 @@ Figure&nbsp;5: Bray-Curtis PCoA for layers here
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-Xie2016" class="csl-entry" role="listitem">
-Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Freycon2003" class="csl-entry" role="listitem">
+Freycon, V., Sabatier, D., Paget, D., &amp; Ferry, B. (2003). Influence du sol sur la végétation arborescente en forêt guyanaise : État des connaissances. <em>Revue Forestière Française</em>, (55 (sp)), 60–73. <a href="https://doi.org/10.4267/2042/5787">https://doi.org/10.4267/2042/5787</a>
 </div>
-<div id="ref-Xie2018" class="csl-entry" role="listitem">
-Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
+<div id="ref-Pavlicek2012" class="csl-entry" role="listitem">
+Pavlíček, T., &amp; Csuzdi, C. (2012). Earthworm fauna of <span>French Guiana</span>: (<span>Oligochaeta</span>). <em>Zoology in the Middle East</em>, <em>58</em>(sup4), 107–110. <a href="https://doi.org/10.1080/09397140.2012.10648991">https://doi.org/10.1080/09397140.2012.10648991</a>
+</div>
+<div id="ref-Ramos2025" class="csl-entry" role="listitem">
+Ramos, A. P. D., Lima, S. S. D., Ferreira, C. D. S., Pinto, L. A. R. D. S., Ferreira, R., Dias, A., Matos, P. S., &amp; Pereira, M. G. (2025). Macrofauna and soil properties in agroforestry system and secondary forest. <em>Revista Brasileira de Ciência do Solo</em>, <em>49</em>, e0240091. <a href="https://doi.org/10.36783/18069657rbcs20240091">https://doi.org/10.36783/18069657rbcs20240091</a>
 </div>
 </div></section></div></main>
 <!-- /main column -->
