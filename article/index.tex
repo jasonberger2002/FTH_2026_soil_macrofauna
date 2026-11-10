@@ -413,7 +413,7 @@ text
 
 \subsection{Study Site}\label{study-site}
 
-Refer to Figure~\ref{fig-map} for texts
+Refer to Figure~\ref{fig-map}
 
 \begin{figure}
 
@@ -460,36 +460,7 @@ text
 
 \subsection{General}\label{general}
 
-and refer to Table~\ref{tbl-density} for table
-
-\begin{table}
-
-\caption{\label{tbl-density}PLACEHOLDER Table with densities here (mean
-etc?)}
-
-\centering{
-
-\scriptsize
-
-\fontsize{7.0pt}{8.0pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrc}
-\toprule
-Sepal length & Sepal width & Petal length & Petal width & Species \\ 
-\midrule\addlinespace[2.5pt]
-5.1 & 3.5 & 1.4 & 0.2 & setosa \\ 
-4.9 & 3.0 & 1.4 & 0.2 & setosa \\ 
-4.7 & 3.2 & 1.3 & 0.2 & setosa \\ 
-4.6 & 3.1 & 1.5 & 0.2 & setosa \\ 
-5.0 & 3.6 & 1.4 & 0.2 & setosa \\ 
-5.4 & 3.9 & 1.7 & 0.4 & setosa \\ 
-\bottomrule
-\end{tabular*}
-
-\normalsize
-
-}
-
-\end{table}%
+Densities by soil type and layer Figure~\ref{fig-density}
 
 \begin{figure}
 
@@ -497,30 +468,53 @@ Sepal length & Sepal width & Petal length & Petal width & Species \\
 
 \scriptsize
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/General FIGURE-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/Total macrofauna density boxplot FIGURE-1.pdf}}
 
 \normalsize
 
 }
 
-\caption{\label{fig-general}PLACEHOLDER Our first plot for general
-results here}
+\caption{\label{fig-density}Boxplot with total macrofauna densities by
+soil type and layer. y-axis is logarithmic.}
 
 \end{figure}%
 
+Relative composition of community abundances Figure~\ref{fig-comp}
+
 \begin{figure}
 
 \centering{
 
 \scriptsize
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCA FIGURE-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/Composition FIGURE-1.pdf}}
 
 \normalsize
 
 }
 
-\caption{\label{fig-pca}PLACEHOLDER Our PCA figure}
+\caption{\label{fig-comp}Relative composition of macrofaunal community
+abundances by soil type and layer.}
+
+\end{figure}%
+
+Explorative ordination PCA Figure~\ref{fig-pca}
+
+\begin{figure}
+
+\centering{
+
+\scriptsize
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/PCA FIGURE-1.pdf}}
+
+\normalsize
+
+}
+
+\caption{\label{fig-pca}PCA ordination based on Hellinger-transformed
+community matrix. First two dimensions are presented. Only taxa with
+cos² \textgreater{} 0.1 are presented.}
 
 \end{figure}%
 
@@ -547,16 +541,17 @@ difference was found between layers L and 20 (p = 0.714).
 \subsubsection{Formicidae}\label{formicidae}
 
 Type II Wald chi-square tests revealed a highly significant effect of
-soil layer on ant abundance (χ² = 28.00, df = 2, p \textless{} 0.001).
-The effect of soil type was not significant (χ² = 0.48, df = 1, p =
-0.486). The estimated random-effect variance for monolith was 0.655 (SD
-= 0.810), indicating variation in baseline ant abundance among
-monoliths. Quantile deviation was detected in the DHARMa residuals for
-the presented model. Specifically, upper quantile deviated significantly
-and thus relatively high-abundance observations may not be adequately
-captured by the model. Since the diagnostics did not indicate deviations
-regarding dispersion, zero-inflation, uniformity as well outliers, and
-the model has the best AIC support, it was retained, regardless.
+soil layer on ant abundance (\(\chi^2\) = 28.00, df = 2, p \textless{}
+0.001). The effect of soil type was not significant (\(\chi^2\) = 0.48,
+df = 1, p = 0.486). The estimated random-effect variance for monolith
+was 0.655 (SD = 0.810), indicating variation in baseline ant abundance
+among monoliths. Quantile deviation was detected in the DHARMa residuals
+for the presented model. Specifically, upper quantile deviated
+significantly and thus relatively high-abundance observations may not be
+adequately captured by the model. Since the diagnostics did not indicate
+deviations regarding dispersion, zero-inflation, uniformity as well
+outliers, and the model has the best AIC support, it was retained,
+regardless.
 
 Pairwise comparisons with Tukey adjustment (Table~\ref{tbl-pairwise})
 showed that ant abundance was significantly higher in layer 10 than in
@@ -566,20 +561,21 @@ difference was found between layers L and 20 (p = 0.3995).
 \subsubsection{Isoptera}\label{isoptera}
 
 Type II Wald chi-square tests revealed a highly significant effect of
-soil layer on termite abundance (χ² = 36.56, df = 2, p \textless{}
-0.001). The effect of soil type was not significant (χ² = 0.89, df = 1,
-p = 0.347). The estimated random-effect variance for monolith was
-effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no
-remaining variation in baseline termite abundance among monoliths after
-accounting for the fixed effects.
+soil layer on termite abundance (\(\chi^2\) = 36.56, df = 2, p
+\textless{} 0.001). The effect of soil type was not significant
+(\(\chi^2\) = 0.89, df = 1, p = 0.347). The estimated random-effect
+variance for monolith was effectively zero (\(8.22 \times 10^{-9}\); SD
+= 0.00009), indicating virtually no remaining variation in baseline
+termite abundance among monoliths after accounting for the fixed
+effects.
 
 Pairwise comparisons with Tukey adjustment (Table~\ref{tbl-pairwise})
 showed that termite abundance was significantly higher in layer 10 than
 in layer L (18.08 times) and layer 20 (745.48 times; estimated richness
 for 20 nearing zero). Abundance was also significantly higher in layer L
-than in layer 20 (41.23 times; all p ≤ 0.0073).
+than in layer 20 (41.23 times; all p \leq 0.0073).
 
-\begin{table}
+\begin{table*}
 
 \caption{\label{tbl-pairwise}Pairwise emmeans comparisons of abundance
 by layer for total macrofauna, ants (Formicidae) and termites
@@ -610,7 +606,7 @@ Abundance ratios are exponentiated log-scale contrasts. Significance levels: * p
 
 }
 
-\end{table}%
+\end{table*}%
 
 \subsubsection{Lumbricina Oligochaetes}\label{lumbricina-oligochaetes}
 

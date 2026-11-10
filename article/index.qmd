@@ -105,7 +105,7 @@ packages_required <- c(
   # Necessary packages
   "vegan", "permute",
   "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
-  "DHARMa", "car", "emmeans"
+  "DHARMa", "car", "emmeans", "gt"
 )
 
 # Already installed?
@@ -175,17 +175,34 @@ str(df)
 ```
 
 ```{r}
-#| label: setting color scheme
+#| label: setting design scheme (color-blind verified)
+
+# readability was verified for deuteranopia, protanopia, tritanopia and on greyscale
+
 layer_colors <- c(
-  "L"  = "#009E73",  
-  "10" = "#E69F00",  
-  "20" = "#5678A8"   
+  "L"  = "#AFC8B5",
+  "10" = "#B47A2C",
+  "20" = "#355C7D"
 )
 
 soil_colors <- c(
-  "alt" = "#211111",
-  "dls" = "#900000"
+  "alt" = "#C5A36A",
+  "dls" = "#394B45"
 )
+
+taxon_colors <- c(
+  "Formicidae" = "#B56B32",
+  "Isoptera" = "#496987",
+  "Lumbricina_oligochaetes" = "#527F68",
+  "Others" = "#A6A39B"
+)
+
+gg_fontsize <- list(text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    axis.text = element_text(size = 13),
+    strip.text = element_text(size = 15, face = "bold"),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 13))
 ```
 
 # Introduction
@@ -202,7 +219,7 @@ text
 # Material and Methods
 
 ## Study Site
-Refer to @fig-map for texts
+Refer to @fig-map
 
 ::: {#fig-map}
 ```{r}
@@ -238,67 +255,8 @@ text
 
 # Results
 
-## General
-
-and refer to @tbl-density for table
-
-::: {#tbl-density}
 ```{r}
-#| label: Density TABLE
-#| include: true
-names(iris) <- c(
-  "Sepal length", 
-  "Sepal width", 
-  "Petal length",
-  "Petal width", 
-  "Species"
-)
-library("gt")
-head(iris) %>%
-  gt() ->
-  the_table
-
-if (knitr::is_latex_output()) {
-  # Reduce font size in PDF output
-  the_table %>% 
-    opt_table_font(size = px(9))
-} else {
-  # Simply print the table
-  the_table
-}
-```
-
-PLACEHOLDER Table with densities here (mean etc?)
-:::
-
-
-::: {#fig-general fig-env="figure"}
-```{r}
-#| label: General FIGURE
-#| out-width: 80%
-#| include: true
-plot(pressure)
-```
-
-PLACEHOLDER Our first plot for general results here
-:::
-
-
-::: {#fig-pca fig-env="figure"}
-```{r}
-#| label: PCA FIGURE
-#| out-width: 80%
-#| include: true
-
-plot(pressure)
-```
-
-PLACEHOLDER Our PCA figure
-:::
-
-## GLMM
-```{r}
-#| label: Preparing data for GLMM
+#| label: Preparing data for explorative analysis and GLMM
 # identify taxa columns
 taxa_cols <- names(df)[7:34]
 
@@ -327,6 +285,315 @@ df_total <- df %>%
   )
 ```
 
+## General
+
+Densities by soil type and layer @fig-density
+
+::: {#fig-density fig-env="figure"}
+```{r}
+#| label: Total macrofauna density boxplot FIGURE
+#| include: true
+
+# Boxplot of total macrofauna density
+fig_density <- ggplot(
+  df_total,
+  aes(
+    x = layer,
+    y = density,
+    fill = soil_type
+  )
+) +
+  geom_boxplot(
+    width = 0.7,
+    position = position_dodge(width = 0.8),
+    outlier.shape = 1
+  ) +
+  scale_fill_manual(values = soil_colors) +
+  scale_y_continuous(
+  trans = scales::pseudo_log_trans(base = 10),
+  breaks = c(0, 10, 100, 1000, 5000),
+  labels = scales::label_comma()
+) +
+  labs(
+    x = "Soil layer",
+    y = expression("Total density (ind. m"^{-2}*")"),
+    fill = "Soil type"
+  ) +
+  theme_bw() +
+  theme(!!!gg_fontsize)
+
+print(fig_density)
+```
+
+Boxplot with total macrofauna densities by soil type and layer. y-axis is logarithmic.
+:::
+
+Relative composition of community abundances @fig-comp
+
+::: {#fig-comp fig-env="figure"}
+```{r}
+#| label: Composition FIGURE
+#| include: true
+
+# Group taxa into the three focal groups and others
+composition <- df_long %>%
+  mutate(
+    taxon_group = case_when(
+      taxon == "Formicidae" ~ "Formicidae",
+      taxon == "Isoptera" ~ "Isoptera",
+      taxon == "Lumbricina_oligochaetes" ~ "Lumbricina_oligochaetes",
+      TRUE ~ "Others"
+    ),
+    layer = factor(layer, levels = c("L", "10", "20")),
+    taxon_group = factor(
+      taxon_group,
+      levels = names(taxon_colors)
+    )
+  ) %>%
+  group_by(soil_type, layer, taxon_group) %>%
+  summarise(
+    total = sum(count, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  group_by(soil_type, layer) %>%
+  mutate(
+    proportion = total / sum(total)
+  ) %>%
+  ungroup()
+
+# Plot taxonomic composition
+fig_composition <- ggplot(
+  composition,
+  aes(
+    x = soil_type,
+    y = proportion,
+    fill = taxon_group
+  )
+) +
+  geom_col(
+    colour = "white",
+    width = 0.7
+  ) +
+  facet_wrap(~ layer) +
+  scale_y_continuous(
+    labels = scales::percent,
+    limits = c(0, 1)
+  ) +
+  scale_fill_manual(
+    values = taxon_colors,
+    drop = FALSE
+  ) +
+  labs(
+    x = "Soil type",
+    y = "Proportion of individuals",
+    fill = "Taxon"
+  ) +
+  theme_bw() +
+ theme(!!!gg_fontsize)
+
+print(fig_composition)
+```
+
+Relative composition of macrofaunal community abundances by soil type and layer.
+:::
+
+Explorative ordination PCA @fig-pca
+```{r}
+#| label: prepare PCA using Hellinger transformation
+
+# Community matrix
+comm <- as.matrix(df[, taxa_cols])
+storage.mode(comm) <- "numeric"
+
+# Remove samples with zero total abundance
+keep <- rowSums(comm) > 0 # one removed
+
+comm_pca <- comm[keep, , drop = FALSE]
+
+# Hellinger transformation
+comm_hel <- vegan::decostand(comm_pca, method = "hellinger")
+
+# PCA
+pca <- prcomp(
+  comm_hel,
+  center = TRUE,
+  scale. = FALSE
+)
+
+# Percentage of variance explained
+variance_pca <- 100 * pca$sdev^2 / sum(pca$sdev^2)
+
+# Scores and metadata
+scores_pca <- as.data.frame(pca$x[, 1:2]) %>%
+  mutate(
+    soil_type = df$soil_type[keep],
+    layer = factor(df$layer[keep], levels = c("L", "10", "20")),
+    monolith_ID = df$monolith_ID[keep]
+  )
+
+# Taxon coordinates from PCA loadings
+taxa_scores <- as.data.frame(pca$rotation[, 1:2]) %>%
+  tibble::rownames_to_column("taxon") %>%
+  mutate(
+    cos2 = PC1^2 + PC2^2
+  )
+
+# Scale taxon arrows to fit sample scores
+arrow_scale <- min(
+  diff(range(scores_pca$PC1)) / diff(range(taxa_scores$PC1)),
+  diff(range(scores_pca$PC2)) / diff(range(taxa_scores$PC2))
+) * 0.7
+
+taxa_scores <- taxa_scores %>%
+  mutate(
+    PC1_arrow = PC1 * arrow_scale,
+    PC2_arrow = PC2 * arrow_scale
+  )
+
+# Keep taxa reasonably represented on the first two PCA axes
+taxa_scores_plot <- taxa_scores %>%
+  filter(cos2 >= 0.10) # can change cos2 here
+``` 
+
+::: {#fig-pca fig-env="figure"}
+```{r}
+#| label: PCA FIGURE
+#| include: true
+
+#| label: PCA biplot
+
+fig_pca <- ggplot(
+  scores_pca,
+  aes(
+    x = PC1,
+    y = PC2,
+    colour = soil_type,
+    shape = layer
+  )
+) +
+
+  # Reference lines at the origin
+  geom_hline(
+    yintercept = 0,
+    linetype = "dotted",
+    colour = "grey65",
+    linewidth = 0.4,
+    inherit.aes = FALSE
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dotted",
+    colour = "grey65",
+    linewidth = 0.4,
+    inherit.aes = FALSE
+  ) +
+
+  # Confidence ellipses by soil type
+ stat_ellipse(
+  data = scores_pca,
+  mapping = aes(
+    x = PC1,
+    y = PC2,
+    group = soil_type,
+    colour = soil_type
+  ),
+  level = 0.95,
+  type = "t",
+  linetype = "dashed",
+  linewidth = 0.7,
+  show.legend = FALSE,
+  inherit.aes = FALSE
+) + 
+
+  # Sample scores
+  geom_point(
+    size = 3,
+    alpha = 0.8
+  ) +
+
+  # Discrete colour scale for soil type
+  scale_colour_manual(
+    values = soil_colors,
+    name = "Soil type"
+  ) +
+
+  # Start a separate colour scale for taxon arrows
+  ggnewscale::new_scale_colour() +
+
+  # Taxon arrows, coloured by cos2
+  geom_segment(
+    data = taxa_scores_plot,
+    aes(
+      x = 0,
+      y = 0,
+      xend = PC1_arrow,
+      yend = PC2_arrow,
+      colour = cos2
+    ),
+    inherit.aes = FALSE,
+    arrow = grid::arrow(
+      length = grid::unit(0.2, "cm")
+    ),
+    linewidth = 0.6
+  ) +
+
+  # Taxon labels, coloured by cos2
+  ggrepel::geom_text_repel(
+    data = taxa_scores_plot,
+    aes(
+      x = PC1_arrow,
+      y = PC2_arrow,
+      label = taxon,
+      colour = cos2
+    ),
+    inherit.aes = FALSE,
+    size = 4,
+    max.overlaps = Inf,
+    show.legend = FALSE
+  ) +
+
+  # Continuous colour scale for taxon cos2
+  scale_colour_gradient(
+    low = "grey80",
+    high = "#2166AC",
+    name = expression(cos^2)
+  ) +
+
+  # Layer shapes
+  scale_shape_manual(
+    values = c(
+      "L" = 16,
+      "10" = 17,
+      "20" = 15
+    ),
+    name = "Layer"
+  ) +
+
+  # Axis labels
+  labs(
+    x = paste0(
+      "PC1 (",
+      round(variance_pca[1], 1),
+      "%)"
+    ),
+    y = paste0(
+      "PC2 (",
+      round(variance_pca[2], 1),
+      "%)"
+    )
+  ) +
+
+  # Theme
+  theme_bw() +
+  theme(!!!gg_fontsize)
+
+fig_pca
+```
+
+PCA ordination based on Hellinger-transformed community matrix. First two dimensions are presented. Only taxa with cos² > 0.1 are presented.
+:::
+
+## GLMM
 Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in @tbl-models.
 
 
@@ -365,7 +632,7 @@ ants_nb_add <- glmmTMB(
 Anova(ants_nb_add)
 summary(ants_nb_add)
 ```
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance (χ² = 28.00, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths. Quantile deviation was detected in the DHARMa residuals for the presented model. Specifically, upper quantile deviated significantly and thus relatively high-abundance observations may not be adequately captured by the model. Since the diagnostics did not indicate deviations regarding dispersion, zero-inflation, uniformity as well outliers, and the model has the best AIC support, it was retained, regardless.
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance ($\chi^2$ = 28.00, df = 2, p < 0.001). The effect of soil type was not significant ($\chi^2$ = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths. Quantile deviation was detected in the DHARMa residuals for the presented model. Specifically, upper quantile deviated significantly and thus relatively high-abundance observations may not be adequately captured by the model. Since the diagnostics did not indicate deviations regarding dispersion, zero-inflation, uniformity as well outliers, and the model has the best AIC support, it was retained, regardless.
 
 Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference was found between layers L and 20 (p = 0.3995).
 
@@ -387,19 +654,15 @@ Anova(termites_nb_add)
 summary(termites_nb_add)
 ```
 
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance (χ² = 36.56, df = 2, p < 0.001). The effect of soil type was not significant (χ² = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
+Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance ($\chi^2$ = 36.56, df = 2, p < 0.001). The effect of soil type was not significant ($\chi^2$ = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero ($8.22 \times 10^{-9}$; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
 
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ≤ 0.0073).
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p \leq 0.0073).
 
 ::: {#tbl-pairwise fig-env="table*"}
 ```{r}
 #| label: GLMM pairwise comparisons TABLE
 #| size: normalsize
 #| include: true
-
-library(emmeans)
-library(dplyr)
-library(gt)
 
 # Estimated marginal means for layers (response scale)
 emm_layers_total <- emmeans(m_nb_add, ~ layer, type = "response")
@@ -514,10 +777,6 @@ summary(earthworms_p_add)
 #| label: SummaryModels
 #| include: true
 #| size: normalsize
-
-library(car)
-library(dplyr)
-library(gt)
 
 models <- list(
   "Total macrofauna" = m_nb_add,
@@ -783,12 +1042,7 @@ Pairwise PERMANOVA suggests significant differences in macrofauna community comp
 #| label: Pairwise PERMANOVA results TABLE
 #| size: normalsize
 #| include: true
-
-library(vegan)
-library(permute)
-library(dplyr)
-library(gt)
-
+#| 
 # Pairwise PERMANOVA testing for layers
 layer_pairs <- list(
   c("L", "10"),
