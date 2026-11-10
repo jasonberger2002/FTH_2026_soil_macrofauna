@@ -431,7 +431,8 @@ Refer to Figure~\ref{fig-map}
 
 \end{figure}%
 
-text
+PLACEHOLDER citation Ramos et al. (2025) or (Ramos et al., 2025), or
+Freycon et al. (2003) or Pavlíček \& Csuzdi (2012)
 
 \subsection{Sampling and
 Identification}\label{sampling-and-identification}
@@ -779,8 +780,8 @@ In all cases, the call to the reference is made by \texttt{@}.
 
 Bibliographic references included in the \texttt{.bib} file declared in
 the document header can be called by \texttt{{[}@CitationKey{]}}, in
-parentheses (Xie et al. 2018), or without square brackets, in the text,
-as Xie (2016).
+parentheses (Ramos et al., 2025), or without square brackets, in the
+text, as Ramos et al. (2025).
 
 The bibliographic style can be specified, by adding the line
 
@@ -812,16 +813,24 @@ a space before the command. The HTML document ignores LaTeX commands.
 \addcontentsline{toc}{section}{References}
 
 \protect\phantomsection\label{refs}
-\begin{CSLReferences}{1}{1}
-\bibitem[\citeproctext]{ref-Xie2016}
-Xie, Yihui. 2016. \emph{Bookdown: Authoring Books and Technical
-Documents with {R} Markdown}. Chapman; Hall/CRC.
-\url{https://github.com/rstudio/bookdown}.
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Freycon2003}
+Freycon, V., Sabatier, D., Paget, D., \& Ferry, B. (2003). Influence du
+sol sur la végétation arborescente en forêt guyanaise : État des
+connaissances. \emph{Revue Forestière Française}, (55 (sp)), 60--73.
+\url{https://doi.org/10.4267/2042/5787}
 
-\bibitem[\citeproctext]{ref-Xie2018}
-Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. \emph{R
-Markdown: The Definitive Guide}. Chapman; Hall/CRC.
-\url{https://bookdown.org/yihui/rmarkdown}.
+\bibitem[\citeproctext]{ref-Pavlicek2012}
+Pavlíček, T., \& Csuzdi, C. (2012). Earthworm fauna of {French Guiana}:
+({Oligochaeta}). \emph{Zoology in the Middle East}, \emph{58}(sup4),
+107--110. \url{https://doi.org/10.1080/09397140.2012.10648991}
+
+\bibitem[\citeproctext]{ref-Ramos2025}
+Ramos, A. P. D., Lima, S. S. D., Ferreira, C. D. S., Pinto, L. A. R. D.
+S., Ferreira, R., Dias, A., Matos, P. S., \& Pereira, M. G. (2025).
+Macrofauna and soil properties in agroforestry system and secondary
+forest. \emph{Revista Brasileira de Ciência do Solo}, \emph{49},
+e0240091. \url{https://doi.org/10.36783/18069657rbcs20240091}
 
 \end{CSLReferences}
 

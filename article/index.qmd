@@ -15,6 +15,12 @@ format:
   stylisharticle-html:
     # Color example, see "Text color"
     css: colors.css
+
+# citation style
+csl: "../citation_style/apa_adapted.csl" #apa v7
+
+#APA version 7 CSL style, obtained from the Citation Style Language (CSL) project (citationstyles.org); adapted to maintain journal title capitalization
+
 # Authors (https://quarto.org/docs/journals/authors.html#author-schema)
 author:
   - name: Jason Berger
@@ -231,7 +237,8 @@ knitr::include_graphics("images/logo.png")
 
 PLACEHOLDER Enter our map here.
 :::
-text
+
+PLACEHOLDER citation @Ramos2025 or [@Ramos2025], or @Freycon2003 or @Pavlicek2012
 
 ## Sampling and Identification
 
@@ -1345,7 +1352,7 @@ In all cases, the call to the reference is made by `@`.
 
 Bibliographic references included in the `.bib` file declared in the
 document header can be called by `[@CitationKey]`, in parentheses
-[@Xie2018], or without square brackets, in the text, as @Xie2016.
+[@Ramos2025], or without square brackets, in the text, as @Ramos2025.
 
 The bibliographic style can be specified, by adding the line
 
