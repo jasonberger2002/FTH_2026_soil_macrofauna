@@ -6,8 +6,14 @@ Students: Jason BERGER; Nina FARAH; Juliette KIFFER; Nelle KONCZAK
 
 Project supervisors: Vincent FREYCON; Raphaël MARICHAL; Ariane MIRABEL
 
+Directory statistical_analysis:
 index.qmd includes main statistical analysis and figures
 
-data folder includes raw data file used for the analyses
+Directory article:
+index.qmd represents quarto document used to write the article
 
-qgis folder includes produced QGIS layers as well as an R script used to map field sampling points into coordinate system
+Directory data:
+includes raw data file used for the analyses
+
+Directory qgis:
+includes produced QGIS layers as well as an R script used to map field sampling points into coordinate system
