@@ -227,15 +227,15 @@ text
 ## Study Site
 Refer to @fig-map
 
-::: {#fig-map}
+::: {#fig-map fig-env="figure*"}
 ```{r}
 #| label: map FIGURE
-#| out-width: 30%
+#| out-width: 100%
 #| include: true
-knitr::include_graphics("images/logo.png")
+knitr::include_graphics("images/overview_paracou.png")
 ```
 
-PLACEHOLDER Enter our map here.
+Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. 
 :::
 
 PLACEHOLDER citation @Ramos2025 or [@Ramos2025], or @Freycon2003 or @Pavlicek2012
