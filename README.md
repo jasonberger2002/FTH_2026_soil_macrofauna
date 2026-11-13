@@ -8,7 +8,7 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 
 #### Directory statistical_analysis:
 
-index.qmd includes main statistical analysis and figures
+index.qmd includes detailed statistical analysis and figures, including model selection and diagnostics.
 
 #### Directory article:
 
