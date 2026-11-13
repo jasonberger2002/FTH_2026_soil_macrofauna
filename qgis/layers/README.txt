@@ -9,3 +9,5 @@ Drainage types (P1_P15_drainages) for P1 and P15 were extracted from soil invent
 roadspaths3 includes roads and paths in the Paracou area and was provided by Vincent Freycon.
 
 carbet includes the approximate location of the Paracou field station carbet (created by hand).
+
+Outline of French Guiana was obtained via https://gadm.org/
