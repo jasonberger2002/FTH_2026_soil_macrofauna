@@ -19,6 +19,9 @@ _freeze/
 *.pdf
 *.tex
 
+# make sure extension subfolder remains unaffected
+!_extensions/**
+
 # Intermediate files
 /nul
 /*.aux
