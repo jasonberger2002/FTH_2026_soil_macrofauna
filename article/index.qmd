@@ -73,8 +73,8 @@ abstract: |
 keywords: [soil macrofauna, soil drainage, Paracou, Amazon forest, soil ecology]
 # Bibliography
 reference-section-title: References
-bibliography: macrofauna_refs.bib
-# references.bib is created and automatically updated using zotero with Better BibTeX plug-in; see: https://retorque.re/zotero-better-bibtex/index.html
+bibliography: ../macrofauna_refs.bib
+# .bib is created and automatically updated using zotero with Better BibTeX plug-in; see: https://retorque.re/zotero-better-bibtex/index.html
 
 # Language
 lang: en-US
