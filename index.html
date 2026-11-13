@@ -102,10 +102,10 @@ window.Quarto = {
 
 <body class="quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
   <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Contents</h2>
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
@@ -138,17 +138,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
-  <li><a href="#instructions-template-remove-later" id="toc-instructions-template-remove-later" class="nav-link" data-scroll-target="#instructions-template-remove-later"><span class="header-section-number">6</span> INSTRUCTIONS TEMPLATE, REMOVE LATER</a>
-  <ul class="collapse">
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">6.1</span> Lists</a></li>
-  <li><a href="#math" id="toc-math" class="nav-link" data-scroll-target="#math"><span class="header-section-number">6.2</span> Math</a></li>
-  <li><a href="#cross-references" id="toc-cross-references" class="nav-link" data-scroll-target="#cross-references"><span class="header-section-number">6.3</span> Cross-references</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">6.4</span> Bibliography</a></li>
-  <li><a href="#forcing-line-breaks" id="toc-forcing-line-breaks" class="nav-link" data-scroll-target="#forcing-line-breaks"><span class="header-section-number">6.5</span> Forcing line breaks</a></li>
-  </ul></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">References</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (stylisharticle)</a></li></ul></div></nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
 <main class="content page-columns page-full" id="quarto-document-content" tabindex="-1">
 
@@ -314,7 +308,7 @@ Figure&nbsp;2: Boxplot with total macrofauna densities by soil type and layer. y
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/Composition%20FIGURE-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/Composition%20FIGURE-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -914,7 +908,7 @@ Table&nbsp;1: Pairwise emmeans comparisons of abundance by layer for total macro
 </section>
 <section id="lumbricina-oligochaetes" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="lumbricina-oligochaetes">Lumbricina Oligochaetes</h3>
-<p>results text</p>
+<p>Type II Wald chi-square tests indicated a significant effect of soil layer on earthworm abundance (<span class="math inline">\(\chi^2\)</span> = 12.69), df = 2, p = 0.0018), whereas soil type had no significant effect (<span class="math inline">\(\chi^2\)</span> = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)</p>
 <div id="tbl-models" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="table*">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1970,7 +1964,7 @@ Table&nbsp;3: Pairwise PERMANOVA for community composition comparisons between l
 </figcaption>
 </figure>
 </div>
-<div id="fig-pcoa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*">
+<div id="fig-pcoa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
@@ -1978,7 +1972,7 @@ Table&nbsp;3: Pairwise PERMANOVA for community composition comparisons between l
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/PCoA%20FIGURE-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="index_files/figure-html/PCoA%20FIGURE-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -2000,57 +1994,14 @@ Figure&nbsp;5: Bray-Curtis PCoA for layers here
 <h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
 <p>text</p>
 </section>
-<section id="instructions-template-remove-later" class="level1 page-columns page-full" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> INSTRUCTIONS TEMPLATE, REMOVE LATER</h1>
-<section id="lists" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="lists"><span class="header-section-number">6.1</span> Lists</h2>
-<p>Lists are indicated by <code>*</code>, <code>+</code> and <code>-</code> (three hierarchical levels) or numbers <code>1.</code>, <code>i.</code> and <code>A.</code> (numbered lists). Indentation of lists indicates their level: <code>*</code>, <code>+</code> and <code>-</code> may be replaced by <code>-</code> at all levels, but four spaces are needed to nest a list into another.</p>
-<ul>
-<li>First element of a list
-<ul>
-<li>sub-list</li>
-</ul></li>
-<li>Second element</li>
-<li>Continuation of the list</li>
-</ul>
-<p>Leave an empty line before and after the list, but not between its items.</p>
-</section>
-<section id="math" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="math"><span class="header-section-number">6.2</span> Math</h2>
-<p>Equations in LaTeX format can be inserted inline, like <span class="math inline">\(A = \pi r^2\)</span> or isolated like <span class="math display">\[e^{i \pi} = -1.\]</span></p>
-<p>They can be numbered, see <a href="#eq-disk" class="quarto-xref">Equation&nbsp;1</a>, after adding them a label:</p>
-<p><span id="eq-disk"><span class="math display">\[  A = \pi r^2. \tag{1}\]</span></span></p>
-</section>
-<section id="cross-references" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="cross-references"><span class="header-section-number">6.3</span> Cross-references</h2>
-<p>Figures and tables have a label declared in their division <code>tbl-xxx</code> or <code>fig-yyy</code>, starting with <code>fig-</code> or <code>tbl-</code>.</p>
-<p>For equations, the label is added manually by the code <code>{#eq-xxx}</code> after the end of the equation.</p>
-<p>Sections can be tagged by ending their title with <code>{#sec-yyy}</code>.</p>
-<p>In all cases, the call to the reference is made by <code>@</code>.</p>
-</section>
-<section id="bibliography" class="level2 page-columns page-full" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">6.4</span> Bibliography</h2>
-<p>Bibliographic references included in the <code>.bib</code> file declared in the document header can be called by <code>[@CitationKey]</code>, in parentheses <span class="citation" data-cites="Ramos2025">(<a href="#ref-Ramos2025" role="doc-biblioref">Ramos et al., 2025</a>)</span>, or without square brackets, in the text, as <span class="citation" data-cites="Ramos2025">Ramos et al. (<a href="#ref-Ramos2025" role="doc-biblioref">2025</a>)</span>.</p>
-<p>The bibliographic style can be specified, by adding the line</p>
-<pre><code>csl: file_name.csl</code></pre>
-<p>in the document header and copying the <em>.csl</em> style file to the project folder. More than a thousand styles are available<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and their URL can be used instead of copying the file, e.g.:</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<a href="https://github.com/citation-style-language/styles" class="uri">https://github.com/citation-style-language/styles</a></p></div></div><pre><code>csl: https://www.zotero.org/styles/xxx</code></pre>
-</section>
-<section id="forcing-line-breaks" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="forcing-line-breaks"><span class="header-section-number">6.5</span> Forcing line breaks</h2>
-<p>Hyphenation is handled automatically in LaTeX. If a word is not hyphenated correctly, add its hyphenation in the preamble of the file with the command <code>hyphenation</code> (words are separated by spaces, hyphenation locations are represented by dashes).</p>
-<p>If LaTeX can’t find a solution for the line break, for example because some code is too long a non-breaking block, add the LaTeX command <code>\break</code> to the line break location. Do not leave a space before the command. The HTML document ignores LaTeX commands.</p>
-</section>
-</section>
 <section id="bibliography" class="level1 unnumbered">
 
 
 </section>
 
-
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-Freycon2003" class="csl-entry" role="listitem">
-Freycon, V., Sabatier, D., Paget, D., &amp; Ferry, B. (2003). Influence du sol sur la végétation arborescente en forêt guyanaise : État des connaissances. <em>Revue Forestière Française</em>, (55 (sp)), 60–73. <a href="https://doi.org/10.4267/2042/5787">https://doi.org/10.4267/2042/5787</a>
+Freycon, V., Sabatier, D., Paget, D., &amp; Ferry, B. (2003). Influence du sol sur la végétation arborescente en forêt guyanaise : État des connaissances. <em>Revue Forestière Française</em>, 60–73. <a href="https://doi.org/10.4267/2042/5787">https://doi.org/10.4267/2042/5787</a>
 </div>
 <div id="ref-Pavlicek2012" class="csl-entry" role="listitem">
 Pavlíček, T., &amp; Csuzdi, C. (2012). Earthworm fauna of <span>French Guiana</span>: (<span>Oligochaeta</span>). <em>Zoology in the Middle East</em>, <em>58</em>(sup4), 107–110. <a href="https://doi.org/10.1080/09397140.2012.10648991">https://doi.org/10.1080/09397140.2012.10648991</a>
