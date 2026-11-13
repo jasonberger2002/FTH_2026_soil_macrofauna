@@ -1,0 +1,145 @@
+## R
+R Core Team (2026). _R: A Language and Environment for
+Statistical Computing_. R Foundation for Statistical Computing,
+Vienna, Austria. doi:10.32614/R.manuals
+<https://doi.org/10.32614/R.manuals>.
+<https://www.R-project.org/>.
+
+## car
+Fox J, Weisberg S (2019). _An R Companion to Applied Regression_,
+Third edition. Sage, Thousand Oaks CA.
+<https://www.john-fox.ca/Companion/>.
+
+## DHARMa
+Hartig F (2026). _DHARMa: Residual Diagnostics for Hierarchical
+(Multi-Level / Mixed) Regression Models_.
+doi:10.32614/CRAN.package.DHARMa
+<https://doi.org/10.32614/CRAN.package.DHARMa>. R package version
+0.5.0, <https://CRAN.R-project.org/package=DHARMa>.
+
+## dplyr
+Wickham H, François R, Henry L, Müller K, Vaughan D (2026).
+_dplyr: A Grammar of Data Manipulation_.
+doi:10.32614/CRAN.package.dplyr
+<https://doi.org/10.32614/CRAN.package.dplyr>. R package version
+1.2.1, <https://CRAN.R-project.org/package=dplyr>.
+
+## emmeans
+Lenth R, Piaskowski J (2026). _emmeans: Estimated Marginal Means,
+aka Least-Squares Means_. doi:10.32614/CRAN.package.emmeans
+<https://doi.org/10.32614/CRAN.package.emmeans>. R package
+version 2.0.4, <https://CRAN.R-project.org/package=emmeans>.
+
+## formatR
+Xie Y (2023). _formatR: Format R Code Automatically_.
+doi:10.32614/CRAN.package.formatR
+<https://doi.org/10.32614/CRAN.package.formatR>. R package
+version 1.14, <https://CRAN.R-project.org/package=formatR>.
+
+## geosphere
+Hijmans R (2026). _geosphere: Spherical Trigonometry_.
+doi:10.32614/CRAN.package.geosphere
+<https://doi.org/10.32614/CRAN.package.geosphere>. R package
+version 1.6-8, <https://CRAN.R-project.org/package=geosphere>.
+
+## ggnewscale
+Campitelli E (2025). _ggnewscale: Multiple Fill and Colour Scales
+in 'ggplot2'_. doi:10.32614/CRAN.package.ggnewscale
+<https://doi.org/10.32614/CRAN.package.ggnewscale>. R package
+version 0.5.2, <https://CRAN.R-project.org/package=ggnewscale>.
+
+## ggrepel
+Slowikowski K (2026). _ggrepel: Automatically Position
+Non-Overlapping Text Labels with 'ggplot2'_.
+doi:10.32614/CRAN.package.ggrepel
+<https://doi.org/10.32614/CRAN.package.ggrepel>. R package
+version 0.9.8, <https://CRAN.R-project.org/package=ggrepel>.
+
+## glmmTMB
+Brooks ME, Kristensen K, van Benthem KJ, Magnusson A, Berg CW,
+Nielsen A, Skaug HJ, Maechler M, Bolker BM (2017). “glmmTMB
+Balances Speed and Flexibility Among Packages for Zero-inflated
+Generalized Linear Mixed Modeling.” _The R Journal_, *9*(2),
+378-400. doi:10.32614/RJ-2017-066
+<https://doi.org/10.32614/RJ-2017-066>.
+McGillycuddy M, Warton DI, Popovic G, Bolker BM (2025).
+“Parsimoniously Fitting Large Multivariate Random Effects in
+glmmTMB.” _Journal of Statistical Software_, *112*(1), 1-19.
+doi:10.18637/jss.v112.i01
+<https://doi.org/10.18637/jss.v112.i01>.
+
+## gt
+Iannone R, Cheng J, Schloerke B, Haughton S, Hughes E, Lauer A,
+François R, Seo J, Brevoort K, Roy O (2026). _gt: Easily Create
+Presentation-Ready Display Tables_. doi:10.32614/CRAN.package.gt
+<https://doi.org/10.32614/CRAN.package.gt>. R package version
+1.3.0, <https://CRAN.R-project.org/package=gt>.
+
+## knitr
+Xie Y (2026). _knitr: A General-Purpose Package for Dynamic
+Report Generation in R_. R package version 1.52,
+<https://yihui.org/knitr/>.
+Xie Y (2015). _Dynamic Documents with R and knitr_, 2nd edition.
+Chapman and Hall/CRC, Boca Raton, Florida. ISBN 978-1498716963,
+<https://yihui.org/knitr/>.
+Xie Y (2014). “knitr: A Comprehensive Tool for Reproducible
+Research in R.” In Stodden V, Leisch F, Peng RD (eds.),
+_Implementing Reproducible Computational Research_. Chapman and
+Hall/CRC. ISBN 978-1466561595.
+
+## permute
+Simpson G (2026). _permute: Functions for Generating Restricted
+Permutations of Data_. doi:10.32614/CRAN.package.permute
+<https://doi.org/10.32614/CRAN.package.permute>. R package
+version 0.9-10, <https://CRAN.R-project.org/package=permute>.
+
+## readxl
+Wickham H, Bryan J (2026). _readxl: Read Excel Files_.
+doi:10.32614/CRAN.package.readxl
+<https://doi.org/10.32614/CRAN.package.readxl>. R package version
+1.5.0.1, <https://CRAN.R-project.org/package=readxl>.
+
+## rstudioapi
+Ushey K, Allaire J, Wickham H, Ritchie G (2026). _rstudioapi:
+Safely Access the RStudio API_.
+doi:10.32614/CRAN.package.rstudioapi
+<https://doi.org/10.32614/CRAN.package.rstudioapi>. R package
+version 0.19.0, <https://CRAN.R-project.org/package=rstudioapi>.
+
+## sf
+Pebesma E, Bivand R (2023). _Spatial Data Science: With
+applications in R_. Chapman and Hall/CRC.
+doi:10.1201/9780429459016
+<https://doi.org/10.1201/9780429459016>.
+<https://r-spatial.org/book/>.
+Pebesma E (2018). “Simple Features for R: Standardized Support
+for Spatial Vector Data.” _The R Journal_, *10*(1), 439-446.
+doi:10.32614/RJ-2018-009 <https://doi.org/10.32614/RJ-2018-009>.
+<https://doi.org/10.32614/RJ-2018-009>.
+
+## tidyverse
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R,
+Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL,
+Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP,
+Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019).
+“Welcome to the tidyverse.” _Journal of Open Source Software_,
+*4*(43), 1686. doi:10.21105/joss.01686
+<https://doi.org/10.21105/joss.01686>.
+
+## vegan
+Oksanen J, Simpson G, Blanchet F, Kindt R, Legendre P, Minchin P,
+O'Hara R, Solymos P, Stevens M, Szoecs E, Wagner H, Bedward M,
+Bolker B, Borcard D, Carvalho G, De Caceres M, Durand S,
+Evangelista H, Hannigan G, Hill M, Lahti L, Martino C, Ouellette
+M, Ribeiro Cunha E, Smith T, Stier A, Ter Braak C, Weedon J
+(2026). _vegan: Community Ecology Package_.
+doi:10.32614/CRAN.package.vegan
+<https://doi.org/10.32614/CRAN.package.vegan>. R package version
+2.7-6, <https://CRAN.R-project.org/package=vegan>.
+
+## writexl
+Ooms J, Denney B (2026). _writexl: Export Data Frames to Excel
+'xlsx' Format_. doi:10.32614/CRAN.package.writexl
+<https://doi.org/10.32614/CRAN.package.writexl>. R package
+version 2.0.1, <https://CRAN.R-project.org/package=writexl>.
+
