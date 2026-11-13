@@ -251,7 +251,7 @@ Overview map of Paracou with the sampling locations. Location of right panels sh
 text
 
 ## Statistical analysis
-
+Estimated marginal means and Tukey pairwise comparisons using emmeans [@Lenth2026].
 Analysis was performed using R version 4.6.1 [@RCoreTeam2026].
 
 
@@ -261,7 +261,7 @@ TEXT
 
 ### Analysis of Abundances (Generalized Linear Mixed Models)
 
-glmmTMB [@Brooks2017; @Brooks2026] for fitting GLMMs
+We tested the effects of soil drainage type and soil layers on abundances. Generalized Linear Mixed Models (GLMMs) were fitted using the glmmTMB package [@Brooks2017; @Brooks2026] to account spatial structure by including monoliths as a random effect. 
 negative binomial (NB2) and Poisson tested
 
 Model diagnostics evaluated using DHARMa [@Hartig2026]
@@ -276,10 +276,9 @@ permute [@Simpson2026]: permutation schemes
 
 tidyverse [@Wickham2019; @Wickham2023] used for plotting and data processing
 
+## Spatial Representation
 
-Spatial representation of sampling sites: in QGIS [@QGISDevelopmentTeam2024]. Monolith locations reconstructed using field measurements and reference trees from Paracou inventory data [@Derroire2026; @Derroire2026a] in R [@RCoreTeam2026] and sf package [@Pebesma2018; @Pebesma2023] 
-
-Estimated marginal means and Tukey pairwise comparisons using emmeans [@Lenth2026].
+Monolith locations were reconstructed using R [@RCoreTeam2026] and the sf package [@Pebesma2018; @Pebesma2023]. Coordinates were obtained based on distance and azimuth in relation to reference trees and their coordinates sourced from Paracou inventory data [@Derroire2026; @Derroire2026a]. QGIS [@QGISDevelopmentTeam2024] was used for spatial representation.
 
 # Results
 
