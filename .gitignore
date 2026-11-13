@@ -15,9 +15,9 @@ _freeze/
 *_files/
 
 # Output files (project root only)
-/*.html
-/*.pdf
-/*.tex
+*.html
+*.pdf
+*.tex
 
 # Intermediate files
 /nul
