@@ -490,7 +490,7 @@ Relative composition of community abundances Figure~\ref{fig-comp}
 
 \scriptsize
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/Composition FIGURE-1.pdf}}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/Composition FIGURE-1.pdf}
 
 \normalsize
 
@@ -613,7 +613,16 @@ Abundance ratios are exponentiated log-scale contrasts. Significance levels: * p
 
 \subsubsection{Lumbricina Oligochaetes}\label{lumbricina-oligochaetes}
 
-results text
+Type II Wald chi-square tests indicated a significant effect of soil
+layer on earthworm abundance (\(\chi^2\) = 12.69), df = 2, p = 0.0018),
+whereas soil type had no significant effect (\(\chi^2\) = 0.35), df = 1,
+p = 0.557). Pairwise comparisons showed significantly higher earthworm
+abundance in layer 10 compared to layer 20 (2.31 times higher). No
+significant differences were detected between layer L and the other
+layers. However, no earthworms were recorded in layer L, resulting in
+unstable model estimates and unbounded confidence intervals for this
+layer. The Estimated random-effect variance for monoliths was 0.510 (SD
+= 0.714)
 
 \begin{table*}
 
@@ -700,13 +709,13 @@ Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textles
 
 \end{table}%
 
-\begin{figure*}
+\begin{figure}
 
 \centering{
 
 \scriptsize
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCoA FIGURE-1.pdf}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{index_files/figure-pdf/PCoA FIGURE-1.pdf}
 
 \normalsize
 
@@ -714,7 +723,7 @@ Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textles
 
 \caption{\label{fig-pcoa}Bray-Curtis PCoA for layers here}
 
-\end{figure*}%
+\end{figure}%
 
 \section{Discussion}\label{discussion}
 
@@ -724,93 +733,6 @@ text
 
 text
 
-\section{INSTRUCTIONS TEMPLATE, REMOVE
-LATER}\label{instructions-template-remove-later}
-
-\subsection{Lists}\label{lists}
-
-Lists are indicated by \texttt{*}, \texttt{+} and \texttt{-} (three
-hierarchical levels) or numbers \texttt{1.}, \texttt{i.} and \texttt{A.}
-(numbered lists). Indentation of lists indicates their level:
-\texttt{*}, \texttt{+} and \texttt{-} may be replaced by \texttt{-} at
-all levels, but four spaces are needed to nest a list into another.
-
-\begin{itemize}
-\tightlist
-\item
-  First element of a list
-
-  \begin{itemize}
-  \tightlist
-  \item
-    sub-list
-  \end{itemize}
-\item
-  Second element
-\item
-  Continuation of the list
-\end{itemize}
-
-Leave an empty line before and after the list, but not between its
-items.
-
-\subsection{Math}\label{math}
-
-Equations in LaTeX format can be inserted inline, like \(A = \pi r^2\)
-or isolated like \[e^{i \pi} = -1.\]
-
-They can be numbered, see Equation~\ref{eq-disk}, after adding them a
-label:
-
-\begin{equation}\protect\phantomsection\label{eq-disk}{  A = \pi r^2.}\end{equation}
-
-\subsection{Cross-references}\label{cross-references}
-
-Figures and tables have a label declared in their division
-\texttt{tbl-xxx} or \texttt{fig-yyy}, starting with \texttt{fig-} or
-\texttt{tbl-}.
-
-For equations, the label is added manually by the code
-\texttt{\{\#eq-xxx\}} after the end of the equation.
-
-Sections can be tagged by ending their title with
-\texttt{\{\#sec-yyy\}}.
-
-In all cases, the call to the reference is made by \texttt{@}.
-
-\subsection{Bibliography}\label{bibliography}
-
-Bibliographic references included in the \texttt{.bib} file declared in
-the document header can be called by \texttt{{[}@CitationKey{]}}, in
-parentheses (Ramos et al., 2025), or without square brackets, in the
-text, as Ramos et al. (2025).
-
-The bibliographic style can be specified, by adding the line
-
-\begin{verbatim}
-csl: file_name.csl
-\end{verbatim}
-
-in the document header and copying the \emph{.csl} style file to the
-project folder. More than a thousand styles are available\footnote{\url{https://github.com/citation-style-language/styles}}
-and their URL can be used instead of copying the file, e.g.:
-
-\begin{verbatim}
-csl: https://www.zotero.org/styles/xxx
-\end{verbatim}
-
-\subsection{Forcing line breaks}\label{forcing-line-breaks}
-
-Hyphenation is handled automatically in LaTeX. If a word is not
-hyphenated correctly, add its hyphenation in the preamble of the file
-with the command \texttt{hyphenation} (words are separated by spaces,
-hyphenation locations are represented by dashes).
-
-If LaTeX can't find a solution for the line break, for example because
-some code is too long a non-breaking block, add the LaTeX command
-\texttt{\textbackslash{}break} to the line break location. Do not leave
-a space before the command. The HTML document ignores LaTeX commands.
-
 \section*{References}\label{bibliography}
 \addcontentsline{toc}{section}{References}
 
@@ -819,7 +741,7 @@ a space before the command. The HTML document ignores LaTeX commands.
 \bibitem[\citeproctext]{ref-Freycon2003}
 Freycon, V., Sabatier, D., Paget, D., \& Ferry, B. (2003). Influence du
 sol sur la végétation arborescente en forêt guyanaise : État des
-connaissances. \emph{Revue Forestière Française}, (55 (sp)), 60--73.
+connaissances. \emph{Revue Forestière Française}, 60--73.
 \url{https://doi.org/10.4267/2042/5787}
 
 \bibitem[\citeproctext]{ref-Pavlicek2012}

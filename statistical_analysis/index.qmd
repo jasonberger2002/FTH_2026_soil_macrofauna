@@ -85,6 +85,9 @@ knitr::opts_chunk$set(width = 65)
 set.seed(123)
 ```
 
+Code acknowledgement for the code above: The initial Quarto setup and package-management code were adapted from Eric Marcon's [TP-Biodiversity-2026 repository](https://github.com/EricMarcon/TP-Biodiversity-2026).
+The code was subsequently modified and extended for the following analysis.
+
 ------------------------------------------------------------------------
 
 # Preparation
@@ -93,7 +96,7 @@ set.seed(123)
 
 ```{r}
 #| label: Load and set variable types
-df <- read_excel("../data/macrofaune_counts.xlsx")
+df <- read_excel("../data/macrofauna_counts.xlsx")
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
 str(df)
@@ -856,7 +859,8 @@ plot(emm_layers_earthworms)
 Type II Wald chi-square tests revealed a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69, df = 2, p = 0.0018).
 The effect of soil type was not significant ($\chi^2$ = 0.35, df = 1, p = 0.557).
 The estimated random-effect variance for monolith was 0.510 (SD = 0.714), indicating variation in baseline earthworm abundance among monoliths.
-The model summary shows that estimates including layer were highly instable, with standard errors of around 10511. Coefficients can therefore not be correctly interpreted for layers.
+The model summary shows that estimates including layer were highly instable, with standard errors of around 10511.
+Coefficients can therefore not be correctly interpreted for layers.
 
 Pairwise comparisons with Tukey adjustment showed significantly higher abundance in layer 10 than in layer 20 (2.31 times).
 No significant differences were detected between layer L and either layer 10 or layer 20 (both p = 1.000).

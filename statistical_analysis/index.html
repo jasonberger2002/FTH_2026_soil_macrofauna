@@ -2456,13 +2456,14 @@ window.Quarto = {
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">#set seed for reproducible simulations throughout the document</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Code acknowledgement for the code above: The initial Quarto setup and package-management code were adapted from Eric Marcon’s <a href="https://github.com/EricMarcon/TP-Biodiversity-2026">TP-Biodiversity-2026 repository</a>. The code was subsequently modified and extended for the following analysis.</p>
 <hr>
 <section id="preparation" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Preparation</h1>
 <section id="loading-data" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.1</span> Loading data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;../data/macrofaune_counts.xlsx&quot;</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;../data/macrofauna_counts.xlsx&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">7</span><span class="sc">:</span><span class="fu">ncol</span>(df)] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[<span class="dv">7</span><span class="sc">:</span><span class="fu">ncol</span>(df)], as.numeric)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)], as.factor)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2604,6 +2605,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>The difference of total density between ALT and DSL seems not evident on the graph. The layer 10 seems have higher density that 20 and L bit not difference between 20 and L.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert taxonomic data to long format</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
@@ -2680,6 +2682,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>Formicidae, Isoptera and Lumbricina are the most abundant groups in our samples. The other groups have been gathered together because their respective small abundance. The abundances of the tree mains group seems changed between layers : Formicidae are more abundant in the 20 layer but seems dominated in each soil types and layers. Isoptera are nearly absent in the layer 20, but they dominate as Formicidae in the layer 10 and layer L in ALT. Lumbricina are absent in the layer L, and seem more abundant in the layer 20 than 10.</p>
 </section>
 <section id="pca" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="pca"><span class="header-section-number">2.2.2</span> PCA</h3>
