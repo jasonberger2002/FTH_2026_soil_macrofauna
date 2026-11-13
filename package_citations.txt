@@ -75,6 +75,12 @@ Presentation-Ready Display Tables_. doi:10.32614/CRAN.package.gt
 <https://doi.org/10.32614/CRAN.package.gt>. R package version
 1.3.0, <https://CRAN.R-project.org/package=gt>.
 
+## kableExtra
+Zhu H (2026). _kableExtra: Construct Complex Table with 'kable'
+and Pipe Syntax_. doi:10.32614/CRAN.package.kableExtra
+<https://doi.org/10.32614/CRAN.package.kableExtra>. R package
+version 1.4.1, <https://CRAN.R-project.org/package=kableExtra>.
+
 ## knitr
 Xie Y (2026). _knitr: A General-Purpose Package for Dynamic
 Report Generation in R_. R package version 1.52,
