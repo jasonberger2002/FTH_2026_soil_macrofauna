@@ -115,7 +115,7 @@ packages_required <- c(
   "tidyverse", 
   "gt",
   # Necessary packages
-  "vegan", "permute",
+  "vegan", "permute", "kableExtra",
   "ggrepel", "dplyr", "readxl", "glmmTMB",
   "DHARMa", "car", "emmeans", "gt", "ggnewscale"
 )
@@ -243,7 +243,7 @@ Refer to @fig-map
 knitr::include_graphics("images/overview_paracou.png")
 ```
 
-Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines.
+Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana.
 :::
 
 ## Sampling and Identification
@@ -699,6 +699,146 @@ Type II Wald $\chi^2$ tests revealed a highly significant effect of soil layer o
 
 Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p \leq 0.0073).
 
+### Lumbricina Oligochaetes
+
+Type II Wald $\chi^2$ tests indicated a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)
+
+```{r}
+#| label: Earthworm GLMM
+#| include: false
+
+df_earthworms <- df_total %>%
+  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
+
+earthworms_p_add <- glmmTMB(
+  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_earthworms
+)
+
+Anova(earthworms_p_add)
+summary(earthworms_p_add)
+```
+
+::: {#tbl-models fig-env="table*"}
+```{r}
+#| include: true
+#| size: normalsize
+#| label: summary all models
+
+models <- list(
+  "Total macrofauna" = m_nb_add,
+  "Ants" = ants_nb_add,
+  "Termites" = termites_nb_add,
+  "Earthworms" = earthworms_p_add
+)
+
+glmm_summary <- lapply(names(models), function(model_name) {
+
+  model <- models[[model_name]]
+
+  anova_results <- as.data.frame(
+    car::Anova(model, type = 2)
+  )
+
+  anova_results$Predictor <- rownames(anova_results)
+
+  distribution <- if (model_name == "Earthworms") {
+    "Poisson"
+  } else {
+    "Negative binomial"
+  }
+
+  anova_results %>%
+    transmute(
+      Response = model_name,
+      Distribution = distribution,
+      Predictor = Predictor,
+      chi_square = round(Chisq, 2),
+      df = Df,
+      p_value = `Pr(>Chisq)`
+    )
+
+}) %>%
+  bind_rows()
+
+rownames(glmm_summary) <- NULL
+
+# Row positions: first and second row of each model
+first_rows  <- which(!duplicated(glmm_summary$Response))
+second_rows <- which(duplicated(glmm_summary$Response))
+last_rows   <- which(!duplicated(glmm_summary$Response, fromLast = TRUE))
+
+glmm_table <- glmm_summary %>%
+  mutate(
+    stars = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01  ~ "**",
+      p_value < 0.05  ~ "*",
+      TRUE ~ ""
+    ),
+    p_display = ifelse(
+      p_value < 0.0001,
+      "<0.0001",
+      format.pval(p_value, digits = 3)
+    ),
+    p_display = paste0(p_display, "<sup>", stars, "</sup>"),
+    # show Response and Distribution only on the first row of each model
+    Response = ifelse(duplicated(Response), "", Response),
+    Distribution = ifelse(Response == "", "", Distribution)
+  ) %>%
+  dplyr::select(
+    Response,
+    Distribution,
+    Predictor,
+    chi_square,
+    df,
+    `p-value` = p_display
+  ) %>%
+  gt() %>%
+  cols_label(chi_square = "Chi-square") %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  # hide the line between the two rows of a model, first two columns only
+  tab_style(
+    style = cell_borders(sides = "bottom", style = "hidden"),
+    locations = cells_body(
+      columns = c(Response, Distribution),
+      rows = first_rows
+    )
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "top", style = "hidden"),
+    locations = cells_body(
+      columns = c(Response, Distribution),
+      rows = second_rows
+    )
+  ) %>%
+  # clearer line between models, all columns
+  tab_style(
+    style = cell_borders(sides = "bottom", color = "grey50", weight = px(1.5)),
+    locations = cells_body(rows = last_rows)
+  ) %>%
+  fmt_markdown(columns = `p-value`) %>%
+  tab_source_note(
+    source_note = md(
+      "Type II Wald Chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
+    )
+  )
+
+if (knitr::is_latex_output()) {
+  glmm_table %>%
+    opt_table_font(size = px(10))
+} else {
+  glmm_table
+}
+```
+
+Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
+:::
+
 ::: {#tbl-pairwise fig-env="table*"}
 ```{r}
 #| label: GLMM pairwise comparisons TABLE
@@ -788,116 +928,7 @@ if (knitr::is_latex_output()) {
 }
 ```
 
-Pairwise emmeans comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera).
-:::
-
-### Lumbricina Oligochaetes
-
-Type II Wald $\chi^2$ tests indicated a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)
-
-```{r}
-#| label: Earthworm GLMM
-#| include: false
-
-df_earthworms <- df_total %>%
-  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
-
-earthworms_p_add <- glmmTMB(
-  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
-  family = poisson(link = "log"),
-  data = df_earthworms
-)
-
-Anova(earthworms_p_add)
-summary(earthworms_p_add)
-```
-
-::: {#tbl-models fig-env="table*"}
-```{r}
-#| label: SummaryModels
-#| include: true
-#| size: normalsize
-
-models <- list(
-  "Total macrofauna" = m_nb_add,
-  "Ants" = ants_nb_add,
-  "Termites" = termites_nb_add,
-  "Earthworms" = earthworms_p_add
-)
-
-glmm_summary <- lapply(names(models), function(model_name) {
-
-  model <- models[[model_name]]
-
-  anova_results <- as.data.frame(
-    car::Anova(model, type = 2)
-  )
-
-  anova_results$Predictor <- rownames(anova_results)
-
-  distribution <- if (model_name == "Earthworms") {
-    "Poisson"
-  } else {
-    "Negative binomial"
-  }
-
-  anova_results %>%
-    transmute(
-      Response = model_name,
-      Distribution = distribution,
-      Predictor = Predictor,
-      chi_square = round(Chisq, 2),
-      df = Df,
-      p_value = `Pr(>Chisq)`
-    )
-
-}) %>%
-  bind_rows()
-
-glmm_table <- glmm_summary %>%
-  mutate(
-    stars = case_when(
-      p_value < 0.001 ~ "***",
-      p_value < 0.01  ~ "**",
-      p_value < 0.05  ~ "*",
-      TRUE ~ ""
-    ),
-    p_display = ifelse(
-      p_value < 0.0001,
-      "<0.0001",
-      format.pval(p_value, digits = 3)
-    ),
-    p_display = paste0(p_display, "<sup>", stars, "</sup>")
-  ) %>%
-  select(
-    Response,
-    Distribution,
-    Predictor,
-    chi_square,
-    df,
-    `p-value` = p_display
-  ) %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  fmt_markdown(columns = `p-value`) %>%
-  tab_source_note(
-    source_note = md(
-      "Type II Wald Chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
-    )
-  )
-
-if (knitr::is_latex_output()) {
-  glmm_table %>%
-    opt_table_font(size = px(10))
-} else {
-  glmm_table
-}
-```
-
-Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
+Estimated marginal means and Tukey pairwise comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera) using emmeans.
 :::
 
 ## PERMANOVA
