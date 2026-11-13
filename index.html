@@ -138,6 +138,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">6</span> Acknowledgements</a></li>
+  <li><a href="#supplementary-material" id="toc-supplementary-material" class="nav-link" data-scroll-target="#supplementary-material"><span class="header-section-number">7</span> Supplementary Material</a></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">References</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (stylisharticle)</a></li></ul></div></nav>
@@ -251,7 +253,6 @@ Figure&nbsp;1: Overview map of Paracou with the sampling locations. Location of 
 </figcaption>
 </figure>
 </div>
-<p>PLACEHOLDER citation <span class="citation" data-cites="Ramos2025">Ramos et al. (<a href="#ref-Ramos2025" role="doc-biblioref">2025</a>)</span> or <span class="citation" data-cites="Ramos2025">(<a href="#ref-Ramos2025" role="doc-biblioref">Ramos et al., 2025</a>)</span>, or <span class="citation" data-cites="Freycon2003">Freycon et al. (<a href="#ref-Freycon2003" role="doc-biblioref">2003</a>)</span> or <span class="citation" data-cites="Pavlicek2012">Pavlíček &amp; Csuzdi (<a href="#ref-Pavlicek2012" role="doc-biblioref">2012</a>)</span></p>
 </section>
 <section id="sampling-and-identification" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sampling-and-identification"><span class="header-section-number">2.2</span> Sampling and Identification</h2>
@@ -259,18 +260,23 @@ Figure&nbsp;1: Overview map of Paracou with the sampling locations. Location of 
 </section>
 <section id="statistical-analysis" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="statistical-analysis"><span class="header-section-number">2.3</span> Statistical analysis</h2>
-<p>negative binomial (NB2) and Poisson tested</p>
+<p>Analysis was performe using R version 4.6.1 <span class="citation" data-cites="RCoreTeam2026">(<a href="#ref-RCoreTeam2026" role="doc-biblioref">R Core Team, 2026</a>)</span>.</p>
 <section id="explorative-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="explorative-analysis">Explorative Analysis</h3>
 <p>text</p>
 </section>
 <section id="analysis-of-abundances-generalized-linear-mixed-models" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-abundances-generalized-linear-mixed-models">Analysis of Abundances (Generalized Linear Mixed Models)</h3>
-<p>text</p>
+<p>glmmTMB <span class="citation" data-cites="Brooks2017 Brooks2026">(<a href="#ref-Brooks2026" role="doc-biblioref"><span class="nocase">M. Brooks et al.</span>, 2026</a>; <a href="#ref-Brooks2017" role="doc-biblioref"><span class="nocase">M. E. Brooks et al.</span>, 2017</a>)</span> for fitting GLMMs negative binomial (NB2) and Poisson tested</p>
+<p>Model diagnostics evaluated using DHARMa <span class="citation" data-cites="Hartig2026">(<a href="#ref-Hartig2026" role="doc-biblioref">Hartig, 2026</a>)</span></p>
+<p>Type II Wald chi-square tests Anova() from car <span class="citation" data-cites="Fox2019 Fox2026">(<a href="#ref-Fox2026" role="doc-biblioref">Fox et al., 2026</a>; <a href="#ref-Fox2019" role="doc-biblioref">Fox &amp; Weisberg, 2019</a>)</span></p>
 </section>
 <section id="analysis-of-community-composition-permanova" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-community-composition-permanova">Analysis of Community Composition (PERMANOVA)</h3>
-<p>text</p>
+<p>vegan <span class="citation" data-cites="Oksanen2026">(<a href="#ref-Oksanen2026" role="doc-biblioref">Oksanen et al., 2026</a>)</span>: adonis2, betadisper, permutest, envfit permute <span class="citation" data-cites="Simpson2026">(<a href="#ref-Simpson2026" role="doc-biblioref">Simpson, 2026</a>)</span>: permutation schemes</p>
+<p>tidyverse <span class="citation" data-cites="Wickham2019 Wickham2023">(<a href="#ref-Wickham2019" role="doc-biblioref">Wickham et al., 2019</a>; <a href="#ref-Wickham2023" role="doc-biblioref">Wickham, 2023</a>)</span> used for plotting and data processing</p>
+<p>Spatial representation of sampling sites: in QGIS <span class="citation" data-cites="QGISDevelopmentTeam2024">(<a href="#ref-QGISDevelopmentTeam2024" role="doc-biblioref">QGIS Development Team, 2024</a>)</span>. Monolith locations reconstructed using field measurements and reference trees from Paracou inventory data <span class="citation" data-cites="Derroire2026 Derroire2026a">(<a href="#ref-Derroire2026" role="doc-biblioref">Derroire et al., 2026a</a>, <a href="#ref-Derroire2026a" role="doc-biblioref">2026b</a>)</span> in R <span class="citation" data-cites="RCoreTeam2026">(<a href="#ref-RCoreTeam2026" role="doc-biblioref">R Core Team, 2026</a>)</span> and sf package <span class="citation" data-cites="Pebesma2018 Pebesma2023">(<a href="#ref-Pebesma2018" role="doc-biblioref">Pebesma, 2018</a>; <a href="#ref-Pebesma2023" role="doc-biblioref">Pebesma &amp; Bivand, 2023</a>)</span></p>
+<p>Estimated marginal means and Tukey pairwise comparisons using emmeans <span class="citation" data-cites="Lenth2026">(<a href="#ref-Lenth2026" role="doc-biblioref">Lenth &amp; Piaskowski, 2026</a>)</span>.</p>
 </section>
 </section>
 </section>
@@ -1997,20 +2003,66 @@ Figure&nbsp;5: Bray-Curtis PCoA for layers here
 <h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
 <p>text</p>
 </section>
+<section id="acknowledgements" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Acknowledgements</h1>
+</section>
+<section id="supplementary-material" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Supplementary Material</h1>
+<p>Supplementary material, including detailed statistical analysis, scripts, data, QGIS layers, additional software attribution as well as the Quarto file used to produce this article, is available from url={https://github.com/jasonberger2002/FTH_2026_soil_macrofauna}.</p>
+</section>
 <section id="bibliography" class="level1 unnumbered">
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-Freycon2003" class="csl-entry" role="listitem">
-Freycon, V., Sabatier, D., Paget, D., &amp; Ferry, B. (2003). Influence du sol sur la végétation arborescente en forêt guyanaise : État des connaissances. <em>Revue Forestière Française</em>, 60–73. <a href="https://doi.org/10.4267/2042/5787">https://doi.org/10.4267/2042/5787</a>
+<div id="ref-Brooks2017" class="csl-entry" role="listitem">
+<span class="nocase">Brooks, M. E., Kristensen, K., van Benthem, K. J., Magnusson, A., Berg, C. W., Nielsen, A., Skaug, H. J., Maechler, M., &amp; Bolker, B. M.</span> (2017). <span class="nocase">glmmTMB</span> balances speed and flexibility among packages for zero-inflated generalized linear mixed modeling. <em>The R Journal</em>, <em>9</em>(2), 378–400. <a href="https://doi.org/10.32614/RJ-2017-066">https://doi.org/10.32614/RJ-2017-066</a>
 </div>
-<div id="ref-Pavlicek2012" class="csl-entry" role="listitem">
-Pavlíček, T., &amp; Csuzdi, C. (2012). Earthworm fauna of <span>French Guiana</span>: (<span>Oligochaeta</span>). <em>Zoology in the Middle East</em>, <em>58</em>(sup4), 107–110. <a href="https://doi.org/10.1080/09397140.2012.10648991">https://doi.org/10.1080/09397140.2012.10648991</a>
+<div id="ref-Brooks2026" class="csl-entry" role="listitem">
+<span class="nocase">Brooks, M., Bolker, B., Kristensen, K., Maechler, M., Magnusson, A., Skaug, H., Nielsen, A., Berg, C., &amp; van Bentham, K.</span> (2026). <em><span class="nocase">glmmTMB</span>: <span>Generalized</span> linear mixed models using template model builder</em> [Manual].
 </div>
-<div id="ref-Ramos2025" class="csl-entry" role="listitem">
-Ramos, A. P. D., Lima, S. S. D., Ferreira, C. D. S., Pinto, L. A. R. D. S., Ferreira, R., Dias, A., Matos, P. S., &amp; Pereira, M. G. (2025). Macrofauna and soil properties in agroforestry system and secondary forest. <em>Revista Brasileira de Ciência do Solo</em>, <em>49</em>, e0240091. <a href="https://doi.org/10.36783/18069657rbcs20240091">https://doi.org/10.36783/18069657rbcs20240091</a>
+<div id="ref-Derroire2026" class="csl-entry" role="listitem">
+Derroire, G., Hérault, B., Rossi, V., Blanc, L., Gourlet-Fleury, S., Schmitt, L., &amp; Guyane, C. (2026a). <em>Paracou <span>Biodiversity Plots</span></em> (pp. 1178893, 4853035, 30271231, 1176179, 1292381, 33616778, 30747708, 32460724, 153, 1294221, 1180638, 370, 30803823, 30316577, 4858874, 33669443, 32502689, 1177630, 1170216, 31475823, 34947944, 1159434, 31973527, 1278852, 432, 431, 1166394, 1178614, 552, 33179447, 32664870, 1290594, 36269439). CIRAD Dataverse. <a href="https://doi.org/10.18167/DVN1/NSCWF0">https://doi.org/10.18167/DVN1/NSCWF0</a>
+</div>
+<div id="ref-Derroire2026a" class="csl-entry" role="listitem">
+Derroire, G., Hérault, B., Rossi, V., Blanc, L., Gourlet-Fleury, S., Schmitt, L., &amp; Guyane, C. (2026b). <em>Paracou <span>Disturbance Experiment</span> - <span>Control Plots</span></em> (pp. 36510283, 1175397, 41975188, 37983298, 1261176, 1132737, 153, 1176792, 38033962, 36559309, 370, 42043125, 1133838, 1262973, 43288781, 39209905, 1246096, 413, 1122509, 1175732, 37681531, 471, 40425614, 1130141, 38841687, 44593500, 1186925, 514, 1264531). CIRAD Dataverse. <a href="https://doi.org/10.18167/DVN1/Q8V2YI">https://doi.org/10.18167/DVN1/Q8V2YI</a>
+</div>
+<div id="ref-Fox2019" class="csl-entry" role="listitem">
+Fox, J., &amp; Weisberg, S. (2019). <em>An <span>R</span> companion to applied regression</em> (3rd ed.). Sage.
+</div>
+<div id="ref-Fox2026" class="csl-entry" role="listitem">
+Fox, J., Weisberg, S., &amp; Price, B. (2026). <em>Car: <span>Companion</span> to applied regression</em> [Manual].
+</div>
+<div id="ref-Hartig2026" class="csl-entry" role="listitem">
+Hartig, F. (2026). <em><span>DHARMa</span>: <span>Residual</span> diagnostics for hierarchical (multi-level / mixed) regression models</em> [Manual].
+</div>
+<div id="ref-Lenth2026" class="csl-entry" role="listitem">
+Lenth, R. V., &amp; Piaskowski, J. (2026). <em>Emmeans: <span>Estimated</span> marginal means, aka least-squares means</em> [Manual].
+</div>
+<div id="ref-Oksanen2026" class="csl-entry" role="listitem">
+Oksanen, J., Simpson, G. L., Blanchet, F. G., Kindt, R., Legendre, P., Minchin, P. R., O’Hara, R. B., Solymos, P., Stevens, M. H. H., Szoecs, E., Wagner, H., Bedward, M., Bolker, B., Borcard, D., Carvalho, G., De Caceres, M., Durand, S., Evangelista, H. B. A., Hannigan, G., … Weedon, J. (2026). <em>Vegan: <span>Community</span> ecology package</em> [Manual].
+</div>
+<div id="ref-Pebesma2018" class="csl-entry" role="listitem">
+Pebesma, E. (2018). Simple features for <span>R</span>: <span>Standardized</span> support for spatial vector data. <em>The R Journal</em>, <em>10</em>(1), 439–446. <a href="https://doi.org/10.32614/RJ-2018-009">https://doi.org/10.32614/RJ-2018-009</a>
+</div>
+<div id="ref-Pebesma2023" class="csl-entry" role="listitem">
+Pebesma, E., &amp; Bivand, R. (2023). <em>Spatial data science: <span>With</span> applications in <span>R</span></em>. <span>Chapman and Hall/CRC</span>. <a href="https://doi.org/10.1201/9780429459016">https://doi.org/10.1201/9780429459016</a>
+</div>
+<div id="ref-QGISDevelopmentTeam2024" class="csl-entry" role="listitem">
+QGIS Development Team. (2024). <em><span>QGIS</span> geographic information system</em>. QGIS Association.
+</div>
+<div id="ref-RCoreTeam2026" class="csl-entry" role="listitem">
+R Core Team. (2026). <em>R: A language and environment for statistical computing</em> [Manual]. R Foundation for Statistical Computing. <a href="https://doi.org/10.32614/R.manuals">https://doi.org/10.32614/R.manuals</a>
+</div>
+<div id="ref-Simpson2026" class="csl-entry" role="listitem">
+Simpson, G. L. (2026). <em>Permute: <span>Functions</span> for generating restricted permutations of data</em> [Manual].
+</div>
+<div id="ref-Wickham2023" class="csl-entry" role="listitem">
+Wickham, H. (2023). <em>Tidyverse: <span>Easily</span> install and load the tidyverse</em> [Manual].
+</div>
+<div id="ref-Wickham2019" class="csl-entry" role="listitem">
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the <span class="nocase">tidyverse</span>. <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>
 </div>
 </div></section></div></main>
 <!-- /main column -->
