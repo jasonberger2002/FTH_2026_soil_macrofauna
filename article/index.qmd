@@ -219,21 +219,15 @@ gg_fontsize <- list(text = element_text(size = 14),
 
 # Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-mollit anim id est laborum.
+TEXT
 
 ## Context 1
 
-text
+TEXT
 
 ## Context 2
 
-text
+TEXT
 
 # Material and Methods
 
@@ -249,9 +243,7 @@ Refer to @fig-map
 knitr::include_graphics("images/overview_paracou.png")
 ```
 
-Overview map of Paracou with the sampling locations. Location of right
-panels shown by grey squares. White lines on the right panels represent
-altitude isolines.
+Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines.
 :::
 
 ## Sampling and Identification
@@ -260,12 +252,12 @@ text
 
 ## Statistical analysis
 
-Analysis was performe using R version 4.6.1 [@RCoreTeam2026].
+Analysis was performed using R version 4.6.1 [@RCoreTeam2026].
 
 
 ### Explorative Analysis
 
-text
+TEXT
 
 ### Analysis of Abundances (Generalized Linear Mixed Models)
 
@@ -1338,12 +1330,13 @@ Bray-Curtis PCoA CAPTION HERE
 
 # Discussion
 
+TEXT
 - no differences in densities or community composition for soil types (argue about same vegetation cover etc.)
 - clear differences in both for layers (connect to literature knowledge)
 
 # Conclusion
 
-text
+TEXT
 
 # Acknowledgements
 
