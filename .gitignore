@@ -17,10 +17,7 @@ _freeze/
 # Output files
 *.html
 *.pdf
-/*.tex
-/*.html
-/*.pdf
-/*.tex
+*.tex
 
 # make sure extension subfolder remains unaffected
 !_extensions/**
