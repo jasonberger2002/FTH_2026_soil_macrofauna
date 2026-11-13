@@ -434,9 +434,6 @@ on the right panels represent altitude isolines.}
 
 \end{figure*}%
 
-PLACEHOLDER citation Ramos et al. (2025) or (Ramos et al., 2025), or
-Freycon et al. (2003) or Pavlíček \& Csuzdi (2012)
-
 \subsection{Sampling and
 Identification}\label{sampling-and-identification}
 
@@ -444,7 +441,7 @@ text
 
 \subsection{Statistical analysis}\label{statistical-analysis}
 
-negative binomial (NB2) and Poisson tested
+Analysis was performe using R version 4.6.1 (R Core Team, 2026).
 
 \subsubsection{Explorative Analysis}\label{explorative-analysis}
 
@@ -453,12 +450,31 @@ text
 \subsubsection{Analysis of Abundances (Generalized Linear Mixed
 Models)}\label{analysis-of-abundances-generalized-linear-mixed-models}
 
-text
+glmmTMB ({M. Brooks et al.}, 2026; {M. E. Brooks et al.}, 2017) for
+fitting GLMMs negative binomial (NB2) and Poisson tested
+
+Model diagnostics evaluated using DHARMa (Hartig, 2026)
+
+Type II Wald chi-square tests Anova() from car (Fox et al., 2026; Fox \&
+Weisberg, 2019)
 
 \subsubsection{Analysis of Community Composition
 (PERMANOVA)}\label{analysis-of-community-composition-permanova}
 
-text
+vegan (Oksanen et al., 2026): adonis2, betadisper, permutest, envfit
+permute (Simpson, 2026): permutation schemes
+
+tidyverse (Wickham et al., 2019; Wickham, 2023) used for plotting and
+data processing
+
+Spatial representation of sampling sites: in QGIS (QGIS Development
+Team, 2024). Monolith locations reconstructed using field measurements
+and reference trees from Paracou inventory data (Derroire et al., 2026a,
+2026b) in R (R Core Team, 2026) and sf package (Pebesma, 2018; Pebesma
+\& Bivand, 2023)
+
+Estimated marginal means and Tukey pairwise comparisons using emmeans
+(Lenth \& Piaskowski, 2026).
 
 \section{Results}\label{results}
 
@@ -741,28 +757,111 @@ Significance levels: * p \textless{} 0.05; ** p \textless{} 0.01; *** p \textles
 
 text
 
+\section{Acknowledgements}\label{acknowledgements}
+
+\section{Supplementary Material}\label{supplementary-material}
+
+Supplementary material, including detailed statistical analysis,
+scripts, data, QGIS layers, additional software attribution as well as
+the Quarto file used to produce this article, is available from
+https://github.com/jasonberger2002/FTH\_2026\_soil\_macrofauna.
+
 \section*{References}\label{bibliography}
 \addcontentsline{toc}{section}{References}
 
 \protect\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-Freycon2003}
-Freycon, V., Sabatier, D., Paget, D., \& Ferry, B. (2003). Influence du
-sol sur la végétation arborescente en forêt guyanaise : État des
-connaissances. \emph{Revue Forestière Française}, 60--73.
-\url{https://doi.org/10.4267/2042/5787}
+\bibitem[\citeproctext]{ref-Brooks2017}
+{Brooks, M. E., Kristensen, K., van Benthem, K. J., Magnusson, A., Berg,
+C. W., Nielsen, A., Skaug, H. J., Maechler, M., \& Bolker, B. M.}
+(2017). {glmmTMB} balances speed and flexibility among packages for
+zero-inflated generalized linear mixed modeling. \emph{The R Journal},
+\emph{9}(2), 378--400. \url{https://doi.org/10.32614/RJ-2017-066}
 
-\bibitem[\citeproctext]{ref-Pavlicek2012}
-Pavlíček, T., \& Csuzdi, C. (2012). Earthworm fauna of {French Guiana}:
-({Oligochaeta}). \emph{Zoology in the Middle East}, \emph{58}(sup4),
-107--110. \url{https://doi.org/10.1080/09397140.2012.10648991}
+\bibitem[\citeproctext]{ref-Brooks2026}
+{Brooks, M., Bolker, B., Kristensen, K., Maechler, M., Magnusson, A.,
+Skaug, H., Nielsen, A., Berg, C., \& van Bentham, K.} (2026).
+\emph{{glmmTMB}: {Generalized} linear mixed models using template model
+builder} {[}Manual{]}.
 
-\bibitem[\citeproctext]{ref-Ramos2025}
-Ramos, A. P. D., Lima, S. S. D., Ferreira, C. D. S., Pinto, L. A. R. D.
-S., Ferreira, R., Dias, A., Matos, P. S., \& Pereira, M. G. (2025).
-Macrofauna and soil properties in agroforestry system and secondary
-forest. \emph{Revista Brasileira de Ciência do Solo}, \emph{49},
-e0240091. \url{https://doi.org/10.36783/18069657rbcs20240091}
+\bibitem[\citeproctext]{ref-Derroire2026}
+Derroire, G., Hérault, B., Rossi, V., Blanc, L., Gourlet-Fleury, S.,
+Schmitt, L., \& Guyane, C. (2026a). \emph{Paracou {Biodiversity Plots}}
+(pp. 1178893, 4853035, 30271231, 1176179, 1292381, 33616778, 30747708,
+32460724, 153, 1294221, 1180638, 370, 30803823, 30316577, 4858874,
+33669443, 32502689, 1177630, 1170216, 31475823, 34947944, 1159434,
+31973527, 1278852, 432, 431, 1166394, 1178614, 552, 33179447, 32664870,
+1290594, 36269439). CIRAD Dataverse.
+\url{https://doi.org/10.18167/DVN1/NSCWF0}
+
+\bibitem[\citeproctext]{ref-Derroire2026a}
+Derroire, G., Hérault, B., Rossi, V., Blanc, L., Gourlet-Fleury, S.,
+Schmitt, L., \& Guyane, C. (2026b). \emph{Paracou {Disturbance
+Experiment} - {Control Plots}} (pp. 36510283, 1175397, 41975188,
+37983298, 1261176, 1132737, 153, 1176792, 38033962, 36559309, 370,
+42043125, 1133838, 1262973, 43288781, 39209905, 1246096, 413, 1122509,
+1175732, 37681531, 471, 40425614, 1130141, 38841687, 44593500, 1186925,
+514, 1264531). CIRAD Dataverse.
+\url{https://doi.org/10.18167/DVN1/Q8V2YI}
+
+\bibitem[\citeproctext]{ref-Fox2019}
+Fox, J., \& Weisberg, S. (2019). \emph{An {R} companion to applied
+regression} (3rd ed.). Sage.
+
+\bibitem[\citeproctext]{ref-Fox2026}
+Fox, J., Weisberg, S., \& Price, B. (2026). \emph{Car: {Companion} to
+applied regression} {[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-Hartig2026}
+Hartig, F. (2026). \emph{{DHARMa}: {Residual} diagnostics for
+hierarchical (multi-level / mixed) regression models} {[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-Lenth2026}
+Lenth, R. V., \& Piaskowski, J. (2026). \emph{Emmeans: {Estimated}
+marginal means, aka least-squares means} {[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-Oksanen2026}
+Oksanen, J., Simpson, G. L., Blanchet, F. G., Kindt, R., Legendre, P.,
+Minchin, P. R., O'Hara, R. B., Solymos, P., Stevens, M. H. H., Szoecs,
+E., Wagner, H., Bedward, M., Bolker, B., Borcard, D., Carvalho, G., De
+Caceres, M., Durand, S., Evangelista, H. B. A., Hannigan, G., \ldots{}
+Weedon, J. (2026). \emph{Vegan: {Community} ecology package}
+{[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-Pebesma2018}
+Pebesma, E. (2018). Simple features for {R}: {Standardized} support for
+spatial vector data. \emph{The R Journal}, \emph{10}(1), 439--446.
+\url{https://doi.org/10.32614/RJ-2018-009}
+
+\bibitem[\citeproctext]{ref-Pebesma2023}
+Pebesma, E., \& Bivand, R. (2023). \emph{Spatial data science: {With}
+applications in {R}}. {Chapman and Hall/CRC}.
+\url{https://doi.org/10.1201/9780429459016}
+
+\bibitem[\citeproctext]{ref-QGISDevelopmentTeam2024}
+QGIS Development Team. (2024). \emph{{QGIS} geographic information
+system}. QGIS Association.
+
+\bibitem[\citeproctext]{ref-RCoreTeam2026}
+R Core Team. (2026). \emph{R: A language and environment for statistical
+computing} {[}Manual{]}. R Foundation for Statistical Computing.
+\url{https://doi.org/10.32614/R.manuals}
+
+\bibitem[\citeproctext]{ref-Simpson2026}
+Simpson, G. L. (2026). \emph{Permute: {Functions} for generating
+restricted permutations of data} {[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-Wickham2023}
+Wickham, H. (2023). \emph{Tidyverse: {Easily} install and load the
+tidyverse} {[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-Wickham2019}
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
+François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
+Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
+Robinson, D., Seidel, D. P., Spinu, V., \ldots{} Yutani, H. (2019).
+Welcome to the {tidyverse}. \emph{Journal of Open Source Software},
+\emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
 
 \end{CSLReferences}
 

@@ -254,16 +254,14 @@ panels shown by grey squares. White lines on the right panels represent
 altitude isolines.
 :::
 
-PLACEHOLDER citation @Ramos2025 or [@Ramos2025], or @Freycon2003 or
-@Pavlicek2012
-
 ## Sampling and Identification
 
 text
 
 ## Statistical analysis
 
-negative binomial (NB2) and Poisson tested
+Analysis was performe using R version 4.6.1 [@RCoreTeam2026].
+
 
 ### Explorative Analysis
 
@@ -271,11 +269,25 @@ text
 
 ### Analysis of Abundances (Generalized Linear Mixed Models)
 
-text
+glmmTMB [@Brooks2017; @Brooks2026] for fitting GLMMs
+negative binomial (NB2) and Poisson tested
+
+Model diagnostics evaluated using DHARMa [@Hartig2026]
+
+Type II Wald chi-square tests Anova() from car [@Fox2019; @Fox2026]
 
 ### Analysis of Community Composition (PERMANOVA)
 
-text
+vegan [@Oksanen2026]: adonis2, betadisper, permutest, envfit
+permute [@Simpson2026]: permutation schemes
+
+
+tidyverse [@Wickham2019; @Wickham2023] used for plotting and data processing
+
+
+Spatial representation of sampling sites: in QGIS [@QGISDevelopmentTeam2024]. Monolith locations reconstructed using field measurements and reference trees from Paracou inventory data [@Derroire2026; @Derroire2026a] in R [@RCoreTeam2026] and sf package [@Pebesma2018; @Pebesma2023] 
+
+Estimated marginal means and Tukey pairwise comparisons using emmeans [@Lenth2026].
 
 # Results
 
@@ -1395,3 +1407,10 @@ Bray-Curtis PCoA for layers here
 # Conclusion
 
 text
+
+# Acknowledgements
+
+
+# Supplementary Material
+
+Supplementary material, including detailed statistical analysis, scripts, data, QGIS layers, additional software attribution as well as the Quarto file used to produce this article, is available from url={https://github.com/jasonberger2002/FTH_2026_soil_macrofauna}.
