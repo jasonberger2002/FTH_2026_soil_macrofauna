@@ -249,7 +249,7 @@ window.Quarto = {
 <p></p>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines.
+Figure&nbsp;1: Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana.
 </figcaption>
 </figure>
 </div>
@@ -350,24 +350,28 @@ Figure&nbsp;4: PCA ordination based on Hellinger-transformed community matrix. F
 </section>
 <section id="glmm" class="level2 page-columns page-full" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="glmm"><span class="header-section-number">3.2</span> GLMM</h2>
-<p>Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in <a href="#tbl-models" class="quarto-xref">Table&nbsp;2</a>.</p>
+<p>Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in <a href="#tbl-models" class="quarto-xref">Table&nbsp;1</a>.</p>
 <section id="global-abundance" class="level3">
 <h3 class="anchored" data-anchor-id="global-abundance">Global Abundance</h3>
 <p>Type II Wald <span class="math inline">\(\chi^2\)</span> tests revealed a highly significant effect of soil layer on total soil macrofauna abundance (<span class="math inline">\(\chi^2\)</span> = 106.85, df = 2, p &lt; 0.001). The effect of soil type was not significant (<span class="math inline">\(\chi^2\)</span> = 0.52, df = 1, p = 0.469). Estimated random-effect variance (monolith) was 0.437 (SD = 0.661), indicating variation in baseline macrofauna abundance among monoliths.</p>
-<p>Pairwise comparisons with Tukey adjustment (<a href="#tbl-pairwise" class="quarto-xref">Table&nbsp;1</a>) showed that macrofauna abundance was significantly higher in layer 10 than in layers L (7.42 times) and 20 (6.18 times), while no significant difference was found between layers L and 20 (p = 0.714).</p>
+<p>Pairwise comparisons with Tukey adjustment (<a href="#tbl-pairwise" class="quarto-xref">Table&nbsp;2</a>) showed that macrofauna abundance was significantly higher in layer 10 than in layers L (7.42 times) and 20 (6.18 times), while no significant difference was found between layers L and 20 (p = 0.714).</p>
 </section>
 <section id="formicidae" class="level3">
 <h3 class="anchored" data-anchor-id="formicidae">Formicidae</h3>
 <p>Type II Wald <span class="math inline">\(\chi^2\)</span> tests revealed a significant effect of soil layer on ant abundance (<span class="math inline">\(\chi^2\)</span> = 28.00, df = 2, p &lt; 0.001). The effect of soil type was not significant (<span class="math inline">\(\chi^2\)</span> = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths. Quantile deviation was detected in the DHARMa residuals for the presented model. Specifically, upper quantile deviated significantly and thus relatively high-abundance observations may not be adequately captured by the model. Since the diagnostics did not indicate deviations regarding dispersion, zero-inflation, uniformity as well outliers, and the model has the best AIC support, it was retained, regardless.</p>
-<p>Pairwise comparisons with Tukey adjustment (<a href="#tbl-pairwise" class="quarto-xref">Table&nbsp;1</a>) showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference wasfound between layers L and 20 (p = 0.3995).</p>
+<p>Pairwise comparisons with Tukey adjustment (<a href="#tbl-pairwise" class="quarto-xref">Table&nbsp;2</a>) showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference wasfound between layers L and 20 (p = 0.3995).</p>
 </section>
-<section id="isoptera" class="level3 page-columns page-full">
+<section id="isoptera" class="level3">
 <h3 class="anchored" data-anchor-id="isoptera">Isoptera</h3>
 <p>Type II Wald <span class="math inline">\(\chi^2\)</span> tests revealed a highly significant effect of soil layer on termite abundance (<span class="math inline">\(\chi^2\)</span> = 36.56, df = 2, p &lt; 0.001).The effect of soil type was not significant (<span class="math inline">\(\chi^2\)</span> = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero (<span class="math inline">\(8.22 \times 10^{-9}\)</span>; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.</p>
-<p>Pairwise comparisons with Tukey adjustment (<a href="#tbl-pairwise" class="quarto-xref">Table&nbsp;1</a>) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ).</p>
-<div id="tbl-pairwise" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="table*">
+<p>Pairwise comparisons with Tukey adjustment (<a href="#tbl-pairwise" class="quarto-xref">Table&nbsp;2</a>) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p ).</p>
+</section>
+<section id="lumbricina-oligochaetes" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="lumbricina-oligochaetes">Lumbricina Oligochaetes</h3>
+<p>Type II Wald <span class="math inline">\(\chi^2\)</span> tests indicated a significant effect of soil layer on earthworm abundance (<span class="math inline">\(\chi^2\)</span> = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect (<span class="math inline">\(\chi^2\)</span> = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)</p>
+<div id="tbl-models" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="table*">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div id="cjrvketnvy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -823,80 +827,82 @@ Figure&nbsp;4: PCA ordination based on Hellinger-transformed community matrix. F
 <table class="gt_table table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="Taxon" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Taxon</th>
-<th id="Comparison" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Comparison</th>
-<th id="Abundance-ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Abundance ratio</th>
-<th id="z-ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">z-ratio</th>
-<th id="Adjusted-p-value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Adjusted p-value</th>
+<th id="Response" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Response</th>
+<th id="Distribution" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Distribution</th>
+<th id="Predictor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Predictor</th>
+<th id="chi_square" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Chi-square</th>
+<th id="df" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">df</th>
+<th id="p-value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">p-value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="Taxon">Total macrofauna</td>
-<td class="gt_row gt_center" headers="Comparison">L - 10</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">0.13</td>
-<td class="gt_row gt_center" headers="z-ratio">-9.12</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Total macrofauna</td>
+<td class="gt_row gt_center" headers="Distribution" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Negative binomial</td>
+<td class="gt_row gt_center" headers="Predictor">soil_type</td>
+<td class="gt_row gt_center" headers="chi_square">0.52</td>
+<td class="gt_row gt_center" headers="df">1</td>
+<td class="gt_row gt_center" headers="p-value">0.46933<sup></sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Taxon">Total macrofauna</td>
-<td class="gt_row gt_center" headers="Comparison">L - 20</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">0.83</td>
-<td class="gt_row gt_center" headers="z-ratio">-0.78</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">0.713689<sup></sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Distribution" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Predictor" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">layer</td>
+<td class="gt_row gt_center" headers="chi_square" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">106.85</td>
+<td class="gt_row gt_center" headers="df" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">2</td>
+<td class="gt_row gt_center" headers="p-value" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">&lt;0.0001<sup>***</sup></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Taxon">Total macrofauna</td>
-<td class="gt_row gt_center" headers="Comparison">10 - 20</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">6.18</td>
-<td class="gt_row gt_center" headers="z-ratio">8.34</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Ants</td>
+<td class="gt_row gt_center" headers="Distribution" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Negative binomial</td>
+<td class="gt_row gt_center" headers="Predictor">soil_type</td>
+<td class="gt_row gt_center" headers="chi_square">0.48</td>
+<td class="gt_row gt_center" headers="df">1</td>
+<td class="gt_row gt_center" headers="p-value">0.48633<sup></sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Taxon">Ants (Formicidae)</td>
-<td class="gt_row gt_center" headers="Comparison">L - 10</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">0.20</td>
-<td class="gt_row gt_center" headers="z-ratio">-4.96</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Distribution" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Predictor" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">layer</td>
+<td class="gt_row gt_center" headers="chi_square" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">28.00</td>
+<td class="gt_row gt_center" headers="df" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">2</td>
+<td class="gt_row gt_center" headers="p-value" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">&lt;0.0001<sup>***</sup></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Taxon">Ants (Formicidae)</td>
-<td class="gt_row gt_center" headers="Comparison">L - 20</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">0.65</td>
-<td class="gt_row gt_center" headers="z-ratio">-1.29</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">0.399482<sup></sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Termites</td>
+<td class="gt_row gt_center" headers="Distribution" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Negative binomial</td>
+<td class="gt_row gt_center" headers="Predictor">soil_type</td>
+<td class="gt_row gt_center" headers="chi_square">0.89</td>
+<td class="gt_row gt_center" headers="df">1</td>
+<td class="gt_row gt_center" headers="p-value">0.34664<sup></sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Taxon">Ants (Formicidae)</td>
-<td class="gt_row gt_center" headers="Comparison">10 - 20</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">3.27</td>
-<td class="gt_row gt_center" headers="z-ratio">3.84</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">0.000363<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Distribution" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Predictor" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">layer</td>
+<td class="gt_row gt_center" headers="chi_square" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">36.56</td>
+<td class="gt_row gt_center" headers="df" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">2</td>
+<td class="gt_row gt_center" headers="p-value" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">&lt;0.0001<sup>***</sup></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Taxon">Termites (Isoptera)</td>
-<td class="gt_row gt_center" headers="Comparison">L - 10</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">0.06</td>
-<td class="gt_row gt_center" headers="z-ratio">-4.06</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">0.000145<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Earthworms</td>
+<td class="gt_row gt_center" headers="Distribution" style="border-bottom-width: 1px; border-bottom-style: hidden; border-bottom-color: #000000">Poisson</td>
+<td class="gt_row gt_center" headers="Predictor">soil_type</td>
+<td class="gt_row gt_center" headers="chi_square">0.35</td>
+<td class="gt_row gt_center" headers="df">1</td>
+<td class="gt_row gt_center" headers="p-value">0.55692<sup></sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Taxon">Termites (Isoptera)</td>
-<td class="gt_row gt_center" headers="Comparison">L - 20</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">41.23</td>
-<td class="gt_row gt_center" headers="z-ratio">3.01</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">0.007262<sup>**</sup></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Taxon">Termites (Isoptera)</td>
-<td class="gt_row gt_center" headers="Comparison">10 - 20</td>
-<td class="gt_row gt_center" headers="Abundance-ratio">745.48</td>
-<td class="gt_row gt_center" headers="z-ratio">5.42</td>
-<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Response" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Distribution" style="border-top-width: 1px; border-top-style: hidden; border-top-color: #000000; border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50"></td>
+<td class="gt_row gt_center" headers="Predictor" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">layer</td>
+<td class="gt_row gt_center" headers="chi_square" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">12.69</td>
+<td class="gt_row gt_center" headers="df" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">2</td>
+<td class="gt_row gt_center" headers="p-value" style="border-bottom-width: 1.5px; border-bottom-style: solid; border-bottom-color: grey50">0.00176<sup>**</sup></td>
 </tr>
 </tbody><tfoot>
 <tr class="gt_sourcenotes odd">
-<td colspan="5" class="gt_sourcenote">Abundance ratios are exponentiated log-scale contrasts. Significance levels: * p &lt; 0.05; ** p &lt; 0.01; *** p &lt; 0.001. P-values adjusted using the Tukey method within each taxon.</td>
+<td colspan="6" class="gt_sourcenote">Type II Wald Chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p &lt; 0.05; ** p &lt; 0.01; *** p &lt; 0.001</td>
 </tr>
 </tfoot>
 
@@ -906,18 +912,14 @@ Figure&nbsp;4: PCA ordination based on Hellinger-transformed community matrix. F
 </div>
 </div>
 </div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Pairwise emmeans comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera).
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="lumbricina-oligochaetes" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="lumbricina-oligochaetes">Lumbricina Oligochaetes</h3>
-<p>Type II Wald <span class="math inline">\(\chi^2\)</span> tests indicated a significant effect of soil layer on earthworm abundance (<span class="math inline">\(\chi^2\)</span> = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect (<span class="math inline">\(\chi^2\)</span> = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)</p>
-<div id="tbl-models" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="table*">
+<div id="tbl-pairwise" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="table*">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div id="zesyyichzg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -1373,82 +1375,80 @@ Table&nbsp;1: Pairwise emmeans comparisons of abundance by layer for total macro
 <table class="gt_table table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="Response" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Response</th>
-<th id="Distribution" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Distribution</th>
-<th id="Predictor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Predictor</th>
-<th id="chi_square" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">chi_square</th>
-<th id="df" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">df</th>
-<th id="p-value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">p-value</th>
+<th id="Taxon" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Taxon</th>
+<th id="Comparison" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Comparison</th>
+<th id="Abundance-ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Abundance ratio</th>
+<th id="z-ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">z-ratio</th>
+<th id="Adjusted-p-value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Adjusted p-value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="Response">Total macrofauna</td>
-<td class="gt_row gt_center" headers="Distribution">Negative binomial</td>
-<td class="gt_row gt_center" headers="Predictor">soil_type</td>
-<td class="gt_row gt_center" headers="chi_square">0.52</td>
-<td class="gt_row gt_center" headers="df">1</td>
-<td class="gt_row gt_center" headers="p-value">0.46933<sup></sup></td>
+<td class="gt_row gt_center" headers="Taxon">Total macrofauna</td>
+<td class="gt_row gt_center" headers="Comparison">L - 10</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">0.13</td>
+<td class="gt_row gt_center" headers="z-ratio">-9.12</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Response">Total macrofauna</td>
-<td class="gt_row gt_center" headers="Distribution">Negative binomial</td>
-<td class="gt_row gt_center" headers="Predictor">layer</td>
-<td class="gt_row gt_center" headers="chi_square">106.85</td>
-<td class="gt_row gt_center" headers="df">2</td>
-<td class="gt_row gt_center" headers="p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Taxon">Total macrofauna</td>
+<td class="gt_row gt_center" headers="Comparison">L - 20</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">0.83</td>
+<td class="gt_row gt_center" headers="z-ratio">-0.78</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">0.713689<sup></sup></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Response">Ants</td>
-<td class="gt_row gt_center" headers="Distribution">Negative binomial</td>
-<td class="gt_row gt_center" headers="Predictor">soil_type</td>
-<td class="gt_row gt_center" headers="chi_square">0.48</td>
-<td class="gt_row gt_center" headers="df">1</td>
-<td class="gt_row gt_center" headers="p-value">0.48633<sup></sup></td>
+<td class="gt_row gt_center" headers="Taxon">Total macrofauna</td>
+<td class="gt_row gt_center" headers="Comparison">10 - 20</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">6.18</td>
+<td class="gt_row gt_center" headers="z-ratio">8.34</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Response">Ants</td>
-<td class="gt_row gt_center" headers="Distribution">Negative binomial</td>
-<td class="gt_row gt_center" headers="Predictor">layer</td>
-<td class="gt_row gt_center" headers="chi_square">28.00</td>
-<td class="gt_row gt_center" headers="df">2</td>
-<td class="gt_row gt_center" headers="p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Taxon">Ants (Formicidae)</td>
+<td class="gt_row gt_center" headers="Comparison">L - 10</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">0.20</td>
+<td class="gt_row gt_center" headers="z-ratio">-4.96</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Response">Termites</td>
-<td class="gt_row gt_center" headers="Distribution">Negative binomial</td>
-<td class="gt_row gt_center" headers="Predictor">soil_type</td>
-<td class="gt_row gt_center" headers="chi_square">0.89</td>
-<td class="gt_row gt_center" headers="df">1</td>
-<td class="gt_row gt_center" headers="p-value">0.34664<sup></sup></td>
+<td class="gt_row gt_center" headers="Taxon">Ants (Formicidae)</td>
+<td class="gt_row gt_center" headers="Comparison">L - 20</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">0.65</td>
+<td class="gt_row gt_center" headers="z-ratio">-1.29</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">0.399482<sup></sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Response">Termites</td>
-<td class="gt_row gt_center" headers="Distribution">Negative binomial</td>
-<td class="gt_row gt_center" headers="Predictor">layer</td>
-<td class="gt_row gt_center" headers="chi_square">36.56</td>
-<td class="gt_row gt_center" headers="df">2</td>
-<td class="gt_row gt_center" headers="p-value">&lt;0.0001<sup>***</sup></td>
+<td class="gt_row gt_center" headers="Taxon">Ants (Formicidae)</td>
+<td class="gt_row gt_center" headers="Comparison">10 - 20</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">3.27</td>
+<td class="gt_row gt_center" headers="z-ratio">3.84</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">0.000363<sup>***</sup></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Response">Earthworms</td>
-<td class="gt_row gt_center" headers="Distribution">Poisson</td>
-<td class="gt_row gt_center" headers="Predictor">soil_type</td>
-<td class="gt_row gt_center" headers="chi_square">0.35</td>
-<td class="gt_row gt_center" headers="df">1</td>
-<td class="gt_row gt_center" headers="p-value">0.55692<sup></sup></td>
+<td class="gt_row gt_center" headers="Taxon">Termites (Isoptera)</td>
+<td class="gt_row gt_center" headers="Comparison">L - 10</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">0.06</td>
+<td class="gt_row gt_center" headers="z-ratio">-4.06</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">0.000145<sup>***</sup></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Response">Earthworms</td>
-<td class="gt_row gt_center" headers="Distribution">Poisson</td>
-<td class="gt_row gt_center" headers="Predictor">layer</td>
-<td class="gt_row gt_center" headers="chi_square">12.69</td>
-<td class="gt_row gt_center" headers="df">2</td>
-<td class="gt_row gt_center" headers="p-value">0.00176<sup>**</sup></td>
+<td class="gt_row gt_center" headers="Taxon">Termites (Isoptera)</td>
+<td class="gt_row gt_center" headers="Comparison">L - 20</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">41.23</td>
+<td class="gt_row gt_center" headers="z-ratio">3.01</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">0.007262<sup>**</sup></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Taxon">Termites (Isoptera)</td>
+<td class="gt_row gt_center" headers="Comparison">10 - 20</td>
+<td class="gt_row gt_center" headers="Abundance-ratio">745.48</td>
+<td class="gt_row gt_center" headers="z-ratio">5.42</td>
+<td class="gt_row gt_center" headers="Adjusted-p-value">&lt;0.0001<sup>***</sup></td>
 </tr>
 </tbody><tfoot>
 <tr class="gt_sourcenotes odd">
-<td colspan="6" class="gt_sourcenote">Type II Wald Chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p &lt; 0.05; ** p &lt; 0.01; *** p &lt; 0.001</td>
+<td colspan="5" class="gt_sourcenote">Abundance ratios are exponentiated log-scale contrasts. Significance levels: * p &lt; 0.05; ** p &lt; 0.01; *** p &lt; 0.001. P-values adjusted using the Tukey method within each taxon.</td>
 </tr>
 </tfoot>
 
@@ -1458,8 +1458,8 @@ Table&nbsp;1: Pairwise emmeans comparisons of abundance by layer for total macro
 </div>
 </div>
 </div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Estimated marginal means and Tukey pairwise comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera) using emmeans.
 </figcaption>
 </figure>
 </div>
