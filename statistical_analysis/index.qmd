@@ -48,7 +48,7 @@ execute:
 # Necessary packages
 packages_required <- c(
   "knitr", "tidyverse", "vegan", "permute",
-  "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
+  "ggrepel", "dplyr", "readxl", "glmmTMB",
   "DHARMa", "car", "emmeans", "ggnewscale"
 )
 # Already installed?

@@ -69,11 +69,13 @@ author:
     email: konczaknelle@gmail.com
 # Abstract and Keywords
 abstract: |
-  Enter here our amazing abstract!
-keywords: [soil macrofauna, Paracou, Amazon forest, ecology]
+  Enter here our amazing abstract!/ About 10 lines (see consignes)
+keywords: [soil macrofauna, soil drainage, Paracou, Amazon forest, soil ecology]
 # Bibliography
 reference-section-title: References
 bibliography: references.bib
+# references.bib is created and automatically updated using zotero with Better BibTeX plug-in; see: https://retorque.re/zotero-better-bibtex/index.html
+
 # Language
 lang: en-US
 otherlangs: fr-FR
@@ -114,7 +116,7 @@ packages_required <- c(
   "gt",
   # Necessary packages
   "vegan", "permute",
-  "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
+  "ggrepel", "dplyr", "readxl", "glmmTMB",
   "DHARMa", "car", "emmeans", "gt", "ggnewscale"
 )
 
@@ -677,7 +679,7 @@ Anova(ants_nb_add)
 summary(ants_nb_add)
 ```
 
-Type II Wald chi-square tests revealed a highly significant effect of
+Type II Wald chi-square tests revealed a significant effect of
 soil layer on ant abundance ($\chi^2$ = 28.00, df = 2, p \< 0.001). The
 effect of soil type was not significant ($\chi^2$ = 0.48, df = 1, p =
 0.486). The estimated random-effect variance for monolith was 0.655 (SD
@@ -822,16 +824,13 @@ ants (Formicidae) and termites (Isoptera).
 
 ### Lumbricina Oligochaetes
 
-Type II Wald chi-square tests indicated a significant effect of soil
-layer on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),
-whereas soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p
+Type II Wald chi-square tests indicated a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p
 = 0.557). Pairwise comparisons showed significantly higher earthworm
 abundance in layer 10 compared to layer 20 (2.31 times higher). No
 significant differences were detected between layer L and the other
 layers. However, no earthworms were recorded in layer L, resulting in
 unstable model estimates and unbounded confidence intervals for this
-layer. The Estimated random-effect variance for monoliths was 0.510 (SD
-= 0.714)
+layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)
 
 ```{r}
 #| label: Earthworm GLMM
@@ -1390,7 +1389,8 @@ Bray-Curtis PCoA for layers here
 
 # Discussion
 
-text
+- no differences in densities or community composition for soil types (argue about same vegetation cover etc.)
+- clear differences in both for layers (connect to literature knowledge)
 
 # Conclusion
 
