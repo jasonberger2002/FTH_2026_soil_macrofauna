@@ -1,11 +1,9 @@
 # FTH_2026_soil_macrofauna
+#### Students: Jason BERGER; Nina FARAH; Juliette KIFFER; Nelle KONCZAK
+
+#### Project supervisors: Vincent FREYCON; Raphaël MARICHAL; Ariane MIRABEL
 
 Github for the soil macrofauna project of the course Forêts Tropicales Humides 2026 at UMR EcoFoG. Soil macrofauna was sampled at the Paracou forest plots in French Guiana to investigate effects of soil types on macrofaunal communities.
-
-### Students: Jason BERGER; Nina FARAH; Juliette KIFFER; Nelle KONCZAK
-
-### Project supervisors: Vincent FREYCON; Raphaël MARICHAL; Ariane MIRABEL
-
 
 ### Software used:
 - data analysis and presentation: [R](https://www.r-project.org/) v. 4.6.1 and [R Studio](https://docs.posit.co/ide/desktop-pro/2026.09.0/) v. 2026.09.0; report and statistical analysis document created using [Quarto](https://quarto.org/?utm_source=chatgpt.com) v. 1.10.18
