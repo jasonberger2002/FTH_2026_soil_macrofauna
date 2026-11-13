@@ -722,9 +722,9 @@ summary(earthworms_p_add)
 
 ::: {#tbl-models fig-env="table*"}
 ```{r}
+#| label: summary all models TABLE
 #| include: true
 #| size: normalsize
-#| label: summary all models
 
 models <- list(
   "Total macrofauna" = m_nb_add,
@@ -836,7 +836,7 @@ if (knitr::is_latex_output()) {
 }
 ```
 
-Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
+Summary of retained GLMMs for global, ants (Formicidae), termite (Isoptera) and earthworm (Lumbricina oligochaetes) abundance.
 :::
 
 ::: {#tbl-pairwise fig-env="table*"}
@@ -1356,7 +1356,7 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
 
 plot(p)
 ```
-Bray-Curtis PCoA CAPTION HERE
+First two components of the Bray-Curtis PCoA representing 26.1% of the variation in macrofaunal community composition. Husks indicate soil layers. Taxa singificantly associated with the ordination are presented (arrows).
 :::
 
 # Discussion
