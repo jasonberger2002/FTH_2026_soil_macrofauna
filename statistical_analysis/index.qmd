@@ -116,8 +116,8 @@ layer_colors <- c(
 )
 
 soil_colors <- c(
-  "alt" = "#C5A36A",
-  "dls" = "#394B45"
+  "alt" = "#D9C77A", 
+  "dls" = "#D4673F"
 )
 
 taxon_colors <- c(
@@ -513,7 +513,7 @@ m_nb_int <- glmmTMB(
 )
 ```
 
-#### Comparing models using Akaike's An Information Criterion
+#### Comparing models using Akaike's Information Criterion
 
 ```{r}
 #| label: Global model comparison using AIC
