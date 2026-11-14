@@ -183,6 +183,13 @@ set.seed(123)
 df <- read_excel("../data/macrofauna_counts.xlsx")
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
+
+# relabel soil types
+df <- df %>%
+  mutate(soil_type = forcats::fct_recode(soil_type,
+                                         "Alt/DVD" = "alt",
+                                         "SLD"     = "dls"))
+
 str(df)
 ```
 
@@ -198,8 +205,8 @@ layer_colors <- c(
 )
 
 soil_colors <- c(
-  "alt" = "#C5A36A",
-  "dls" = "#394B45"
+  "Alt/DVD" = "#D9C77A", 
+  "SLD" = "#D4673F"
 )
 
 taxon_colors <- c(
@@ -209,129 +216,27 @@ taxon_colors <- c(
   "Others" = "#A6A39B"
 )
 
-gg_fontsize <- list(text = element_text(size = 14),
-    axis.title = element_text(size = 16),
-    axis.text = element_text(size = 13),
-    strip.text = element_text(size = 15, face = "bold"),
-    legend.title = element_text(size = 14),
-    legend.text = element_text(size = 13))
+### use default for normal plots, 0.5 for full page plots (figure*)
+
+gg_fontsize <- function(s = 1) {
+  list(
+    text         = element_text(size = 14 * s),
+    axis.title   = element_text(size = 16 * s),
+    axis.text    = element_text(size = 13 * s),
+    strip.text   = element_text(size = 15 * s, face = "bold"),
+    legend.title = element_text(size = 14 * s),
+    legend.text  = element_text(size = 13 * s)
+  )
+}
 ```
 
 # Introduction
 
-TEXT
-
-## Context 1
-
-TEXT
-
-## Context 2
-
-TEXT
+%%% TEXT 
 
 # Material and Methods
 
 ## Study Site
-
-### Geographic Location
-
-This study was conducted in plots of primary tropical forest at the
-Paracou Research Station (5°16′38″N, 52°55′38″W). The average air
-temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual
-rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season
-from December to July (between 300 and 500 mm per month) and a long dry
-season from mid-August to mid-November (\< 100 mm per month). The humid
-tropical climate of French Guiana is highly seasonal due to the
-north-south movement of the Intertropical Convergence Zone. In Paracou,
-in situ forest measurements were available for 16 permanent plots
-established since 1984. The site comprises 15 plots measuring 250 × 250
-m² (6.25 ha) and one plot measuring 500 × 500 m² (25 ha). Our experiment
-was carried-out in two plots : P1, installed in 1984 and P15 in
-1990[@Gourlet-Fleury2004].
-
-### Geological and Pedological Characteristics of Paracou
-
-The geological substratum of Paracou consists primarily of Precambrian
-schists intruded by pegmatite veins, belonging to the metamorphic
-Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
-elevation (5 to 50 m asl), dissected by deep drainage gullies flowing
-into the Sinnamary River [@Gourlet-fleury2004]. The predominant soils
-are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
-\[@FAO1998; @Driessen2001\], characterized by a shallow depth limited by
-a more or less transformed loamy saprolite [@gourlet-fleury2004].
-
-Soil distribution varies strongly along the topographic gradient
-(plateau, slope, and bottomland). According to @Soucémarianadin2004,
-Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with
-upland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35
-% SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% DVD/Alt
-(Deep Vertical Drainage/weathered material at less than 1.2 m). In
-contrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30%
-bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS,
-15 % SH, and 5% DVD/Alt.
-
-## Experimental Design
-
-### Soil Characteristics
-
-At the Paracou station, topography strongly shapes soil properties and
-water dynamics along a gradient from hilltops to bottomlands
-[@Allier2015]. To evaluate how soil structure influences macrofauna
-abundance and diversity, we compared two contrasting ferralitic soil
-units within primary forest plots (plots 1 and 15), mapped using local
-ORSTOM pedological records: DVS/Alt and SLD.
-
-Deep Vertical Drainage / Altered soils (DVD/Alt): Located on flat
-hilltops and plateaux, these well-drained soils (hypoferralic acrisols)
-feature a thick ferralitic cover that lets rainwater percolate freely in
-depth. The altered phase (Alt) begins where red, muscovite-rich
-alloterite appears above 1.2 m depth, signaling initial soil thinning
-[@Sabatier1997]. Plateau soils contain higher levels of carbon,
-nitrogen, and aluminum [@Allier2015], support greater root biomass and
-soil respiration [@Epron2006], and host nearly half (48.9%) of the local
-tree species [@Allie2015]
-
-###Sampling: soil type verification, strategy, TSBF method
-
-Prior to soil’s macrofauna sampling, field checks were carried out to
-confirm the pedological classification of each selected zone (ORSTOM).
-First, auger drillings were performed to assess soil color and texture
-[@Boulet1979; @Sabatier1997], silt and clay contents were confirmed
-through laboratory particle-size analysis conducted by SADEF. Second,
-soil hydraulic behavior was quantified in situ by measuring water
-infiltration rates using the simplified Beerkan method
-[@Lassabatere2006] to calculate saturated hydraulic conductivity. Once
-the soil units were validated, five macrofauna samples were collected in
-each soil type (DVD/Alt and SLD) within both plots (P1 and P15) using
-the TSBF method.
-
-To account for local topography, the five hilltop samples (DVD/Alt) were
-arranged in a cross-shaped pattern, whereas the five mid-slope samples
-(SLD) were aligned along a transect following the slope. Across all
-sites, sampling points were spaced 15 m apart to minimize overlap
-between soil macrofauna communities.
-
-Soil macrofauna were sampled at each sampling point using the TSBF
-(Tropical Soil Biology and Fertility) soil monolith method, developed by
-@Anderson1994. At each sampling point, a 25 × 25 cm metal frame, 10 cm
-deep, was placed on the ground. First, while holding the frame firmly
-against the ground, the litter was removed and collected in a labeled
-bag. Next, the frame is pressed 10 cm deep into the soil to isolate a
-soil block. The process was repeated twice to collect the soil layer
-from 0 to 10 cm, followed by the layer from 10 to 20 cm deep.
-
-### Identification of Macrofauna
-
-Manual sorting of macroinvertebrates was conducted at the field station.
-The litter samples were sorted first to minimize the risk of macrofauna
-escaping. The bags containing the soil layers were sorted by spreading
-the equivalent of 200 g of soil into a container. Each of these samples
-was observed for an average of 2 minutes by an observer. On average,
-each bag was analyzed by 5 different observers. The macrofauna collected
-using a brush was stored in jars containing 90° ethanol and labeled
-according to soil type, replicate number, and the layer of soil studied.
-
-Refer to @fig-map
 
 ::: {#fig-map fig-env="figure*"}
 ```{r}
@@ -344,54 +249,84 @@ knitr::include_graphics("images/overview_paracou.png")
 Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana.
 :::
 
-## Sampling and Identification
+### Geographic Location
 
-text
+This study was conducted in Amazonian primary tropical forest at the Paracou Research Station (5°16′38″N, 52°55′38″W). The average air
+temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual
+rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season
+from December to July (between 300 and 500 mm per month) and a long dry
+season from mid-August to mid-November (\< 100 mm per month). 
+<!--The humidtropical climate of French Guiana is highly seasonal due to the north-south movement of the Intertropical Convergence Zone. -->
+In Paracou, a permanent forest dynamic experiment was established in 1984. The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one plot measuring 500 × 500 m² (25 ha). Our experiment
+was carried-out in two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+
+### Geological and Pedological Characteristics of Paracou
+
+The geological substratum of Paracou consists primarily of Precambrian schists intruded by pegmatite veins, belonging to the metamorphic Bonidoro Series [@Choubert1974]. 
+The site exhibits a relatively low elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
+[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+
+<!--Soil distribution varies strongly along the topographic gradient plateau, slope, and bottomland). According to @Soucemarianadin2004, Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with pland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35 % SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% Alt/DVD Deep Vertical Drainage/weathered material at less than 1.2 m). Incontrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30% bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS, 15 % SH, and 5% Alt/DVD. -->
+
+Soil distribution and drainage varies strongly in Paracou [@Soucemarianadin2004 ;@Weigel2006; @Roelens2007], influenced by the topographic gradient, with Plot 1 comprised of 45 % Superficial Lateral Drainage (SLD), 35 % Surface Hydromorphy (SH), 15 % Downhill System (DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60 % SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004]. 
+
+Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat hilltops or plateaus and feature a thick ferralitic cover that lets rainwater percolate freely in
+depth. The altered phase (Alt) begins where red, muscovite-rich
+alloterite appears above 1.2 m depth, signaling initial soil thinning [@Sabatier1997]. Plateau soils contain higher levels of carbon, nitrogen, and aluminum [@Allie2015], support greater root biomass and soil respiration [@Epron2006], and host nearly half of the local tree species in Paracou [@Allie2015].
+
+<!--At the Paracou station, topography strongly shapes soil properties and
+water dynamics along a gradient from hilltops to bottomlands
+[@Allie2015].-->
+
+## Sampling and Identification
+To evaluate how soil type influences macrofaunal communities, two contrasting ferralitic soil (DVS/Alt and SLD) types were compared, previously mapped in Paracou [@Soucemarianadin2004 ;@Weigel2006; @Roelens2007].
+
+%%% WHAT ABOUT SLD soils
+
+### Soil Type Verification
+
+Prior to macrofauna sampling, field checks were carried out to
+confirm the pedological classification of our sampling sites. Auger drillings were performed to assess soil color and texture [@Boulet1979; @Sabatier1997]. Additionally, silt and clay contents were confirmed through granulometric analysis conducted by the company SADEF. Furthermore, saturated hydraulic conductivity was determined in situ using the simplified Beerkan infiltration method [@Lassabatere2006]. 
+
+### Marofaunal Sampling
+Five macrofauna samples were collected in each soil type (Alt/DVD and SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by @Anderson1994.
+
+To account for local topography, Alt/DVD (hilltop) samples were
+arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see @fig-map for spatial representation).
+
+
+Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a
+soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.
+
+### Sample Sorting and Identification
+
+Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna from escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes by an observer. Around 5 observers were involved in the sorting of each bag to minimize bias. Macrofauna was collected using a brush and stored in 90 % ethanol, separated according to monolith and layer of soil. Subsequently, the organisms were identified on a coarse taxonomic level (refer to the data file in @sec-supp for details), with ants (Formicidae) and termites (Isoptera) treated separately from other Hymenoptera and Blattodea.
 
 ## Statistical analysis
-Estimated marginal means and Tukey pairwise comparisons using emmeans [@Lenth2026].
-Analysis was performed using R version 4.6.1 [@RCoreTeam2026].
+
+All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and data processing relied largely on the tidyverse package [@Wickham2019; @Wickham2023].
 
 ### Explorative Analysis
 
-TEXT
+%%% TEXT 
 
-### Analysis of Abundances (Generalized Linear Mixed Models)
+### Abundances (Generalized Linear Mixed Models)
 
-<<<<<<< HEAD
-We tested the effects of soil drainage type and soil layers on abundances. Generalized Linear Mixed Models (GLMMs) were fitted using the glmmTMB package [@Brooks2017; @Brooks2026] to account spatial structure by including monoliths as a random effect. 
-negative binomial (NB2) and Poisson tested
-=======
-glmmTMB [@Brooks2017; @Brooks2026] for fitting GLMMs negative binomial
-(NB2) and Poisson tested
->>>>>>> 6782b1be47f6026de20b86b904b85356590b440b
+Effects of soil drainage type and soil layers on abundances were analyzed using Generalized Linear Mixed Models (GLMMs), fitted with the glmmTMB package [@Brooks2017; @Brooks2026]. To account spatial structure, monoliths were included as a random effect. 
+Since count data was treated, Poisson  and negative binomial (NB2) were tested. Model selection relied on Akaike's Information Criterion (AIC), Likelihood-ratio testing (LRT) and model diagnostics using DHARMa residuals [@Hartig2026]. Refer to @sec-supp for detailed model selection and diagnostic plots.
 
-Model diagnostics evaluated using DHARMa [@Hartig2026]
+Type II Wald $\chi^2$ tests from the package car [@Fox2019; @Fox2026] were used to evaluate overall predictor effects.  Estimated marginal means and Tukey pairwise comparisons were generated using emmeans [@Lenth2026].
 
-Type II Wald $\chi^2$ tests Anova() from car [@Fox2019; @Fox2026]
-
-### Analysis of Community Composition (PERMANOVA)
-
-vegan [@Oksanen2026]: adonis2, betadisper, permutest, envfit permute
+### Community Composition (PERMANOVA)
+%%% Jason: will write this section later
+vegan [@Oksanen2026]: adonis2, betadisper, permutest, envfit permute; mention zero removal
 [@Simpson2026]: permutation schemes
+Estimated marginal means and Tukey pairwise comparisons emmeans [@Lenth2026].
 
-tidyverse [@Wickham2019; @Wickham2023] used for plotting and data
-processing
-
-Spatial representation of sampling sites: in QGIS
-[@QGISDevelopmentTeam2024]. Monolith locations reconstructed using field
-measurements and reference trees from Paracou inventory data
-[@Derroire2026; @Derroire2026a] in R [@RCoreTeam2026] and sf package
-[@Pebesma2018; @Pebesma2023]
-
-<<<<<<< HEAD
 ## Spatial Representation
 
 Monolith locations were reconstructed using R [@RCoreTeam2026] and the sf package [@Pebesma2018; @Pebesma2023]. Coordinates were obtained based on distance and azimuth in relation to reference trees and their coordinates sourced from Paracou inventory data [@Derroire2026; @Derroire2026a]. QGIS [@QGISDevelopmentTeam2024] was used for spatial representation.
-=======
-Estimated marginal means and Tukey pairwise comparisons using emmeans
-[@Lenth2026].
->>>>>>> 6782b1be47f6026de20b86b904b85356590b440b
+
 
 # Results
 
@@ -427,7 +362,8 @@ df_total <- df %>%
 
 ## General
 
-TEXT Densities by soil type and layer @fig-density
+%%% TEXT explorative  
+Densities by soil type and layer @fig-density
 
 ::: {#fig-density fig-env="figure"}
 ```{r}
@@ -460,20 +396,19 @@ fig_density <- ggplot(
     fill = "Soil type"
   ) +
   theme_bw() +
-  theme(!!!gg_fontsize)
+  theme(!!!gg_fontsize())
 
 print(fig_density)
 ```
 
-Boxplot with total macrofauna densities by soil type and layer. y-axis
-is scaled logarithmically.
+Boxplot with total macrofauna densities by soil type and layer. y-axis is on a pseudo-logarithmic scale.
 :::
 
-TEXT Relative composition of community abundances @fig-comp
+%%% TEXT  Relative composition of community abundances @fig-comp
 
 ::: {#fig-comp fig-env="figure"}
 ```{r}
-#| label: Composition FIGURE
+#| label: Relative composition FIGURE
 #| include: true
 #| out-width: 100%
 
@@ -506,38 +441,37 @@ composition <- df_long %>%
 # Plot taxonomic composition
 fig_composition <- ggplot(
   composition,
-  aes(
-    x = soil_type,
-    y = proportion,
-    fill = taxon_group
-  )
+  aes(x = soil_type, y = proportion, fill = taxon_group)
 ) +
-  geom_col(
-    colour = "white",
-    width = 0.7
-  ) +
+  geom_col(colour = "white", width = 0.7, linewidth = 0.15) +
   facet_wrap(~ layer) +
   scale_y_continuous(
     labels = scales::percent,
-    limits = c(0, 1)
+    limits = c(0, 1),
+    expand = expansion(mult = c(0, 0.02))   # removes gap below 0%
   ) +
   scale_fill_manual(
     values = taxon_colors,
     drop = FALSE,
-    guide = guide_legend(
-      nrow = 2,
-      byrow = TRUE
-    )
+    labels = c(
+      Formicidae              = "Formicidae",
+      Isoptera                = "Isoptera",
+      Lumbricina_oligochaetes = "Lumbricina",
+      Others                  = "Others"
+    ),
+    guide = guide_legend(nrow = 1, byrow = TRUE)
   ) +
-  labs(
-    x = "Soil type",
-    y = "Proportion of individuals",
-    fill = "Taxon"
-  ) +
+  labs(x = "Soil type", y = "Proportion of individuals", fill = NULL) +
   theme_bw() +
- theme(!!!gg_fontsize,
-        legend.position = "bottom",
-        aspect.ratio = 1.3)
+  theme(
+    !!!gg_fontsize(),
+    legend.position   = "bottom",
+    legend.key.size   = unit(0.35, "cm"),
+    legend.text       = element_text(size = rel(0.85)),
+    legend.margin     = margin(0, 0, 0, 0),
+    legend.box.spacing = unit(2, "pt"),
+    aspect.ratio      = 1.3
+  )
 
 print(fig_composition)
 ```
@@ -546,7 +480,7 @@ Relative composition of macrofaunal community abundances by soil type
 and layer.
 :::
 
-TEXT Explorative ordination PCA @fig-pca
+%%% TEXT  Explorative ordination PCA @fig-pca
 
 ```{r}
 #| label: prepare PCA using Hellinger transformation
@@ -605,11 +539,11 @@ taxa_scores_plot <- taxa_scores %>%
   filter(cos2 >= 0.1) # can change cos2 here
 ```
 
-::: {#fig-pca fig-env="figure"}
+::: {#fig-pca fig-env="figure*"}
 ```{r}
 #| label: PCA FIGURE
 #| include: true
-#|out-width: 100%
+#|out-width: 80%
 
 fig_pca <- ggplot(
   scores_pca,
@@ -734,8 +668,8 @@ fig_pca <- ggplot(
 
   # Theme
   theme_bw() +
-  theme(!!!gg_fontsize,
-        legend.spacing.y = grid::unit(0.1, "cm"))
+  theme(!!!gg_fontsize(0.6),
+        legend.spacing.y = grid::unit(-0.2, "cm"))
 
 fig_pca
 ```
@@ -747,8 +681,7 @@ two dimensions are presented. Only taxa with cos² \> 0.1 are presented.
 ## GLMM
 
 Effects of soil type and layer were tested on global, ant, termite and
-earthworm abundances. All retained models described below are listed in
-@tbl-models.
+earthworm abundances. All retained models described below are listed in @tbl-models.
 
 ### Global Abundance
 
@@ -763,20 +696,6 @@ m_nb_add <- glmmTMB(
 Anova(m_nb_add)
 summary(m_nb_add)
 ```
-
-Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
-layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p
-\< 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52,
-df = 1, p = 0.469). Estimated random-effect variance (monolith) was
-0.437 (SD = 0.661), indicating variation in baseline macrofauna
-abundance among monoliths.
-
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
-macrofauna abundance was significantly higher in layer 10 than in layers
-L (7.42 times) and 20 (6.18 times), while no significant difference was
-found between layers L and 20 (p = 0.714).
-
-### Formicidae
 
 ```{r}
 #| label: Ant GLMM
@@ -795,25 +714,6 @@ Anova(ants_nb_add)
 summary(ants_nb_add)
 ```
 
-Type II Wald $\chi^2$ tests revealed a significant effect of soil layer
-on ant abundance ($\chi^2$ = 28.00, df = 2, p \< 0.001). The effect of
-soil type was not significant ($\chi^2$ = 0.48, df = 1, p = 0.486). The
-estimated random-effect variance for monolith was 0.655 (SD = 0.810),
-indicating variation in baseline ant abundance among monoliths. Quantile
-deviation was detected in the DHARMa residuals for the presented model.
-Specifically, upper quantile deviated significantly and thus relatively
-high-abundance observations may not be adequately captured by the model.
-Since the diagnostics did not indicate deviations regarding dispersion,
-zero-inflation, uniformity as well outliers, and the model has the best
-AIC support, it was retained, regardless.
-
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
-ant abundance was significantly higher in layer 10 than in layer L (5.05
-times) and layer 20 (3.27 times), while no significant difference
-wasfound between layers L and 20 (p = 0.3995).
-
-### Isoptera
-
 ```{r}
 #| label: Termite GLMM
 #| include: false
@@ -830,24 +730,6 @@ termites_nb_add <- glmmTMB(
 Anova(termites_nb_add)
 summary(termites_nb_add)
 ```
-
-Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
-layer on termite abundance ($\chi^2$ = 36.56, df = 2, p \< 0.001).The
-effect of soil type was not significant ($\chi^2$ = 0.89, df = 1, p =
-0.347). The estimated random-effect variance for monolith was
-effectively zero ($8.22 \times 10^{-9}$; SD = 0.00009), indicating
-virtually no remaining variation in baseline termite abundance among
-monoliths after accounting for the fixed effects.
-
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
-termite abundance was significantly higher in layer 10 than in layer L
-(18.08 times) and layer 20 (745.48 times; estimated richness for 20
-nearing zero). Abundance was also significantly higher in layer L than
-in layer 20 (41.23 times; all p \leq 0.0073).
-
-### Lumbricina Oligochaetes
-
-Type II Wald $\chi^2$ tests indicated a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)
 
 ```{r}
 #| label: Earthworm GLMM
@@ -874,9 +756,9 @@ summary(earthworms_p_add)
 
 models <- list(
   "Total macrofauna" = m_nb_add,
-  "Ants" = ants_nb_add,
-  "Termites" = termites_nb_add,
-  "Earthworms" = earthworms_p_add
+  "Ants (Formicidae)" = ants_nb_add,
+  "Termites (Isoptera)" = termites_nb_add,
+  "Earthworms (Lumbricina)" = earthworms_p_add
 )
 
 glmm_summary <- lapply(names(models), function(model_name) {
@@ -1045,6 +927,8 @@ glmm_pairwise_table <- pairwise_results %>%
       "<sup>", stars, "</sup>"
     )
   ) %>%
+  # show each taxon only on the first row of its block
+  mutate(Taxon = if_else(duplicated(Taxon), "", Taxon)) %>%
   select(
     Taxon,
     Comparison = contrast,
@@ -1074,133 +958,60 @@ if (knitr::is_latex_output()) {
 }
 ```
 
-<<<<<<< HEAD
-Pairwise emmeans comparisons of abundance by layer for total macrofauna,
-ants (Formicidae) and termites (Isoptera).
+Estimated marginal means and Tukey pairwise comparisons of abundance by layer for total macrofauna, ants
+(Formicidae) and termites (Isoptera) using emmeans.
 :::
+
+Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
+layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p
+\< 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52,
+df = 1, p = 0.469). Estimated random-effect variance (monolith) was
+0.437 (SD = 0.661), indicating variation in baseline macrofauna
+abundance among monoliths.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
+macrofauna abundance was significantly higher in layer 10 than in layers
+L (7.42 times) and 20 (6.18 times), while no significant difference was
+found between layers L and 20 (p = 0.714).
+
+### Formicidae
+
+Type II Wald $\chi^2$ tests revealed a significant effect of soil layer
+on ant abundance ($\chi^2$ = 28.00, df = 2, p \< 0.001). The effect of
+soil type was not significant ($\chi^2$ = 0.48, df = 1, p = 0.486). The
+estimated random-effect variance for monolith was 0.655 (SD = 0.810),
+indicating variation in baseline ant abundance among monoliths. Quantile
+deviation was detected in the DHARMa residuals for the presented model.
+Specifically, upper quantile deviated significantly and thus relatively
+high-abundance observations may not be adequately captured by the model.
+Since the diagnostics did not indicate deviations regarding dispersion,
+zero-inflation, uniformity as well outliers, and the model has the best
+AIC support, it was retained, regardless.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
+ant abundance was significantly higher in layer 10 than in layer L (5.05
+times) and layer 20 (3.27 times), while no significant difference
+wasfound between layers L and 20 (p = 0.3995).
+
+### Isoptera
+
+Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
+layer on termite abundance ($\chi^2$ = 36.56, df = 2, p \< 0.001).The
+effect of soil type was not significant ($\chi^2$ = 0.89, df = 1, p =
+0.347). The estimated random-effect variance for monolith was
+effectively zero ($8.22 \times 10^{-9}$; SD = 0.00009), indicating
+virtually no remaining variation in baseline termite abundance among
+monoliths after accounting for the fixed effects.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
+termite abundance was significantly higher in layer 10 than in layer L
+(18.08 times) and layer 20 (745.48 times; estimated richness for 20
+nearing zero). Abundance was also significantly higher in layer L than
+in layer 20 (41.23 times; all p \leq 0.0073).
 
 ### Lumbricina Oligochaetes
 
-Type II Wald $\chi^2$ tests indicated a significant effect of soil layer
-on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas
-soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p =
-0.557). Pairwise comparisons showed significantly higher earthworm
-abundance in layer 10 compared to layer 20 (2.31 times higher). No
-significant differences were detected between layer L and the other
-layers. However, no earthworms were recorded in layer L, resulting in
-unstable model estimates and unbounded confidence intervals for this
-layer. The Estimated random-effect variance for monoliths was 0.510 (SD
-= 0.714)
-
-```{r}
-#| label: Earthworm GLMM
-#| include: false
-
-df_earthworms <- df_total %>%
-  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
-
-earthworms_p_add <- glmmTMB(
-  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
-  family = poisson(link = "log"),
-  data = df_earthworms
-)
-
-Anova(earthworms_p_add)
-summary(earthworms_p_add)
-```
-
-::: {#tbl-models fig-env="table*"}
-```{r}
-#| label: SummaryModels
-#| include: true
-#| size: normalsize
-
-models <- list(
-  "Total macrofauna" = m_nb_add,
-  "Ants" = ants_nb_add,
-  "Termites" = termites_nb_add,
-  "Earthworms" = earthworms_p_add
-)
-
-glmm_summary <- lapply(names(models), function(model_name) {
-
-  model <- models[[model_name]]
-
-  anova_results <- as.data.frame(
-    car::Anova(model, type = 2)
-  )
-
-  anova_results$Predictor <- rownames(anova_results)
-
-  distribution <- if (model_name == "Earthworms") {
-    "Poisson"
-  } else {
-    "Negative binomial"
-  }
-
-  anova_results %>%
-    transmute(
-      Response = model_name,
-      Distribution = distribution,
-      Predictor = Predictor,
-      chi_square = round(Chisq, 2),
-      df = Df,
-      p_value = `Pr(>Chisq)`
-    )
-
-}) %>%
-  bind_rows()
-
-glmm_table <- glmm_summary %>%
-  mutate(
-    stars = case_when(
-      p_value < 0.001 ~ "***",
-      p_value < 0.01  ~ "**",
-      p_value < 0.05  ~ "*",
-      TRUE ~ ""
-    ),
-    p_display = ifelse(
-      p_value < 0.0001,
-      "<0.0001",
-      format.pval(p_value, digits = 3)
-    ),
-    p_display = paste0(p_display, "<sup>", stars, "</sup>")
-  ) %>%
-  select(
-    Response,
-    Distribution,
-    Predictor,
-    chi_square,
-    df,
-    `p-value` = p_display
-  ) %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  fmt_markdown(columns = `p-value`) %>%
-  tab_source_note(
-    source_note = md(
-      "Type II Wald Chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
-    )
-  )
-
-if (knitr::is_latex_output()) {
-  glmm_table %>%
-    opt_table_font(size = px(10))
-} else {
-  glmm_table
-}
-```
-
-Summary of retained GLMMs for global abundance, ants (Formicidae),
-termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE
-DESCRIPTION HERE
-=======
-Estimated marginal means and Tukey pairwise comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera) using emmeans.
->>>>>>> c2c21a2d4a74f1de5137f5cca09b929052df31ac
-:::
+Type II Wald $\chi^2$ tests indicated a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). No significant differences were detected between layer L and the other layers. However, no earthworms were recorded in layer L, resulting in unstable model estimates and unbounded confidence intervals for this layer. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)
 
 ## PERMANOVA
 
@@ -1394,6 +1205,8 @@ differences were observed between L and 10 (F = 6.05, R² = 0.141,
 adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p =
 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012),
 using Bonferroni correction.
+
+%%% results shown, TEXT @fig-pcoa 
 
 ::: {#tbl-permanova}
 ```{r}
@@ -1634,40 +1447,38 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
       min.segment.length = Inf,
       segment.color = NA,
       seed = 123
-    )
+    ) + theme_bw() +
+  theme(!!!gg_fontsize(0.5))
 ```
 
-::: {#fig-pcoa fig-env="figure"}
+::: {#fig-pcoa fig-env="figure*"}
 ```{r}
 #| label: PCoA FIGURE
 #| out-width: 100%
 #| include: true
-
 plot(p)
 ```
-<<<<<<< HEAD
 
-Bray-Curtis PCoA CAPTION HERE
-=======
 First two components of the Bray-Curtis PCoA representing 26.1% of the variation in macrofaunal community composition. Husks indicate soil layers. Taxa singificantly associated with the ordination are presented (arrows).
->>>>>>> c2c21a2d4a74f1de5137f5cca09b929052df31ac
 :::
 
 # Discussion
 
-TEXT - no differences in densities or community composition for soil
+%%% TEXT  - no differences in densities or community composition for soil
 types (argue about same vegetation cover etc.) - clear differences in
 both for layers (connect to literature knowledge)
 
 # Conclusion
 
-TEXT
+%%% TEXT 
 
 # Acknowledgements
 
-# Supplementary Material
+%%% TEXT  
+
+# Supplementary Material {#sec-supp}
 
 Supplementary material, including detailed statistical analysis,
 scripts, data, QGIS layers, additional software attribution as well as
 the Quarto file used to produce this article, is available from
-url={https://github.com/jasonberger2002/FTH_2026_soil_macrofauna}.
+<https://github.com/jasonberger2002/FTH_2026_soil_macrofauna>.
