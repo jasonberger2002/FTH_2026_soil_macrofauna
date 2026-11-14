@@ -122,8 +122,8 @@ soil_colors <- c(
 
 taxon_colors <- c(
   "Formicidae" = "#B56B32",
-  "Isoptera" = "#496987",
-  "Lumbricina_oligochaetes" = "#527F68",
+  "Isoptera" = "#6B4C8A",
+  "Lumbricina_oligochaetes" = "#2A5C45",
   "Others" = "#A6A39B"
 )
 

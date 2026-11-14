@@ -200,19 +200,19 @@ str(df)
 
 layer_colors <- c(
   "L"  = "#AFC8B5",
-  "10" = "#B47A2C",
+  "10" = "#3F9AA3",
   "20" = "#355C7D"
 )
 
 soil_colors <- c(
   "Alt/DVD" = "#D9C77A", 
-  "SLD" = "#D4673F"
+  "SLD" = "#A57A33"
 )
 
 taxon_colors <- c(
   "Formicidae" = "#B56B32",
-  "Isoptera" = "#496987",
-  "Lumbricina_oligochaetes" = "#527F68",
+  "Isoptera" = "#6B4C8A",
+  "Lumbricina_oligochaetes" = "#2A5C45",
   "Others" = "#A6A39B"
 )
 
