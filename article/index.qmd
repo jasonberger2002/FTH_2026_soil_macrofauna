@@ -232,7 +232,16 @@ gg_fontsize <- function(s = 1) {
 
 # Introduction
 
-Tropical rainforests cover a small portion of the Earth’s land surface but are home to a disproportionately large portion of the world’s biodiversity, both above and below ground (Chen et al., 2023; Hu et al., 2022; Myers et al., 2000). This biodiversity includes trees but also soil organisms, which contains microbial communities and edaphic fauna, all of which play a significant role in ecosystem functioning (Bever et al., 2010; Robinson et al., 2024; Van Langenhove et al., 2021). However, these forests are among the most threatened ecosystems, and therefore the study of their biological communities, including those underground, is particularly important (Myers, 1988). 
+Tropical rainforests cover a small portion of the Earth’s land surface
+but are home to a disproportionately large portion of the world’s
+biodiversity, both above and below ground (Chen et al., 2023; Hu et al.,
+2022; Myers et al., 2000). This biodiversity includes trees but also
+soil organisms, which contains microbial communities and edaphic fauna,
+all of which play a significant role in ecosystem functioning (Bever et
+al., 2010; Robinson et al., 2024; Van Langenhove et al., 2021). However,
+these forests are among the most threatened ecosystems, and therefore
+the study of their biological communities, including those underground,
+is particularly important (Myers, 1988).
 
 # Material and Methods
 
@@ -363,7 +372,7 @@ and data processing relied largely on the tidyverse package
 
 ### Explorative Analysis
 
-%%% TEXT
+Explorative analysis was performed to visual global trend in our dataset. Boxplots of abundances of the different taxa by layers and type of soil were realized as well as PCA analysis 
 
 ### Abundances (Generalized Linear Mixed Models)
 
