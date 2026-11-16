@@ -1,5 +1,5 @@
 ---
-title: "Cool macrofauna title"
+title: "Effects of soil drainage types on macrofaunal community composition and density"
 # Output formats
 format:
   stylisharticle-pdf:
@@ -15,7 +15,11 @@ format:
   stylisharticle-html:
     # Color example, see "Text color"
     css: colors.css
-
+    toc: true
+    toc-location: left
+    toc-title: "Contents"
+    toc-depth: 3
+    
 # citation style
 csl: "../citation_style/apa_adapted.csl" #apa v7
 
@@ -65,11 +69,13 @@ author:
     email: konczaknelle@gmail.com
 # Abstract and Keywords
 abstract: |
-  Enter here our amazing abstract!
-keywords: [soil macrofauna, Paracou, Amazon forest, ecology]
+  Enter here our amazing abstract!/ About 10 lines (see consignes)
+keywords: [soil macrofauna, soil drainage, Paracou, Amazon forest, soil ecology]
 # Bibliography
 reference-section-title: References
-bibliography: references.bib
+bibliography: ../macrofauna_refs.bib
+# .bib is created and automatically updated using zotero with Better BibTeX plug-in; see: https://retorque.re/zotero-better-bibtex/index.html
+
 # Language
 lang: en-US
 otherlangs: fr-FR
@@ -109,8 +115,8 @@ packages_required <- c(
   "tidyverse", 
   "gt",
   # Necessary packages
-  "vegan", "permute",
-  "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
+  "vegan", "permute", "kableExtra",
+  "ggrepel", "dplyr", "readxl", "glmmTMB",
   "DHARMa", "car", "emmeans", "gt", "ggnewscale"
 )
 
@@ -174,9 +180,16 @@ set.seed(123)
 
 ```{r}
 #| label: loading data
-df <- read_excel("../data/macrofaune_counts.xlsx")
+df <- read_excel("../data/macrofauna_counts.xlsx")
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
+
+# relabel soil types
+df <- df %>%
+  mutate(soil_type = forcats::fct_recode(soil_type,
+                                         "Alt/DVD" = "alt",
+                                         "SLD"     = "dls"))
+
 str(df)
 ```
 
@@ -187,78 +200,215 @@ str(df)
 
 layer_colors <- c(
   "L"  = "#AFC8B5",
-  "10" = "#B47A2C",
+  "10" = "#3F9AA3",
   "20" = "#355C7D"
 )
 
 soil_colors <- c(
-  "alt" = "#C5A36A",
-  "dls" = "#394B45"
+  "Alt/DVD" = "#D9C77A", 
+  "SLD" = "#A57A33"
 )
 
 taxon_colors <- c(
   "Formicidae" = "#B56B32",
-  "Isoptera" = "#496987",
-  "Lumbricina_oligochaetes" = "#527F68",
+  "Isoptera" = "#6B4C8A",
+  "Lumbricina_oligochaetes" = "#2A5C45",
   "Others" = "#A6A39B"
 )
 
-gg_fontsize <- list(text = element_text(size = 14),
-    axis.title = element_text(size = 16),
-    axis.text = element_text(size = 13),
-    strip.text = element_text(size = 15, face = "bold"),
-    legend.title = element_text(size = 14),
-    legend.text = element_text(size = 13))
+### use default for normal plots, 0.5 for full page plots (figure*)
+
+gg_fontsize <- function(s = 1) {
+  list(
+    text         = element_text(size = 14 * s),
+    axis.title   = element_text(size = 16 * s),
+    axis.text    = element_text(size = 13 * s),
+    strip.text   = element_text(size = 15 * s, face = "bold"),
+    legend.title = element_text(size = 14 * s),
+    legend.text  = element_text(size = 13 * s)
+  )
+}
 ```
 
 # Introduction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Context 1
+Tropical rainforests cover a small portion of the Earth’s land surface
+but are home to a disproportionately large portion of the world’s
+biodiversity, both above and below ground [@Chen2023; @Hu2022;
+@Myers2000]. This biodiversity includes trees but also soil organisms,
+which contains microbial communities and edaphic fauna, all of which
+play a significant role in ecosystem functioning [@Bever2010;
+@Robinson2024; @VanLangenhove2021]. However, these forests are among the
+most threatened ecosystems, and therefore the study of their biological
+communities, including those underground, is particularly important
+[@Myers1988].
 
-text
-
-## Context 2
-
-text
+### Juliette
 
 # Material and Methods
 
 ## Study Site
-Refer to @fig-map
 
-::: {#fig-map}
+::: {#fig-map fig-env="figure*"}
 ```{r}
 #| label: map FIGURE
-#| out-width: 30%
+#| out-width: 100%
 #| include: true
-knitr::include_graphics("images/logo.png")
+knitr::include_graphics("images/overview_paracou.png")
 ```
 
-PLACEHOLDER Enter our map here.
+Overview map of Paracou with the sampling locations. Location of right
+panels shown by grey squares. White lines on the right panels represent
+altitude isolines. Upper left corner panel shows location of Paracou in
+French Guiana.
 :::
 
-PLACEHOLDER citation @Ramos2025 or [@Ramos2025], or @Freycon2003 or @Pavlicek2012
+### Geographic Location
+
+This study was conducted in Amazonian primary tropical forest at the
+Paracou Research Station (5°16′38″N, 52°55′38″W). The average air
+temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual
+rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season
+from December to July (between 300 and 500 mm per month) and a long dry
+season from mid-August to mid-November (\< 100 mm per month).
+In Paracou, a permanent forest dynamic experiment was established in
+1984. The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and
+one plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out
+in two of the unlogged control plots (see @fig-map): Plot 1 (P1),
+installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+
+### Geological and Pedological Characteristics of Paracou
+
+The geological substratum of Paracou consists primarily of Precambrian
+schists intruded by pegmatite veins, belonging to the metamorphic
+Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
+elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing
+into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
+are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
+[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
+more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+
+Soil distribution and drainage varies strongly in Paracou
+[@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
+topographic gradient, with Plot 1 comprised of 45 % Superficial Lateral
+Drainage (SLD), 35 % Surface Hydromorphy (SH), 15 % Downhill System
+(DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according
+to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60
+% SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004].
+
+Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located
+on flat hilltops or plateaus and feature a thick ferralitic cover that
+lets rainwater percolate freely in depth. The altered phase (Alt) begins
+where red, muscovite-rich alloterite appears above 1.2 m depth,
+signaling initial soil thinning [@Sabatier1997]. Plateau soils contain
+higher levels of carbon, nitrogen, and aluminum [@Allie2015], support
+greater root biomass and soil respiration [@Epron2006], and host nearly
+half of the local tree species in Paracou [@Allie2015].
+
+Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these
+soils reflect a more advanced thinning and compaction of the ferralitic
+cover. Because deep percolation is blocked, water flows laterally near
+the surface. In the field, this unit is identified by a "dry to the
+touch" layer above 1.2 m depth, even during the rainy season
+[@Sabatier1997]. Compared to plateaux, these slope soils have higher
+bulk density and surface moisture, but lower organic carbon, root
+biomass, and soil respiration [@Epron2006].
 
 ## Sampling and Identification
 
-text
+To evaluate how soil type influences macrofaunal communities, two
+contrasting ferralitic soil (DVS/Alt and SLD) types were compared,
+previously mapped in Paracou [@Soucemarianadin2004; @Weigel2006;
+@Roelens2007].
+
+### Soil Type Verification
+
+Prior to macrofauna sampling, field checks were carried out to confirm
+the pedological classification of our sampling sites. Auger drillings
+were performed to assess soil color and texture [@Boulet1979;
+@Sabatier1997]. Additionally, silt and clay contents were confirmed
+through granulometric analysis conducted by the company SADEF.
+Furthermore, saturated hydraulic conductivity was determined in situ
+using the simplified Beerkan infiltration method [@Lassabatere2006].
+
+### Marofaunal Sampling
+
+Five macrofauna samples were collected in each soil type (Alt/DVD and
+SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility
+(TSBF) method by @Anderson1994.
+
+To account for local topography, Alt/DVD (hilltop) samples were arranged
+in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a
+transect following the slope. All sampling points were spaced at least
+10 m apart to reduce spatial dependance of macrofauna samples (see
+@fig-map for spatial representation).
+
+Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame
+was placed on the ground at for each sample (called monolith). First,
+the litter (L) was quickly removed, trying to avoid fauna to escape, and
+collected in a labeled bag. Next, the frame is pressed 10 cm deep into
+the soil to isolate a soil block. This process was performed twice to
+collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth
+which were also collected in separate bags.
+
+### Sample Sorting and Identification
+
+Samples were manually sorted at the field station and litter samples (L)
+processed first to avoid macrofauna from escaping. Soil was sorted by
+transferring around 200 g of substrate into a container. Each portion
+was observed for an average of 2 minutes by an observer. Around 5
+observers were involved in the sorting of each bag to minimize bias.
+Macrofauna was collected using a brush and stored in 90 % ethanol,
+separated according to monolith and layer of soil. Subsequently, the
+organisms were identified on a coarse taxonomic level (refer to the data
+file in @sec-supp for details), with ants (Formicidae) and termites
+(Isoptera) treated separately from other Hymenoptera and Blattodea.
 
 ## Statistical analysis
 
-negative binomial (NB2) and Poisson tested
+All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
+and data processing relied largely on the tidyverse package
+[@Wickham2019; @Wickham2023].
 
 ### Explorative Analysis
 
-text
+Explorative analysis was performed to visual global trend in our data
+set. Box plots of abundances of the different taxa by layers and type of
+soil were realized as well as PCA analysis.
 
-### Analysis of Abundances (Generalized Linear Mixed Models)
+### Abundances (Generalized Linear Mixed Models)
 
-text
+Effects of soil drainage type and soil layers on abundances were
+analyzed using Generalized Linear Mixed Models (GLMMs), fitted with the
+glmmTMB package [@Brooks2017; @Brooks2026]. To account spatial
+structure, monoliths were included as a random effect. Since count data
+was treated, Poisson and negative binomial (NB2) were tested. Model
+selection relied on Akaike's Information Criterion (AIC),
+Likelihood-ratio testing (LRT) and model diagnostics using DHARMa
+residuals [@Hartig2026]. Refer to @sec-supp for detailed model selection
+and diagnostic plots.
 
-### Analysis of Community Composition (PERMANOVA)
+Type II Wald $\chi^2$ tests from the package car [@Fox2019; @Fox2026]
+were used to evaluate overall predictor effects. Estimated marginal
+means and Tukey pairwise comparisons were generated using emmeans
+[@Lenth2026].
 
-text
+### Community Composition (PERMANOVA)
+
+Community composition variation was analyzed using Permutational Multivariate Analysis of Variance (PERMANOVA) with a Bray-Curtis distance matrix. PERMANOVA was performed using adonis2 from the vegan package [@Oksanen2026]. Homogeneity of multivariate dispersion was verified using betadisper and permutest from the same package. One zero abundance layer observation (DLS_2_4_L) was removed, following the recommendations of the vegan handbook [@Oksanen2026], since it does not carry any compositional information for this analysis. 
+
+Since monolith layers are not spatially independent, soil type and soil layer effects were evaluated separately. Layers were collapsed per monolith for the soil type PERMANOVA. To test the effect of soil layer, permutations were restricted within monoliths using the permute package [@Simpson2026]. This accounts for the spatial dependence of layers from the same monolith since it ensures that observations were not permuted between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.
+
+For visualizing community composition variation patterns, Principal Coordinates Analysis (PCoA) was used with the same distance matrix. To fit taxa significantly associated with the ordination, envfit from the vegan package [@Oksanen2026].
+
+## Spatial Representation
+
+Monolith locations were reconstructed using R [@RCoreTeam2026] and the
+sf package [@Pebesma2018; @Pebesma2023]. Coordinates were obtained based
+on distance and azimuth in relation to reference trees and their
+coordinates sourced from Paracou inventory data [@Derroire2026;
+@Derroire2026a]. QGIS [@QGISDevelopmentTeam2024] was used for spatial
+representation.
 
 # Results
 
@@ -294,6 +444,7 @@ df_total <- df %>%
 
 ## General
 
+%%% TEXT explorative\
 Densities by soil type and layer @fig-density
 
 ::: {#fig-density fig-env="figure"}
@@ -327,20 +478,22 @@ fig_density <- ggplot(
     fill = "Soil type"
   ) +
   theme_bw() +
-  theme(!!!gg_fontsize)
+  theme(!!!gg_fontsize())
 
 print(fig_density)
 ```
 
-Boxplot with total macrofauna densities by soil type and layer. y-axis is logarithmic.
+Boxplot with total macrofauna densities by soil type and layer. y-axis
+is on a pseudo-logarithmic scale.
 :::
 
-Relative composition of community abundances @fig-comp
+%%% TEXT Relative composition of community abundances @fig-comp
 
 ::: {#fig-comp fig-env="figure"}
 ```{r}
-#| label: Composition FIGURE
+#| label: Relative composition FIGURE
 #| include: true
+#| out-width: 100%
 
 # Group taxa into the three focal groups and others
 composition <- df_long %>%
@@ -371,40 +524,47 @@ composition <- df_long %>%
 # Plot taxonomic composition
 fig_composition <- ggplot(
   composition,
-  aes(
-    x = soil_type,
-    y = proportion,
-    fill = taxon_group
-  )
+  aes(x = soil_type, y = proportion, fill = taxon_group)
 ) +
-  geom_col(
-    colour = "white",
-    width = 0.7
-  ) +
+  geom_col(colour = "white", width = 0.7, linewidth = 0.15) +
   facet_wrap(~ layer) +
   scale_y_continuous(
     labels = scales::percent,
-    limits = c(0, 1)
+    limits = c(0, 1),
+    expand = expansion(mult = c(0, 0.02))   # removes gap below 0%
   ) +
   scale_fill_manual(
     values = taxon_colors,
-    drop = FALSE
+    drop = FALSE,
+    labels = c(
+      Formicidae              = "Formicidae",
+      Isoptera                = "Isoptera",
+      Lumbricina_oligochaetes = "Lumbricina",
+      Others                  = "Others"
+    ),
+    guide = guide_legend(nrow = 1, byrow = TRUE)
   ) +
-  labs(
-    x = "Soil type",
-    y = "Proportion of individuals",
-    fill = "Taxon"
-  ) +
+  labs(x = "Soil type", y = "Proportion of individuals", fill = NULL) +
   theme_bw() +
- theme(!!!gg_fontsize)
+  theme(
+    !!!gg_fontsize(),
+    legend.position   = "bottom",
+    legend.key.size   = unit(0.35, "cm"),
+    legend.text       = element_text(size = rel(0.85)),
+    legend.margin     = margin(0, 0, 0, 0),
+    legend.box.spacing = unit(2, "pt"),
+    aspect.ratio      = 1.3
+  )
 
 print(fig_composition)
 ```
 
-Relative composition of macrofaunal community abundances by soil type and layer.
+Relative composition of macrofaunal community abundances by soil type
+and layer.
 :::
 
-Explorative ordination PCA @fig-pca
+%%% TEXT Explorative ordination PCA @fig-pca
+
 ```{r}
 #| label: prepare PCA using Hellinger transformation
 
@@ -459,15 +619,14 @@ taxa_scores <- taxa_scores %>%
 
 # Keep taxa reasonably represented on the first two PCA axes
 taxa_scores_plot <- taxa_scores %>%
-  filter(cos2 >= 0.10) # can change cos2 here
-``` 
+  filter(cos2 >= 0.1) # can change cos2 here
+```
 
-::: {#fig-pca fig-env="figure"}
+::: {#fig-pca fig-env="figure*"}
 ```{r}
 #| label: PCA FIGURE
 #| include: true
-
-#| label: PCA biplot
+#|out-width: 80%
 
 fig_pca <- ggplot(
   scores_pca,
@@ -592,19 +751,24 @@ fig_pca <- ggplot(
 
   # Theme
   theme_bw() +
-  theme(!!!gg_fontsize)
+  theme(!!!gg_fontsize(0.6),
+        legend.spacing.y = grid::unit(-0.2, "cm"))
 
 fig_pca
 ```
 
-PCA ordination based on Hellinger-transformed community matrix. First two dimensions are presented. Only taxa with cos² > 0.1 are presented.
+PCA ordination based on Hellinger-transformed community matrix. First
+two dimensions are presented. Only taxa with cos² \> 0.1 are presented.
 :::
 
 ## GLMM
-Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in @tbl-models.
 
+Effects of soil type and layer were tested on global, ant, termite and
+earthworm abundances. All retained models described below are listed in
+@tbl-models.
 
 ### Global Abundance
+
 ```{r}
 #| label: Global GLMM
 m_nb_add <- glmmTMB(
@@ -617,12 +781,6 @@ Anova(m_nb_add)
 summary(m_nb_add)
 ```
 
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p < 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52, df = 1, p = 0.469). Estimated random-effect variance (monolith) was 0.437 (SD = 0.661), indicating variation in baseline macrofauna abundance among monoliths.
-
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that macrofauna abundance was significantly higher in layer 10 than in layers L (7.42 times) and 20 (6.18 times), while no significant difference was found between layers L and 20 (p = 0.714).
-
-
-### Formicidae
 ```{r}
 #| label: Ant GLMM
 #| include: false
@@ -639,11 +797,7 @@ ants_nb_add <- glmmTMB(
 Anova(ants_nb_add)
 summary(ants_nb_add)
 ```
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on ant abundance ($\chi^2$ = 28.00, df = 2, p < 0.001). The effect of soil type was not significant ($\chi^2$ = 0.48, df = 1, p = 0.486). The estimated random-effect variance for monolith was 0.655 (SD = 0.810), indicating variation in baseline ant abundance among monoliths. Quantile deviation was detected in the DHARMa residuals for the presented model. Specifically, upper quantile deviated significantly and thus relatively high-abundance observations may not be adequately captured by the model. Since the diagnostics did not indicate deviations regarding dispersion, zero-inflation, uniformity as well outliers, and the model has the best AIC support, it was retained, regardless.
 
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that ant abundance was significantly higher in layer 10 than in layer L (5.05 times) and layer 20 (3.27 times), while no significant difference was found between layers L and 20 (p = 0.3995).
-
-### Isoptera
 ```{r}
 #| label: Termite GLMM
 #| include: false
@@ -661,9 +815,142 @@ Anova(termites_nb_add)
 summary(termites_nb_add)
 ```
 
-Type II Wald chi-square tests revealed a highly significant effect of soil layer on termite abundance ($\chi^2$ = 36.56, df = 2, p < 0.001). The effect of soil type was not significant ($\chi^2$ = 0.89, df = 1, p = 0.347). The estimated random-effect variance for monolith was effectively zero ($8.22 \times 10^{-9}$; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
+```{r}
+#| label: Earthworm GLMM
+#| include: false
 
-Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero). Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p \leq 0.0073).
+df_earthworms <- df_total %>%
+  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
+
+earthworms_p_add <- glmmTMB(
+  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
+  family = poisson(link = "log"),
+  data = df_earthworms
+)
+
+Anova(earthworms_p_add)
+summary(earthworms_p_add)
+```
+
+::: {#tbl-models fig-env="table*"}
+```{r}
+#| label: summary all models TABLE
+#| include: true
+#| size: normalsize
+
+models <- list(
+  "Total macrofauna" = m_nb_add,
+  "Ants (Formicidae)" = ants_nb_add,
+  "Termites (Isoptera)" = termites_nb_add,
+  "Earthworms (Lumbricina)" = earthworms_p_add
+)
+
+glmm_summary <- lapply(names(models), function(model_name) {
+
+  model <- models[[model_name]]
+
+  anova_results <- as.data.frame(
+    car::Anova(model, type = 2)
+  )
+
+  anova_results$Predictor <- rownames(anova_results)
+
+  distribution <- if (model_name == "Earthworms") {
+    "Poisson"
+  } else {
+    "Negative binomial"
+  }
+
+  anova_results %>%
+    transmute(
+      Response = model_name,
+      Distribution = distribution,
+      Predictor = Predictor,
+      chi_square = round(Chisq, 2),
+      df = Df,
+      p_value = `Pr(>Chisq)`
+    )
+
+}) %>%
+  bind_rows()
+
+rownames(glmm_summary) <- NULL
+
+# Row positions: first and second row of each model
+first_rows  <- which(!duplicated(glmm_summary$Response))
+second_rows <- which(duplicated(glmm_summary$Response))
+last_rows   <- which(!duplicated(glmm_summary$Response, fromLast = TRUE))
+
+glmm_table <- glmm_summary %>%
+  mutate(
+    stars = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01  ~ "**",
+      p_value < 0.05  ~ "*",
+      TRUE ~ ""
+    ),
+    p_display = ifelse(
+      p_value < 0.0001,
+      "<0.0001",
+      format.pval(p_value, digits = 3)
+    ),
+    p_display = paste0(p_display, "<sup>", stars, "</sup>"),
+    # show Response and Distribution only on the first row of each model
+    Response = ifelse(duplicated(Response), "", Response),
+    Distribution = ifelse(Response == "", "", Distribution)
+  ) %>%
+  dplyr::select(
+    Response,
+    Distribution,
+    Predictor,
+    chi_square,
+    df,
+    `p-value` = p_display
+  ) %>%
+  gt() %>%
+  cols_label(chi_square = "Chi-square") %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  # hide the line between the two rows of a model, first two columns only
+  tab_style(
+    style = cell_borders(sides = "bottom", style = "hidden"),
+    locations = cells_body(
+      columns = c(Response, Distribution),
+      rows = first_rows
+    )
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "top", style = "hidden"),
+    locations = cells_body(
+      columns = c(Response, Distribution),
+      rows = second_rows
+    )
+  ) %>%
+  # clearer line between models, all columns
+  tab_style(
+    style = cell_borders(sides = "bottom", color = "grey50", weight = px(1.5)),
+    locations = cells_body(rows = last_rows)
+  ) %>%
+  fmt_markdown(columns = `p-value`) %>%
+  tab_source_note(
+    source_note = md(
+      "Type II Wald Chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
+    )
+  )
+
+if (knitr::is_latex_output()) {
+  glmm_table %>%
+    opt_table_font(size = px(10))
+} else {
+  glmm_table
+}
+```
+
+Summary of retained GLMMs for global, ants (Formicidae), termite
+(Isoptera) and earthworm (Lumbricina oligochaetes) abundance.
+:::
 
 ::: {#tbl-pairwise fig-env="table*"}
 ```{r}
@@ -725,6 +1012,8 @@ glmm_pairwise_table <- pairwise_results %>%
       "<sup>", stars, "</sup>"
     )
   ) %>%
+  # show each taxon only on the first row of its block
+  mutate(Taxon = if_else(duplicated(Taxon), "", Taxon)) %>%
   select(
     Taxon,
     Comparison = contrast,
@@ -754,120 +1043,73 @@ if (knitr::is_latex_output()) {
 }
 ```
 
-Pairwise emmeans comparisons of abundance by layer for total macrofauna, ants (Formicidae) and termites (Isoptera).
+Estimated marginal means and Tukey pairwise comparisons of abundance by
+layer for total macrofauna, ants (Formicidae) and termites (Isoptera)
+using emmeans.
 :::
 
+Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
+layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p
+\< 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52,
+df = 1, p = 0.469). Estimated random-effect variance (monolith) was
+0.437 (SD = 0.661), indicating variation in baseline macrofauna
+abundance among monoliths.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
+macrofauna abundance was significantly higher in layer 10 than in layers
+L (7.42 times) and 20 (6.18 times), while no significant difference was
+found between layers L and 20 (p = 0.714).
+
+### Formicidae
+
+Type II Wald $\chi^2$ tests revealed a significant effect of soil layer
+on ant abundance ($\chi^2$ = 28.00, df = 2, p \< 0.001). The effect of
+soil type was not significant ($\chi^2$ = 0.48, df = 1, p = 0.486). The
+estimated random-effect variance for monolith was 0.655 (SD = 0.810),
+indicating variation in baseline ant abundance among monoliths. Quantile
+deviation was detected in the DHARMa residuals for the presented model.
+Specifically, upper quantile deviated significantly and thus relatively
+high-abundance observations may not be adequately captured by the model.
+Since the diagnostics did not indicate deviations regarding dispersion,
+zero-inflation, uniformity as well outliers, and the model has the best
+AIC support, it was retained, regardless.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
+ant abundance was significantly higher in layer 10 than in layer L (5.05
+times) and layer 20 (3.27 times), while no significant difference
+wasfound between layers L and 20 (p = 0.3995).
+
+### Isoptera
+
+Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
+layer on termite abundance ($\chi^2$ = 36.56, df = 2, p \< 0.001).The
+effect of soil type was not significant ($\chi^2$ = 0.89, df = 1, p =
+0.347). The estimated random-effect variance for monolith was
+effectively zero ($8.22 \times 10^{-9}$; SD = 0.00009), indicating
+virtually no remaining variation in baseline termite abundance among
+monoliths after accounting for the fixed effects.
+
+Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
+termite abundance was significantly higher in layer 10 than in layer L
+(18.08 times) and layer 20 (745.48 times; estimated richness for 20
+nearing zero). Abundance was also significantly higher in layer L than
+in layer 20 (41.23 times; all p \leq 0.0073).
 
 ### Lumbricina Oligochaetes
 
-results text
-
-```{r}
-#| label: Earthworm GLMM
-#| include: false
-
-df_earthworms <- df_total %>%
-  select(Lumbricina_oligochaetes, layer, monolith_ID, soil_type)
-
-earthworms_p_add <- glmmTMB(
-  Lumbricina_oligochaetes ~ soil_type + layer + (1 | monolith_ID),
-  family = poisson(link = "log"),
-  data = df_earthworms
-)
-
-Anova(earthworms_p_add)
-summary(earthworms_p_add)
-```
-
-::: {#tbl-models fig-env="table*"}
-```{r}
-#| label: SummaryModels
-#| include: true
-#| size: normalsize
-
-models <- list(
-  "Total macrofauna" = m_nb_add,
-  "Ants" = ants_nb_add,
-  "Termites" = termites_nb_add,
-  "Earthworms" = earthworms_p_add
-)
-
-glmm_summary <- lapply(names(models), function(model_name) {
-
-  model <- models[[model_name]]
-
-  anova_results <- as.data.frame(
-    car::Anova(model, type = 2)
-  )
-
-  anova_results$Predictor <- rownames(anova_results)
-
-  distribution <- if (model_name == "Earthworms") {
-    "Poisson"
-  } else {
-    "Negative binomial"
-  }
-
-  anova_results %>%
-    transmute(
-      Response = model_name,
-      Distribution = distribution,
-      Predictor = Predictor,
-      `Chi-square` = round(Chisq, 2),
-      df = Df,
-      p_value = `Pr(>Chisq)`
-    )
-
-}) %>%
-  bind_rows()
-
-glmm_table <- glmm_summary %>%
-  mutate(
-    stars = case_when(
-      p_value < 0.001 ~ "***",
-      p_value < 0.01  ~ "**",
-      p_value < 0.05  ~ "*",
-      TRUE ~ ""
-    ),
-    p_display = ifelse(
-      p_value < 0.0001,
-      "<0.0001",
-      format.pval(p_value, digits = 3)
-    ),
-    p_display = paste0(p_display, "<sup>", stars, "</sup>")
-  ) %>%
-  select(
-    Response,
-    Distribution,
-    Predictor,
-    `Chi-square`,
-    df,
-    `p-value` = p_display
-  ) %>%
-  gt() %>%
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) %>%
-  fmt_markdown(columns = `p-value`) %>%
-  tab_source_note(
-    source_note = md(
-      "Type II Wald chi-square tests. All models included soil type and soil layer as fixed effects and monolith ID as a random intercept. Significance levels: * p < 0.05; ** p < 0.01; *** p < 0.001"
-    )
-  )
-
-if (knitr::is_latex_output()) {
-  glmm_table %>%
-    opt_table_font(size = px(10))
-} else {
-  glmm_table
-}
-```
-
-Summary of retained GLMMs for global abundance, ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina oligochaetes). ADD MORE DESCRIPTION HERE
-:::
+Type II Wald $\chi^2$ tests indicated a significant effect of soil layer
+on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas
+soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p =
+0.557). Pairwise comparisons showed significantly higher earthworm
+abundance in layer 10 compared to layer 20 (2.31 times higher). No
+significant differences were detected between layer L and the other
+layers. However, no earthworms were recorded in layer L, resulting in
+unstable model estimates and unbounded confidence intervals for this
+layer. The Estimated random-effect variance for monoliths was 0.510 (SD
+= 0.714)
 
 ## PERMANOVA
+
 ```{r}
 #| label: Data preparation for PERMANOVA and PCoA
 df_perm <- df
@@ -890,7 +1132,6 @@ meta_layer <- df_perm[, c("monolith_ID", "soil_type", "layer")]
 # create Bray-Curtis dissimilarity matrix
 dist_layer <- vegdist(comm, method = "bray")
 ```
-
 
 ```{r}
 #| label: Create new community matrix for soil type accumulated per monolith and fit model
@@ -947,10 +1188,14 @@ print(dispersion_soil)
 plot(bd_soil)
 ```
 
-PERMANOVA did not show a significant difference in macrofaunal community composition between soil types (F = 1.68, R² = 0.085, p = 0.139). The test for homogeneity of multivariate dispersion was also non-significant (F = 0.11, p = 0.742), indicating no detectable difference in within-group dispersion between soil types. Layers were aggregated per monolith to account for spatial dependence.
+PERMANOVA did not show a significant difference in macrofaunal community
+composition between soil types (F = 1.68, R² = 0.085, p = 0.139). The
+test for homogeneity of multivariate dispersion was also non-significant
+(F = 0.11, p = 0.742), indicating no detectable difference in
+within-group dispersion between soil types. Layers were aggregated per
+monolith to account for spatial dependence.
 
-
-```{r} 
+```{r}
 #| label: Run permanova and PCoA
 
 df_perm <- df
@@ -987,8 +1232,15 @@ permanova_layer <- adonis2(
 print(permanova_layer)
 ```
 
-PERMANOVA revealed a significant effect of soil layer on macrofauna community composition (Bray–Curtis dissimilarity: F = 5.46, R² = 0.163, p = 0.0001). Soil layer explained around 16.3% of variation in the community composition, indicating that macrofauna community composition differed significantly among layers. Permutation was restricted within monolith to account for spatial dependence of layers. Homogeneity of multivariate dispersion was assessed using a permutation test based on betadisper. No significant differences in dispersion were detected for soil layers (F = 0.75, p = 0.321), suggesting that the PERMANOVA result was not driven by differences in within-group dispersion.
-
+PERMANOVA revealed a significant effect of soil layer on macrofauna
+community composition (Bray–Curtis dissimilarity: F = 5.46, R² = 0.163,p
+= 0.0001). Soil layer explained around 16.3% of variation in the
+community composition, indicating that macrofauna community composition
+differed significantly among layers. Permutation was restricted within
+monolith to account for spatial dependence of layers. Homogeneity of
+multivariate dispersion was assessed using a permutation test based on
+betadisper. No significant differences in dispersion were detected for
+soil layers (F = 0.75, p = 0.321).
 
 ```{r}
 #| label: Pairwise PERMANOVA for soil layers
@@ -1042,7 +1294,14 @@ pairwise_results$p_adjusted <- p.adjust(
 print(pairwise_results)
 ```
 
-Pairwise PERMANOVA suggests significant differences in macrofauna community composition for all soil layers (@tbl-permanova). Significant differences were observed between L and 10 (F = 6.05, R² = 0.141, adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p = 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012), using Bonferroni correction.
+Pairwise PERMANOVA suggests significant differences in macrofauna
+community composition for all soil layers (@tbl-permanova). Significant
+differences were observed between L and 10 (F = 6.05, R² = 0.141,
+adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p =
+0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012),
+using Bonferroni correction.
+
+%%% results shown, TEXT @fig-pcoa
 
 ::: {#tbl-permanova}
 ```{r}
@@ -1160,10 +1419,7 @@ if (knitr::is_latex_output()) {
 Pairwise PERMANOVA for community composition comparisons between layers.
 :::
 
-
-
-
-```{r} 
+```{r}
 #| label: calculation and plot for PCoA
 # calculate PCoA, using bray like in PERMANOVA
 dist_layer <- vegdist(comm, method = "bray")
@@ -1286,98 +1542,43 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
       min.segment.length = Inf,
       segment.color = NA,
       seed = 123
-    )
+    ) + theme_bw() +
+  theme(!!!gg_fontsize(0.5))
 ```
 
 ::: {#fig-pcoa fig-env="figure*"}
 ```{r}
 #| label: PCoA FIGURE
-#| out-width: 80%
+#| out-width: 100%
 #| include: true
-
 plot(p)
 ```
 
-Bray-Curtis PCoA for layers here
+First two components of the Bray-Curtis PCoA representing 26.1% of the
+variation in macrofaunal community composition. Husks indicate soil
+layers. Taxa singificantly associated with the ordination are presented
+(arrows).
 :::
-
 
 # Discussion
 
-text
+%%% TEXT - no differences in densities or community composition for soil
+types (argue about same vegetation cover etc.) - clear differences in
+both for layers (connect to literature knowledge)
+
+- discuss the earthworms here
 
 # Conclusion
 
-text
+%%% TEXT
 
+# Acknowledgements
 
-# INSTRUCTIONS TEMPLATE, REMOVE LATER
-## Lists
+%%% TEXT
 
-Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or
-numbers `1.`, `i.` and `A.` (numbered lists). Indentation of lists
-indicates their level: `*`, `+` and `-` may be replaced by `-` at all
-levels, but four spaces are needed to nest a list into another.
+# Supplementary Material {#sec-supp}
 
-- First element of a list
-  - sub-list
-- Second element
-- Continuation of the list
-
-Leave an empty line before and after the list, but not between its
-items.
-
-## Math
-
-Equations in LaTeX format can be inserted inline, like $A = \pi r^2$ or
-isolated like $$e^{i \pi} = -1.$$
-
-They can be numbered, see @eq-disk, after adding them a label:
-
-$$  A = \pi r^2.$$ {#eq-disk}
-
-## Cross-references
-
-Figures and tables have a label declared in their division `tbl-xxx` or
-`fig-yyy`, starting with `fig-` or `tbl-`.
-
-For equations, the label is added manually by the code `{#eq-xxx}` after
-the end of the equation.
-
-Sections can be tagged by ending their title with `{#sec-yyy}`.
-
-In all cases, the call to the reference is made by `@`.
-
-## Bibliography
-
-Bibliographic references included in the `.bib` file declared in the
-document header can be called by `[@CitationKey]`, in parentheses
-[@Ramos2025], or without square brackets, in the text, as @Ramos2025.
-
-The bibliographic style can be specified, by adding the line
-
-```         
-csl: file_name.csl
-```
-
-in the document header and copying the *.csl* style file to the project
-folder. More than a thousand styles are available[^1] and their URL can
-be used instead of copying the file, e.g.:
-
-[^1]: <https://github.com/citation-style-language/styles>
-
-```         
-csl: https://www.zotero.org/styles/xxx
-```
-
-## Forcing line breaks
-
-Hyphenation is handled automatically in LaTeX. If a word is not
-hyphenated correctly, add its hyphenation in the preamble of the file
-with the command `hyphenation` (words are separated by spaces,
-hyphenation locations are represented by dashes).
-
-If LaTeX can't find a solution for the line break, for example because
-some code is too long a non-breaking block, add the LaTeX command
-`\break` to the line break location. Do not leave a space before the
-command. The HTML document ignores LaTeX commands.
+Supplementary material, including detailed statistical analysis,
+scripts, data, QGIS layers, additional software attribution as well as
+the Quarto file used to produce this article, is available from
+<https://github.com/jasonberger2002/FTH_2026_soil_macrofauna>.

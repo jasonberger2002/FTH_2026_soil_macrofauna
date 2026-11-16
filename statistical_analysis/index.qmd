@@ -48,7 +48,7 @@ execute:
 # Necessary packages
 packages_required <- c(
   "knitr", "tidyverse", "vegan", "permute",
-  "ggrepel", "grid", "dplyr", "readxl", "glmmTMB",
+  "ggrepel", "dplyr", "readxl", "glmmTMB",
   "DHARMa", "car", "emmeans", "ggnewscale"
 )
 # Already installed?
@@ -85,6 +85,9 @@ knitr::opts_chunk$set(width = 65)
 set.seed(123)
 ```
 
+Code acknowledgement for the code above: The initial Quarto setup and package-management code were adapted from Eric Marcon's [TP-Biodiversity-2026 repository](https://github.com/EricMarcon/TP-Biodiversity-2026).
+The code was subsequently modified and extended for the following analysis.
+
 ------------------------------------------------------------------------
 
 # Preparation
@@ -93,8 +96,12 @@ set.seed(123)
 
 ```{r}
 #| label: Load and set variable types
+<<<<<<< HEAD
 df <- read_excel("../data/macrofaune_counts.xlsx")
 df<-read_excel("C:/Users/jujuk/OneDrive/Documents/M2 Kourou/PROJET PEDO/FTH_2026_soil_macrofauna/data/macrofaune_counts.xlsx")
+=======
+df <- read_excel("../data/macrofauna_counts.xlsx")
+>>>>>>> e3e50986f9061afa4b2ecd5c917c2faead44377a
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
 str(df)
@@ -114,14 +121,14 @@ layer_colors <- c(
 )
 
 soil_colors <- c(
-  "alt" = "#C5A36A",
-  "dls" = "#394B45"
+  "alt" = "#D9C77A", 
+  "dls" = "#D4673F"
 )
 
 taxon_colors <- c(
   "Formicidae" = "#B56B32",
-  "Isoptera" = "#496987",
-  "Lumbricina_oligochaetes" = "#527F68",
+  "Isoptera" = "#6B4C8A",
+  "Lumbricina_oligochaetes" = "#2A5C45",
   "Others" = "#A6A39B"
 )
 
@@ -511,7 +518,7 @@ m_nb_int <- glmmTMB(
 )
 ```
 
-#### Comparing models using Akaike's An Information Criterion
+#### Comparing models using Akaike's Information Criterion
 
 ```{r}
 #| label: Global model comparison using AIC
@@ -837,6 +844,10 @@ The Poisson model is retained because it has a slightly lower AIC and a more par
 Anova(earthworms_p_add)
 summary(earthworms_p_add)
 
+## check convergence since we observe very high SEs
+earthworms_p_add$fit$convergence
+earthworms_p_add$sdr$pdHess
+
 # Estimated marginal means for layers (response scale)
 emm_layers_earthworms <- emmeans(earthworms_p_add, ~ layer, type = "response")
 emm_layers_earthworms
@@ -857,12 +868,11 @@ plot(emm_layers_earthworms)
 Type II Wald chi-square tests revealed a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69, df = 2, p = 0.0018).
 The effect of soil type was not significant ($\chi^2$ = 0.35, df = 1, p = 0.557).
 The estimated random-effect variance for monolith was 0.510 (SD = 0.714), indicating variation in baseline earthworm abundance among monoliths.
-The model summary shows that estimates including layer were highly instable, with standard errors of around 10511. Coefficients can therefore not be correctly interpreted for layers.
+The model summary shows that estimates including layer were highly instable, with standard errors of around 10511.
+Global coefficients can therefore not be correctly interpreted for layers.
 
-Pairwise comparisons with Tukey adjustment showed significantly higher abundance in layer 10 than in layer 20 (2.31 times).
-No significant differences were detected between layer L and either layer 10 or layer 20 (both p = 1.000).
-However, the estimated abundance of earthworms in layer L was zero with an unbounded confidence interval.
-No earthworms were observed in layer L during the sampling, which explains the high errors in the models and the unbounded confidence interval.
+Pairwise comparisons with Tukey adjustment was estimable and showed significantly higher abundance in layer 10 than in layer 20 (2.31 times).
+However, since no earthworms were observed in layer L during the sampling, pairwise comparisons with layer L are not possible since they are inestimable by the model.
 
 ## PERMANOVA
 
