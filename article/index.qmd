@@ -827,6 +827,8 @@ earthworms_p_add <- glmmTMB(
 
 Anova(earthworms_p_add)
 summary(earthworms_p_add)
+earthworms_p_add$fit$convergence #check convergence (due to high SE)
+earthworms_p_add$sdr$pdHess
 ```
 
 ::: {#tbl-models fig-env="table*"}
@@ -1094,16 +1096,8 @@ in layer 20 (41.23 times; all p \leq 0.0073).
 
 ### Lumbricina Oligochaetes
 
-Type II Wald $\chi^2$ tests indicated a significant effect of soil layer
-on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas
-soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p =
-0.557). Pairwise comparisons showed significantly higher earthworm
-abundance in layer 10 compared to layer 20 (2.31 times higher). No
-significant differences were detected between layer L and the other
-layers. However, no earthworms were recorded in layer L, resulting in
-unstable model estimates and unbounded confidence intervals for this
-layer. The Estimated random-effect variance for monoliths was 0.510 (SD
-= 0.714)
+Type II Wald $\chi^2$ tests indicated a significant effect of soil layer on earthworm abundance ($\chi^2$ = 12.69, df = 2, p = 0.0018), whereas soil type had no significant effect ($\chi^2$ = 0.35, df = 1, p = 0.557). The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714). 
+However, the model showed very high standard errors for coefficients associated to soil layers. This was likely associated with complete absence of earthworms from Layer L. Regardless, pairwise comparisons was estimable and stable between the layers 10 and 20 (estimated log-scale contrast = 6248, SE = 0.235), showing significantly higher earthworm abundance in layer 10 compared to layer 20 (2.31 times higher). Because no earthworms were recorded in layer L, the model could not reliably estimate its effect on earthworm abundance.
 
 ## PERMANOVA
 
@@ -1562,6 +1556,8 @@ layers. Taxa singificantly associated with the ordination are presented
 %%% TEXT - no differences in densities or community composition for soil
 types (argue about same vegetation cover etc.) - clear differences in
 both for layers (connect to literature knowledge)
+
+- discuss the earthworms. test cannot estimate Layer L abundances, but we saw that there is zero abundance 
 
 # Conclusion
 
