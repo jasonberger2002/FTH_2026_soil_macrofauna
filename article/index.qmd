@@ -307,9 +307,18 @@ the principle of competitive exclusion, stable coexistence requires
 niche differentiation when species compete for limited resources
 [@Hardin1960; @Chesson2000]: differences in soil properties can promote
 distinct ecological niches among taxa, which could contribute to their
-coexistence. We therefore hypothesise that soil type contributes to the
-spatial differentiation of macrofaunal taxa and may help explain their
-coexistence.
+coexistence. We therefore hypothesise that soil type and ressources
+provided contributes to the spatial differentiation of macrofaunal taxa
+and may help explain their coexistence. We hypothesize that there is a
+relationship between the soil texture and the composition and abundance
+of soil communities [@Lavelle2022; @Zhukova2022] ; a well-drained soil
+will be richer, particularly in soil engineers, due to their roles as
+bioturbators [@Bourgignon2010; @Bottinelli2015] and that infiltration
+rates are likely to be higher where earthworm and termite communities
+are present, due to their roles as bioturbators [@Zhukova2022;
+@Cheik2019]. Considering interactions, because of the ants predation on
+termites, we are expecting niche differenciation between the
+both[@Tuma2020].
 
 # Material and Methods
 
