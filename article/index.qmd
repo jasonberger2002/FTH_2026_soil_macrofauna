@@ -292,12 +292,6 @@ Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat
 Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these soils reflect a more advanced thinning and compaction of the ferralitic cover. Because deep percolation is blocked, water flows laterally near the surface. In the field, this unit is identified by a "dry to the touch" layer above 1.2 m depth, even during the rainy season [@Sabatier1997]. Compared to plateaux, these slope soils have higher bulk density and surface moisture, but lower organic carbon, root biomass, and soil respiration [@Epron2006].
 
 
-```{=html}
-<!--At the Paracou station, topography strongly shapes soil properties and
-water dynamics along a gradient from hilltops to bottomlands
-[@Allie2015].-->
-```
-
 ## Sampling and Identification
 
 To evaluate how soil type influences macrofaunal communities, two
