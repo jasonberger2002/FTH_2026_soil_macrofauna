@@ -341,7 +341,7 @@ Refer to @fig-map
 knitr::include_graphics("images/overview_paracou.png")
 ```
 
-Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana.
+Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana. 
 :::
 
 ## Sampling and Identification
