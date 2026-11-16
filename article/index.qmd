@@ -244,16 +244,72 @@ communities, including those underground, is particularly important
 [@Myers1988].
 
 ## 1. Main drivers of soil macrofauna distribution in tropical rainforests
-Soils support approximately 50% of global animal biomass [@Fierer2009], with ants, termites and earthworms among the dominant groups [@Lavelle2022]. Tropical forests harbour greater soil macrofaunal abundance and diversity than savannas, grasslands, agricultural systems and temperate forests [@Lavelle2022]. Soil macrofaunal community composition is influenced by vegetation cover and litter quality  [@Lavelle1992;@Collison2013;@Lavelle2022], forest type [@Loranger-Merciris2007;@Collison2013;@Ramos2025], and soil structure and physicochemical properties [@Vasconcellos2013; @Lavelle2022; @Ferrin2026].
+
+Soils support approximately 50% of global animal biomass [@Fierer2009],
+with ants, termites and earthworms among the dominant groups
+[@Lavelle2022]. Tropical forests harbour greater soil macrofaunal
+abundance and diversity than savannas, grasslands, agricultural systems
+and temperate forests [@Lavelle2022]. Soil macrofaunal community
+composition is influenced by vegetation cover and litter quality
+[@Lavelle1992; @Collison2013; @Lavelle2022], forest type
+[@Loranger-Merciris2007; @Collison2013; @Ramos2025], and soil structure
+and physicochemical properties [@Vasconcellos2013; @Lavelle2022;
+@Ferrin2026].
 
 ## 2. Bidirectional relationships between soil texture and macrofauna
-Soil texture accounts for 3.9% of the variation in soil macrofaunal community structure at the global scale [@Lavelle2022]. Soil moisture also influences community composition, although responses vary among taxa. In the central Amazon, ant abundance and diversity decrease where the water table remains close to the soil surface for prolonged periods [@Baccaro2013]. Similarly, termite assemblages in French Guianan primary forests vary along moisture gradients, with swamp and lowland forests harbouring distinct communities from well-drained forests [@Bourguignon2010]. These findings highlight soil texture and associated hydrological conditions as potential environmental filters of macrofaunal communities. Conversely, macrofauna can modify soil physical properties through their biological activities.
+
+Soil texture accounts for 3.9% of the variation in soil macrofaunal
+community structure at the global scale [@Lavelle2022]. Soil moisture
+also influences community composition, although responses vary among
+taxa. In the central Amazon, ant abundance and diversity decrease where
+the water table remains close to the soil surface for prolonged periods
+[@Baccaro2013]. Similarly, termite assemblages in French Guianan primary
+forests vary along moisture gradients, with swamp and lowland forests
+harbouring distinct communities from well-drained forests
+[@Bourguignon2010]. Conversely, macrofauna can modify soil physical
+properties through their biological activities.
 
 ## 3. Soil bioengineers and their effects on soil properties
-Soil macrofauna can modify soil properties, including aggregate structure, porosity and hydraulic conductivity. Soil bioengineers are organisms that physically and chemically modify their environment through resource acquisition and habitat construction. Ants, termites and earthworms act as (1) bioturbators, redistributing soil particles and creating galleries; (2) aggregate modifiers, through processes such as earthworm cast production; and (3) mineral transformers [@Bottinelli2014]. In Amazonian terra firme forests, ants and termites account for approximately one-third of soil animal biomass [@Fittkau1973]. Their engineering activities can substantially modify soil properties [@Lavelle1992; @Bottinelli2014]. For example, Pontoscolex corethrurus can rapidly alter soil morphology and hydrological functioning when dominant [@Barros2004]. Gallery or nest construction by ants, earthworms and termites increases macroporosity, enhance hydraulic conductivity and habitat heterogeneity in the soil [@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024). Earthworms also modify aggregate-size distributions in topsoil and redistribute plant debris towards deeper soil horizons through bioturbation [@Zhukova2022].
-The effects of soil engineers depend on their ecological strategies and vertical distribution. For example, earthworms are classified as epigeic, inhabiting the litter layer; endogeic, living within mineral soil horizons; and anecic, constructing deep burrows while feeding at the soil surface [@Bouche1977]. These groups have contrasting effects on soil structure: endogeic earthworms contribute to macroaggregate formation, whereas termites redistribute soil vertically through the construction of mounds using material transported from deeper horizons [@Lavelle1992].
-More than 100 termite species have been recorded in French Guiana [@Bourguignon2010], highlighting the high diversity of soil engineers in this region. However, the spatial distribution of soil macrofauna in undisturbed tropical rainforests remains poorly documented. Differences in soil properties may favour distinct ecological niches among taxa, potentially contributing to their coexistence. According to the competitive exclusion principle, stable coexistence requires niche differentiation when species compete for limiting resources [@Hardin1960; @Chesson2000]. We therefore hypothesise that soil type contributes to the spatial differentiation of macrofaunal taxa and may help explain their coexistence.
 
+Soil macrofauna can modify soil properties, including aggregate
+structure, porosity and hydraulic conductivity. Soil bioengineers are
+organisms that physically and chemically modify their environment
+through resource acquisition and habitat construction. Ants, termites
+and earthworms act as (1) bioturbators, redistributing soil particles
+and creating galleries; (2) aggregate modifiers, through processes such
+as earthworm cast production; and (3) mineral transformers
+[@Bottinelli2015]. In Amazonian terra firme forests, ants and termites
+account for approximately one-third of soil animal biomass
+[@Fittkau1973]. Their engineering activities can substantially modify
+soil properties [@Lavelle1992; @Bottinelli2015]. For example,
+*Pontoscolex corethrurus* can rapidly alter soil morphology and
+hydrological functioning when dominant [@Barros2004]. Gallery or nest
+construction by ants, earthworms and termites increases macroporosity,
+enhance hydraulic conductivity and habitat heterogeneity in the soil
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+Earthworms also modify aggregate-size distributions in topsoil and
+redistribute plant debris towards deeper soil horizons through
+bioturbation [@Zhukova2022]. The effects of soil engineers depend on
+their ecological strategies and vertical distribution. For example,
+earthworms are classified as epigeic, inhabiting the litter layer;
+endogeic, living within mineral soil horizons; and anecic, constructing
+deep burrows while feeding at the soil surface [@Bouche1977]. These
+groups have contrasting effects on soil structure: endogeic earthworms
+contribute to macroaggregate formation, whereas termites redistribute
+soil vertically through the construction of mounds using material
+transported from deeper horizons [@Lavelle1992].
+
+More than 100 termite species have been recorded in French Guiana
+[@Bourguignon2010], highlighting the high diversity of soil engineers in
+this region. However, the spatial distribution of soil macrofauna in
+undisturbed tropical rainforests remains poorly documented. According to
+the principle of competitive exclusion, stable coexistence requires
+niche differentiation when species compete for limited resources
+[@Hardin1960; @Chesson2000]: differences in soil properties can promote
+distinct ecological niches among taxa, which could contribute to their
+coexistence. We therefore hypothesise that soil type contributes to the
+spatial differentiation of macrofaunal taxa and may help explain their
+coexistence.
 
 # Material and Methods
 
@@ -280,12 +336,12 @@ Paracou Research Station (5°16′38″N, 52°55′38″W). The average air
 temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual
 rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season
 from December to July (between 300 and 500 mm per month) and a long dry
-season from mid-August to mid-November (\< 100 mm per month).
-In Paracou, a permanent forest dynamic experiment was established in
-1984. The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and
-one plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out
-in two of the unlogged control plots (see @fig-map): Plot 1 (P1),
-installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+season from mid-August to mid-November (\< 100 mm per month). In
+Paracou, a permanent forest dynamic experiment was established in 1984.
+The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
+plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
+two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed
+in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
 
 ### Geological and Pedological Characteristics of Paracou
 
@@ -405,11 +461,28 @@ means and Tukey pairwise comparisons were generated using emmeans
 
 ### Community Composition (PERMANOVA)
 
-Community composition variation was analyzed using Permutational Multivariate Analysis of Variance (PERMANOVA) with a Bray-Curtis distance matrix. PERMANOVA was performed using adonis2 from the vegan package [@Oksanen2026]. Homogeneity of multivariate dispersion was verified using betadisper and permutest from the same package. One zero abundance layer observation (DLS_2_4_L) was removed, following the recommendations of the vegan handbook [@Oksanen2026], since it does not carry any compositional information for this analysis. 
+Community composition variation was analyzed using Permutational
+Multivariate Analysis of Variance (PERMANOVA) with a Bray-Curtis
+distance matrix. PERMANOVA was performed using adonis2 from the vegan
+package [@Oksanen2026]. Homogeneity of multivariate dispersion was
+verified using betadisper and permutest from the same package. One zero
+abundance layer observation (DLS_2_4_L) was removed, following the
+recommendations of the vegan handbook [@Oksanen2026], since it does not
+carry any compositional information for this analysis.
 
-Since monolith layers are not spatially independent, soil type and soil layer effects were evaluated separately. Layers were collapsed per monolith for the soil type PERMANOVA. To test the effect of soil layer, permutations were restricted within monoliths using the permute package [@Simpson2026]. This accounts for the spatial dependence of layers from the same monolith since it ensures that observations were not permuted between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.
+Since monolith layers are not spatially independent, soil type and soil
+layer effects were evaluated separately. Layers were collapsed per
+monolith for the soil type PERMANOVA. To test the effect of soil layer,
+permutations were restricted within monoliths using the permute package
+[@Simpson2026]. This accounts for the spatial dependence of layers from
+the same monolith since it ensures that observations were not permuted
+between monoliths. P-values were adjusted for multiple comparisons using
+the Bonferroni correction.
 
-For visualizing community composition variation patterns, Principal Coordinates Analysis (PCoA) was used with the same distance matrix. To fit taxa significantly associated with the ordination, envfit from the vegan package [@Oksanen2026].
+For visualizing community composition variation patterns, Principal
+Coordinates Analysis (PCoA) was used with the same distance matrix. To
+fit taxa significantly associated with the ordination, envfit from the
+vegan package [@Oksanen2026].
 
 ## Spatial Representation
 
