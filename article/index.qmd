@@ -242,8 +242,6 @@ play a significant role in ecosystem functioning [@Bever2010;
 most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
-<<<<<<< HEAD
-=======
 
 ## 1. Main drivers of soil macrofauna distribution in tropical rainforests
 
@@ -312,7 +310,6 @@ distinct ecological niches among taxa, which could contribute to their
 coexistence. We therefore hypothesise that soil type contributes to the
 spatial differentiation of macrofaunal taxa and may help explain their
 coexistence.
->>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 # Material and Methods
 
