@@ -384,10 +384,11 @@ means and Tukey pairwise comparisons were generated using emmeans
 
 ### Community Composition (PERMANOVA)
 
-%%% Jason: will write this section later vegan [@Oksanen2026]: adonis2,
-betadisper, permutest, envfit permute; mention zero removal
-[@Simpson2026]: permutation schemes Estimated marginal means and Tukey
-pairwise comparisons emmeans [@Lenth2026].
+Community composition variation was analyzed using Permutational Multivariate Analysis of Variance (PERMANOVA) with a Bray-Curtis distance matrix. PERMANOVA was performed using adonis2 from the vegan package [@Oksanen2026]. Homogeneity of multivariate dispersion was verified using betadisper and permutest from the same package. One zero abundance layer observation (DLS_2_4_L) was removed, following the recommendations of the vegan handbook [@Oksanen2026], since it does not carry any compositional information for this analysis. 
+
+Since monolith layers are not spatially independent, soil type and soil layer effects were evaluated separately. Layers were collapsed per monolith for the soil type PERMANOVA. To test the effect of soil layer, permutations were restricted within monoliths using the permute package [@Simpson2026]. This accounts for the spatial dependence of layers from the same monolith since it ensures that observations were not permuted between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.
+
+For visualizing community composition variation patterns, Principal Coordinates Analysis (PCoA) was used with the same distance matrix. To fit taxa significantly associated with the ordination, envfit from the vegan package [@Oksanen2026].
 
 ## Spatial Representation
 
