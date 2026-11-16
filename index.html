@@ -294,7 +294,9 @@ Figure&nbsp;1: Overview map of Paracou with the sampling locations. Location of 
 </section>
 <section id="community-composition-permanova" class="level3">
 <h3 class="anchored" data-anchor-id="community-composition-permanova">Community Composition (PERMANOVA)</h3>
-<p>%%% Jason: will write this section later vegan <span class="citation" data-cites="Oksanen2026">(<a href="#ref-Oksanen2026" role="doc-biblioref">Oksanen et al., 2026</a>)</span>: adonis2, betadisper, permutest, envfit permute; mention zero removal <span class="citation" data-cites="Simpson2026">(<a href="#ref-Simpson2026" role="doc-biblioref">Simpson, 2026</a>)</span>: permutation schemes Estimated marginal means and Tukey pairwise comparisons emmeans <span class="citation" data-cites="Lenth2026">(<a href="#ref-Lenth2026" role="doc-biblioref">Lenth &amp; Piaskowski, 2026</a>)</span>.</p>
+<p>Community composition variation was analyzed using Permutational Multivariate Analysis of Variance (PERMANOVA) with a Bray-Curtis distance matrix. PERMANOVA was performed using adonis2 from the vegan package <span class="citation" data-cites="Oksanen2026">(<a href="#ref-Oksanen2026" role="doc-biblioref">Oksanen et al., 2026</a>)</span>. Homogeneity of multivariate dispersion was verified using betadisper and permutest from the same package. One zero abundance layer observation (DLS_2_4_L) was removed, following the recommendations of the vegan handbook <span class="citation" data-cites="Oksanen2026">(<a href="#ref-Oksanen2026" role="doc-biblioref">Oksanen et al., 2026</a>)</span>, since it does not carry any compositional information for this analysis.</p>
+<p>Since monolith layers are not spatially independent, soil type and soil layer effects were evaluated separately. Layers were collapsed per monolith for the soil type PERMANOVA. To test the effect of soil layer, permutations were restricted within monoliths using the permute package <span class="citation" data-cites="Simpson2026">(<a href="#ref-Simpson2026" role="doc-biblioref">Simpson, 2026</a>)</span>. This accounts for the spatial dependence of layers from the same monolith since it ensures that observations were not permuted between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.</p>
+<p>For visualizing community composition variation patterns, Principal Coordinates Analysis (PCoA) was used with the same distance matrix. To fit taxa significantly associated with the ordination, envfit from the vegan package <span class="citation" data-cites="Oksanen2026">(<a href="#ref-Oksanen2026" role="doc-biblioref">Oksanen et al., 2026</a>)</span>.</p>
 </section>
 </section>
 <section id="spatial-representation" class="level2" data-number="2.4">
@@ -2019,6 +2021,9 @@ Figure&nbsp;5: First two components of the Bray-Curtis PCoA representing 26.1% o
 <section id="discussion" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Discussion</h1>
 <p>%%% TEXT - no differences in densities or community composition for soil types (argue about same vegetation cover etc.) - clear differences in both for layers (connect to literature knowledge)</p>
+<ul>
+<li>discuss the earthworms here</li>
+</ul>
 </section>
 <section id="conclusion" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
