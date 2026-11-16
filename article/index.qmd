@@ -462,7 +462,6 @@ and data processing relied largely on the tidyverse package
 ### Explorative Analysis
 
 Explorative analysis was performed to visual global trend in our data
-<<<<<<< HEAD
 set. Before fitting any model, we looked at how this fauna was
 distributed between the two soil types and between the three soil
 layers. Counts were converted to densities (individuals per m²) using
@@ -471,10 +470,6 @@ uneven, with many low values and a few very high ones, so the figures
 use a pseudo-logarithmic scale, which keeps zero values on the axis. Box
 plots of abundances of the different taxa by layers and type of soil
 were realized as well as PCA analysis.
-=======
-set. Box plots of abundances of the different taxa by layers and type of
-soil were realized as well as PCA analysis.
->>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 ### Abundances (Generalized Linear Mixed Models)
 
