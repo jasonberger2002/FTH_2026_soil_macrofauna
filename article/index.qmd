@@ -280,8 +280,6 @@ Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
 elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
 [@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
 
-<!--Soil distribution varies strongly along the topographic gradient plateau, slope, and bottomland). According to @Soucemarianadin2004, Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with pland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35 % SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% Alt/DVD Deep Vertical Drainage/weathered material at less than 1.2 m). Incontrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30% bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS, 15 % SH, and 5% Alt/DVD. -->
-
 Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
 topographic gradient, with Plot 1 comprised of 45 % Superficial Lateral
