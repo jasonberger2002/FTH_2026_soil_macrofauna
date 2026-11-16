@@ -234,12 +234,14 @@ gg_fontsize <- function(s = 1) {
 
 Tropical rainforests cover a small portion of the Earth’s land surface
 but are home to a disproportionately large portion of the world’s
-biodiversity, both above and below ground [@Chen2023; @Hu2022; @Myers2000]. This biodiversity includes trees but also
-soil organisms, which contains microbial communities and edaphic fauna,
-all of which play a significant role in ecosystem functioning [@Bever2010; @Robinson2024; @VanLangenhove2021]. However,
-these forests are among the most threatened ecosystems, and therefore
-the study of their biological communities, including those underground,
-is particularly important [@Myers1988].
+biodiversity, both above and below ground [@Chen2023; @Hu2022;
+@Myers2000]. This biodiversity includes trees but also soil organisms,
+which contains microbial communities and edaphic fauna, all of which
+play a significant role in ecosystem functioning [@Bever2010;
+@Robinson2024; @VanLangenhove2021]. However, these forests are among the
+most threatened ecosystems, and therefore the study of their biological
+communities, including those underground, is particularly important
+[@Myers1988].
 
 # Material and Methods
 
@@ -253,8 +255,10 @@ is particularly important [@Myers1988].
 knitr::include_graphics("images/overview_paracou.png")
 ```
 
-Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana. 
-
+Overview map of Paracou with the sampling locations. Location of right
+panels shown by grey squares. White lines on the right panels represent
+altitude isolines. Upper left corner panel shows location of Paracou in
+French Guiana.
 :::
 
 ### Geographic Location
@@ -277,8 +281,11 @@ installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
 The geological substratum of Paracou consists primarily of Precambrian
 schists intruded by pegmatite veins, belonging to the metamorphic
 Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
-elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
-[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing
+into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
+are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
+[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
+more or less transformed loamy saprolite [@Gourlet-Fleury2004].
 
 <!--Soil distribution varies strongly along the topographic gradient plateau, slope, and bottomland). According to @Soucemarianadin2004, Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with pland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35 % SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% Alt/DVD Deep Vertical Drainage/weathered material at less than 1.2 m). Incontrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30% bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS, 15 % SH, and 5% Alt/DVD. -->
 
@@ -286,13 +293,27 @@ Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
 topographic gradient, with Plot 1 comprised of 45 % Superficial Lateral
 Drainage (SLD), 35 % Surface Hydromorphy (SH), 15 % Downhill System
-(DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60 % SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004].
+(DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according
+to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60
+% SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004].
 
-Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat hilltops or plateaus and feature a thick ferralitic cover that lets rainwater percolate freely in depth. The altered phase (Alt) begins where red, muscovite-rich alloterite appears above 1.2 m depth, signaling initial soil thinning [@Sabatier1997]. Plateau soils contain higher levels of carbon, nitrogen, and aluminum [@Allie2015], support greater root biomass and soil respiration [@Epron2006], and host nearly half of the local tree species in Paracou [@Allie2015].
+Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located
+on flat hilltops or plateaus and feature a thick ferralitic cover that
+lets rainwater percolate freely in depth. The altered phase (Alt) begins
+where red, muscovite-rich alloterite appears above 1.2 m depth,
+signaling initial soil thinning [@Sabatier1997]. Plateau soils contain
+higher levels of carbon, nitrogen, and aluminum [@Allie2015], support
+greater root biomass and soil respiration [@Epron2006], and host nearly
+half of the local tree species in Paracou [@Allie2015].
 
-
-Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these soils reflect a more advanced thinning and compaction of the ferralitic cover. Because deep percolation is blocked, water flows laterally near the surface. In the field, this unit is identified by a "dry to the touch" layer above 1.2 m depth, even during the rainy season [@Sabatier1997]. Compared to plateaux, these slope soils have higher bulk density and surface moisture, but lower organic carbon, root biomass, and soil respiration [@Epron2006].
-
+Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these
+soils reflect a more advanced thinning and compaction of the ferralitic
+cover. Because deep percolation is blocked, water flows laterally near
+the surface. In the field, this unit is identified by a "dry to the
+touch" layer above 1.2 m depth, even during the rainy season
+[@Sabatier1997]. Compared to plateaux, these slope soils have higher
+bulk density and surface moisture, but lower organic carbon, root
+biomass, and soil respiration [@Epron2006].
 
 ```{=html}
 <!--At the Paracou station, topography strongly shapes soil properties and
@@ -320,27 +341,56 @@ using the simplified Beerkan infiltration method [@Lassabatere2006].
 ### Marofaunal Sampling
 
 Five macrofauna samples were collected in each soil type (Alt/DVD and
-SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by @Anderson1994.
+SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility
+(TSBF) method by @Anderson1994.
 
-To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see @fig-map for spatial representation).
+To account for local topography, Alt/DVD (hilltop) samples were arranged
+in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a
+transect following the slope. All sampling points were spaced at least
+10 m apart to reduce spatial dependance of macrofauna samples (see
+@fig-map for spatial representation).
 
-Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.
+Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame
+was placed on the ground at for each sample (called monolith). First,
+the litter (L) was quickly removed, trying to avoid fauna to escape, and
+collected in a labeled bag. Next, the frame is pressed 10 cm deep into
+the soil to isolate a soil block. This process was performed twice to
+collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth
+which were also collected in separate bags.
 
 ### Sample Sorting and Identification
 
-Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna from escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes by an observer. Around 5 observers were involved in the sorting of each bag to minimize bias.
+Samples were manually sorted at the field station and litter samples (L)
+processed first to avoid macrofauna from escaping. Soil was sorted by
+transferring around 200 g of substrate into a container. Each portion
+was observed for an average of 2 minutes by an observer. Around 5
+observers were involved in the sorting of each bag to minimize bias.
 Macrofauna was collected using a brush and stored in 90 % ethanol,
 separated according to monolith and layer of soil. Subsequently, the
-organisms were identified on a coarse taxonomic level (refer to the data file in @sec-supp for details), with ants (Formicidae) and termites (Isoptera) treated separately from other Hymenoptera and Blattodea.
+organisms were identified on a coarse taxonomic level (refer to the data
+file in @sec-supp for details), with ants (Formicidae) and termites
+(Isoptera) treated separately from other Hymenoptera and Blattodea.
+
+<!-- In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), for a total of 2187 individuals. -->
+#bien de résumer ça non ? (Nina)
 
 ## Statistical analysis
 
-All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and data processing relied largely on the tidyverse package
+All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
+and data processing relied largely on the tidyverse package
 [@Wickham2019; @Wickham2023].
 
 ### Explorative Analysis
 
-Explorative analysis was performed to visual global trend in our data set. Box plots of abundances of the different taxa by layers and type of soil were realized as well as PCA analysis.   
+Explorative analysis was performed to visual global trend in our data
+set. Before fitting any model, we looked at how this fauna was
+distributed between the two soil types and between the three soil
+layers. Counts were converted to densities (individuals per m²) using
+the surface of a monolith (25 × 25 cm = 0.0625 m²). Densities were very
+uneven, with many low values and a few very high ones, so the figures
+use a pseudo-logarithmic scale, which keeps zero values on the axis. Box
+plots of abundances of the different taxa by layers and type of soil
+were realized as well as PCA analysis.
 
 ### Abundances (Generalized Linear Mixed Models)
 
@@ -351,7 +401,8 @@ structure, monoliths were included as a random effect. Since count data
 was treated, Poisson and negative binomial (NB2) were tested. Model
 selection relied on Akaike's Information Criterion (AIC),
 Likelihood-ratio testing (LRT) and model diagnostics using DHARMa
-residuals [@Hartig2026]. Refer to @sec-supp for detailed model selection and diagnostic plots.
+residuals [@Hartig2026]. Refer to @sec-supp for detailed model selection
+and diagnostic plots.
 
 Type II Wald $\chi^2$ tests from the package car [@Fox2019; @Fox2026]
 were used to evaluate overall predictor effects. Estimated marginal
@@ -408,8 +459,17 @@ df_total <- df %>%
 
 ## General
 
-%%% TEXT explorative\
-Densities by soil type and layer @fig-density
+Total macrofauna density varied mostly with soil layer (@fig-density).
+In both soil types, density was highest in the 0-10 cm layer, with
+median values of about 1,270 ind. m⁻² in Alt/DVD and 720 ind. m⁻² in
+SLD. The litter and the 10–20 cm layer held far fewer individuals, with
+medians between about 110 and 160 ind. m⁻² in all four cases.
+
+The two soil types looked similar. In the 0–10 cm layer, the median
+density was higher in Alt/DVD than in SLD, but the boxes overlapped
+widely. This difference did not appear in the litter and for the 10-20
+cm layer, the SLD median was slightly higher, but once again, the boxes
+overlapped widely.
 
 ::: {#fig-density fig-env="figure"}
 ```{r}
@@ -447,11 +507,29 @@ fig_density <- ggplot(
 print(fig_density)
 ```
 
-Boxplot with total macrofauna densities by soil type and layer. y-axis
-is on a pseudo-logarithmic scale.
+Total macrofauna density (ind. m⁻²) by soil layer (L = litter, 10 = 0-10
+cm, 20 = 10-20 cm) and soil type. Boxes show the median and
+interquartile range and points are outliers. y-axis is on a
+pseudo-logarithmic scale. Each box represents 10 samples (2 sites x 5
+monoliths).
 :::
 
-%%% TEXT Relative composition of community abundances @fig-comp
+Community composition changed more between layers than between soil
+types (@fig-comp). In the litter, no Lumbricina were found in either
+soil type. Alt/DVD soils were home to a bigger proportion of Isoptera
+compared to Formicidae. Conversely, SLD soils hosted a greater
+proportion of Formicidae compared to Isoptera. Two groups dominated the
+0-10 cm layer in both soil types : Isoptera and Formicidae that each
+made up for approximately half the composition of both soil type in this
+layer. Earthworms (Lumbricina) were a small part of the catch there
+(\~2% and \~5%). Finally, in the 10-20 cm layer, Isoptera almost
+disappeared (0% in Alt/DVD and 1% in SLD) and Formicidae became clearly
+dominant, at about 70% of individuals. They were followed by the other
+groups combined (about 18%) and Lumbricina (9% and 11%).
+
+The litter was the only layer where the two soil types looked different.
+These proportions rest on small numbers, so a few samples can change
+them a lot.
 
 ::: {#fig-comp fig-env="figure"}
 ```{r}
@@ -523,11 +601,33 @@ fig_composition <- ggplot(
 print(fig_composition)
 ```
 
-Relative composition of macrofaunal community abundances by soil type
-and layer.
+Relative abundance of Formicidae, Isoptera, Lumbricina and all other
+taxa combined (Others), by soil layer (L = litter, 10 = 0-10 cm, 20 =
+10-20 cm) and soil type. Proportions are calculated from the total
+number of individuals found in all samples of each soil type and layer.
 :::
 
-%%% TEXT Explorative ordination PCA @fig-pca
+We ran a principal component analysis (PCA) on the abundances of all
+taxa, after a Hellinger transformation, to see whether samples from the
+two soil types differed in composition (@fig-pca). The first two axes
+explained 33.2% and 18.6% of the variance, so 51.8% together. PC1
+opposed samples rich in Isoptera (right side) to samples dominated by
+Formicidae (left side). PC2 was mostly related to Lumbricina, which
+pointed toward the top of the plot. Formicidae and Isoptera were well
+represented on these two axes (high cos², which measures how well a
+taxon is represented by the axes), while Lumbricina were less well
+represented (lower cos²).
+
+Alt/DVD and SLD samples were not separated on these two axes. The two
+ellipses overlapped almost completely, and samples of both soil types
+were found across the whole plot. We did not see a clear structure by
+soil layer either. Samples from the litter, the 0-10 cm layer and the
+10-20 cm layer were mixed along both axes. The 10-20 cm samples were
+almost all in the left half of the plot which fit with the absence of
+isoptera at this depth, and the highest PC2 values were mostly from this
+layer, where earthworms were found. Overall, no clear trend could be
+taken out fo it and they overlapped with many litter and 0-10 cm
+samples.
 
 ```{r}
 #| label: prepare PCA using Hellinger transformation
@@ -721,8 +821,13 @@ fig_pca <- ggplot(
 fig_pca
 ```
 
-PCA ordination based on Hellinger-transformed community matrix. First
-two dimensions are presented. Only taxa with cos² \> 0.1 are presented.
+PCA ordination based on Hellinger-transformed community matrix of
+macrofauna composition (60 samples). Colours show soil type and shapes
+show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
+are 95% confidence ellipses for each soil type. Arrows show the taxa
+best represented on the first two axes. Their colour indicates the
+squared cosine (cos²) (values close to 1 mean a good representation of
+the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
 :::
 
 ## GLMM
