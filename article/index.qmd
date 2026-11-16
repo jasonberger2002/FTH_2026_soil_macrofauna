@@ -242,6 +242,77 @@ play a significant role in ecosystem functioning [@Bever2010;
 most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
+<<<<<<< HEAD
+=======
+
+## 1. Main drivers of soil macrofauna distribution in tropical rainforests
+
+Soils support approximately 50% of global animal biomass [@Fierer2009],
+with ants, termites and earthworms among the dominant groups
+[@Lavelle2022]. Tropical forests harbour greater soil macrofaunal
+abundance and diversity than savannas, grasslands, agricultural systems
+and temperate forests [@Lavelle2022]. Soil macrofaunal community
+composition is influenced by vegetation cover and litter quality
+[@Lavelle1992; @Collison2013; @Lavelle2022], forest type
+[@Loranger-Merciris2007; @Collison2013; @Ramos2025], and soil structure
+and physicochemical properties [@Vasconcellos2013; @Lavelle2022;
+@Ferrin2026].
+
+## 2. Bidirectional relationships between soil texture and macrofauna
+
+Soil texture accounts for 3.9% of the variation in soil macrofaunal
+community structure at the global scale [@Lavelle2022]. Soil moisture
+also influences community composition, although responses vary among
+taxa. In the central Amazon, ant abundance and diversity decrease where
+the water table remains close to the soil surface for prolonged periods
+[@Baccaro2013]. Similarly, termite assemblages in French Guianan primary
+forests vary along moisture gradients, with swamp and lowland forests
+harbouring distinct communities from well-drained forests
+[@Bourguignon2010]. Conversely, macrofauna can modify soil physical
+properties through their biological activities.
+
+## 3. Soil bioengineers and their effects on soil properties
+
+Soil macrofauna can modify soil properties, including aggregate
+structure, porosity and hydraulic conductivity. Soil bioengineers are
+organisms that physically and chemically modify their environment
+through resource acquisition and habitat construction. Ants, termites
+and earthworms act as (1) bioturbators, redistributing soil particles
+and creating galleries; (2) aggregate modifiers, through processes such
+as earthworm cast production; and (3) mineral transformers
+[@Bottinelli2015]. In Amazonian terra firme forests, ants and termites
+account for approximately one-third of soil animal biomass
+[@Fittkau1973]. Their engineering activities can substantially modify
+soil properties [@Lavelle1992; @Bottinelli2015]. For example,
+*Pontoscolex corethrurus* can rapidly alter soil morphology and
+hydrological functioning when dominant [@Barros2004]. Gallery or nest
+construction by ants, earthworms and termites increases macroporosity,
+enhance hydraulic conductivity and habitat heterogeneity in the soil
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+Earthworms also modify aggregate-size distributions in topsoil and
+redistribute plant debris towards deeper soil horizons through
+bioturbation [@Zhukova2022]. The effects of soil engineers depend on
+their ecological strategies and vertical distribution. For example,
+earthworms are classified as epigeic, inhabiting the litter layer;
+endogeic, living within mineral soil horizons; and anecic, constructing
+deep burrows while feeding at the soil surface [@Bouche1977]. These
+groups have contrasting effects on soil structure: endogeic earthworms
+contribute to macroaggregate formation, whereas termites redistribute
+soil vertically through the construction of mounds using material
+transported from deeper horizons [@Lavelle1992].
+
+More than 100 termite species have been recorded in French Guiana
+[@Bourguignon2010], highlighting the high diversity of soil engineers in
+this region. However, the spatial distribution of soil macrofauna in
+undisturbed tropical rainforests remains poorly documented. According to
+the principle of competitive exclusion, stable coexistence requires
+niche differentiation when species compete for limited resources
+[@Hardin1960; @Chesson2000]: differences in soil properties can promote
+distinct ecological niches among taxa, which could contribute to their
+coexistence. We therefore hypothesise that soil type contributes to the
+spatial differentiation of macrofaunal taxa and may help explain their
+coexistence.
+>>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 # Material and Methods
 
@@ -268,13 +339,12 @@ Paracou Research Station (5°16′38″N, 52°55′38″W). The average air
 temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual
 rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season
 from December to July (between 300 and 500 mm per month) and a long dry
-season from mid-August to mid-November (\< 100 mm per month).
-<!--The humidtropical climate of French Guiana is highly seasonal due to the north-south movement of the Intertropical Convergence Zone. -->
-In Paracou, a permanent forest dynamic experiment was established in
-1984. The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and
-one plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out
-in two of the unlogged control plots (see @fig-map): Plot 1 (P1),
-installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+season from mid-August to mid-November (\< 100 mm per month). In
+Paracou, a permanent forest dynamic experiment was established in 1984.
+The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
+plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
+two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed
+in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
 
 ### Geological and Pedological Characteristics of Paracou
 
@@ -286,8 +356,11 @@ into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
 are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
 [@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
 more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+<<<<<<< HEAD
 
 <!--Soil distribution varies strongly along the topographic gradient plateau, slope, and bottomland). According to @Soucemarianadin2004, Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with pland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35 % SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% Alt/DVD Deep Vertical Drainage/weathered material at less than 1.2 m). Incontrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30% bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS, 15 % SH, and 5% Alt/DVD. -->
+=======
+>>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
@@ -314,12 +387,15 @@ touch" layer above 1.2 m depth, even during the rainy season
 [@Sabatier1997]. Compared to plateaux, these slope soils have higher
 bulk density and surface moisture, but lower organic carbon, root
 biomass, and soil respiration [@Epron2006].
+<<<<<<< HEAD
 
 ```{=html}
 <!--At the Paracou station, topography strongly shapes soil properties and
 water dynamics along a gradient from hilltops to bottomlands
 [@Allie2015].-->
 ```
+=======
+>>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 ## Sampling and Identification
 
@@ -370,9 +446,12 @@ separated according to monolith and layer of soil. Subsequently, the
 organisms were identified on a coarse taxonomic level (refer to the data
 file in @sec-supp for details), with ants (Formicidae) and termites
 (Isoptera) treated separately from other Hymenoptera and Blattodea.
+<<<<<<< HEAD
 
 <!-- In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), for a total of 2187 individuals. -->
 #bien de résumer ça non ? (Nina)
+=======
+>>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 ## Statistical analysis
 
@@ -383,6 +462,7 @@ and data processing relied largely on the tidyverse package
 ### Explorative Analysis
 
 Explorative analysis was performed to visual global trend in our data
+<<<<<<< HEAD
 set. Before fitting any model, we looked at how this fauna was
 distributed between the two soil types and between the three soil
 layers. Counts were converted to densities (individuals per m²) using
@@ -391,6 +471,10 @@ uneven, with many low values and a few very high ones, so the figures
 use a pseudo-logarithmic scale, which keeps zero values on the axis. Box
 plots of abundances of the different taxa by layers and type of soil
 were realized as well as PCA analysis.
+=======
+set. Box plots of abundances of the different taxa by layers and type of
+soil were realized as well as PCA analysis.
+>>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 ### Abundances (Generalized Linear Mixed Models)
 
@@ -411,10 +495,28 @@ means and Tukey pairwise comparisons were generated using emmeans
 
 ### Community Composition (PERMANOVA)
 
-%%% Jason: will write this section later vegan [@Oksanen2026]: adonis2,
-betadisper, permutest, envfit permute; mention zero removal
-[@Simpson2026]: permutation schemes Estimated marginal means and Tukey
-pairwise comparisons emmeans [@Lenth2026].
+Community composition variation was analyzed using Permutational
+Multivariate Analysis of Variance (PERMANOVA) with a Bray-Curtis
+distance matrix. PERMANOVA was performed using adonis2 from the vegan
+package [@Oksanen2026]. Homogeneity of multivariate dispersion was
+verified using betadisper and permutest from the same package. One zero
+abundance layer observation (DLS_2_4_L) was removed, following the
+recommendations of the vegan handbook [@Oksanen2026], since it does not
+carry any compositional information for this analysis.
+
+Since monolith layers are not spatially independent, soil type and soil
+layer effects were evaluated separately. Layers were collapsed per
+monolith for the soil type PERMANOVA. To test the effect of soil layer,
+permutations were restricted within monoliths using the permute package
+[@Simpson2026]. This accounts for the spatial dependence of layers from
+the same monolith since it ensures that observations were not permuted
+between monoliths. P-values were adjusted for multiple comparisons using
+the Bonferroni correction.
+
+For visualizing community composition variation patterns, Principal
+Coordinates Analysis (PCoA) was used with the same distance matrix. To
+fit taxa significantly associated with the ordination, envfit from the
+vegan package [@Oksanen2026].
 
 ## Spatial Representation
 
@@ -1634,6 +1736,8 @@ layers. Taxa singificantly associated with the ordination are presented
 %%% TEXT - no differences in densities or community composition for soil
 types (argue about same vegetation cover etc.) - clear differences in
 both for layers (connect to literature knowledge)
+
+- discuss the earthworms here
 
 # Conclusion
 
