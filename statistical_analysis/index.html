@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -2463,9 +2463,10 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.1</span> Loading data</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;../data/macrofaune_counts.xlsx&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">7</span><span class="sc">:</span><span class="fu">ncol</span>(df)] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[<span class="dv">7</span><span class="sc">:</span><span class="fu">ncol</span>(df)], as.numeric)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)], as.factor)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/jujuk/OneDrive/Documents/M2 Kourou/PROJET PEDO/FTH_2026_soil_macrofauna/data/macrofaune_counts.xlsx&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">7</span><span class="sc">:</span><span class="fu">ncol</span>(df)] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[<span class="dv">7</span><span class="sc">:</span><span class="fu">ncol</span>(df)], as.numeric)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)], as.factor)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [60 × 34] (S3: tbl_df/tbl/data.frame)
  $ monolith_ID            : Factor w/ 20 levels &quot;Alt_1_1&quot;,&quot;Alt_1_2&quot;,..: 1 1 1 2 2 2 3 3 3 4 ...
@@ -2604,6 +2605,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>The difference of total density between ALT and DSL seems not evident on the graph. The layer 10 seems have higher density that 20 and L bit not difference between 20 and L.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert taxonomic data to long format</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
@@ -2680,6 +2682,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>Formicidae, Isoptera and Lumbricina are the most abundant groups in our samples. The other groups have been gathered together because their respective small abundance. The abundances of the tree mains group seems changed between layers : Formicidae are more abundant in the 20 layer but seems dominated in each soil types and layers. Isoptera are nearly absent in the layer 20, but they dominate as Formicidae in the layer 10 and layer L in ALT. Lumbricina are absent in the layer L, and seem more abundant in the layer 20 than 10.</p>
 </section>
 <section id="pca" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="pca"><span class="header-section-number">2.2.2</span> PCA</h3>
