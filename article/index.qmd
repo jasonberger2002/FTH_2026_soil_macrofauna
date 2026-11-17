@@ -244,7 +244,7 @@ most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
 
-## 1. Main drivers of soil macrofauna distribution in tropical rainforests
+## Soil macrofauna distribution in tropical rainforests
 
 Soils support approximately 50% of global animal biomass [@Fierer2009],
 with ants, termites and earthworms among the dominant groups
@@ -257,7 +257,7 @@ composition is influenced by vegetation cover and litter quality
 and physicochemical properties [@Vasconcellos2013; @Lavelle2022;
 @Ferrin2026].
 
-## 2. Bidirectional relationships between soil texture and macrofauna
+## Relationships between soil texture and macrofauna
 
 Soil texture accounts for 3.9% of the variation in soil macrofaunal
 community structure at the global scale [@Lavelle2022]. Soil moisture
@@ -270,7 +270,7 @@ harbouring distinct communities from well-drained forests
 [@Bourguignon2010]. Conversely, macrofauna can modify soil physical
 properties through their biological activities.
 
-## 3. Soil bioengineers and their effects on soil properties
+## Soil bioengineers and their effects on soil properties
 
 Soil macrofauna can modify soil properties, including aggregate
 structure, porosity and hydraulic conductivity. Soil bioengineers are
@@ -287,7 +287,7 @@ soil properties [@Lavelle1992; @Bottinelli2015]. For example,
 hydrological functioning when dominant [@Barros2004]. Gallery or nest
 construction by ants, earthworms and termites increases macroporosity,
 enhance hydraulic conductivity and habitat heterogeneity in the soil
-[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024].
 Earthworms also modify aggregate-size distributions in topsoil and
 redistribute plant debris towards deeper soil horizons through
 bioturbation [@Zhukova2022]. The effects of soil engineers depend on
@@ -301,7 +301,7 @@ soil vertically through the construction of mounds using material
 transported from deeper horizons [@Lavelle1992].
 
 More than 100 termite species have been recorded in French Guiana
-[@Bourguignon2010], highlighting the high diversity of soil engineers in
+[@Bourguignon2011], highlighting the high diversity of soil engineers in
 this region. However, the spatial distribution of soil macrofauna in
 undisturbed tropical rainforests remains poorly documented. According to
 the principle of competitive exclusion, stable coexistence requires
@@ -313,7 +313,7 @@ and may help explain their coexistence. We hypothesize that there is a
 relationship between the soil texture and the composition and abundance
 of soil communities [@Lavelle2022; @Zhukova2022] ; a well-drained soil
 will be richer, particularly in soil engineers, due to their roles as
-bioturbators [@Bourgignon2010; @Bottinelli2015] and that infiltration
+bioturbators [@Bourguignon2011; @Bottinelli2015] and that infiltration
 rates are likely to be higher where earthworm and termite communities
 are present, due to their roles as bioturbators [@Zhukova2022;
 @Cheik2019]. Considering interactions, because of the ants predation on
@@ -1432,7 +1432,8 @@ adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p =
 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012),
 using Bonferroni correction.
 
-%%% results shown, TEXT @fig-pcoa
+In the Principal Coordinates Analysis (PCoA) based on Bray Curtis dissimilarities (@fig-pcoa), the first two axes explained 26.1% of the corrected total variance (15.8% for PCoA1 and 10.3% for PCoA2). Convex hulls overlapped substantially in the projection. A part of samples from the 10 cm layer extends toward positive PCoA1 values and shows less overlap. Vector fitting onto the PCoA ordination identified four taxa significantly correlated with the ordination space (P_adj < 0.05, Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1 scores, indicating that higher abundances of these taxa are associated with the separation of these 10 cm layer samples along the first axis. 
+
 
 ::: {#tbl-permanova}
 ```{r}
@@ -1686,12 +1687,7 @@ plot(p)
 ```
 
 First two components of the Bray-Curtis PCoA representing 26.1% of the
-variation in macrofaunal community composition. Convex hulls indicate soil layers. Taxa singificantly associated with the ordination are presented (arrows).
-
-In the Principal Coordinates Analysis (PCoA) based on Bray Curtis dissimilarities, the first two axes explained 26.1% of the corrected total variance (15.8% for PCoA1 and 10.3% for PCoA2). Convex hulls overlapped substantially in the projection. 
-<!--Samples from the 20 cm layer were dispersed toward negative PCoA1 scores, whereas litter (L) samples were distributed predominantly  in the upper-left to central region (positive PCoA2 scores).-->
-A subset of samples from the 10 cm layer extend toward positive PCoA1 values. Vector fitting onto the PCoA ordination identified four taxa significantly correlated with the ordination space (Padj<0.05, Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1 scores, indicating that higher abundances of these taxa drove the separation of these 10 cm layer samples along the first axis. 
-
+variation in macrofaunal community composition. Convex hulls indicate soil layers. Taxa singificantly associated (after BH correction) with the ordination are presented (arrows).
 :::
 
 # Discussion
