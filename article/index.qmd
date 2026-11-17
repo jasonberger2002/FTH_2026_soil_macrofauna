@@ -243,6 +243,8 @@ most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
 
+## Main drivers of soil macrofauna distribution in tropical rainforests
+
 Soils support approximately 50% of global animal biomass [@Fierer2009],
 with ants, termites and earthworms among the dominant groups
 [@Lavelle2022]. Tropical forests harbour greater soil macrofaunal
@@ -377,6 +379,7 @@ touch" layer above 1.2 m depth, even during the rainy season
 [@Sabatier1997]. Compared to plateaux, these slope soils have higher
 bulk density and surface moisture, but lower organic carbon, root
 biomass, and soil respiration [@Epron2006].
+
 
 ## Sampling and Identification
 
