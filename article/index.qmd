@@ -242,8 +242,6 @@ play a significant role in ecosystem functioning [@Bever2010;
 most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
-<<<<<<< HEAD
-=======
 
 ## 1. Main drivers of soil macrofauna distribution in tropical rainforests
 
@@ -312,7 +310,6 @@ distinct ecological niches among taxa, which could contribute to their
 coexistence. We therefore hypothesise that soil type contributes to the
 spatial differentiation of macrofaunal taxa and may help explain their
 coexistence.
->>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 # Material and Methods
 
@@ -356,11 +353,9 @@ into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
 are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
 [@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
 more or less transformed loamy saprolite [@Gourlet-Fleury2004].
-<<<<<<< HEAD
 
 <!--Soil distribution varies strongly along the topographic gradient plateau, slope, and bottomland). According to @Soucemarianadin2004, Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with pland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35 % SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% Alt/DVD Deep Vertical Drainage/weathered material at less than 1.2 m). Incontrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30% bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS, 15 % SH, and 5% Alt/DVD. -->
-=======
->>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
+
 
 Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
@@ -387,15 +382,12 @@ touch" layer above 1.2 m depth, even during the rainy season
 [@Sabatier1997]. Compared to plateaux, these slope soils have higher
 bulk density and surface moisture, but lower organic carbon, root
 biomass, and soil respiration [@Epron2006].
-<<<<<<< HEAD
 
 ```{=html}
 <!--At the Paracou station, topography strongly shapes soil properties and
 water dynamics along a gradient from hilltops to bottomlands
 [@Allie2015].-->
 ```
-=======
->>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 ## Sampling and Identification
 
@@ -446,12 +438,9 @@ separated according to monolith and layer of soil. Subsequently, the
 organisms were identified on a coarse taxonomic level (refer to the data
 file in @sec-supp for details), with ants (Formicidae) and termites
 (Isoptera) treated separately from other Hymenoptera and Blattodea.
-<<<<<<< HEAD
 
 <!-- In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), for a total of 2187 individuals. -->
 #bien de résumer ça non ? (Nina)
-=======
->>>>>>> 947a34f078a1e522f66f0e64d7fa6f27a94b0967
 
 ## Statistical analysis
 
