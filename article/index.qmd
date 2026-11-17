@@ -347,16 +347,9 @@ two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed in 1984
 The geological substratum of Paracou consists primarily of Precambrian
 schists intruded by pegmatite veins, belonging to the metamorphic
 Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
-<<<<<<< HEAD
+
 elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
 [@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
-=======
-elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing
-into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
-are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
-[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
-more or less transformed loamy saprolite [@Gourlet-Fleury2004].
->>>>>>> d11a9dfe8c23e3b9211afc87348701d6ce0d5272
 
 Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
@@ -375,10 +368,7 @@ touch" layer above 1.2 m depth, even during the rainy season
 bulk density and surface moisture, but lower organic carbon, root
 biomass, and soil respiration [@Epron2006].
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d11a9dfe8c23e3b9211afc87348701d6ce0d5272
 ## Sampling and Identification
 
 To evaluate how soil type influences macrofaunal communities, two
@@ -409,19 +399,12 @@ Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was p
 
 Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna from escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes by an observer. 
 Macrofauna was collected using a brush and stored in 90 % ethanol,
-<<<<<<< HEAD
-separated according to monolith and layer of soil. Around 5 observers were involved in the sorting of each bag to minimize bias. Subsequently, the organisms were identified on a coarse taxonomic level (refer to the data file in @sec-supp for details).
-<!-- In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), for a total of 2187 individuals. -->
-#bien de résumer ça non ? (Nina)
-=======
 separated according to monolith and layer of soil. Subsequently, the
 organisms were identified on a coarse taxonomic level (refer to the data
 file in @sec-supp for details), with ants (Formicidae) and termites
 (Isoptera) treated separately from other Hymenoptera and Blattodea.
 
 In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), yielding a total of 2187 individuals.
-
->>>>>>> d11a9dfe8c23e3b9211afc87348701d6ce0d5272
 
 ## Statistical analysis
 
