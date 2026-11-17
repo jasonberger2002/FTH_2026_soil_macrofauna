@@ -5,6 +5,7 @@ format:
   stylisharticle-pdf:
     keep-tex: true
     header-includes:
+    - '\setcounter{tocdepth}{2}'
     - '\usepackage{xcolor}'
     - '\usepackage{caption}'
     - '\definecolor{grey}{RGB}{112,128,144}'
@@ -234,8 +235,7 @@ gg_fontsize <- function(s = 1) {
 
 Tropical rainforests cover a small portion of the Earth’s land surface
 but are home to a disproportionately large portion of the world’s
-biodiversity, both above and below ground [@Chen2023; @Hu2022;
-@Myers2000]. This biodiversity includes trees but also soil organisms,
+biodiversity, both above and below ground [@Chen2023; @Hu2022; @Myers2000]. This biodiversity includes trees but also soil organisms,
 which contains microbial communities and edaphic fauna, all of which
 play a significant role in ecosystem functioning [@Bever2010;
 @Robinson2024; @VanLangenhove2021]. However, these forests are among the
@@ -243,7 +243,7 @@ most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
 
-## 1. Main drivers of soil macrofauna distribution in tropical rainforests
+## Soil macrofauna distribution in tropical rainforests
 
 Soils support approximately 50% of global animal biomass [@Fierer2009],
 with ants, termites and earthworms among the dominant groups
@@ -256,7 +256,7 @@ composition is influenced by vegetation cover and litter quality
 and physicochemical properties [@Vasconcellos2013; @Lavelle2022;
 @Ferrin2026].
 
-## 2. Bidirectional relationships between soil texture and macrofauna
+## Relationships between soil texture and macrofauna
 
 Soil texture accounts for 3.9% of the variation in soil macrofaunal
 community structure at the global scale [@Lavelle2022]. Soil moisture
@@ -266,10 +266,10 @@ the water table remains close to the soil surface for prolonged periods
 [@Baccaro2013]. Similarly, termite assemblages in French Guianan primary
 forests vary along moisture gradients, with swamp and lowland forests
 harbouring distinct communities from well-drained forests
-[@Bourguignon2010]. Conversely, macrofauna can modify soil physical
+[@Bourguignon2011]. Conversely, macrofauna can modify soil physical
 properties through their biological activities.
 
-## 3. Soil bioengineers and their effects on soil properties
+## Soil bioengineers and soil properties
 
 Soil macrofauna can modify soil properties, including aggregate
 structure, porosity and hydraulic conductivity. Soil bioengineers are
@@ -286,7 +286,7 @@ soil properties [@Lavelle1992; @Bottinelli2015]. For example,
 hydrological functioning when dominant [@Barros2004]. Gallery or nest
 construction by ants, earthworms and termites increases macroporosity,
 enhance hydraulic conductivity and habitat heterogeneity in the soil
-[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024].
 Earthworms also modify aggregate-size distributions in topsoil and
 redistribute plant debris towards deeper soil horizons through
 bioturbation [@Zhukova2022]. The effects of soil engineers depend on
@@ -300,7 +300,7 @@ soil vertically through the construction of mounds using material
 transported from deeper horizons [@Lavelle1992].
 
 More than 100 termite species have been recorded in French Guiana
-[@Bourguignon2010], highlighting the high diversity of soil engineers in
+[@Bourguignon2011], highlighting the high diversity of soil engineers in
 this region. However, the spatial distribution of soil macrofauna in
 undisturbed tropical rainforests remains poorly documented. According to
 the principle of competitive exclusion, stable coexistence requires
@@ -347,8 +347,16 @@ two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed in 1984
 The geological substratum of Paracou consists primarily of Precambrian
 schists intruded by pegmatite veins, belonging to the metamorphic
 Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
+<<<<<<< HEAD
 elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
 [@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+=======
+elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing
+into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
+are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
+[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
+more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+>>>>>>> d11a9dfe8c23e3b9211afc87348701d6ce0d5272
 
 Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
@@ -367,6 +375,10 @@ touch" layer above 1.2 m depth, even during the rainy season
 bulk density and surface moisture, but lower organic carbon, root
 biomass, and soil respiration [@Epron2006].
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d11a9dfe8c23e3b9211afc87348701d6ce0d5272
 ## Sampling and Identification
 
 To evaluate how soil type influences macrofaunal communities, two
@@ -397,9 +409,19 @@ Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was p
 
 Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna from escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes by an observer. 
 Macrofauna was collected using a brush and stored in 90 % ethanol,
+<<<<<<< HEAD
 separated according to monolith and layer of soil. Around 5 observers were involved in the sorting of each bag to minimize bias. Subsequently, the organisms were identified on a coarse taxonomic level (refer to the data file in @sec-supp for details).
 <!-- In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), for a total of 2187 individuals. -->
 #bien de résumer ça non ? (Nina)
+=======
+separated according to monolith and layer of soil. Subsequently, the
+organisms were identified on a coarse taxonomic level (refer to the data
+file in @sec-supp for details), with ants (Formicidae) and termites
+(Isoptera) treated separately from other Hymenoptera and Blattodea.
+
+In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), yielding a total of 2187 individuals.
+
+>>>>>>> d11a9dfe8c23e3b9211afc87348701d6ce0d5272
 
 ## Statistical analysis
 
@@ -455,9 +477,11 @@ the same monolith since it ensures that observations were not permuted
 between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.
 
 For visualizing community composition variation patterns, Principal
-Coordinates Analysis (PCoA) was used with the same distance matrix. To
+Coordinates Analysis (PCoA) was used with the same distance matrix. 
+
+To
 fit taxa significantly associated with the ordination, envfit from the
-vegan package [@Oksanen2026].
+vegan package [@Oksanen2026]. P-values were adjusted applying Benjamini-Hochberg correction to control False Discovery Rate.
 
 ## Spatial Representation
 
