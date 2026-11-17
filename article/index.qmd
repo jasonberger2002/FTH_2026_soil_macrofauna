@@ -340,39 +340,23 @@ season from mid-August to mid-November (\< 100 mm per month). In
 Paracou, a permanent forest dynamic experiment was established in 1984.
 The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
 plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
-two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed
-in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
 
 ### Geological and Pedological Characteristics of Paracou
 
 The geological substratum of Paracou consists primarily of Precambrian
 schists intruded by pegmatite veins, belonging to the metamorphic
 Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
-elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing
-into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils
-are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
-[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a
-more or less transformed loamy saprolite [@Gourlet-Fleury2004].
-
-<!--Soil distribution varies strongly along the topographic gradient plateau, slope, and bottomland). According to @Soucemarianadin2004, Plot 1 (P1) comprises 45% bottomland, 40% slope, and 15% plateau, with pland soils distributed as 45 % SLD (Superficial Lateral Drainage), 35 % SH (Surface Hydromorphy), 15 % DhS (Downhill System), and 5% Alt/DVD Deep Vertical Drainage/weathered material at less than 1.2 m). Incontrast, Plot 15 (P15) consists of 40% plateau, 30% slope, and 30% bottomland, and its upland soils are composed of 60% SLD/UhS, 20% DhS, 15 % SH, and 5% Alt/DVD. -->
-
+elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
+[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
 
 Soil distribution and drainage varies strongly in Paracou
 [@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
 topographic gradient, with Plot 1 comprised of 45 % Superficial Lateral
 Drainage (SLD), 35 % Surface Hydromorphy (SH), 15 % Downhill System
-(DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according
-to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60
-% SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004].
+(DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60 % SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004].
 
-Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located
-on flat hilltops or plateaus and feature a thick ferralitic cover that
-lets rainwater percolate freely in depth. The altered phase (Alt) begins
-where red, muscovite-rich alloterite appears above 1.2 m depth,
-signaling initial soil thinning [@Sabatier1997]. Plateau soils contain
-higher levels of carbon, nitrogen, and aluminum [@Allie2015], support
-greater root biomass and soil respiration [@Epron2006], and host nearly
-half of the local tree species in Paracou [@Allie2015].
+Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat hilltops or plateaus and feature a thick ferralitic cover that lets rainwater percolate freely in depth. The altered phase (Alt) begins where red, muscovite-rich alloterite appears above 1.2 m depth, signaling initial soil thinning [@Sabatier1997]. Plateau soils contain higher levels of carbon, nitrogen, and aluminum [@Allie2015], support greater root biomass and soil respiration [@Epron2006], and host nearly half of the local tree species in Paracou [@Allie2015].
 
 Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these
 soils reflect a more advanced thinning and compaction of the ferralitic
@@ -382,12 +366,6 @@ touch" layer above 1.2 m depth, even during the rainy season
 [@Sabatier1997]. Compared to plateaux, these slope soils have higher
 bulk density and surface moisture, but lower organic carbon, root
 biomass, and soil respiration [@Epron2006].
-
-```{=html}
-<!--At the Paracou station, topography strongly shapes soil properties and
-water dynamics along a gradient from hilltops to bottomlands
-[@Allie2015].-->
-```
 
 ## Sampling and Identification
 
@@ -409,43 +387,23 @@ using the simplified Beerkan infiltration method [@Lassabatere2006].
 ### Marofaunal Sampling
 
 Five macrofauna samples were collected in each soil type (Alt/DVD and
-SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility
-(TSBF) method by @Anderson1994.
+SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by @Anderson1994.
 
-To account for local topography, Alt/DVD (hilltop) samples were arranged
-in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a
-transect following the slope. All sampling points were spaced at least
-10 m apart to reduce spatial dependance of macrofauna samples (see
-@fig-map for spatial representation).
+To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see @fig-map for spatial representation).
 
-Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame
-was placed on the ground at for each sample (called monolith). First,
-the litter (L) was quickly removed, trying to avoid fauna to escape, and
-collected in a labeled bag. Next, the frame is pressed 10 cm deep into
-the soil to isolate a soil block. This process was performed twice to
-collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth
-which were also collected in separate bags.
+Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.
 
 ### Sample Sorting and Identification
 
-Samples were manually sorted at the field station and litter samples (L)
-processed first to avoid macrofauna from escaping. Soil was sorted by
-transferring around 200 g of substrate into a container. Each portion
-was observed for an average of 2 minutes by an observer. Around 5
-observers were involved in the sorting of each bag to minimize bias.
+Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna from escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes by an observer. 
 Macrofauna was collected using a brush and stored in 90 % ethanol,
-separated according to monolith and layer of soil. Subsequently, the
-organisms were identified on a coarse taxonomic level (refer to the data
-file in @sec-supp for details), with ants (Formicidae) and termites
-(Isoptera) treated separately from other Hymenoptera and Blattodea.
-
+separated according to monolith and layer of soil. Around 5 observers were involved in the sorting of each bag to minimize bias. Subsequently, the organisms were identified on a coarse taxonomic level (refer to the data file in @sec-supp for details).
 <!-- In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), for a total of 2187 individuals. -->
 #bien de résumer ça non ? (Nina)
 
 ## Statistical analysis
 
-All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
-and data processing relied largely on the tidyverse package
+All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and data processing relied largely on the tidyverse package
 [@Wickham2019; @Wickham2023].
 
 ### Explorative Analysis
@@ -494,8 +452,7 @@ monolith for the soil type PERMANOVA. To test the effect of soil layer,
 permutations were restricted within monoliths using the permute package
 [@Simpson2026]. This accounts for the spatial dependence of layers from
 the same monolith since it ensures that observations were not permuted
-between monoliths. P-values were adjusted for multiple comparisons using
-the Bonferroni correction.
+between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.
 
 For visualizing community composition variation patterns, Principal
 Coordinates Analysis (PCoA) was used with the same distance matrix. To
