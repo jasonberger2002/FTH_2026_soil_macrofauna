@@ -320,8 +320,7 @@ are present, due to their roles as bioturbators [@Zhukova2022;
 termites, we are expecting niche differentiation between the
 both[@Tuma2020].
 
-The aim of this study is therefore to address the lack of knowledge regarding the distribution of soil macrofauna in Paracou from a pedological perspective. We seek to understand whether species abundance differs depending on whether the soil has free lateral drainage or vertical drainage, and whether bio-engineered species reflect this difference. To this end, the TSBF protocol is employed to identify taxonomic families according to soil layers and soil type. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using Permanova. We first consider the total taxa, then analyse the bioengineers (termites, ants and earthworms) separately.
-
+The aim of this study is therefore to address the lack of knowledge regarding the distribution of soil macrofauna in Paracou from a pedological perspective. We seek to understand whether species abundance differs depending on whether the soil has free lateral drainage or vertical drainage, and whether bio-engineered species reflect this difference.
 
 # Material and Methods
 
