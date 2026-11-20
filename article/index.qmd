@@ -1656,10 +1656,10 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
   theme(!!!gg_fontsize(0.5))
 ```
 
-::: {#fig-pcoa fig-env="figure*"}
+::: {#fig-pcoa fig-env="figure*" fig-pos="t"}
 ```{r}
 #| label: PCoA FIGURE
-#| out-width: 100%
+#| out-width: 80%
 #| include: true
 plot(p)
 ```
