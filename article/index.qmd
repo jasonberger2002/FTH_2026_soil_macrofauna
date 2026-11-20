@@ -13,6 +13,15 @@ format:
     - '\DeclareCaptionFont{ninept}{\fontsize{9pt}{11pt}\selectfont}'
     - '\captionsetup[table]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
     - '\captionsetup[figure]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
+    # page labelling
+    - |
+      \usepackage{zref-abspage}
+      \makeatletter
+      \newcommand{\markmainend}{\zref@label{mainend}}
+      \newcommand{\mainpages}{\zref@extractdefault{mainend}{page}{0}}
+      \makeatother
+      \newcommand{\appendixpages}{\pageref{LastPage}}
+      \newif\ifinappendix
       
   stylisharticle-html:
     # Color example, see "Text color"
@@ -327,20 +336,6 @@ The aim of this study is therefore to address the lack of knowledge regarding th
 # Material and Methods
 
 ## Study Site
-
-::: {#fig-map fig-env="figure*"}
-```{r}
-#| label: map FIGURE
-#| out-width: 100%
-#| include: true
-knitr::include_graphics("images/overview_paracou.png")
-```
-
-Overview map of Paracou with the sampling locations. Location of right
-panels shown by grey squares. White lines on the right panels represent
-altitude isolines. Upper left corner panel shows location of Paracou in
-French Guiana.
-:::
 
 ### Geographic Location
 
@@ -753,7 +748,7 @@ taxa_scores_plot <- taxa_scores %>%
 ```{r}
 #| label: PCA FIGURE
 #| include: true
-#|out-width: 80%
+#| out-width: 80%
 
 fig_pca <- ggplot(
   scores_pca,
@@ -1720,9 +1715,34 @@ the Quarto file used to produce this article, is available from
 ::: {#refs}
 :::
 
-\newpage
+
+\markmainend
+\clearpage
+\onecolumn
 \appendix
+\inappendixtrue
+\setcounter{page}{1}
+\renewcommand{\thepage}{A\arabic{page}}
+\gdef\theHpage{A\arabic{page}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
+\gdef\theHfigure{A\arabic{figure}}
+\gdef\theHtable{A\arabic{table}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
 
-# Appendix title
+# Appendix {.unnumbered}
 
-Your appendix content here.
+::: {#fig-map fig-env="figure*"}
+```{r}
+#| label: map FIGURE
+#| out-width: 100%
+#| include: true
+knitr::include_graphics("images/overview_paracou.png")
+```
+
+Overview map of Paracou with the sampling locations. Location of right
+panels shown by grey squares. White lines on the right panels represent
+altitude isolines. Upper left corner panel shows location of Paracou in
+French Guiana.
+:::
