@@ -348,7 +348,7 @@ season from mid-August to mid-November (\< 100 mm per month). In
 Paracou, a permanent forest dynamic experiment was established in 1984.
 The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
 plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
-two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+two of the unlogged control plots: Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
 
 ### Geological and Pedological Characteristics of Paracou
 
@@ -399,7 +399,7 @@ using the simplified Beerkan infiltration method [@Lassabatere2006].
 Five macrofauna samples were collected in each soil type (Alt/DVD and
 SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by @Anderson1994.
 
-To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see @fig-map for spatial representation).
+To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see Appendix @fig-map for spatial representation).
 
 Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.
 
