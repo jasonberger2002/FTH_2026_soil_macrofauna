@@ -16,7 +16,7 @@ format:
   stylisharticle-html:
     # Color example, see "Text color"
     css: colors.css
-    toc: true
+    toc: false
     toc-location: left
     toc-title: "Contents"
     toc-depth: 3
