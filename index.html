@@ -132,21 +132,24 @@ window.Quarto = {
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
   <ul class="collapse">
-  <li><a href="#abundances-glmm" id="toc-abundances-glmm" class="nav-link" data-scroll-target="#abundances-glmm"><span class="header-section-number">3.1</span> Abundances (GLMM)</a>
+  <li><a href="#macrofauna-abundance" id="toc-macrofauna-abundance" class="nav-link" data-scroll-target="#macrofauna-abundance"><span class="header-section-number">3.1</span> Macrofauna abundance</a>
   <ul class="collapse">
   <li><a href="#global-abundance" id="toc-global-abundance" class="nav-link" data-scroll-target="#global-abundance">Global Abundance</a></li>
   <li><a href="#formicidae" id="toc-formicidae" class="nav-link" data-scroll-target="#formicidae">Formicidae</a></li>
   <li><a href="#isoptera" id="toc-isoptera" class="nav-link" data-scroll-target="#isoptera">Isoptera</a></li>
   <li><a href="#lumbricina-oligochaetes" id="toc-lumbricina-oligochaetes" class="nav-link" data-scroll-target="#lumbricina-oligochaetes">Lumbricina Oligochaetes</a></li>
   </ul></li>
-  <li><a href="#permanova" id="toc-permanova" class="nav-link" data-scroll-target="#permanova"><span class="header-section-number">3.2</span> PERMANOVA</a></li>
+  <li><a href="#community-composition" id="toc-community-composition" class="nav-link" data-scroll-target="#community-composition"><span class="header-section-number">3.2</span> Community composition</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">6</span> Acknowledgements</a></li>
   <li><a href="#sec-supp" id="toc-sec-supp" class="nav-link" data-scroll-target="#sec-supp"><span class="header-section-number">7</span> Supplementary Material</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix">Appendix</a></li>
+  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#additional-exploratory-analysis" id="toc-additional-exploratory-analysis" class="nav-link" data-scroll-target="#additional-exploratory-analysis">Additional exploratory analysis:</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (stylisharticle)</a></li></ul></div></nav>
 </div>
@@ -260,7 +263,7 @@ window.Quarto = {
 <section id="marofaunal-sampling" class="level3">
 <h3 class="anchored" data-anchor-id="marofaunal-sampling">Marofaunal Sampling</h3>
 <p>Five macrofauna samples were collected in each soil type (Alt/DVD and SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by <span class="citation" data-cites="Anderson1994">Anderson &amp; Ingram (<a href="#ref-Anderson1994" role="doc-biblioref">1994</a>)</span>.</p>
-<p>To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see <a href="#sec-appendix">Appendix</a> <a href="#fig-map" class="quarto-xref">Figure&nbsp;5</a> for spatial representation).</p>
+<p>To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see <a href="#sec-appendix">Appendix</a> <a href="#fig-map" class="quarto-xref">Figure&nbsp;4</a> for spatial representation).</p>
 <p>Following the TSBF method <span class="citation" data-cites="Anderson1994">(<a href="#ref-Anderson1994" role="doc-biblioref">Anderson &amp; Ingram, 1994</a>)</span>, a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.</p>
 </section>
 <section id="sample-sorting-and-identification" class="level3">
@@ -291,11 +294,13 @@ window.Quarto = {
 </section>
 <section id="spatial-representation" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="spatial-representation"><span class="header-section-number">2.4</span> Spatial Representation</h2>
-<p>Monolith locations were reconstructed using R <span class="citation" data-cites="RCoreTeam2026">(<a href="#ref-RCoreTeam2026" role="doc-biblioref">R Core Team, 2026</a>)</span> and the sf package <span class="citation" data-cites="Pebesma2018 Pebesma2023">(<a href="#ref-Pebesma2018" role="doc-biblioref">Pebesma, 2018</a>; <a href="#ref-Pebesma2023" role="doc-biblioref">Pebesma &amp; Bivand, 2023</a>)</span>. Coordinates were obtained based on distance and azimuth in relation to reference trees and their coordinates sourced from Paracou inventory data <span class="citation" data-cites="Derroire2026 Derroire2026a">(<a href="#ref-Derroire2026" role="doc-biblioref">Derroire et al., 2026a</a>, <a href="#ref-Derroire2026a" role="doc-biblioref">2026b</a>)</span>. QGIS <span class="citation" data-cites="QGISDevelopmentTeam2024">(<a href="#ref-QGISDevelopmentTeam2024" role="doc-biblioref">QGIS Development Team, 2024</a>)</span> was used for spatial representation.</p>
+<p>Monolith locations were reconstructed using R <span class="citation" data-cites="RCoreTeam2026">(<a href="#ref-RCoreTeam2026" role="doc-biblioref">R Core Team, 2026</a>)</span> and the sf package <span class="citation" data-cites="Pebesma2018 Pebesma2023">(<a href="#ref-Pebesma2018" role="doc-biblioref">Pebesma, 2018</a>; <a href="#ref-Pebesma2023" role="doc-biblioref">Pebesma &amp; Bivand, 2023</a>)</span>. Coordinates were obtained (script available in <a href="#sec-supp" class="quarto-xref">Section&nbsp;7</a>) based on distance and azimuth in relation to reference trees and their coordinates sourced from Paracou inventory data <span class="citation" data-cites="Derroire2026 Derroire2026a">(<a href="#ref-Derroire2026" role="doc-biblioref">Derroire et al., 2026a</a>, <a href="#ref-Derroire2026a" role="doc-biblioref">2026b</a>)</span>. QGIS <span class="citation" data-cites="QGISDevelopmentTeam2024">(<a href="#ref-QGISDevelopmentTeam2024" role="doc-biblioref">QGIS Development Team, 2024</a>)</span> was used for spatial representation.</p>
 </section>
 </section>
 <section id="results" class="level1 page-columns page-full" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
+<section id="macrofauna-abundance" class="level2 page-columns page-full" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="macrofauna-abundance"><span class="header-section-number">3.1</span> Macrofauna abundance</h2>
 <div id="fig-density" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-density-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -316,52 +321,6 @@ Figure&nbsp;1: Total macrofauna density (ind. m⁻²) by soil layer (L = litter,
 </figcaption>
 </figure>
 </div>
-<p>Community composition changed more between layers than between soil types (<a href="#fig-comp" class="quarto-xref">Figure&nbsp;2</a>). In the litter, no Lumbricina were found in either soil type. Alt/DVD soils were home to a bigger proportion of Isoptera compared to Formicidae. Conversely, SLD soils hosted a greater proportion of Formicidae compared to Isoptera. Two groups dominated the 0-10 cm layer in both soil types : Isoptera and Formicidae that each made up for approximately half the composition of both soil types. Earthworms (Lumbricina) were a small part of the catch there (~2 % and ~5 %). Finally, in the 10-20 cm layer, Isoptera almost disappeared (0 % in Alt/DVD and 1 % in SLD) and Formicidae became clearly dominant, at about 70 % of individuals. They were followed by the other groups combined (about 18 %) and Lumbricina (9 % and 11 %).</p>
-<p>The litter was the only layer where the two soil types looked different. These proportions rest on small numbers, so a few samples can change them a lot.</p>
-<div id="fig-comp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/Relative%20composition%20FIGURE-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Relative abundance of Formicidae, Isoptera, Lumbricina and all other taxa combined (Others), by soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm) and soil type. Proportions are calculated from the total number of individuals found in all samples of each soil type and layer.
-</figcaption>
-</figure>
-</div>
-<p>We ran a principal component analysis (PCA) on the abundances of all taxa to see whether samples from the two soil types differed in composition (<a href="#fig-pca" class="quarto-xref">Figure&nbsp;3</a>). The first two axes explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1 opposed samples rich in Isoptera (right side) to samples dominated by Formicidae (left side). PC2 was mostly related to Lumbricina, which pointed toward the top of the plot. Formicidae and Isoptera were well represented on these two axes (high cos², which measures how well a taxon is represented by the axes), while Lumbricina were less well represented (lower cos²).</p>
-<p>Alt/DVD and SLD samples were not separated on these two axes. The two ellipses overlapped almost completely, and samples of both soil types were found across the whole plot. We did not see a clear structure by soil layer either. Samples from the litter, the 0-10 cm layer and the 10-20 cm layer were mixed along both axes. The 10-20 cm samples were almost all in the left half of the plot which fit with the absence of isoptera at this depth, and the highest PC2 values were mostly from this layer, where earthworms were found. Overall, no clear trend could be taken out fo it and they overlapped with many litter and 0-10 cm samples.</p>
-<div id="fig-pca" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/PCA%20FIGURE-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of macrofauna composition (60 samples). Colours show soil type and shapes show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines are 95 % confidence ellipses for each soil type. Arrows show the taxa best represented on the first two axes. Their colour indicates the squared cosine (cos²) (values close to 1 mean a good representation of the taxon by these two axes). Only taxa with cos² &gt; 0.1 are presented.
-</figcaption>
-</figure>
-</div>
-<section id="abundances-glmm" class="level2 page-columns page-full" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="abundances-glmm"><span class="header-section-number">3.1</span> Abundances (GLMM)</h2>
 <p>Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in <a href="#tbl-models" class="quarto-xref">Table&nbsp;1</a>.</p>
 <section id="global-abundance" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="global-abundance">Global Abundance</h3>
@@ -370,23 +329,23 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
 <div aria-describedby="tbl-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="cjrvketnvy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cjrvketnvy table {
+<div id="osncjrvket" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#osncjrvket table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cjrvketnvy thead, #cjrvketnvy tbody, #cjrvketnvy tfoot, #cjrvketnvy tr, #cjrvketnvy td, #cjrvketnvy th {
+#osncjrvket thead, #osncjrvket tbody, #osncjrvket tfoot, #osncjrvket tr, #osncjrvket td, #osncjrvket th {
   border-style: none;
 }
 
-#cjrvketnvy p {
+#osncjrvket p {
   margin: 0;
   padding: 0;
 }
 
-#cjrvketnvy .gt_table {
+#osncjrvket .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -412,12 +371,12 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-left-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_caption {
+#osncjrvket .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cjrvketnvy .gt_title {
+#osncjrvket .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -429,7 +388,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-bottom-width: 0;
 }
 
-#cjrvketnvy .gt_subtitle {
+#osncjrvket .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -441,7 +400,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-top-width: 0;
 }
 
-#cjrvketnvy .gt_heading {
+#osncjrvket .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -453,13 +412,13 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-right-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_bottom_border {
+#osncjrvket .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_col_headings {
+#osncjrvket .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -474,7 +433,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-right-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_col_heading {
+#osncjrvket .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -494,7 +453,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   overflow-x: hidden;
 }
 
-#cjrvketnvy .gt_column_spanner_outer {
+#osncjrvket .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -506,15 +465,15 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   padding-right: 4px;
 }
 
-#cjrvketnvy .gt_column_spanner_outer:first-child {
+#osncjrvket .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cjrvketnvy .gt_column_spanner_outer:last-child {
+#osncjrvket .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cjrvketnvy .gt_column_spanner {
+#osncjrvket .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -526,11 +485,11 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   width: 100%;
 }
 
-#cjrvketnvy .gt_spanner_row {
+#osncjrvket .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cjrvketnvy .gt_group_heading {
+#osncjrvket .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -556,7 +515,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   text-align: left;
 }
 
-#cjrvketnvy .gt_empty_group_heading {
+#osncjrvket .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -571,15 +530,15 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   vertical-align: middle;
 }
 
-#cjrvketnvy .gt_from_md > :first-child {
+#osncjrvket .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cjrvketnvy .gt_from_md > :last-child {
+#osncjrvket .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cjrvketnvy .gt_row {
+#osncjrvket .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -598,7 +557,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   overflow-x: hidden;
 }
 
-#cjrvketnvy .gt_stub {
+#osncjrvket .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -611,7 +570,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   padding-right: 5px;
 }
 
-#cjrvketnvy .gt_stub_row_group {
+#osncjrvket .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -625,15 +584,15 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   vertical-align: top;
 }
 
-#cjrvketnvy .gt_row_group_first td {
+#osncjrvket .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cjrvketnvy .gt_row_group_first th {
+#osncjrvket .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cjrvketnvy .gt_summary_row {
+#osncjrvket .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -643,16 +602,16 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   padding-right: 5px;
 }
 
-#cjrvketnvy .gt_first_summary_row {
+#osncjrvket .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_first_summary_row.thick {
+#osncjrvket .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cjrvketnvy .gt_last_summary_row {
+#osncjrvket .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -662,7 +621,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-bottom-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_grand_summary_row {
+#osncjrvket .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -672,7 +631,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   padding-right: 5px;
 }
 
-#cjrvketnvy .gt_first_grand_summary_row {
+#osncjrvket .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -682,7 +641,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-top-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_last_grand_summary_row_top {
+#osncjrvket .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -692,11 +651,11 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-bottom-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_striped {
+#osncjrvket .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cjrvketnvy .gt_table_body {
+#osncjrvket .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -705,7 +664,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-bottom-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_footnotes {
+#osncjrvket .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -719,7 +678,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-right-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_footnote {
+#osncjrvket .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -728,7 +687,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   padding-right: 5px;
 }
 
-#cjrvketnvy .gt_sourcenotes {
+#osncjrvket .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -742,7 +701,7 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   border-right-color: #D3D3D3;
 }
 
-#cjrvketnvy .gt_sourcenote {
+#osncjrvket .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -750,72 +709,72 @@ Figure&nbsp;3: PCA ordination based on Hellinger-transformed community matrix of
   padding-right: 5px;
 }
 
-#cjrvketnvy .gt_left {
+#osncjrvket .gt_left {
   text-align: left;
 }
 
-#cjrvketnvy .gt_center {
+#osncjrvket .gt_center {
   text-align: center;
 }
 
-#cjrvketnvy .gt_right {
+#osncjrvket .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cjrvketnvy .gt_font_normal {
+#osncjrvket .gt_font_normal {
   font-weight: normal;
 }
 
-#cjrvketnvy .gt_font_bold {
+#osncjrvket .gt_font_bold {
   font-weight: bold;
 }
 
-#cjrvketnvy .gt_font_italic {
+#osncjrvket .gt_font_italic {
   font-style: italic;
 }
 
-#cjrvketnvy .gt_super {
+#osncjrvket .gt_super {
   font-size: 65%;
 }
 
-#cjrvketnvy .gt_footnote_marks {
+#osncjrvket .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cjrvketnvy .gt_asterisk {
+#osncjrvket .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cjrvketnvy .gt_indent_1 {
+#osncjrvket .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cjrvketnvy .gt_indent_2 {
+#osncjrvket .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cjrvketnvy .gt_indent_3 {
+#osncjrvket .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cjrvketnvy .gt_indent_4 {
+#osncjrvket .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cjrvketnvy .gt_indent_5 {
+#osncjrvket .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cjrvketnvy .katex-display {
+#osncjrvket .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cjrvketnvy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#osncjrvket div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -918,23 +877,23 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
 <div aria-describedby="tbl-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="zesyyichzg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zesyyichzg table {
+<div id="nvyzesyyic" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nvyzesyyic table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zesyyichzg thead, #zesyyichzg tbody, #zesyyichzg tfoot, #zesyyichzg tr, #zesyyichzg td, #zesyyichzg th {
+#nvyzesyyic thead, #nvyzesyyic tbody, #nvyzesyyic tfoot, #nvyzesyyic tr, #nvyzesyyic td, #nvyzesyyic th {
   border-style: none;
 }
 
-#zesyyichzg p {
+#nvyzesyyic p {
   margin: 0;
   padding: 0;
 }
 
-#zesyyichzg .gt_table {
+#nvyzesyyic .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -960,12 +919,12 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-left-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_caption {
+#nvyzesyyic .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zesyyichzg .gt_title {
+#nvyzesyyic .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -977,7 +936,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-bottom-width: 0;
 }
 
-#zesyyichzg .gt_subtitle {
+#nvyzesyyic .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -989,7 +948,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-top-width: 0;
 }
 
-#zesyyichzg .gt_heading {
+#nvyzesyyic .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1001,13 +960,13 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-right-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_bottom_border {
+#nvyzesyyic .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_col_headings {
+#nvyzesyyic .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1022,7 +981,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-right-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_col_heading {
+#nvyzesyyic .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1042,7 +1001,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   overflow-x: hidden;
 }
 
-#zesyyichzg .gt_column_spanner_outer {
+#nvyzesyyic .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1054,15 +1013,15 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   padding-right: 4px;
 }
 
-#zesyyichzg .gt_column_spanner_outer:first-child {
+#nvyzesyyic .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zesyyichzg .gt_column_spanner_outer:last-child {
+#nvyzesyyic .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zesyyichzg .gt_column_spanner {
+#nvyzesyyic .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1074,11 +1033,11 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   width: 100%;
 }
 
-#zesyyichzg .gt_spanner_row {
+#nvyzesyyic .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zesyyichzg .gt_group_heading {
+#nvyzesyyic .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1104,7 +1063,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   text-align: left;
 }
 
-#zesyyichzg .gt_empty_group_heading {
+#nvyzesyyic .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1119,15 +1078,15 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   vertical-align: middle;
 }
 
-#zesyyichzg .gt_from_md > :first-child {
+#nvyzesyyic .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zesyyichzg .gt_from_md > :last-child {
+#nvyzesyyic .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zesyyichzg .gt_row {
+#nvyzesyyic .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1146,7 +1105,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   overflow-x: hidden;
 }
 
-#zesyyichzg .gt_stub {
+#nvyzesyyic .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1159,7 +1118,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   padding-right: 5px;
 }
 
-#zesyyichzg .gt_stub_row_group {
+#nvyzesyyic .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1173,15 +1132,15 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   vertical-align: top;
 }
 
-#zesyyichzg .gt_row_group_first td {
+#nvyzesyyic .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zesyyichzg .gt_row_group_first th {
+#nvyzesyyic .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zesyyichzg .gt_summary_row {
+#nvyzesyyic .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1191,16 +1150,16 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   padding-right: 5px;
 }
 
-#zesyyichzg .gt_first_summary_row {
+#nvyzesyyic .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_first_summary_row.thick {
+#nvyzesyyic .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zesyyichzg .gt_last_summary_row {
+#nvyzesyyic .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1210,7 +1169,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-bottom-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_grand_summary_row {
+#nvyzesyyic .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1220,7 +1179,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   padding-right: 5px;
 }
 
-#zesyyichzg .gt_first_grand_summary_row {
+#nvyzesyyic .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1230,7 +1189,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-top-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_last_grand_summary_row_top {
+#nvyzesyyic .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1240,11 +1199,11 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-bottom-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_striped {
+#nvyzesyyic .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zesyyichzg .gt_table_body {
+#nvyzesyyic .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1253,7 +1212,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-bottom-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_footnotes {
+#nvyzesyyic .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1267,7 +1226,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-right-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_footnote {
+#nvyzesyyic .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1276,7 +1235,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   padding-right: 5px;
 }
 
-#zesyyichzg .gt_sourcenotes {
+#nvyzesyyic .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1290,7 +1249,7 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   border-right-color: #D3D3D3;
 }
 
-#zesyyichzg .gt_sourcenote {
+#nvyzesyyic .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1298,72 +1257,72 @@ Table&nbsp;1: Summary of retained GLMMs for global, ants (Formicidae), termite (
   padding-right: 5px;
 }
 
-#zesyyichzg .gt_left {
+#nvyzesyyic .gt_left {
   text-align: left;
 }
 
-#zesyyichzg .gt_center {
+#nvyzesyyic .gt_center {
   text-align: center;
 }
 
-#zesyyichzg .gt_right {
+#nvyzesyyic .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zesyyichzg .gt_font_normal {
+#nvyzesyyic .gt_font_normal {
   font-weight: normal;
 }
 
-#zesyyichzg .gt_font_bold {
+#nvyzesyyic .gt_font_bold {
   font-weight: bold;
 }
 
-#zesyyichzg .gt_font_italic {
+#nvyzesyyic .gt_font_italic {
   font-style: italic;
 }
 
-#zesyyichzg .gt_super {
+#nvyzesyyic .gt_super {
   font-size: 65%;
 }
 
-#zesyyichzg .gt_footnote_marks {
+#nvyzesyyic .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zesyyichzg .gt_asterisk {
+#nvyzesyyic .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zesyyichzg .gt_indent_1 {
+#nvyzesyyic .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zesyyichzg .gt_indent_2 {
+#nvyzesyyic .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zesyyichzg .gt_indent_3 {
+#nvyzesyyic .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zesyyichzg .gt_indent_4 {
+#nvyzesyyic .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zesyyichzg .gt_indent_5 {
+#nvyzesyyic .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zesyyichzg .katex-display {
+#nvyzesyyic .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zesyyichzg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nvyzesyyic div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1475,15 +1434,37 @@ Table&nbsp;2: Estimated marginal means and Tukey pairwise comparisons of abundan
 <section id="lumbricina-oligochaetes" class="level3">
 <h3 class="anchored" data-anchor-id="lumbricina-oligochaetes">Lumbricina Oligochaetes</h3>
 <p>Type II Wald <span class="math inline">\(\chi^2\)</span> tests indicated a significant effect of soil layer on earthworm abundance (<span class="math inline">\(\chi^2\)</span> = 12.69), df = 2, p = 0.0018),whereas soil type had no significant effect (<span class="math inline">\(\chi^2\)</span> = 0.35), df = 1, p = 0.557). Pairwise comparisons showed significantly higher earthworm As no earthworms were recorded in layer L, no pairwise comparisons were made between the litter and layers 10 and 20. The Estimated random-effect variance for monoliths was 0.510 (SD = 0.714)</p>
-<p>For density boxplots for Formicidae, Isoptera and Lumbricina oligochaetes, see <a href="#sec-appendix">Appendix</a> <a href="#fig-density-taxa" class="quarto-xref">Figure&nbsp;6</a>.</p>
+<p>For density boxplots for Formicidae, Isoptera and Lumbricina oligochaetes, see <a href="#sec-appendix">Appendix</a> <a href="#fig-density-taxa" class="quarto-xref">Figure&nbsp;5</a>.</p>
 </section>
 </section>
-<section id="permanova" class="level2 page-columns page-full" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="permanova"><span class="header-section-number">3.2</span> PERMANOVA</h2>
+<section id="community-composition" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">3.2</span> Community composition</h2>
+<p>Community composition varied visibly more among soil layers than between soil types (<a href="#fig-comp" class="quarto-xref">Figure&nbsp;2</a>). Lumbricina were absent from the litter in both soil types. The relative proportions of Isoptera and Formicidae appeared to differ between soil types: Isoptera were more abundant in Alt/DVD, whereas Formicidae represented a larger proportion in SLD. Two groups dominated the 0-10 cm layer in both soil types: Isoptera and Formicidae each made up for approximately half of the relative composition of both soil types. Earthworms (Lumbricina) represented a small part therein (~2 % and ~5 %). In the 10-20 cm layer, Isoptera were nearly absent (0 % in Alt/DVD and 1 % in SLD) and Formicidae dominated, representing about 70 % of individuals. Lumbricina represented around 9% and 11% of individuals in Alt/DVD and SLD, respectively, while all remaining taxa combined accounted for approximately 18%.</p>
+<p>An exploratory PCA macrofaunal abundances is provided in the Supplementary Material (<a href="#fig-pca" class="quarto-xref">Figure&nbsp;6</a>).</p>
+<div id="fig-comp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/Relative%20composition%20FIGURE-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-comp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Relative abundance of Formicidae, Isoptera, Lumbricina and all other taxa combined (Others), by soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm) and soil type. Proportions are calculated from the total number of individuals found in all samples of each soil type and layer.
+</figcaption>
+</figure>
+</div>
 <p>PERMANOVA did not show a significant difference in macrofaunal community composition between soil types (F = 1.68, R² = 0.085, p = 0.139). The test for homogeneity of multivariate dispersion was also non-significant (F = 0.11, p = 0.742), indicating no detectable difference in within-group dispersion between soil types. Layers were aggregated per monolith to account for spatial dependence.</p>
 <p>PERMANOVA revealed a significant effect of soil layer on macrofauna community composition (Bray–Curtis dissimilarity: F = 5.46, R² = 0.163,p = 0.0001). Soil layer explained around 16.3 % of variation in the community composition, indicating that macrofauna community composition differed significantly among layers. Permutation was restricted within monolith to account for spatial dependence of layers. Homogeneity of multivariate dispersion was assessed using a permutation test based on betadisper. No significant differences in dispersion were detected for soil layers (F = 0.75, p = 0.321).</p>
 <p>Pairwise PERMANOVA suggests significant differences in macrofauna community composition for all soil layers (<a href="#tbl-permanova" class="quarto-xref">Table&nbsp;3</a>). Significant differences were observed between L and 10 (F = 6.05, R² = 0.141, adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p = 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012), using Bonferroni correction.</p>
-<p>In the Principal Coordinates Analysis (PCoA) based on Bray Curtis dissimilarities (<a href="#fig-pcoa" class="quarto-xref">Figure&nbsp;4</a>), the first two axes explained 26.1 % of the corrected total variance (15.8 % for PCoA1 and 10.3 % for PCoA2). Convex hulls overlapped substantially in the projection. A part of samples from the 10 cm layer extends toward positive PCoA1 values and shows less overlap. Vector fitting onto the PCoA ordination identified four taxa significantly correlated with the ordination space (P_adj &lt; 0.05, Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1 scores, indicating that higher abundances of these taxa are associated with the separation of these 10 cm layer samples along the first axis.</p>
+<p>In the Principal Coordinates Analysis (PCoA) based on Bray Curtis dissimilarities (<a href="#fig-pcoa" class="quarto-xref">Figure&nbsp;3</a>), the first two axes explained 26.1 % of the corrected total variance (15.8 % for PCoA1 and 10.3 % for PCoA2). Convex hulls overlapped substantially in the projection. A part of samples from the 10 cm layer extends toward positive PCoA1 values and shows less overlap. Vector fitting onto the PCoA ordination identified four taxa significantly correlated with the ordination space (P_adj &lt; 0.05, Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1 scores, indicating that higher abundances of these taxa are associated with the separation of these 10 cm layer samples along the first axis.</p>
 <div id="tbl-permanova" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-permanova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2000,7 +1981,7 @@ Table&nbsp;3: Pairwise PERMANOVA for community composition comparisons between l
 <p></p>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: First two components of the Bray-Curtis PCoA representing 26.1% of the variation in macrofaunal community composition. Convex hulls indicate soil layers. Taxa singificantly associated (after BH correction) with the ordination are presented (arrows).
+Figure&nbsp;3: First two components of the Bray-Curtis PCoA representing 26.1% of the variation in macrofaunal community composition. Convex hulls indicate soil layers. Taxa singificantly associated (after BH correction) with the ordination are presented (arrows).
 </figcaption>
 </figure>
 </div>
@@ -2200,7 +2181,7 @@ Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., G
 Zhukova, Y. O., &amp; Mytiai, I. S. (2022). Spatial organization of the soil macrofauna community in a floodplain forest. <em>IOP Conference Series: Earth and Environmental Science</em>, <em>1049</em>(1), 012064. <a href="https://doi.org/10.1088/1755-1315/1049/1/012064">https://doi.org/10.1088/1755-1315/1049/1/012064</a>
 </div>
 </div>
-<!-- dissolve column structure, reset page and figure counter, create new counter with prefix A for Appendix section -->
+<!-- dissolve column structure, reset page and figure counters, create new counter with prefix A for Appendix section -->
 </section>
 <section id="sec-appendix" class="level1 unnumbered page-columns page-full">
 <h1 class="unnumbered">Appendix</h1>
@@ -2220,7 +2201,7 @@ Zhukova, Y. O., &amp; Mytiai, I. S. (2022). Spatial organization of the soil mac
 <p></p>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana.
+Figure&nbsp;4: Overview map of Paracou with the sampling locations. Location of right panels shown by grey squares. White lines on the right panels represent altitude isolines. Upper left corner panel shows location of Paracou in French Guiana.
 </figcaption>
 </figure>
 </div>
@@ -2240,10 +2221,35 @@ Figure&nbsp;5: Overview map of Paracou with the sampling locations. Location of 
 <p></p>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-density-taxa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Density (ind. m⁻²) for ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina) by soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm) and soil type. Boxes show the median and interquartile range and points are outliers. y-axis is on a pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5 monoliths).
+Figure&nbsp;5: Density (ind. m⁻²) for ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina) by soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm) and soil type. Boxes show the median and interquartile range and points are outliers. y-axis is on a pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5 monoliths).
 </figcaption>
 </figure>
 </div>
+<section id="additional-exploratory-analysis" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="additional-exploratory-analysis">Additional exploratory analysis:</h2>
+<p>We ran a principal component analysis (PCA) on the abundances of all taxa to see whether samples from the two soil types differed in composition (<a href="#fig-pca" class="quarto-xref">Figure&nbsp;6</a>). The first two axes explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1 opposed samples rich in Isoptera (right side) to samples dominated by Formicidae (left side). PC2 was mostly related to Lumbricina, which pointed toward the top of the plot. Formicidae and Isoptera were well represented on these two axes (high cos², which measures how well a taxon is represented by the axes), while Lumbricina were less well represented (lower cos²).</p>
+<p>Alt/DVD and SLD samples were not separated on these two axes. The two ellipses overlapped almost completely, and samples of both soil types were found across the whole plot. We did not see a clear structure by soil layer either. Samples from the litter, the 0-10 cm layer and the 10-20 cm layer were mixed along both axes. The 10-20 cm samples were almost all in the left half of the plot which fit with the absence of isoptera at this depth, and the highest PC2 values were mostly from this layer, where earthworms were found. Overall, no clear trend could be taken out of it and they overlapped with many litter and 0-10 cm samples.</p>
+<div id="fig-pca" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/PCA%20FIGURE-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: PCA ordination based on Hellinger-transformed community matrix of macrofauna composition (59 samples). Colours show soil type and shapes show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines are 95 % confidence ellipses for each soil type. Arrows show the taxa best represented on the first two axes. Their colour indicates the squared cosine (cos²) (values close to 1 mean a good representation of the taxon by these two axes). Only taxa with cos² &gt; 0.1 are presented.
+</figcaption>
+</figure>
+</div>
+</section>
 </section>
 
 </main>
