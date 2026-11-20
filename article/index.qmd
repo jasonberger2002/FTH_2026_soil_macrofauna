@@ -249,7 +249,7 @@ most threatened ecosystems, and therefore the study of their biological
 communities, including those underground, is particularly important
 [@Myers1988].
 
-## Soil macrofauna distribution in tropical rainforests
+<!-- Soil macrofauna distribution in tropical rainforests -->
 
 Soils support approximately 50% of global animal biomass [@Fierer2009],
 with ants, termites and earthworms among the dominant groups
@@ -262,7 +262,7 @@ composition is influenced by vegetation cover and litter quality
 and physicochemical properties [@Vasconcellos2013; @Lavelle2022;
 @Ferrin2026].
 
-## Relationships between soil texture and macrofauna
+<!-- Relationships between soil texture and macrofauna -->
 
 Soil texture accounts for 3.9% of the variation in soil macrofaunal
 community structure at the global scale [@Lavelle2022]. Soil moisture
@@ -275,7 +275,7 @@ harbouring distinct communities from well-drained forests
 [@Bourguignon2011]. Conversely, macrofauna can modify soil physical
 properties through their biological activities.
 
-## Soil bioengineers and their effects on soil properties
+<!-- Soil bioengineers and their effects on soil properties -->
 
 Soil macrofauna can modify soil properties, including aggregate
 structure, porosity and hydraulic conductivity. Soil bioengineers are
@@ -345,7 +345,7 @@ The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
 plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
 two of the unlogged control plots: Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
 
-### Geological and Pedological Characteristics of Paracou
+### Soil Characteristics of Paracou
 
 The geological substratum of Paracou consists primarily of Precambrian
 schists intruded by pegmatite veins, belonging to the metamorphic
