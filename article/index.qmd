@@ -4,6 +4,7 @@ title: "Effects of soil drainage types on macrofaunal community composition and 
 format:
   stylisharticle-pdf:
     keep-tex: true
+    toc: false
     header-includes:
     - '\setcounter{tocdepth}{2}'
     - '\usepackage{xcolor}'
@@ -16,7 +17,7 @@ format:
   stylisharticle-html:
     # Color example, see "Text color"
     css: colors.css
-    toc: false
+    toc: true
     toc-location: left
     toc-title: "Contents"
     toc-depth: 3
@@ -1712,3 +1713,16 @@ Supplementary material, including detailed statistical analysis,
 scripts, data, QGIS layers, additional software attribution as well as
 the Quarto file used to produce this article, is available from
 <https://github.com/jasonberger2002/FTH_2026_soil_macrofauna>.
+
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+\newpage
+\appendix
+
+# Appendix title
+
+Your appendix content here.
