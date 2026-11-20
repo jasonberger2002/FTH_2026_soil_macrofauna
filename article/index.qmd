@@ -406,8 +406,7 @@ All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and dat
 ### Explorative Analysis
 
 Counts were converted to densities (individuals per m²) in proportion the surface of a monolith (25 × 25 cm = 0.0625 m²) and are subsequently referred to as abundances. Since densities were very
-uneven, with many low values and a few very high ones, the figures use a pseudo-logarithmic scale, which keeps zero values on the axis. Box plots of abundances of the different taxa by layers and type of soil
-were realized as well as Principal Component Analysis (PCA) with Hellinger transformation.
+uneven, with many low values and a few very high ones, the figures use a pseudo-logarithmic scale, which keeps zero values on the axis. Box plots of abundances of the different taxa by layers and type of soil were realized as well as Principal Component Analysis (PCA) with Hellinger transformation.
 
 ### Abundances (Generalized Linear Mixed Models)
 
