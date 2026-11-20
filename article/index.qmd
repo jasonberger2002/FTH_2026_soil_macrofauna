@@ -7,19 +7,14 @@ format:
     toc: false
     header-includes:
     - '\setcounter{tocdepth}{2}'
-    - '\usepackage{xcolor}'
-    - '\usepackage{caption}'
     - '\definecolor{grey}{RGB}{112,128,144}'
     - '\DeclareCaptionFont{ninept}{\fontsize{9pt}{11pt}\selectfont}'
     - '\captionsetup[table]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
     - '\captionsetup[figure]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
     # page labelling
     - |
-      \usepackage{zref-abspage}
-      \makeatletter
-      \newcommand{\markmainend}{\zref@label{mainend}}
-      \newcommand{\mainpages}{\zref@extractdefault{mainend}{page}{0}}
-      \makeatother
+      \newcommand{\markmainend}{\label{mainend}}
+      \newcommand{\mainpages}{\pageref{mainend}}
       \newcommand{\appendixpages}{\pageref{LastPage}}
       \newif\ifinappendix
       
@@ -1713,9 +1708,9 @@ the Quarto file used to produce this article, is available from
 ::: {#refs}
 :::
 
+<!-- dissolve column structure, reset page and figure counter, create new counter with prefix A for Appendix section -->
 
 \markmainend
-\clearpage
 \onecolumn
 \appendix
 \inappendixtrue
@@ -1731,7 +1726,7 @@ the Quarto file used to produce this article, is available from
 
 # Appendix {#sec-appendix .unnumbered}
 
-::: {#fig-map fig-env="figure*"}
+::: {#fig-map fig-env="figure" fig-pos="H"}
 ```{r}
 #| label: map FIGURE
 #| out-width: 100%
@@ -1745,7 +1740,7 @@ altitude isolines. Upper left corner panel shows location of Paracou in
 French Guiana.
 :::
 
-::: {#fig-density-taxa fig-env="figure*" fig-pos="t"}
+::: {#fig-density-taxa fig-env="figure" fig-pos="H"}
 ```{r}
 #| label: Density by taxon boxplot FIGURE
 #| include: true
