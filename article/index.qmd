@@ -399,7 +399,7 @@ using the simplified Beerkan infiltration method [@Lassabatere2006].
 Five macrofauna samples were collected in each soil type (Alt/DVD and
 SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by @Anderson1994.
 
-To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see Appendix @fig-map for spatial representation).
+To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see [Appendix](#sec-appendix) @fig-map for spatial representation).
 
 Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.
 
@@ -1731,7 +1731,7 @@ the Quarto file used to produce this article, is available from
 \setcounter{figure}{0}
 \setcounter{table}{0}
 
-# Appendix {.unnumbered}
+# Appendix {#sec-appendix .unnumbered}
 
 ::: {#fig-map fig-env="figure*"}
 ```{r}
