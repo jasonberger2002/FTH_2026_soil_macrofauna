@@ -407,7 +407,7 @@ All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and dat
 
 Counts were converted to densities (individuals per m²) in proportion the surface of a monolith (25 × 25 cm = 0.0625 m²) and are subsequently referred to as abundances. Since densities were very
 uneven, with many low values and a few very high ones, the figures use a pseudo-logarithmic scale, which keeps zero values on the axis. Box plots of abundances of the different taxa by layers and type of soil
-were realized as well as Principal Component Analysis (PCA) analysis.
+were realized as well as Principal Component Analysis (PCA) with Hellinger transformation.
 
 ### Abundances (Generalized Linear Mixed Models)
 
@@ -501,12 +501,6 @@ median values of about 1,270 ind. m⁻² in Alt/DVD and 720 ind. m⁻² in
 SLD. The litter and the 10–20 cm layer held far fewer individuals, with
 medians between about 110 and 160 ind. m⁻² in all four cases.
 
-The two soil types looked similar. In the 0–10 cm layer, the median
-density was higher in Alt/DVD than in SLD, but the boxes overlapped
-widely. This difference did not appear in the litter and for the 10-20
-cm layer, the SLD median was slightly higher, but once again, the boxes
-overlapped widely.
-
 ::: {#fig-density fig-env="figure"}
 ```{r}
 #| label: Total macrofauna density boxplot FIGURE
@@ -556,8 +550,7 @@ soil type. Alt/DVD soils were home to a bigger proportion of Isoptera
 compared to Formicidae. Conversely, SLD soils hosted a greater
 proportion of Formicidae compared to Isoptera. Two groups dominated the
 0-10 cm layer in both soil types : Isoptera and Formicidae that each
-made up for approximately half the composition of both soil type in this
-layer. Earthworms (Lumbricina) were a small part of the catch there
+made up for approximately half the composition of both soil types. Earthworms (Lumbricina) were a small part of the catch there
 (\~2 % and \~5 %). Finally, in the 10-20 cm layer, Isoptera almost
 disappeared (0 % in Alt/DVD and 1 % in SLD) and Formicidae became clearly
 dominant, at about 70 % of individuals. They were followed by the other
@@ -644,7 +637,7 @@ number of individuals found in all samples of each soil type and layer.
 :::
 
 We ran a principal component analysis (PCA) on the abundances of all
-taxa, after a Hellinger transformation, to see whether samples from the
+taxa to see whether samples from the
 two soil types differed in composition (@fig-pca). The first two axes
 explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1
 opposed samples rich in Isoptera (right side) to samples dominated by
