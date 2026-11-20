@@ -405,15 +405,9 @@ All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and dat
 
 ### Explorative Analysis
 
-Explorative analysis was performed to visual global trend in our data
-set. Before fitting any model, we looked at how this fauna was
-distributed between the two soil types and between the three soil
-layers. Counts were converted to densities (individuals per m²) using
-the surface of a monolith (25 × 25 cm = 0.0625 m²). Densities were very
-uneven, with many low values and a few very high ones, so the figures
-use a pseudo-logarithmic scale, which keeps zero values on the axis. Box
-plots of abundances of the different taxa by layers and type of soil
-were realized as well as PCA analysis.
+Counts were converted to densities (individuals per m²) in proportion the surface of a monolith (25 × 25 cm = 0.0625 m²) and are subsequently referred to as abundances. Since densities were very
+uneven, with many low values and a few very high ones, the figures use a pseudo-logarithmic scale, which keeps zero values on the axis. Box plots of abundances of the different taxa by layers and type of soil
+were realized as well as Principal Component Analysis (PCA) analysis.
 
 ### Abundances (Generalized Linear Mixed Models)
 
