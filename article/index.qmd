@@ -1231,7 +1231,7 @@ soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p =
 As no earthworms were recorded in layer L, no pairwise comparisons were made between the litter and layers 10 and 20. The Estimated random-effect variance for monoliths was 0.510 (SD
 = 0.714)
 
-For density boxplots for Formicidae, Isoptera and Lumbricina oligochaetes, see [Appendix](#sec-appendix) @fig-density-ants, @fig-density-termites and @fig-density-earthworms.
+For density boxplots for Formicidae, Isoptera and Lumbricina oligochaetes, see [Appendix](#sec-appendix) @fig-density-taxa.
 
 ## PERMANOVA
 
@@ -1745,30 +1745,38 @@ altitude isolines. Upper left corner panel shows location of Paracou in
 French Guiana.
 :::
 
-::: {#fig-density-ants fig-env="figure"}
+::: {#fig-density-taxa fig-env="figure*" fig-pos="t"}
 ```{r}
-#| label: Formicidae density boxplot FIGURE
+#| label: Density by taxon boxplot FIGURE
 #| include: true
-#| out-width: 50%
+#| out-width: 100%
 
-# Ant density per m² (25 x 25 cm monolith = 1/16 m²)
-df_ants_density <- df_total %>%
-  mutate(density_ants = Formicidae * 16)
-
-# Boxplot of Formicidae density
-fig_density_ants <- ggplot(
-  df_ants_density,
-  aes(
-    x = layer,
-    y = density_ants,
-    fill = soil_type
+df_taxa_density <- df_total %>%
+  select(layer, soil_type, Formicidae, Isoptera, Lumbricina_oligochaetes) %>%
+  pivot_longer(
+    cols = c(Formicidae, Isoptera, Lumbricina_oligochaetes),
+    names_to = "taxon",
+    values_to = "count"
+  ) %>%
+  mutate(
+    density = count * 16,  # 25 x 25 cm monolith = 1/16 m²
+    taxon = factor(
+      taxon,
+      levels = c("Formicidae", "Isoptera", "Lumbricina_oligochaetes"),
+      labels = c("Formicidae", "Isoptera", "Lumbricina")
+    )
   )
+
+fig_density_taxa <- ggplot(
+  df_taxa_density,
+  aes(x = layer, y = density, fill = soil_type)
 ) +
   geom_boxplot(
     width = 0.7,
     position = position_dodge(width = 0.8),
     outlier.shape = 1
   ) +
+  facet_wrap(~ taxon) +
   scale_fill_manual(values = soil_colors) +
   scale_y_continuous(
     trans = scales::pseudo_log_trans(base = 10),
@@ -1777,104 +1785,19 @@ fig_density_ants <- ggplot(
   ) +
   labs(
     x = "Soil layer",
-    y = expression("Formicidae density (ind. m"^{-2}*")"),
+    y = expression("Density (ind. m"^{-2}*")"),
     fill = "Soil type"
   ) +
   theme_bw() +
-  theme(!!!gg_fontsize())
+  theme(!!!gg_fontsize(0.6), legend.position = "bottom")
 
-print(fig_density_ants)
+print(fig_density_taxa)
 ```
 
-CAPTION %%%
+Density (ind. m⁻²) for ants (Formicidae), termites (Isoptera) and earthworms (Lumbricina) by soil layer (L = litter, 10 = 0-10
+cm, 20 = 10-20 cm) and soil type. Boxes show the median and
+interquartile range and points are outliers. y-axis is on a
+pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5
+monoliths).
 :::
-
-::: {#fig-density-termites fig-env="figure"}
-```{r}
-#| label: Isoptera density boxplot FIGURE
-#| include: true
-#| out-width: 50%
-
-# termite density per m² (25 x 25 cm monolith = 1/16 m²)
-df_termite_density <- df_total %>%
-  mutate(density_termite = Isoptera * 16)
-
-# Boxplot of termite density
-fig_density_termite <- ggplot(
-  df_termite_density,
-  aes(
-    x = layer,
-    y = density_termite,
-    fill = soil_type
-  )
-) +
-  geom_boxplot(
-    width = 0.7,
-    position = position_dodge(width = 0.8),
-    outlier.shape = 1
-  ) +
-  scale_fill_manual(values = soil_colors) +
-  scale_y_continuous(
-    trans = scales::pseudo_log_trans(base = 10),
-    breaks = c(0, 10, 100, 1000, 5000),
-    labels = scales::label_comma()
-  ) +
-  labs(
-    x = "Soil layer",
-    y = expression("Isoptera density (ind. m"^{-2}*")"),
-    fill = "Soil type"
-  ) +
-  theme_bw() +
-  theme(!!!gg_fontsize())
-
-print(fig_density_termite)
-```
-
-CAPTION %%%
-:::
-
-::: {#fig-density-earthworms fig-env="figure"}
-```{r}
-#| label: Earthworm density boxplot FIGURE
-#| include: true
-#| out-width: 50%
-
-# earthworm density per m² (25 x 25 cm monolith = 1/16 m²)
-df_earthworm_density <- df_total %>%
-  mutate(density_earthworm = Lumbricina_oligochaetes * 16)
-
-# Boxplot of Formicidae density
-fig_density_earthworm <- ggplot(
-  df_earthworm_density,
-  aes(
-    x = layer,
-    y = density_earthworm,
-    fill = soil_type
-  )
-) +
-  geom_boxplot(
-    width = 0.7,
-    position = position_dodge(width = 0.8),
-    outlier.shape = 1
-  ) +
-  scale_fill_manual(values = soil_colors) +
-  scale_y_continuous(
-    trans = scales::pseudo_log_trans(base = 10),
-    breaks = c(0, 10, 100, 1000, 5000),
-    labels = scales::label_comma()
-  ) +
-  labs(
-    x = "Soil layer",
-    y = expression("Earthworm density (ind. m"^{-2}*")"),
-    fill = "Soil type"
-  ) +
-  theme_bw() +
-  theme(!!!gg_fontsize())
-
-print(fig_density_earthworm)
-```
-
-CAPTION %%%
-:::
-
 
