@@ -244,18 +244,13 @@ biodiversity, both above and below ground [@Chen2023; @Hu2022;
 @Myers2000]. This biodiversity includes trees but also soil organisms,
 which contains microbial communities and edaphic fauna, all of which
 play a significant role in ecosystem functioning [@Bever2010;
-@Robinson2024; @VanLangenhove2021]. However, these forests are among the
-most threatened ecosystems, and therefore the study of their biological
-communities, including those underground, is particularly important
-[@Myers1988].
+@Robinson2024; @VanLangenhove2021].
 
 <!-- Soil macrofauna distribution in tropical rainforests -->
 
 Soils support approximately 50% of global animal biomass [@Fierer2009],
 with ants, termites and earthworms among the dominant groups
-[@Lavelle2022]. Tropical forests harbour greater soil macrofaunal
-abundance and diversity than savannas, grasslands, agricultural systems
-and temperate forests [@Lavelle2022]. Soil macrofaunal community
+[@Lavelle2022]. Soil macrofaunal community
 composition is influenced by vegetation cover and litter quality
 [@Lavelle1992; @Collison2013; @Lavelle2022], forest type
 [@Loranger-Merciris2007; @Collison2013; @Ramos2025], and soil structure
@@ -343,15 +338,13 @@ season from mid-August to mid-November (\< 100 mm per month). In
 Paracou, a permanent forest dynamic experiment was established in 1984.
 The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
 plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
-two of the unlogged control plots: Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+two of the unlogged control plots: Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004]. The geological substratum of Paracou consists primarily of Precambrian
+schists intruded by pegmatite veins, belonging to the metamorphic
+Bonidoro Series [@Choubert1974]. The site exhibits a relatively low elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004].
 
 ### Soil Characteristics of Paracou
 
-The geological substratum of Paracou consists primarily of Precambrian
-schists intruded by pegmatite veins, belonging to the metamorphic
-Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
-
-elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
+The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
 [@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
 
 Soil distribution and drainage varies strongly in Paracou
@@ -385,7 +378,7 @@ Prior to macrofauna sampling, field checks were carried out to confirm
 the pedological classification of our sampling sites. Auger drillings
 were performed to assess soil color and texture [@Boulet1979;
 @Sabatier1997]. Additionally, silt and clay contents were confirmed
-through granulometric analysis conducted by the company SADEF.
+through granulometric analysis conducted by the laboratory SADEF.
 Furthermore, saturated hydraulic conductivity was determined in situ
 using the simplified Beerkan infiltration method [@Lassabatere2006].
 
@@ -407,7 +400,7 @@ organisms were identified on a coarse taxonomic level (refer to the data
 file in @sec-supp for details), with ants (Formicidae) and termites
 (Isoptera) treated separately from other Hymenoptera and Blattodea.
 
-In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), yielding a total of 2187 individuals.
+In total, 60 samples were collected (4 plots x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), yielding a total of 2187 individuals.
 
 ## Statistical analysis
 
@@ -563,7 +556,7 @@ print(fig_density)
 Total macrofauna density (ind. m⁻²) by soil layer (L = litter, 10 = 0-10
 cm, 20 = 10-20 cm) and soil type. Boxes show the median and
 interquartile range and points are outliers. y-axis is on a
-pseudo-logarithmic scale. Each box represents 10 samples (2 sites x 5
+pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5
 monoliths).
 :::
 
