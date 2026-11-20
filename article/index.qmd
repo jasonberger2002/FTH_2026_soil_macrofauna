@@ -492,13 +492,6 @@ df_total <- df %>%
   )
 ```
 
-## General
-
-Total macrofauna density varied mostly with soil layer (@fig-density). 
-In both soil types, density was highest in the 0-10 cm layer, with
-median values of about 1,270 ind. m⁻² in Alt/DVD and 720 ind. m⁻² in
-SLD. The litter and the 10–20 cm layer held far fewer individuals, with
-medians between about 110 and 160 ind. m⁻² in all four cases.
 
 ::: {#fig-density fig-env="figure"}
 ```{r}
@@ -858,7 +851,7 @@ squared cosine (cos²) (values close to 1 mean a good representation of
 the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
 :::
 
-## GLMM
+## Abundances (GLMM)
 
 Effects of soil type and layer were tested on global, ant, termite and
 earthworm abundances. All retained models described below are listed in
@@ -1144,8 +1137,7 @@ Estimated marginal means and Tukey pairwise comparisons of abundance by
 layer for total macrofauna, ants (Formicidae) and termites (Isoptera)
 using emmeans.
 :::
-
-Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
+Total macrofauna density varied mostly with soil layer (@fig-density). Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
 layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p
 \< 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52,
 df = 1, p = 0.469). Estimated random-effect variance (monolith) was
