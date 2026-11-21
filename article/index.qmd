@@ -555,7 +555,7 @@ df_total <- df %>%
 
 ## Macrofauna abundance
 
-::: {#fig-density fig-env="figure*"}
+::: {#fig-density fig-env="figure"}
 ```{r}
 #| label: Total macrofauna density boxplot FIGURE
 #| include: true
