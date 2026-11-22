@@ -264,16 +264,59 @@ structure and physicochemical properties [@Vasconcellos2013;
 @Loranger-Merciris2007; @Ramos2025].
 
 <!-- Relationships between soil texture and macrofauna -->
-%%%moi j'aurai mis aussi l'exemple avec la répartition des espèces selon granulo en riparian forest car c'est al seule étude sur ca mais bon à voir si ya la place... 
-Soil texture accounts for 3.9% of the variation in soil macrofaunal
-community structure at the global scale [@Lavelle2022].Macrofauna is also distributed according to size within soil pores + further reading is needed on the texture and preferences of macrofauna in general [@Velazco2023]. The few studies carried out in tropical environments highlight a decline in the abundance of macrofauna from the litter layer down to deeper soil layers, with the highest abundance occurring between 0 and 10 cm [@Fragoso1992; @Ronchi2022; Castro2024]. Soil moisture also influences community composition, although responses vary among taxa. In the central Amazon, ant abundance and diversity decrease where the water table remains close to the soil surface for prolonged periods [@Baccaro2013]. Similarly, termite assemblages in French Guianan primary forests vary along moisture gradients, with swamp and lowland forests harbouring distinct communities from well-drained forests [@Bourguignon2011]. However, biotic interactions play also a role in this repartition: the ants' predation on termites leads to a niche differentiation between the two species [@Tuma2020]. 
+
+%%%moi j'aurai mis aussi l'exemple avec la répartition des espèces selon
+granulo en riparian forest car c'est al seule étude sur ca mais bon à
+voir si ya la place... Soil texture accounts for 3.9% of the variation
+in soil macrofaunal community structure at the global scale
+[@Lavelle2022].Macrofauna is also distributed according to size within
+soil pores + further reading is needed on the texture and preferences of
+macrofauna in general [@Velazco2023]. The few studies carried out in
+tropical environments highlight a decline in the abundance of macrofauna
+from the litter layer down to deeper soil layers, with the highest
+abundance occurring between 0 and 10 cm due to a higher supply of
+organic matter at this depth [@Fragoso1992; @Ronchi2022; @Castro2024].
+Soil moisture also influences community composition, although responses
+vary among taxa. In the central Amazon, ant abundance and diversity
+decrease where the water table remains close to the soil surface for
+prolonged periods [@Baccaro2013]. Similarly, termite assemblages in
+French Guianan primary forests vary along moisture gradients, with swamp
+and lowland forests harbouring distinct communities from well-drained
+forests [@Bourguignon2011]. However, biotic interactions play also a
+role in this repartition: the ants' predation on termites leads to a
+niche differentiation between the two species [@Tuma2020].
 
 <!-- Soil bioengineers and their effects on soil properties -->
 
-Conversely, soil macrofauna can modify soil properties, including aggregate structure, porosity and hydraulic conductivity. Soil bioengineers are organisms that physically and chemically modify their environment through resource acquisition and habitat construction. Ants, termites and earthworms act as (1) bioturbators, redistributing soil particles and creating galleries; (2) aggregate modifiers, through processes such as earthworm cast production; and (3) mineral transformers [@Bottinelli2015]. In Amazonian terra firme forests, ants and termites account for approximately one-third of soil animal biomass [@Fittkau1973]. Their engineering activities can substantially modify soil properties [@Lavelle1992; @Bottinelli2015]. Gallery or nest construction by ants, earthworms and termites increases macroporosity, enhance hydraulic conductivity and habitat heterogeneity in the soil [@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024). Earthworms also modify aggregate-size distributions in topsoil and redistribute plant debris towards deeper soil horizons through bioturbation [@Zhukova2022].
+Conversely, soil macrofauna can modify soil properties, including
+aggregate structure, porosity and hydraulic conductivity. Soil
+bioengineers are organisms that physically and chemically modify their
+environment through resource acquisition and habitat construction. Ants,
+termites and earthworms act as (1) bioturbators, redistributing soil
+particles and creating galleries; (2) aggregate modifiers, through
+processes such as earthworm cast production; and (3) mineral
+transformers [@Bottinelli2015]. In Amazonian terra firme forests, ants
+and termites account for approximately one-third of soil animal biomass
+[@Fittkau1973]. Their engineering activities can substantially modify
+soil properties [@Lavelle1992; @Bottinelli2015]. Gallery or nest
+construction by ants, earthworms and termites increases macroporosity,
+enhance hydraulic conductivity and habitat heterogeneity in the soil
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+Earthworms also modify aggregate-size distributions in topsoil and
+redistribute plant debris towards deeper soil horizons through
+bioturbation [@Zhukova2022].
 
-Although tropical forests harbour the greatest abundance and diversity of soil organisms compared with any other ecosystem [@Lavelle2022] and French Guiana is recognised for its high diversity of soil engineers [@Bourguignon2010], the spatial distribution of soil macrofauna in undisturbed rainforests remains poorly documented. The aim of this study is therefore to address the lack of knowledge regarding the distribution of soil macrofauna in Paracou from a pedological perspective, specifically the soil texture and drainage. We seek to understand whether species abundance differs depending on whether the soil has free lateral drainage or vertical drainage, and whether bio-engineered species reflect this difference.
-
+Although tropical forests harbour the greatest abundance and diversity
+of soil organisms compared with any other ecosystem [@Lavelle2022] and
+French Guiana is recognised for its high diversity of soil engineers
+[@Bourguignon2010], the spatial distribution of soil macrofauna in
+undisturbed rainforests remains poorly documented. The aim of this study
+is therefore to address the lack of knowledge regarding the distribution
+of soil macrofauna in Paracou from a pedological perspective,
+specifically the soil texture and drainage. We seek to understand
+whether species abundance differs depending on whether the soil has free
+lateral drainage or vertical drainage, and whether bio-engineered
+species reflect this difference.
 
 ```{=html}
 <!-- We hypothesize that there is a
@@ -287,7 +330,28 @@ are present, due to their roles as bioturbators [@Zhukova2022;
 termites, we are expecting niche differentiation between the both[@Tuma2020]. -->
 ```
 
-Juju : According to the principle of competitive exclusion, stable coexistence requires niche differentiation when species compete for limited resources [@Hardin1960; @Chesson2000]: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer, with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022 ; Castro2024]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbations [@Bourgignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. To this end, the TSBF protocol is used for free lateral drainage and vertical drainage at three depth levels at two sites in Paracou. Identification is carried out at the taxonomic family level. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using the Permanova method. We first examine the set of taxa as a whole, then analyse the bio-engineers (termites, ants and earthworms) separately.
+Juju : According to the principle of competitive exclusion, stable
+coexistence requires niche differentiation when species compete for
+limited resources [@Hardin1960; @Chesson2000]: differences in soil
+properties can promote distinct ecological niches among taxa. We
+therefore hypothesise that soil type and its layers contribute to the
+spatial differentiation of macrofauna taxa, owing to a varied soil
+texture that generates different resources and physico-chemical
+properties. Based on their diet and the environmental filter created by
+soil depth, we generally expect maximum abundance in the 0–10 cm layer,
+with ants being over-represented in the litter layer and termites and
+earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022 ;
+Castro2024]. A well-drained soil with high infiltration rates will show
+more abundances, particularly in earthworm, ants and termite, due to
+their roles as bioturbations [@Bourgignon2010; @Zhukova2022; @Cheik2019;
+@Bottinelli2015]. To this end, the TSBF protocol is used for free
+lateral drainage and vertical drainage at three depth levels at two
+sites in Paracou. Identification is carried out at the taxonomic family
+level. The data are analysed using principal component analysis (PCA)
+and generalised linear mixed models (GLMM), and the communities are
+compared using the Permanova method. We first examine the set of taxa as
+a whole, then analyse the bio-engineers (termites, ants and earthworms)
+separately.
 
 # Material and Methods
 
@@ -397,7 +461,8 @@ and 27 groups of macrofauna were identified (with an extra
 
 All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
 and data processing relied largely on the tidyverse package
-[@Wickham2019; @Wickham2023]. A complete list of citations with all R packages used is available in @sec-supp.
+[@Wickham2019; @Wickham2023]. A complete list of citations with all R
+packages used is available in @sec-supp.
 
 ### Explorative Analysis
 
@@ -896,9 +961,9 @@ whereas Formicidae represented a larger proportion in SLD. Two groups
 dominated the 0-10 cm layer in both soil types: Isoptera and Formicidae
 each made up for approximately half of the relative composition of both
 soil types. Earthworms (Lumbricina) represented a small part therein
-(\~2% and \~5%). In the 10-20 cm layer, Isoptera were nearly absent (0
-% in Alt/DVD and 1% in SLD) and Formicidae dominated, representing
-about 70% of individuals. Lumbricina represented around 9% and 11% of
+(\~2% and \~5%). In the 10-20 cm layer, Isoptera were nearly absent (0 %
+in Alt/DVD and 1% in SLD) and Formicidae dominated, representing about
+70% of individuals. Lumbricina represented around 9% and 11% of
 individuals in Alt/DVD and SLD, respectively, while all remaining taxa
 combined accounted for approximately 18%.
 
@@ -1447,11 +1512,19 @@ the ordination are presented (arrows).
 types (argue about same vegetation cover etc.) - clear differences in
 both for layers (connect to literature knowledge)
 
-- discuss the earthworms here
+Nos identifications du sol montre une dominance des bio ingénieurs du sol dans nos relevés. Ils ne se répartissent pas selon le type de sol, donc pas d’effet sur le drainage, mais plutot selon leur capacité à prendre les ressources ? + toutes les études montrent que c'est le couvert végétal et qualité litière qui influence le plus [@Lavelle2022, @Collison2013;@Loranger-Merciris2007] alors faudrai à l'avanir se focus sur couvert végé + régime.
+
+
+
+This initial study of the macrofauna of Paracou enables us to confirm the great richness of its soils ??? ask Raph
+Contrary to our expectations, the type of water drainage and particle size distribution did not explain the specific distribution of our taxa in the soils of Paracou. The results show the same trends for taxa in general and when bioengineers are considered in isolation. We therefore do not confirm the findings of [@Lavelle2022]: soil texture does not influence the abundance of taxa in the soils of Paracou. In our study, only the soil layer determines this difference in abundance (figure), and as expected, the 0–10 cm layer is the most abundant (chiffres), both generally and for bioengineers (chiffres). Thus, the hypotheses of environmental filters and resource-based distribution appear more plausible. Indeed, studies showing differentiation between soil layers highlight a distribution based on dietary regimes and ecological strategies, rather than on soil texture. For example, earthworms are classified as epigeic, inhabiting the litter layer; endogeic, living within mineral soil horizons; and anecic, constructing deep burrows whilst feeding at the soil surface [@Bouche1977]. Depending on their diet, ants are more abundant in the litter layer, whilst termites and worms are more prevalent at a depth of 0–10 cm [@Ronchi2022; @Castro2024].
+
 
 # Conclusion
 
 %%% TEXT
+Il faut se focus sur couvert végé + régime si on veit étudier la macrofaune à Paracou. Le TSBF bien mais attention on perd bcp. 
+On a clairement pas assez d'échantillon. 
 
 # Acknowledgements
 
@@ -1561,13 +1634,13 @@ box represents 10 samples (2 plots x 5 monoliths).
 
 We ran a principal component analysis (PCA) on the abundances of all
 taxa to see whether samples from the two soil types differed in
-composition (@fig-pca). The first two axes explained 33.2% and 18.6 %
-of the variance, so 51.8% together. PC1 opposed samples rich in
-Isoptera (right side) to samples dominated by Formicidae (left side).
-PC2 was mostly related to Lumbricina, which pointed toward the top of
-the plot. Formicidae and Isoptera were well represented on these two
-axes (high cos², which measures how well a taxon is represented by the
-axes), while Lumbricina were less well represented (lower cos²).
+composition (@fig-pca). The first two axes explained 33.2% and 18.6 % of
+the variance, so 51.8% together. PC1 opposed samples rich in Isoptera
+(right side) to samples dominated by Formicidae (left side). PC2 was
+mostly related to Lumbricina, which pointed toward the top of the plot.
+Formicidae and Isoptera were well represented on these two axes (high
+cos², which measures how well a taxon is represented by the axes), while
+Lumbricina were less well represented (lower cos²).
 
 Alt/DVD and SLD samples were not separated on these two axes. The two
 ellipses overlapped almost completely, and samples of both soil types
