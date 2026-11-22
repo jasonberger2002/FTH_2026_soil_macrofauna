@@ -447,21 +447,20 @@ identified on a coarse taxonomic level (refer to the data file in
 @sec-supp for details), with ants (Formicidae) and termites (Isoptera)
 treated separately from other Hymenoptera and Blattodea.
 
-In total, 60 samples were collected (4 plots x 5 monoliths x 3 layers)
-and 27 groups of macrofauna were identified (with an extra
-"undetermined" group), yielding a total of 2187 individuals.
+In total, 60 samples were collected (2 plots x 2 soils x 5 monoliths x 3 layers)
+and 27 groups of macrofauna were identified and 
+unidentified individuals grouped as "indet", yielding a total of 2187 individuals.
 
 ## Statistical analysis
 
-All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
+All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plotting
 and data processing relied largely on the tidyverse package
 [@Wickham2019; @Wickham2023]. A complete list of citations with all R packages used is available in @sec-supp.
 
 ### Explorative Analysis
 
 Counts were converted to densities (individuals per m²) in proportion
-the surface of a monolith (25 × 25 cm = 0.0625 m²) and are subsequently
-referred to as abundances. Since densities were very uneven, with many
+the surface of a monolith (25 × 25 cm = 0.0625 m²). Since densities were very uneven, with many
 low values and a few very high ones, the figures use a
 pseudo-logarithmic scale, which keeps zero values on the axis. Box plots
 of abundances of the different taxa by layers and type of soil were
@@ -470,7 +469,7 @@ transformation.
 
 ### Abundances (Generalized Linear Mixed Models)
 
-Effects of soil drainage type and soil layers on abundances were
+Models were fitted to raw counts per monolith layer. Because all samples covered the same area (0.0625 m²), no offset was required. Effects of soil drainage type and soil layers on abundances were
 analyzed using Generalized Linear Mixed Models (GLMMs), fitted with the
 glmmTMB package [@Brooks2017; @Brooks2026]. To account spatial
 structure, monoliths were included as a random effect. Since count data
@@ -506,10 +505,9 @@ between monoliths. P-values were adjusted for multiple comparisons using
 the Bonferroni correction.
 
 For visualizing community composition variation patterns, Principal
-Coordinates Analysis (PCoA) was used with the same distance matrix.
+Coordinates Analysis (PCoA) was used with the same distance matrix. Cailliez correction for negative eigenvalues was applied.
 
-To fit taxa significantly associated with the ordination, envfit from
-the vegan package [@Oksanen2026]. P-values were adjusted applying
+To fit taxa significantly associated with the ordination, envfit from the vegan package [@Oksanen2026] was used. P-values were adjusted applying
 Benjamini-Hochberg correction to control False Discovery Rate.
 
 ## Spatial Representation
@@ -690,7 +688,7 @@ glmm_summary <- lapply(names(models), function(model_name) {
 
   anova_results$Predictor <- rownames(anova_results)
 
-  distribution <- if (model_name == "Earthworms") {
+  distribution <- if (model_name == "Earthworms (Lumbricina)") {
     "Poisson"
   } else {
     "Negative binomial"
@@ -927,19 +925,20 @@ monoliths after accounting for the fixed effects.
 
 Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
 termite abundance was significantly higher in layer 10 than in layer L
-(18.08 times) and layer 20 (745.48 times; estimated richness for 20
+(16.7 times) and layer 20 (745.48 times; estimated abundance for 20
 nearing zero). Abundance was also significantly higher in layer L than
-in layer 20 (41.23 times; all p \leq 0.0073).
+in layer 20 (41.23 times; all $p \leq 0.0073$).
 
 ### Lumbricina Oligochaetes
 
 Type II Wald $\chi^2$ tests indicated a significant effect of soil layer
-on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas
-soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p =
-0.557). Pairwise comparisons showed significantly higher earthworm As no
+on earthworm abundance ($\chi^2$ = 12.69, df = 2, p = 0.0018),whereas
+soil type had no significant effect ($\chi^2$ = 0.35, df = 1, p =
+0.557). Pairwise comparisons showed significantly higher earthworm abundance in layer 10 compared to
+layer 20 (2.31 times higher). As no
 earthworms were recorded in layer L, no pairwise comparisons were made
 between the litter and layers 10 and 20. The Estimated random-effect
-variance for monoliths was 0.510 (SD = 0.714)
+variance for monoliths was 0.510 (SD = 0.714).
 
 For density boxplots for Formicidae, Isoptera and Lumbricina
 oligochaetes, see [Appendix](#sec-appendix) @fig-density-taxa.
@@ -961,7 +960,7 @@ individuals in Alt/DVD and SLD, respectively, while all remaining taxa
 combined accounted for approximately 18%.
 
 An exploratory PCA macrofaunal abundances is provided in the
-Supplementary Material (@fig-pca).
+[Appendix](#sec-appendix) (@fig-pca).
 
 ::: {#fig-comp fig-env="figure"}
 ```{r}
@@ -1227,7 +1226,7 @@ Pairwise PERMANOVA suggests significant differences in macrofauna
 community composition for all soil layers (@tbl-permanova). Significant
 differences were observed between L and 10 (F = 6.05, R² = 0.141,
 adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p =
-0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012),
+0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0021),
 using Bonferroni correction.
 
 In the Principal Coordinates Analysis (PCoA) based on Bray Curtis
@@ -1496,7 +1495,7 @@ plot(p)
 First two components of the Bray-Curtis PCoA representing 26.1% of the
 variation in macrofaunal community composition. Convex hulls indicate
 soil layers. Taxa singificantly associated (after BH correction) with
-the ordination are presented (arrows).
+the first two ordination axes are presented (arrows).
 :::
 
 # Discussion
