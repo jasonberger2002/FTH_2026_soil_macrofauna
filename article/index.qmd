@@ -4,14 +4,26 @@ title: "Effects of soil drainage types on macrofaunal community composition and 
 format:
   stylisharticle-pdf:
     keep-tex: true
+    toc: false # toggle toc
     header-includes:
-    - '\setcounter{tocdepth}{2}'
-    - '\usepackage{xcolor}'
-    - '\usepackage{caption}'
+    - '\setcounter{tocdepth}{3}' # modifying header levels toc
+    
+    # caption colors
     - '\definecolor{grey}{RGB}{112,128,144}'
     - '\DeclareCaptionFont{ninept}{\fontsize{9pt}{11pt}\selectfont}'
     - '\captionsetup[table]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
     - '\captionsetup[figure]{font={ninept},labelfont={bf,color=grey},textfont={color=grey}}'
+    
+    # title colors
+    - '\definecolor{color1}{HTML}{285B45}'  
+    - '\definecolor{color2}{HTML}{8c9692}'  
+    
+    # page labelling
+    - |
+      \newcommand{\markmainend}{\label{mainend}}
+      \newcommand{\mainpages}{\pageref{mainend}}
+      \newcommand{\appendixpages}{\pageref{LastPage}}
+      \newif\ifinappendix
       
   stylisharticle-html:
     # Color example, see "Text color"
@@ -239,25 +251,19 @@ biodiversity, both above and below ground [@Chen2023; @Hu2022;
 @Myers2000]. This biodiversity includes trees but also soil organisms,
 which contains microbial communities and edaphic fauna, all of which
 play a significant role in ecosystem functioning [@Bever2010;
-@Robinson2024; @VanLangenhove2021]. However, these forests are among the
-most threatened ecosystems, and therefore the study of their biological
-communities, including those underground, is particularly important
-[@Myers1988].
+@Robinson2024; @VanLangenhove2021].
 
-## 1. Main drivers of soil macrofauna distribution in tropical rainforests
+<!-- Soil macrofauna distribution in tropical rainforests -->
 
 Soils support approximately 50% of global animal biomass [@Fierer2009],
 with ants, termites and earthworms among the dominant groups
-[@Lavelle2022]. Tropical forests harbour greater soil macrofaunal
-abundance and diversity than savannas, grasslands, agricultural systems
-and temperate forests [@Lavelle2022]. Soil macrofaunal community
-composition is influenced by vegetation cover and litter quality
-[@Lavelle1992; @Collison2013; @Lavelle2022], forest type
-[@Loranger-Merciris2007; @Collison2013; @Ramos2025], and soil structure
-and physicochemical properties [@Vasconcellos2013; @Lavelle2022;
-@Ferrin2026].
+[@Lavelle2022]. Soil macrofaunal community composition is known to be
+influenced by vegetation cover, litter quality, forest type, soil
+structure and physicochemical properties [@Vasconcellos2013;
+@Ferrin2026; @Lavelle1992; @Collison2013; @Lavelle2022;
+@Loranger-Merciris2007; @Ramos2025].
 
-## 2. Bidirectional relationships between soil texture and macrofauna
+<!-- Relationships between soil texture and macrofauna -->
 
 Soil texture accounts for 3.9% of the variation in soil macrofaunal
 community structure at the global scale [@Lavelle2022]. Soil moisture
@@ -267,10 +273,12 @@ the water table remains close to the soil surface for prolonged periods
 [@Baccaro2013]. Similarly, termite assemblages in French Guianan primary
 forests vary along moisture gradients, with swamp and lowland forests
 harbouring distinct communities from well-drained forests
-[@Bourguignon2010]. Conversely, macrofauna can modify soil physical
+[@Bourguignon2011]. Conversely, macrofauna can modify soil physical
 properties through their biological activities.
 
-## 3. Soil bioengineers and their effects on soil properties
+<!-- Soil bioengineers and their effects on soil properties -->
+
+%%% revoir cette partie
 
 Soil macrofauna can modify soil properties, including aggregate
 structure, porosity and hydraulic conductivity. Soil bioengineers are
@@ -287,7 +295,7 @@ soil properties [@Lavelle1992; @Bottinelli2015]. For example,
 hydrological functioning when dominant [@Barros2004]. Gallery or nest
 construction by ants, earthworms and termites increases macroporosity,
 enhance hydraulic conductivity and habitat heterogeneity in the soil
-[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024].
 Earthworms also modify aggregate-size distributions in topsoil and
 redistribute plant debris towards deeper soil horizons through
 bioturbation [@Zhukova2022]. The effects of soil engineers depend on
@@ -301,45 +309,47 @@ soil vertically through the construction of mounds using material
 transported from deeper horizons [@Lavelle1992].
 
 More than 100 termite species have been recorded in French Guiana
-[@Bourguignon2010], highlighting the high diversity of soil engineers in
+[@Bourguignon2011], highlighting the high diversity of soil engineers in
 this region. However, the spatial distribution of soil macrofauna in
 undisturbed tropical rainforests remains poorly documented. According to
 the principle of competitive exclusion, stable coexistence requires
 niche differentiation when species compete for limited resources
 [@Hardin1960; @Chesson2000]: differences in soil properties can promote
-distinct ecological niches among taxa, which could contribute to their coexistence. We therefore hypothesise that soil type and ressources
+distinct ecological niches among taxa, which could contribute to their
+coexistence. We therefore hypothesise that soil type and ressources
 provided contributes to the spatial differentiation of macrofaunal taxa
-and may help explain their coexistence. We hypothesize that there is a
+and may help explain their coexistence.
+
+This study aims to investigate whether soil macrofaunal abundance and
+community composition differ between soils with different drainage types
+in the undisturbed tropical rainforest of Paracou, French Guiana, paying
+particular attention to ecosystem-engineering taxa.
+
+```{=html}
+<!-- We hypothesize that there is a
 relationship between the soil texture and the composition and abundance
 of soil communities [@Lavelle2022; @Zhukova2022] ; a well-drained soil
 will be richer, particularly in soil engineers, due to their roles as
-bioturbators [@Bourgignon2010; @Bottinelli2015] and that infiltration
+bioturbators [@Bourguignon2011; @Bottinelli2015] and that infiltration
 rates are likely to be higher where earthworm and termite communities
 are present, due to their roles as bioturbators [@Zhukova2022;
 @Cheik2019]. Considering interactions, because of the ants predation on
-termites, we are expecting niche differentiation between the
-both[@Tuma2020].
+termites, we are expecting niche differentiation between the both[@Tuma2020]. -->
+```
 
-The aim of this study is therefore to address the lack of knowledge regarding the distribution of soil macrofauna in Paracou from a pedological perspective. We seek to understand whether species abundance differs depending on whether the soil has free lateral drainage or vertical drainage, and whether bio-engineered species reflect this difference. To this end, the TSBF protocol is employed to identify taxonomic families according to soil layers and soil type. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using Permanova. We first consider the total taxa, then analyse the bioengineers (termites, ants and earthworms) separately.
+%%% ajouter de la biblio et revoir
 
+We hypothesize that: (I) macrofaunal abundance is highest in the 0–10 cm
+soil layer and community composition differs among soil layers; (II)
+macrofaunal abundance and community composition differ between soil
+types, with higher abundance expected in well-drained Alt/DVD soils than
+in SLD soils [@Bourguignon2011; @Bottinelli2015]; (III)
+ecosystem-engineer taxa show patterns consistent with these overall
+differences in macrofaunal abundance and community composition.
 
 # Material and Methods
 
 ## Study Site
-
-::: {#fig-map fig-env="figure*"}
-```{r}
-#| label: map FIGURE
-#| out-width: 100%
-#| include: true
-knitr::include_graphics("images/overview_paracou.png")
-```
-
-Overview map of Paracou with the sampling locations. Location of right
-panels shown by grey squares. White lines on the right panels represent
-altitude isolines. Upper left corner panel shows location of Paracou in
-French Guiana.
-:::
 
 ### Geographic Location
 
@@ -352,41 +362,48 @@ season from mid-August to mid-November (\< 100 mm per month). In
 Paracou, a permanent forest dynamic experiment was established in 1984.
 The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
 plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
-two of the unlogged control plots (see @fig-map): Plot 1 (P1), installed in 1984, and Plot 15 (P15) in 1990 [@Gourlet-Fleury2004].
+two of the unlogged control plots: Plot 1 (P1), installed in 1984, and
+Plot 15 (P15) in 1990 [@Gourlet-Fleury2004]. The geological substratum
+of Paracou consists primarily of Precambrian schists intruded by
+pegmatite veins, belonging to the metamorphic Bonidoro Series
+[@Choubert1974]. The site exhibits a relatively low elevation (5 to 50 m
+a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary
+River [@Gourlet-Fleury2004].
 
-### Geological and Pedological Characteristics of Paracou
+### Soil Characteristics of Paracou
 
-The geological substratum of Paracou consists primarily of Precambrian
-schists intruded by pegmatite veins, belonging to the metamorphic
-Bonidoro Series [@Choubert1974]. The site exhibits a relatively low
+The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite
+and gibbsite) [@FAO1998; @Driessen2001], characterized by a shallow
+depth limited by a more or less transformed loamy saprolite
+[@Gourlet-Fleury2004].
 
-elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River [@Gourlet-Fleury2004]. The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite)
-[@FAO1998; @Driessen2001], characterized by a shallow depth limited by a more or less transformed loamy saprolite [@Gourlet-Fleury2004].
+Soil distribution and drainage vary strongly in Paracou, as has been
+shown by prior mappings [@Soucemarianadin2004; @Weigel2006;
+@Roelens2007], influenced by the topographic gradient. This study
+focuses on two soil types present at Paracou, namely soils with
+Superficial Lateral Drainage (SLD) and Deep Vertical Drainage/altered
+phase (Alt/DVD).
 
-Soil distribution and drainage varies strongly in Paracou
-[@Soucemarianadin2004; @Weigel2006; @Roelens2007], influenced by the
-topographic gradient, with Plot 1 comprised of 45 % Superficial Lateral
-Drainage (SLD), 35 % Surface Hydromorphy (SH), 15 % Downhill System
-(DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD), according to @Soucemarianadin2004. Meanwhile, the soils of P15 are comprised of 60 % SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD [@Soucemarianadin2004].
-
-Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat hilltops or plateaus and feature a thick ferralitic cover that lets rainwater percolate freely in depth. The altered phase (Alt) begins where red, muscovite-rich alloterite appears above 1.2 m depth, signaling initial soil thinning [@Sabatier1997]. Plateau soils contain higher levels of carbon, nitrogen, and aluminum [@Allie2015], support greater root biomass and soil respiration [@Epron2006], and host nearly half of the local tree species in Paracou [@Allie2015].
+Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located
+on flat hilltops or plateaus and feature a thick ferralitic cover that
+lets rainwater percolate freely in depth. The altered phase (Alt) begins
+where red, muscovite-rich alloterite appears above 1.2 m depth,
+signaling initial soil thinning [@Sabatier1997]. Plateau soils contain
+higher levels of carbon, nitrogen, and aluminum [@Allie2015], support
+greater root biomass and soil respiration [@Epron2006], and host nearly
+half of the local tree species in Paracou [@Allie2015].
 
 Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these
 soils reflect a more advanced thinning and compaction of the ferralitic
 cover. Because deep percolation is blocked, water flows laterally near
-the surface. In the field, this unit is identified by a "dry to the
-touch" layer above 1.2 m depth, even during the rainy season
-[@Sabatier1997]. Compared to plateaux, these slope soils have higher
-bulk density and surface moisture, but lower organic carbon, root
-biomass, and soil respiration [@Epron2006].
-
+the surface [@Sabatier1997]. Compared to plateau soils, these slope
+soils have higher bulk density and surface moisture, but lower organic
+carbon, root biomass, and soil respiration [@Epron2006].
 
 ## Sampling and Identification
 
 To evaluate how soil type influences macrofaunal communities, two
-contrasting ferralitic soil (DVS/Alt and SLD) types were compared,
-previously mapped in Paracou [@Soucemarianadin2004; @Weigel2006;
-@Roelens2007].
+contrasting ferralitic soil (DVS/Alt and SLD) types were compared.
 
 ### Soil Type Verification
 
@@ -394,46 +411,62 @@ Prior to macrofauna sampling, field checks were carried out to confirm
 the pedological classification of our sampling sites. Auger drillings
 were performed to assess soil color and texture [@Boulet1979;
 @Sabatier1997]. Additionally, silt and clay contents were confirmed
-through granulometric analysis conducted by the company SADEF.
+through granulometric analysis conducted by the laboratory SADEF.
 Furthermore, saturated hydraulic conductivity was determined in situ
 using the simplified Beerkan infiltration method [@Lassabatere2006].
 
 ### Marofaunal Sampling
 
 Five macrofauna samples were collected in each soil type (Alt/DVD and
-SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility (TSBF) method by @Anderson1994.
+SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility
+(TSBF) method by @Anderson1994.
 
-To account for local topography, Alt/DVD (hilltop) samples were arranged in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a transect following the slope. All sampling points were spaced at least 10 m apart to reduce spatial dependance of macrofauna samples (see @fig-map for spatial representation).
+To account for local topography, Alt/DVD (hilltop) samples were arranged
+in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a
+transect following the slope. All sampling points were spaced at least
+10 m apart to reduce spatial dependance of macrofauna samples (see
+[Appendix](#sec-appendix) @fig-map for spatial representation).
 
-Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame was placed on the ground at for each sample (called monolith). First, the litter (L) was quickly removed, trying to avoid fauna to escape, and collected in a labeled bag. Next, the frame is pressed 10 cm deep into the soil to isolate a soil block. This process was performed twice to collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth which were also collected in separate bags.
+Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame
+was placed on the ground at for each sample (called monolith). First,
+the litter (L) was quickly removed, trying to avoid fauna to escape, and
+collected in a labeled bag. Next, the frame is pressed 10 cm deep into
+the soil to isolate a soil block. This process was performed twice to
+collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth
+which were also collected in separate bags.
 
 ### Sample Sorting and Identification
 
-Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna from escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes by an observer. 
-Macrofauna was collected using a brush and stored in 90 % ethanol,
-separated according to monolith and layer of soil. Subsequently, the
-organisms were identified on a coarse taxonomic level (refer to the data
-file in @sec-supp for details), with ants (Formicidae) and termites
-(Isoptera) treated separately from other Hymenoptera and Blattodea.
+Samples were manually sorted at the field station and litter samples (L)
+processed first to avoid macrofauna from escaping. Soil was sorted by
+transferring around 200 g of substrate into a container. Each portion
+was observed for an average of 2 minutes by an observer. Macrofauna was
+collected using a brush and stored in 90 % ethanol, separated according
+to monolith and layer of soil. Subsequently, the organisms were
+identified on a coarse taxonomic level (refer to the data file in
+@sec-supp for details), with ants (Formicidae) and termites (Isoptera)
+treated separately from other Hymenoptera and Blattodea.
 
-In total, 60 samples were collected (4 sites x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified (with an extra "undetermined" group), yielding a total of 2187 individuals.
+In total, 60 samples were collected (4 plots x 5 monoliths x 3 layers)
+and 27 groups of macrofauna were identified (with an extra
+"undetermined" group), yielding a total of 2187 individuals.
 
 ## Statistical analysis
 
-All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots and data processing relied largely on the tidyverse package
+All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
+and data processing relied largely on the tidyverse package
 [@Wickham2019; @Wickham2023].
 
 ### Explorative Analysis
 
-Explorative analysis was performed to visual global trend in our data
-set. Before fitting any model, we looked at how this fauna was
-distributed between the two soil types and between the three soil
-layers. Counts were converted to densities (individuals per m²) using
-the surface of a monolith (25 × 25 cm = 0.0625 m²). Densities were very
-uneven, with many low values and a few very high ones, so the figures
-use a pseudo-logarithmic scale, which keeps zero values on the axis. Box
-plots of abundances of the different taxa by layers and type of soil
-were realized as well as PCA analysis.
+Counts were converted to densities (individuals per m²) in proportion
+the surface of a monolith (25 × 25 cm = 0.0625 m²) and are subsequently
+referred to as abundances. Since densities were very uneven, with many
+low values and a few very high ones, the figures use a
+pseudo-logarithmic scale, which keeps zero values on the axis. Box plots
+of abundances of the different taxa by layers and type of soil were
+realized as well as Principal Component Analysis (PCA) with Hellinger
+transformation.
 
 ### Abundances (Generalized Linear Mixed Models)
 
@@ -469,23 +502,24 @@ monolith for the soil type PERMANOVA. To test the effect of soil layer,
 permutations were restricted within monoliths using the permute package
 [@Simpson2026]. This accounts for the spatial dependence of layers from
 the same monolith since it ensures that observations were not permuted
-between monoliths. P-values were adjusted for multiple comparisons using the Bonferroni correction.
+between monoliths. P-values were adjusted for multiple comparisons using
+the Bonferroni correction.
 
 For visualizing community composition variation patterns, Principal
-Coordinates Analysis (PCoA) was used with the same distance matrix. 
+Coordinates Analysis (PCoA) was used with the same distance matrix.
 
-To
-fit taxa significantly associated with the ordination, envfit from the
-vegan package [@Oksanen2026]. P-values were adjusted applying Benjamini-Hochberg correction to control False Discovery Rate.
+To fit taxa significantly associated with the ordination, envfit from
+the vegan package [@Oksanen2026]. P-values were adjusted applying
+Benjamini-Hochberg correction to control False Discovery Rate.
 
 ## Spatial Representation
 
 Monolith locations were reconstructed using R [@RCoreTeam2026] and the
-sf package [@Pebesma2018; @Pebesma2023]. Coordinates were obtained based
-on distance and azimuth in relation to reference trees and their
-coordinates sourced from Paracou inventory data [@Derroire2026;
-@Derroire2026a]. QGIS [@QGISDevelopmentTeam2024] was used for spatial
-representation.
+sf package [@Pebesma2018; @Pebesma2023]. Coordinates were obtained
+(script available in @sec-supp) based on distance and azimuth in
+relation to reference trees and their coordinates sourced from Paracou
+inventory data [@Derroire2026; @Derroire2026a]. QGIS
+[@QGISDevelopmentTeam2024] was used for spatial representation.
 
 # Results
 
@@ -519,19 +553,7 @@ df_total <- df %>%
   )
 ```
 
-## General
-
-Total macrofauna density varied mostly with soil layer (@fig-density).
-In both soil types, density was highest in the 0-10 cm layer, with
-median values of about 1,270 ind. m⁻² in Alt/DVD and 720 ind. m⁻² in
-SLD. The litter and the 10–20 cm layer held far fewer individuals, with
-medians between about 110 and 160 ind. m⁻² in all four cases.
-
-The two soil types looked similar. In the 0–10 cm layer, the median
-density was higher in Alt/DVD than in SLD, but the boxes overlapped
-widely. This difference did not appear in the litter and for the 10-20
-cm layer, the SLD median was slightly higher, but once again, the boxes
-overlapped widely.
+## Macrofauna abundance
 
 ::: {#fig-density fig-env="figure"}
 ```{r}
@@ -572,327 +594,9 @@ print(fig_density)
 Total macrofauna density (ind. m⁻²) by soil layer (L = litter, 10 = 0-10
 cm, 20 = 10-20 cm) and soil type. Boxes show the median and
 interquartile range and points are outliers. y-axis is on a
-pseudo-logarithmic scale. Each box represents 10 samples (2 sites x 5
+pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5
 monoliths).
 :::
-
-Community composition changed more between layers than between soil
-types (@fig-comp). In the litter, no Lumbricina were found in either
-soil type. Alt/DVD soils were home to a bigger proportion of Isoptera
-compared to Formicidae. Conversely, SLD soils hosted a greater
-proportion of Formicidae compared to Isoptera. Two groups dominated the
-0-10 cm layer in both soil types : Isoptera and Formicidae that each
-made up for approximately half the composition of both soil type in this
-layer. Earthworms (Lumbricina) were a small part of the catch there
-(\~2 % and \~5 %). Finally, in the 10-20 cm layer, Isoptera almost
-disappeared (0 % in Alt/DVD and 1 % in SLD) and Formicidae became clearly
-dominant, at about 70 % of individuals. They were followed by the other
-groups combined (about 18 %) and Lumbricina (9 % and 11 %).
-
-The litter was the only layer where the two soil types looked different.
-These proportions rest on small numbers, so a few samples can change
-them a lot.
-
-::: {#fig-comp fig-env="figure"}
-```{r}
-#| label: Relative composition FIGURE
-#| include: true
-#| out-width: 100%
-
-# Group taxa into the three focal groups and others
-composition <- df_long %>%
-  mutate(
-    taxon_group = case_when(
-      taxon == "Formicidae" ~ "Formicidae",
-      taxon == "Isoptera" ~ "Isoptera",
-      taxon == "Lumbricina_oligochaetes" ~ "Lumbricina_oligochaetes",
-      TRUE ~ "Others"
-    ),
-    layer = factor(layer, levels = c("L", "10", "20")),
-    taxon_group = factor(
-      taxon_group,
-      levels = names(taxon_colors)
-    )
-  ) %>%
-  group_by(soil_type, layer, taxon_group) %>%
-  summarise(
-    total = sum(count, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  group_by(soil_type, layer) %>%
-  mutate(
-    proportion = total / sum(total)
-  ) %>%
-  ungroup()
-
-# Plot taxonomic composition
-fig_composition <- ggplot(
-  composition,
-  aes(x = soil_type, y = proportion, fill = taxon_group)
-) +
-  geom_col(colour = "white", width = 0.7, linewidth = 0.15) +
-  facet_wrap(~ layer) +
-  scale_y_continuous(
-    labels = scales::percent,
-    limits = c(0, 1),
-    expand = expansion(mult = c(0, 0.02))   # removes gap below 0%
-  ) +
-  scale_fill_manual(
-    values = taxon_colors,
-    drop = FALSE,
-    labels = c(
-      Formicidae              = "Formicidae",
-      Isoptera                = "Isoptera",
-      Lumbricina_oligochaetes = "Lumbricina",
-      Others                  = "Others"
-    ),
-    guide = guide_legend(nrow = 1, byrow = TRUE)
-  ) +
-  labs(x = "Soil type", y = "Proportion of individuals", fill = NULL) +
-  theme_bw() +
-  theme(
-    !!!gg_fontsize(),
-    legend.position   = "bottom",
-    legend.key.size   = unit(0.35, "cm"),
-    legend.text       = element_text(size = rel(0.85)),
-    legend.margin     = margin(0, 0, 0, 0),
-    legend.box.spacing = unit(2, "pt"),
-    aspect.ratio      = 1.3
-  )
-
-print(fig_composition)
-```
-
-Relative abundance of Formicidae, Isoptera, Lumbricina and all other
-taxa combined (Others), by soil layer (L = litter, 10 = 0-10 cm, 20 =
-10-20 cm) and soil type. Proportions are calculated from the total
-number of individuals found in all samples of each soil type and layer.
-:::
-
-We ran a principal component analysis (PCA) on the abundances of all
-taxa, after a Hellinger transformation, to see whether samples from the
-two soil types differed in composition (@fig-pca). The first two axes
-explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1
-opposed samples rich in Isoptera (right side) to samples dominated by
-Formicidae (left side). PC2 was mostly related to Lumbricina, which
-pointed toward the top of the plot. Formicidae and Isoptera were well
-represented on these two axes (high cos², which measures how well a
-taxon is represented by the axes), while Lumbricina were less well
-represented (lower cos²).
-
-Alt/DVD and SLD samples were not separated on these two axes. The two
-ellipses overlapped almost completely, and samples of both soil types
-were found across the whole plot. We did not see a clear structure by
-soil layer either. Samples from the litter, the 0-10 cm layer and the
-10-20 cm layer were mixed along both axes. The 10-20 cm samples were
-almost all in the left half of the plot which fit with the absence of
-isoptera at this depth, and the highest PC2 values were mostly from this
-layer, where earthworms were found. Overall, no clear trend could be
-taken out fo it and they overlapped with many litter and 0-10 cm
-samples.
-
-```{r}
-#| label: prepare PCA using Hellinger transformation
-
-# Community matrix
-comm <- as.matrix(df[, taxa_cols])
-storage.mode(comm) <- "numeric"
-
-# Remove samples with zero total abundance
-keep <- rowSums(comm) > 0 # one removed
-
-comm_pca <- comm[keep, , drop = FALSE]
-
-# Hellinger transformation
-comm_hel <- vegan::decostand(comm_pca, method = "hellinger")
-
-# PCA
-pca <- prcomp(
-  comm_hel,
-  center = TRUE,
-  scale. = FALSE
-)
-
-# Percentage of variance explained
-variance_pca <- 100 * pca$sdev^2 / sum(pca$sdev^2)
-
-# Scores and metadata
-scores_pca <- as.data.frame(pca$x[, 1:2]) %>%
-  mutate(
-    soil_type = df$soil_type[keep],
-    layer = factor(df$layer[keep], levels = c("L", "10", "20")),
-    monolith_ID = df$monolith_ID[keep]
-  )
-
-# Taxon coordinates from PCA loadings
-taxa_scores <- as.data.frame(pca$rotation[, 1:2]) %>%
-  tibble::rownames_to_column("taxon") %>%
-  mutate(
-    cos2 = PC1^2 + PC2^2
-  )
-
-# Scale taxon arrows to fit sample scores
-arrow_scale <- min(
-  diff(range(scores_pca$PC1)) / diff(range(taxa_scores$PC1)),
-  diff(range(scores_pca$PC2)) / diff(range(taxa_scores$PC2))
-) * 0.7
-
-taxa_scores <- taxa_scores %>%
-  mutate(
-    PC1_arrow = PC1 * arrow_scale,
-    PC2_arrow = PC2 * arrow_scale
-  )
-
-# Keep taxa reasonably represented on the first two PCA axes
-taxa_scores_plot <- taxa_scores %>%
-  filter(cos2 >= 0.1) # can change cos2 here
-```
-
-::: {#fig-pca fig-env="figure*"}
-```{r}
-#| label: PCA FIGURE
-#| include: true
-#|out-width: 80%
-
-fig_pca <- ggplot(
-  scores_pca,
-  aes(
-    x = PC1,
-    y = PC2,
-    colour = soil_type,
-    shape = layer
-  )
-) +
-
-  # Reference lines at the origin
-  geom_hline(
-    yintercept = 0,
-    linetype = "dotted",
-    colour = "grey65",
-    linewidth = 0.4,
-    inherit.aes = FALSE
-  ) +
-  geom_vline(
-    xintercept = 0,
-    linetype = "dotted",
-    colour = "grey65",
-    linewidth = 0.4,
-    inherit.aes = FALSE
-  ) +
-
-  # Confidence ellipses by soil type
- stat_ellipse(
-  data = scores_pca,
-  mapping = aes(
-    x = PC1,
-    y = PC2,
-    group = soil_type,
-    colour = soil_type
-  ),
-  level = 0.95,
-  type = "t",
-  linetype = "dashed",
-  linewidth = 0.7,
-  show.legend = FALSE,
-  inherit.aes = FALSE
-) + 
-
-  # Sample scores
-  geom_point(
-    size = 3,
-    alpha = 0.8
-  ) +
-
-  # Discrete colour scale for soil type
-  scale_colour_manual(
-    values = soil_colors,
-    name = "Soil type"
-  ) +
-
-  # Start a separate colour scale for taxon arrows
-  ggnewscale::new_scale_colour() +
-
-  # Taxon arrows, coloured by cos2
-  geom_segment(
-    data = taxa_scores_plot,
-    aes(
-      x = 0,
-      y = 0,
-      xend = PC1_arrow,
-      yend = PC2_arrow,
-      colour = cos2
-    ),
-    inherit.aes = FALSE,
-    arrow = grid::arrow(
-      length = grid::unit(0.2, "cm")
-    ),
-    linewidth = 0.6
-  ) +
-
-  # Taxon labels, coloured by cos2
-  ggrepel::geom_text_repel(
-    data = taxa_scores_plot,
-    aes(
-      x = PC1_arrow,
-      y = PC2_arrow,
-      label = taxon,
-      colour = cos2
-    ),
-    inherit.aes = FALSE,
-    size = 4,
-    max.overlaps = Inf,
-    show.legend = FALSE
-  ) +
-
-  # Continuous colour scale for taxon cos2
-  scale_colour_gradient(
-    low = "grey80",
-    high = "#2166AC",
-    name = expression(cos^2)
-  ) +
-
-  # Layer shapes
-  scale_shape_manual(
-    values = c(
-      "L" = 16,
-      "10" = 17,
-      "20" = 15
-    ),
-    name = "Layer"
-  ) +
-
-  # Axis labels
-  labs(
-    x = paste0(
-      "PC1 (",
-      round(variance_pca[1], 1),
-      "%)"
-    ),
-    y = paste0(
-      "PC2 (",
-      round(variance_pca[2], 1),
-      "%)"
-    )
-  ) +
-
-  # Theme
-  theme_bw() +
-  theme(!!!gg_fontsize(0.6),
-        legend.spacing.y = grid::unit(-0.2, "cm"))
-
-fig_pca
-```
-
-PCA ordination based on Hellinger-transformed community matrix of
-macrofauna composition (60 samples). Colours show soil type and shapes
-show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
-are 95 % confidence ellipses for each soil type. Arrows show the taxa
-best represented on the first two axes. Their colour indicates the
-squared cosine (cos²) (values close to 1 mean a good representation of
-the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
-:::
-
-## GLMM
 
 Effects of soil type and layer were tested on global, ant, termite and
 earthworm abundances. All retained models described below are listed in
@@ -1179,6 +883,7 @@ layer for total macrofauna, ants (Formicidae) and termites (Isoptera)
 using emmeans.
 :::
 
+Total macrofauna density varied mostly with soil layer (@fig-density).
 Type II Wald $\chi^2$ tests revealed a highly significant effect of soil
 layer on total soil macrofauna abundance ($\chi^2$ = 106.85, df = 2, p
 \< 0.001). The effect of soil type was not significant ($\chi^2$ = 0.52,
@@ -1231,15 +936,108 @@ in layer 20 (41.23 times; all p \leq 0.0073).
 Type II Wald $\chi^2$ tests indicated a significant effect of soil layer
 on earthworm abundance ($\chi^2$ = 12.69), df = 2, p = 0.0018),whereas
 soil type had no significant effect ($\chi^2$ = 0.35), df = 1, p =
-0.557). Pairwise comparisons showed significantly higher earthworm
-abundance in layer 10 compared to layer 20 (2.31 times higher). No
-significant differences were detected between layer L and the other
-layers. However, no earthworms were recorded in layer L, resulting in
-unstable model estimates and unbounded confidence intervals for this
-layer. The Estimated random-effect variance for monoliths was 0.510 (SD
-= 0.714)
+0.557). Pairwise comparisons showed significantly higher earthworm As no
+earthworms were recorded in layer L, no pairwise comparisons were made
+between the litter and layers 10 and 20. The Estimated random-effect
+variance for monoliths was 0.510 (SD = 0.714)
 
-## PERMANOVA
+For density boxplots for Formicidae, Isoptera and Lumbricina
+oligochaetes, see [Appendix](#sec-appendix) @fig-density-taxa.
+
+## Community composition
+
+Community composition varied visibly more among soil layers than between
+soil types (@fig-comp). Lumbricina were absent from the litter in both
+soil types. The relative proportions of Isoptera and Formicidae appeared
+to differ between soil types: Isoptera were more abundant in Alt/DVD,
+whereas Formicidae represented a larger proportion in SLD. Two groups
+dominated the 0-10 cm layer in both soil types: Isoptera and Formicidae
+each made up for approximately half of the relative composition of both
+soil types. Earthworms (Lumbricina) represented a small part therein
+(\~2 % and \~5 %). In the 10-20 cm layer, Isoptera were nearly absent (0
+% in Alt/DVD and 1 % in SLD) and Formicidae dominated, representing
+about 70 % of individuals. Lumbricina represented around 9% and 11% of
+individuals in Alt/DVD and SLD, respectively, while all remaining taxa
+combined accounted for approximately 18%.
+
+An exploratory PCA macrofaunal abundances is provided in the
+Supplementary Material (@fig-pca).
+
+::: {#fig-comp fig-env="figure"}
+```{r}
+#| label: Relative composition FIGURE
+#| include: true
+#| out-width: 100%
+
+# Group taxa into the three focal groups and others
+composition <- df_long %>%
+  mutate(
+    taxon_group = case_when(
+      taxon == "Formicidae" ~ "Formicidae",
+      taxon == "Isoptera" ~ "Isoptera",
+      taxon == "Lumbricina_oligochaetes" ~ "Lumbricina_oligochaetes",
+      TRUE ~ "Others"
+    ),
+    layer = factor(layer, levels = c("L", "10", "20")),
+    taxon_group = factor(
+      taxon_group,
+      levels = names(taxon_colors)
+    )
+  ) %>%
+  group_by(soil_type, layer, taxon_group) %>%
+  summarise(
+    total = sum(count, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  group_by(soil_type, layer) %>%
+  mutate(
+    proportion = total / sum(total)
+  ) %>%
+  ungroup()
+
+# Plot taxonomic composition
+fig_composition <- ggplot(
+  composition,
+  aes(x = soil_type, y = proportion, fill = taxon_group)
+) +
+  geom_col(colour = "white", width = 0.7, linewidth = 0.15) +
+  facet_wrap(~ layer) +
+  scale_y_continuous(
+    labels = scales::percent,
+    limits = c(0, 1),
+    expand = expansion(mult = c(0, 0.02))   # removes gap below 0%
+  ) +
+  scale_fill_manual(
+    values = taxon_colors,
+    drop = FALSE,
+    labels = c(
+      Formicidae              = "Formicidae",
+      Isoptera                = "Isoptera",
+      Lumbricina_oligochaetes = "Lumbricina",
+      Others                  = "Others"
+    ),
+    guide = guide_legend(nrow = 1, byrow = TRUE)
+  ) +
+  labs(x = "Soil type", y = "Proportion of individuals", fill = NULL) +
+  theme_bw() +
+  theme(
+    !!!gg_fontsize(),
+    legend.position   = "bottom",
+    legend.key.size   = unit(0.35, "cm"),
+    legend.text       = element_text(size = rel(0.85)),
+    legend.margin     = margin(0, 0, 0, 0),
+    legend.box.spacing = unit(2, "pt"),
+    aspect.ratio      = 1.3
+  )
+
+print(fig_composition)
+```
+
+Relative abundance of Formicidae, Isoptera, Lumbricina and all other
+taxa combined (Others), by soil layer (L = litter, 10 = 0-10 cm, 20 =
+10-20 cm) and soil type. Proportions are calculated from the total
+number of individuals found in all samples of each soil type and layer.
+:::
 
 ```{r}
 #| label: Data preparation for PERMANOVA and PCoA
@@ -1432,7 +1230,17 @@ adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p =
 0.0003), and 10 and 20 (F = 5.76, R² = 0.132, adjusted p = 0.0012),
 using Bonferroni correction.
 
-%%% results shown, TEXT @fig-pcoa
+In the Principal Coordinates Analysis (PCoA) based on Bray Curtis
+dissimilarities (@fig-pcoa), the first two axes explained 26.1 % of the
+corrected total variance (15.8 % for PCoA1 and 10.3 % for PCoA2). Convex
+hulls overlapped substantially in the projection. A part of samples from
+the 10 cm layer extends toward positive PCoA1 values and shows less
+overlap. Vector fitting onto the PCoA ordination identified four taxa
+significantly correlated with the ordination space (P_adj \< 0.05,
+Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and
+Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1
+scores, indicating that higher abundances of these taxa are associated
+with the separation of these 10 cm layer samples along the first axis.
 
 ::: {#tbl-permanova}
 ```{r}
@@ -1677,18 +1485,18 @@ p <- ggplot(pcoa_df_perm, aes(PCoA1, PCoA2, color = layer)) +
   theme(!!!gg_fontsize(0.5))
 ```
 
-::: {#fig-pcoa fig-env="figure*"}
+::: {#fig-pcoa fig-env="figure*" fig-pos="t"}
 ```{r}
 #| label: PCoA FIGURE
-#| out-width: 100%
+#| out-width: 80%
 #| include: true
 plot(p)
 ```
 
-First two components of the Bray-Curtis PCoA representing 26.1 % of the
-variation in macrofaunal community composition. Husks indicate soil
-layers. Taxa singificantly associated with the ordination are presented
-(arrows).
+First two components of the Bray-Curtis PCoA representing 26.1% of the
+variation in macrofaunal community composition. Convex hulls indicate
+soil layers. Taxa singificantly associated (after BH correction) with
+the ordination are presented (arrows).
 :::
 
 # Discussion
@@ -1713,3 +1521,320 @@ Supplementary material, including detailed statistical analysis,
 scripts, data, QGIS layers, additional software attribution as well as
 the Quarto file used to produce this article, is available from
 <https://github.com/jasonberger2002/FTH_2026_soil_macrofauna>.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+<!-- dissolve column structure, reset page and figure counters, create new counter with prefix A for Appendix section -->
+
+\markmainend
+\onecolumn
+\appendix
+\inappendixtrue
+\setcounter{page}{1}
+\renewcommand{\thepage}{A\arabic{page}}
+\gdef\theHpage{A\arabic{page}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
+\gdef\theHfigure{A\arabic{figure}}
+\gdef\theHtable{A\arabic{table}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+# Appendix {#sec-appendix .unnumbered}
+
+::: {#fig-map fig-env="figure" fig-pos="H"}
+```{r}
+#| label: map FIGURE
+#| out-width: 100%
+#| include: true
+knitr::include_graphics("images/overview_paracou.png")
+```
+
+Overview map of Paracou with the sampling locations. Location of right
+panels shown by grey squares. White lines on the right panels represent
+altitude isolines. Upper left corner panel shows location of Paracou in
+French Guiana.
+:::
+
+::: {#fig-density-taxa fig-env="figure" fig-pos="H"}
+```{r}
+#| label: Density by taxon boxplot FIGURE
+#| include: true
+#| out-width: 100%
+
+df_taxa_density <- df_total %>%
+  select(layer, soil_type, Formicidae, Isoptera, Lumbricina_oligochaetes) %>%
+  pivot_longer(
+    cols = c(Formicidae, Isoptera, Lumbricina_oligochaetes),
+    names_to = "taxon",
+    values_to = "count"
+  ) %>%
+  mutate(
+    density = count * 16,  # 25 x 25 cm monolith = 1/16 m²
+    taxon = factor(
+      taxon,
+      levels = c("Formicidae", "Isoptera", "Lumbricina_oligochaetes"),
+      labels = c("Formicidae", "Isoptera", "Lumbricina")
+    )
+  )
+
+fig_density_taxa <- ggplot(
+  df_taxa_density,
+  aes(x = layer, y = density, fill = soil_type)
+) +
+  geom_boxplot(
+    width = 0.7,
+    position = position_dodge(width = 0.8),
+    outlier.shape = 1
+  ) +
+  facet_wrap(~ taxon) +
+  scale_fill_manual(values = soil_colors) +
+  scale_y_continuous(
+    trans = scales::pseudo_log_trans(base = 10),
+    breaks = c(0, 10, 100, 1000, 5000),
+    labels = scales::label_comma()
+  ) +
+  labs(
+    x = "Soil layer",
+    y = expression("Density (ind. m"^{-2}*")"),
+    fill = "Soil type"
+  ) +
+  theme_bw() +
+  theme(!!!gg_fontsize(0.6), legend.position = "bottom")
+
+print(fig_density_taxa)
+```
+
+Density (ind. m⁻²) for ants (Formicidae), termites (Isoptera) and
+earthworms (Lumbricina) by soil layer (L = litter, 10 = 0-10 cm, 20 =
+10-20 cm) and soil type. Boxes show the median and interquartile range
+and points are outliers. y-axis is on a pseudo-logarithmic scale. Each
+box represents 10 samples (2 plots x 5 monoliths).
+:::
+
+## Additional exploratory analysis: {.unnumbered}
+
+We ran a principal component analysis (PCA) on the abundances of all
+taxa to see whether samples from the two soil types differed in
+composition (@fig-pca). The first two axes explained 33.2 % and 18.6 %
+of the variance, so 51.8 % together. PC1 opposed samples rich in
+Isoptera (right side) to samples dominated by Formicidae (left side).
+PC2 was mostly related to Lumbricina, which pointed toward the top of
+the plot. Formicidae and Isoptera were well represented on these two
+axes (high cos², which measures how well a taxon is represented by the
+axes), while Lumbricina were less well represented (lower cos²).
+
+Alt/DVD and SLD samples were not separated on these two axes. The two
+ellipses overlapped almost completely, and samples of both soil types
+were found across the whole plot. We did not see a clear structure by
+soil layer either. Samples from the litter, the 0-10 cm layer and the
+10-20 cm layer were mixed along both axes. The 10-20 cm samples were
+almost all in the left half of the plot which fit with the absence of
+isoptera at this depth, and the highest PC2 values were mostly from this
+layer, where earthworms were found. Overall, no clear trend could be
+taken out of it and they overlapped with many litter and 0-10 cm
+samples.
+
+```{r}
+#| label: prepare PCA using Hellinger transformation
+
+# Community matrix
+comm <- as.matrix(df[, taxa_cols])
+storage.mode(comm) <- "numeric"
+
+# Remove samples with zero total abundance
+keep <- rowSums(comm) > 0 # one removed
+
+comm_pca <- comm[keep, , drop = FALSE]
+
+# Hellinger transformation
+comm_hel <- vegan::decostand(comm_pca, method = "hellinger")
+
+# PCA
+pca <- prcomp(
+  comm_hel,
+  center = TRUE,
+  scale. = FALSE
+)
+
+# Percentage of variance explained
+variance_pca <- 100 * pca$sdev^2 / sum(pca$sdev^2)
+
+# Scores and metadata
+scores_pca <- as.data.frame(pca$x[, 1:2]) %>%
+  mutate(
+    soil_type = df$soil_type[keep],
+    layer = factor(df$layer[keep], levels = c("L", "10", "20")),
+    monolith_ID = df$monolith_ID[keep]
+  )
+
+# Taxon coordinates from PCA loadings
+taxa_scores <- as.data.frame(pca$rotation[, 1:2]) %>%
+  tibble::rownames_to_column("taxon") %>%
+  mutate(
+    cos2 = PC1^2 + PC2^2
+  )
+
+# Scale taxon arrows to fit sample scores
+arrow_scale <- min(
+  diff(range(scores_pca$PC1)) / diff(range(taxa_scores$PC1)),
+  diff(range(scores_pca$PC2)) / diff(range(taxa_scores$PC2))
+) * 0.7
+
+taxa_scores <- taxa_scores %>%
+  mutate(
+    PC1_arrow = PC1 * arrow_scale,
+    PC2_arrow = PC2 * arrow_scale
+  )
+
+# Keep taxa reasonably represented on the first two PCA axes
+taxa_scores_plot <- taxa_scores %>%
+  filter(cos2 >= 0.1) # can change cos2 here
+```
+
+::: {#fig-pca fig-env="figure*"}
+```{r}
+#| label: PCA FIGURE
+#| include: true
+#| out-width: 80%
+
+fig_pca <- ggplot(
+  scores_pca,
+  aes(
+    x = PC1,
+    y = PC2,
+    colour = soil_type,
+    shape = layer
+  )
+) +
+
+  # Reference lines at the origin
+  geom_hline(
+    yintercept = 0,
+    linetype = "dotted",
+    colour = "grey65",
+    linewidth = 0.4,
+    inherit.aes = FALSE
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dotted",
+    colour = "grey65",
+    linewidth = 0.4,
+    inherit.aes = FALSE
+  ) +
+
+  # Confidence ellipses by soil type
+ stat_ellipse(
+  data = scores_pca,
+  mapping = aes(
+    x = PC1,
+    y = PC2,
+    group = soil_type,
+    colour = soil_type
+  ),
+  level = 0.95,
+  type = "t",
+  linetype = "dashed",
+  linewidth = 0.7,
+  show.legend = FALSE,
+  inherit.aes = FALSE
+) + 
+
+  # Sample scores
+  geom_point(
+    size = 3,
+    alpha = 0.8
+  ) +
+
+  # Discrete colour scale for soil type
+  scale_colour_manual(
+    values = soil_colors,
+    name = "Soil type"
+  ) +
+
+  # Start a separate colour scale for taxon arrows
+  ggnewscale::new_scale_colour() +
+
+  # Taxon arrows, coloured by cos2
+  geom_segment(
+    data = taxa_scores_plot,
+    aes(
+      x = 0,
+      y = 0,
+      xend = PC1_arrow,
+      yend = PC2_arrow,
+      colour = cos2
+    ),
+    inherit.aes = FALSE,
+    arrow = grid::arrow(
+      length = grid::unit(0.2, "cm")
+    ),
+    linewidth = 0.6
+  ) +
+
+  # Taxon labels, coloured by cos2
+  ggrepel::geom_text_repel(
+    data = taxa_scores_plot,
+    aes(
+      x = PC1_arrow,
+      y = PC2_arrow,
+      label = taxon,
+      colour = cos2
+    ),
+    inherit.aes = FALSE,
+    size = 4,
+    max.overlaps = Inf,
+    show.legend = FALSE
+  ) +
+
+  # Continuous colour scale for taxon cos2
+  scale_colour_gradient(
+    low = "grey80",
+    high = "#2166AC",
+    name = expression(cos^2)
+  ) +
+
+  # Layer shapes
+  scale_shape_manual(
+    values = c(
+      "L" = 16,
+      "10" = 17,
+      "20" = 15
+    ),
+    name = "Layer"
+  ) +
+
+  # Axis labels
+  labs(
+    x = paste0(
+      "PC1 (",
+      round(variance_pca[1], 1),
+      "%)"
+    ),
+    y = paste0(
+      "PC2 (",
+      round(variance_pca[2], 1),
+      "%)"
+    )
+  ) +
+
+  # Theme
+  theme_bw() +
+  theme(!!!gg_fontsize(0.6),
+        legend.spacing.y = grid::unit(-0.2, "cm"))
+
+fig_pca
+```
+
+PCA ordination based on Hellinger-transformed community matrix of
+macrofauna composition (59 samples). Colours show soil type and shapes
+show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
+are 95 % confidence ellipses for each soil type. Arrows show the taxa
+best represented on the first two axes. Their colour indicates the
+squared cosine (cos²) (values close to 1 mean a good representation of
+the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
+:::
