@@ -5,12 +5,6 @@
 
 Github for the soil macrofauna project of the course Forêts Tropicales Humides 2026 at UMR EcoFoG. Soil macrofauna was sampled at the Paracou forest plots in French Guiana to investigate effects of soil types on macrofaunal communities.
 
-### Software used:
-- data analysis and presentation: [R](https://www.r-project.org/) v. 4.6.1 and [R Studio](https://docs.posit.co/ide/desktop-pro/2026.09.0/) v. 2026.09.0; report and statistical analysis document created using [Quarto](https://quarto.org/?utm_source=chatgpt.com) v. 1.10.18
-- citation management: [zotero](https://www.zotero.org/) v. 10.0.8 with [Better BibTeX plug-in](https://retorque.re/zotero-better-bibtex/) v. 9.0.77
-- geographical data management and presentation: [QGIS](https://www.qgis.org/project/overview/) v. 3.40
-- R packages: complete list of packages in file package_citations.txt
-
 ### Overview
 <pre>
 ├── .github/                             # for website publishing
@@ -39,6 +33,12 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 </pre>
 
 *Directory tree generated with [RepoTree](https://ascii-repotree.vercel.app/generator).*
+
+### Software used:
+- data analysis and presentation: [R](https://www.r-project.org/) v. 4.6.1 and [R Studio](https://docs.posit.co/ide/desktop-pro/2026.09.0/) v. 2026.09.0; report and statistical analysis document created using [Quarto](https://quarto.org/?utm_source=chatgpt.com) v. 1.10.18
+- citation management: [zotero](https://www.zotero.org/) v. 10.0.8 with [Better BibTeX plug-in](https://retorque.re/zotero-better-bibtex/) v. 9.0.77
+- geographical data management and presentation: [QGIS](https://www.qgis.org/project/overview/) v. 3.40
+- R packages: complete list of packages in file package_citations.txt
 
 ### Comments:
 All input excel files contain a meta tab, please refer to those tabs for variable definitions.
