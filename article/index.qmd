@@ -867,7 +867,7 @@ monoliths after accounting for the fixed effects.
 
 Pairwise comparisons with Tukey adjustment (@tbl-pairwise) showed that
 termite abundance was significantly higher in layer 10 than in layer L
-(16.7 times) and layer 20 (745.48 times; estimated abundance for 20
+(18.08 times) and layer 20 (745.48 times; estimated abundance for 20
 nearing zero). Abundance was also significantly higher in layer L than
 in layer 20 (41.23 times; all $p \leq 0.0073$).
 
