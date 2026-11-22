@@ -441,7 +441,7 @@ Samples were manually sorted at the field station and litter samples (L)
 processed first to avoid macrofauna from escaping. Soil was sorted by
 transferring around 200 g of substrate into a container. Each portion
 was observed for an average of 2 minutes by an observer. Macrofauna was
-collected using a brush and stored in 90 % ethanol, separated according
+collected using a brush and stored in 90% ethanol, separated according
 to monolith and layer of soil. Subsequently, the organisms were
 identified on a coarse taxonomic level (refer to the data file in
 @sec-supp for details), with ants (Formicidae) and termites (Isoptera)
@@ -954,9 +954,9 @@ whereas Formicidae represented a larger proportion in SLD. Two groups
 dominated the 0-10 cm layer in both soil types: Isoptera and Formicidae
 each made up for approximately half of the relative composition of both
 soil types. Earthworms (Lumbricina) represented a small part therein
-(\~2 % and \~5 %). In the 10-20 cm layer, Isoptera were nearly absent (0
-% in Alt/DVD and 1 % in SLD) and Formicidae dominated, representing
-about 70 % of individuals. Lumbricina represented around 9% and 11% of
+(\~2% and \~5%). In the 10-20 cm layer, Isoptera were nearly absent (0
+% in Alt/DVD and 1% in SLD) and Formicidae dominated, representing
+about 70% of individuals. Lumbricina represented around 9% and 11% of
 individuals in Alt/DVD and SLD, respectively, while all remaining taxa
 combined accounted for approximately 18%.
 
@@ -1163,7 +1163,7 @@ print(permanova_layer)
 
 PERMANOVA revealed a significant effect of soil layer on macrofauna
 community composition (Bray–Curtis dissimilarity: F = 5.46, R² = 0.163,p
-= 0.0001). Soil layer explained around 16.3 % of variation in the
+= 0.0001). Soil layer explained around 16.3% of variation in the
 community composition, indicating that macrofauna community composition
 differed significantly among layers. Permutation was restricted within
 monolith to account for spatial dependence of layers. Homogeneity of
@@ -1231,8 +1231,8 @@ adjusted p = 0.0003), L and 20 (F = 4.55, R² = 0.110, adjusted p =
 using Bonferroni correction.
 
 In the Principal Coordinates Analysis (PCoA) based on Bray Curtis
-dissimilarities (@fig-pcoa), the first two axes explained 26.1 % of the
-corrected total variance (15.8 % for PCoA1 and 10.3 % for PCoA2). Convex
+dissimilarities (@fig-pcoa), the first two axes explained 26.1% of the
+corrected total variance (15.8% for PCoA1 and 10.3% for PCoA2). Convex
 hulls overlapped substantially in the projection. A part of samples from
 the 10 cm layer extends toward positive PCoA1 values and shows less
 overlap. Vector fitting onto the PCoA ordination identified four taxa
@@ -1619,8 +1619,8 @@ box represents 10 samples (2 plots x 5 monoliths).
 
 We ran a principal component analysis (PCA) on the abundances of all
 taxa to see whether samples from the two soil types differed in
-composition (@fig-pca). The first two axes explained 33.2 % and 18.6 %
-of the variance, so 51.8 % together. PC1 opposed samples rich in
+composition (@fig-pca). The first two axes explained 33.2% and 18.6 %
+of the variance, so 51.8% together. PC1 opposed samples rich in
 Isoptera (right side) to samples dominated by Formicidae (left side).
 PC2 was mostly related to Lumbricina, which pointed toward the top of
 the plot. Formicidae and Isoptera were well represented on these two
@@ -1833,7 +1833,7 @@ fig_pca
 PCA ordination based on Hellinger-transformed community matrix of
 macrofauna composition (59 samples). Colours show soil type and shapes
 show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
-are 95 % confidence ellipses for each soil type. Arrows show the taxa
+are 95% confidence ellipses for each soil type. Arrows show the taxa
 best represented on the first two axes. Their colour indicates the
 squared cosine (cos²) (values close to 1 mean a good representation of
 the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
