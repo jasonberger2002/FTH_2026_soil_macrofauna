@@ -12,7 +12,7 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 │   ├── _extensions/                     # extensions for the stylisharticle-outline
 │   ├── images/                          # for images not generated in the qmd
 │   ├── colors.css                       # for adjusting html colors
-│   ├── <b>index.qmd</b>                        # &lt;-- <b>[MAIN ARTICLE]</b> file used to create the article as pdf or html
+│   ├── <b>index.qmd</b>                        # &lt;-- <b>[MAIN ARTICLE]</b> file used to render the article (pdf/html
 │   └── stylisharticle.cls               # main controlling file for stylisharticle formatting
 ├── citation_style/                      # files for automated citation style
 ├── data/
