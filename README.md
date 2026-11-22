@@ -11,31 +11,32 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 - geographical data management and presentation: [QGIS](https://www.qgis.org/project/overview/) v. 3.40
 - R packages: complete list of packages in file package_citations.txt
 
-```
+### Overview
+<pre>
 ├── .github/                             # for website publishing
-├── article/                             
+├── article/
 │   ├── _extensions/                     # extensions for the stylisharticle-outline
 │   ├── images/                          # for images not generated in the qmd
 │   ├── colors.css                       # for adjusting html colors
-│   ├── index.qmd                        # <-- [MAIN ARTICLE] file used to create the article as pdf or html
-│   └── stylisharticle.cls               # main controlling file for sylisharticle formatting
+│   ├── <b>index.qmd</b>                        # &lt;-- <b>[MAIN ARTICLE]</b> file used to create the article as pdf or html
+│   └── stylisharticle.cls               # main controlling file for stylisharticle formatting
 ├── citation_style/                      # files for automated citation style
 ├── data/
-│   └── macrofauna_counts.xlsx           # <-- [MAIN DATA FILE]
+│   └── <b>macrofauna_counts.xlsx</b>           # &lt;-- <b>[MAIN DATA FILE]</b>
 ├── qgis/
 │   ├── layers/                          # QGIS layers used for the map/s
 │   ├── maps/
 │   └── scripts/
-│       ├── sampling_locations.R         # <-- [HELPER SCRIPT] for calculating sampling coordinates
+│       ├── <b>sampling_locations.R</b>         # &lt;-- <b>[HELPER SCRIPT]</b> for calculating sampling coordinates
 │       └── ...
 ├── statistical_analysis/
-│   └── index.qmd                        # <-- [MAIN STATISTICAL ANALYSIS] detailed script incl. model selection and diagnostics
+│   └── <b>index.qmd</b>                        # &lt;-- <b>[MAIN STATISTICAL ANALYSIS]</b> detailed script including model selection + diagnostics
 ├── .gitignore
 ├── FTH_2026_soil_macrofauna.Rproj
 ├── macrofauna_refs.bib                  # reference list
 ├── package_citations.txt                # complete citations for all R packages used
 └── README.md
-```
+</pre>
 
 *Directory tree generated with [RepoTree](https://ascii-repotree.vercel.app/generator).*
 
