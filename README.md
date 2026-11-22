@@ -24,7 +24,7 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 │       ├── <b>sampling_locations.R</b>         # &lt;-- <b>[HELPER SCRIPT]</b> for calculating sampling coordinates
 │       └── ...
 ├── statistical_analysis/
-│   └── <b>index.qmd</b>                        # &lt;-- <b>[MAIN STATISTICAL ANALYSIS]</b> detailed script including model selection + diagnostics
+│   └── <b>index.qmd</b>                        # &lt;-- <b>[MAIN STATISTICAL ANALYSIS]</b> detailed script
 ├── .gitignore
 ├── FTH_2026_soil_macrofauna.Rproj
 ├── macrofauna_refs.bib                  # reference list
