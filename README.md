@@ -3,8 +3,6 @@
 
 #### Project supervisors: Vincent FREYCON; Raphaël MARICHAL; Ariane MIRABEL
 
-Github for the soil macrofauna project of the course Forêts Tropicales Humides 2026 at UMR EcoFoG. Soil macrofauna was sampled at the Paracou forest plots in French Guiana to investigate effects of soil types on macrofaunal communities.
-
 ### Overview
 <pre>
 ├── .github/                             # for website publishing
