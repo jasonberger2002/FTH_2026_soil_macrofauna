@@ -11,7 +11,7 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 - geographical data management and presentation: [QGIS](https://www.qgis.org/project/overview/) v. 3.40
 - R packages: complete list of packages in file package_citations.txt
 
-
+```
 ├── .github/                             # for website publishing
 ├── article/                             
 │   ├── _extensions/                     # extensions for the stylisharticle-outline
@@ -29,12 +29,13 @@ Github for the soil macrofauna project of the course Forêts Tropicales Humides 
 │       ├── sampling_locations.R         # <-- [HELPER SCRIPT] for calculating sampling coordinates
 │       └── ...
 ├── statistical_analysis/
-│   └── index.qmd                        # <-- [MAIN STATISTICAL ANALYSIS] detailed script including model selection and diagnostics (can be rendered as pdf or html)
+│   └── index.qmd                        # <-- [MAIN STATISTICAL ANALYSIS] detailed script incl. model selection and diagnostics
 ├── .gitignore
 ├── FTH_2026_soil_macrofauna.Rproj
 ├── macrofauna_refs.bib                  # reference list
 ├── package_citations.txt                # complete citations for all R packages used
 └── README.md
+```
 
 *Directory tree generated with [RepoTree](https://ascii-repotree.vercel.app/generator).*
 
