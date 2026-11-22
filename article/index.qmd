@@ -264,66 +264,16 @@ structure and physicochemical properties [@Vasconcellos2013;
 @Loranger-Merciris2007; @Ramos2025].
 
 <!-- Relationships between soil texture and macrofauna -->
-
+%%%moi j'aurai mis aussi l'exemple avec la répartition des espèces selon granulo en riparian forest car c'est al seule étude sur ca mais bon à voir si ya la place... 
 Soil texture accounts for 3.9% of the variation in soil macrofaunal
-community structure at the global scale [@Lavelle2022]. Soil moisture
-also influences community composition, although responses vary among
-taxa. In the central Amazon, ant abundance and diversity decrease where
-the water table remains close to the soil surface for prolonged periods
-[@Baccaro2013]. Similarly, termite assemblages in French Guianan primary
-forests vary along moisture gradients, with swamp and lowland forests
-harbouring distinct communities from well-drained forests
-[@Bourguignon2011]. Conversely, macrofauna can modify soil physical
-properties through their biological activities.
+community structure at the global scale [@Lavelle2022].Macrofauna is also distributed according to size within soil pores + further reading is needed on the texture and preferences of macrofauna in general [@Velazco2023]. The few studies carried out in tropical environments highlight a decline in the abundance of macrofauna from the litter layer down to deeper soil layers, with the highest abundance occurring between 0 and 10 cm [@Fragoso1992; @Ronchi2022; Castro2024]. Soil moisture also influences community composition, although responses vary among taxa. In the central Amazon, ant abundance and diversity decrease where the water table remains close to the soil surface for prolonged periods [@Baccaro2013]. Similarly, termite assemblages in French Guianan primary forests vary along moisture gradients, with swamp and lowland forests harbouring distinct communities from well-drained forests [@Bourguignon2011]. However, biotic interactions play also a role in this repartition: the ants' predation on termites leads to a niche differentiation between the two species [@Tuma2020]. 
 
 <!-- Soil bioengineers and their effects on soil properties -->
 
-%%% revoir cette partie
+Conversely, soil macrofauna can modify soil properties, including aggregate structure, porosity and hydraulic conductivity. Soil bioengineers are organisms that physically and chemically modify their environment through resource acquisition and habitat construction. Ants, termites and earthworms act as (1) bioturbators, redistributing soil particles and creating galleries; (2) aggregate modifiers, through processes such as earthworm cast production; and (3) mineral transformers [@Bottinelli2015]. In Amazonian terra firme forests, ants and termites account for approximately one-third of soil animal biomass [@Fittkau1973]. Their engineering activities can substantially modify soil properties [@Lavelle1992; @Bottinelli2015]. Gallery or nest construction by ants, earthworms and termites increases macroporosity, enhance hydraulic conductivity and habitat heterogeneity in the soil [@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024). Earthworms also modify aggregate-size distributions in topsoil and redistribute plant debris towards deeper soil horizons through bioturbation [@Zhukova2022].
 
-Soil macrofauna can modify soil properties, including aggregate
-structure, porosity and hydraulic conductivity. Soil bioengineers are
-organisms that physically and chemically modify their environment
-through resource acquisition and habitat construction. Ants, termites
-and earthworms act as (1) bioturbators, redistributing soil particles
-and creating galleries; (2) aggregate modifiers, through processes such
-as earthworm cast production; and (3) mineral transformers
-[@Bottinelli2015]. In Amazonian terra firme forests, ants and termites
-account for approximately one-third of soil animal biomass
-[@Fittkau1973]. Their engineering activities can substantially modify
-soil properties [@Lavelle1992; @Bottinelli2015]. For example,
-*Pontoscolex corethrurus* can rapidly alter soil morphology and
-hydrological functioning when dominant [@Barros2004]. Gallery or nest
-construction by ants, earthworms and termites increases macroporosity,
-enhance hydraulic conductivity and habitat heterogeneity in the soil
-[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024].
-Earthworms also modify aggregate-size distributions in topsoil and
-redistribute plant debris towards deeper soil horizons through
-bioturbation [@Zhukova2022]. The effects of soil engineers depend on
-their ecological strategies and vertical distribution. For example,
-earthworms are classified as epigeic, inhabiting the litter layer;
-endogeic, living within mineral soil horizons; and anecic, constructing
-deep burrows while feeding at the soil surface [@Bouche1977]. These
-groups have contrasting effects on soil structure: endogeic earthworms
-contribute to macroaggregate formation, whereas termites redistribute
-soil vertically through the construction of mounds using material
-transported from deeper horizons [@Lavelle1992].
+Although tropical forests harbour the greatest abundance and diversity of soil organisms compared with any other ecosystem [@Lavelle2022] and French Guiana is recognised for its high diversity of soil engineers [@Bourguignon2010], the spatial distribution of soil macrofauna in undisturbed rainforests remains poorly documented. The aim of this study is therefore to address the lack of knowledge regarding the distribution of soil macrofauna in Paracou from a pedological perspective, specifically the soil texture and drainage. We seek to understand whether species abundance differs depending on whether the soil has free lateral drainage or vertical drainage, and whether bio-engineered species reflect this difference.
 
-More than 100 termite species have been recorded in French Guiana
-[@Bourguignon2011], highlighting the high diversity of soil engineers in
-this region. However, the spatial distribution of soil macrofauna in
-undisturbed tropical rainforests remains poorly documented. According to
-the principle of competitive exclusion, stable coexistence requires
-niche differentiation when species compete for limited resources
-[@Hardin1960; @Chesson2000]: differences in soil properties can promote
-distinct ecological niches among taxa, which could contribute to their
-coexistence. We therefore hypothesise that soil type and ressources
-provided contributes to the spatial differentiation of macrofaunal taxa
-and may help explain their coexistence.
-
-This study aims to investigate whether soil macrofaunal abundance and
-community composition differ between soils with different drainage types
-in the undisturbed tropical rainforest of Paracou, French Guiana, paying
-particular attention to ecosystem-engineering taxa.
 
 ```{=html}
 <!-- We hypothesize that there is a
@@ -337,15 +287,7 @@ are present, due to their roles as bioturbators [@Zhukova2022;
 termites, we are expecting niche differentiation between the both[@Tuma2020]. -->
 ```
 
-%%% ajouter de la biblio et revoir
-
-We hypothesize that: (I) macrofaunal abundance is highest in the 0–10 cm
-soil layer and community composition differs among soil layers; (II)
-macrofaunal abundance and community composition differ between soil
-types, with higher abundance expected in well-drained Alt/DVD soils than
-in SLD soils [@Bourguignon2011; @Bottinelli2015]; (III)
-ecosystem-engineer taxa show patterns consistent with these overall
-differences in macrofaunal abundance and community composition.
+Juju : According to the principle of competitive exclusion, stable coexistence requires niche differentiation when species compete for limited resources [@Hardin1960; @Chesson2000]: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer, with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022 ; Castro2024]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbations [@Bourgignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. To this end, the TSBF protocol is used for free lateral drainage and vertical drainage at three depth levels at two sites in Paracou. Identification is carried out at the taxonomic family level. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using the Permanova method. We first examine the set of taxa as a whole, then analyse the bio-engineers (termites, ants and earthworms) separately.
 
 # Material and Methods
 
