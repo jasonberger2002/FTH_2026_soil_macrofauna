@@ -455,7 +455,7 @@ and 27 groups of macrofauna were identified (with an extra
 
 All analyses was performed using R version 4.6.1 [@RCoreTeam2026]. Plots
 and data processing relied largely on the tidyverse package
-[@Wickham2019; @Wickham2023].
+[@Wickham2019; @Wickham2023]. A complete list of citations with all R packages used is available in @sec-supp.
 
 ### Explorative Analysis
 
