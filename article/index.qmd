@@ -1521,11 +1521,10 @@ the first two ordination axes are presented (arrows).
 types (argue about same vegetation cover etc.) - clear differences in
 both for layers (connect to literature knowledge)
 
-Nos identifications du sol montre une dominance des bio ingénieurs du sol dans nos relevés. Ils ne se répartissent pas selon le type de sol, donc pas d’effet sur le drainage, mais plutot selon leur capacité à prendre les ressources ? + toutes les études montrent que c'est le couvert végétal et qualité litière qui influence le plus [@Lavelle2022, @Collison2013;@Loranger-Merciris2007] alors faudrai à l'avanir se focus sur couvert végé + régime.
-
-
+en gros : Nos identifications montrent une dominance des bio ingénieurs du sol dans nos relevés (chiffre). Ils ne se répartissent pas selon le type de sol, donc pas d’effet sur le drainage, mais plutot selon leur capacité à prendre les ressources ? + toutes les études montrent que c'est le couvert végétal et qualité litière qui influence le plus [@Lavelle2022, @Collison2013;@Loranger-Merciris2007] alors faudrai à l'avenir se focus sur couvert végé + régime.
 
 This initial study of the macrofauna of Paracou enables us to confirm the great richness of its soils ??? ask Raph
+
 Contrary to our expectations, the type of water drainage and particle size distribution did not explain the specific distribution of our taxa in the soils of Paracou. The results show the same trends for taxa in general and when bioengineers are considered in isolation. We therefore do not confirm the findings of [@Lavelle2022]: soil texture does not influence the abundance of taxa in the soils of Paracou. In our study, only the soil layer determines this difference in abundance (figure), and as expected, the 0–10 cm layer is the most abundant (chiffres), both generally and for bioengineers (chiffres). Thus, the hypotheses of environmental filters and resource-based distribution appear more plausible. Indeed, studies showing differentiation between soil layers highlight a distribution based on dietary regimes and ecological strategies, rather than on soil texture. For example, earthworms are classified as epigeic, inhabiting the litter layer; endogeic, living within mineral soil horizons; and anecic, constructing deep burrows whilst feeding at the soil surface [@Bouche1977]. Depending on their diet, ants are more abundant in the litter layer, whilst termites and worms are more prevalent at a depth of 0–10 cm [@Ronchi2022; @Castro2024].
 
 
