@@ -275,7 +275,7 @@ macrofauna in general [@Velazco2023]. The few studies carried out in
 tropical environments highlight a decline in the abundance of macrofauna
 from the litter layer down to deeper soil layers, with the highest
 abundance occurring between 0 and 10 cm due to a higher supply of
-organic matter at this depth [@Fragoso1992; @Ronchi2022; @Castro2024].
+organic matter at this depth [@Fragoso1992; @Ronchi2022; @Castro2025].
 Soil moisture also influences community composition, although responses
 vary among taxa. In the central Amazon, ant abundance and diversity
 decrease where the water table remains close to the soil surface for
@@ -301,7 +301,7 @@ and termites account for approximately one-third of soil animal biomass
 soil properties [@Lavelle1992; @Bottinelli2015]. Gallery or nest
 construction by ants, earthworms and termites increases macroporosity,
 enhance hydraulic conductivity and habitat heterogeneity in the soil
-[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024).
+[@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024].
 Earthworms also modify aggregate-size distributions in topsoil and
 redistribute plant debris towards deeper soil horizons through
 bioturbation [@Zhukova2022].
@@ -310,28 +310,17 @@ Although tropical forests harbour the greatest abundance and diversity
 of soil organisms compared with any other ecosystem [@Lavelle2022] and
 French Guiana is recognised for its high diversity of soil engineers
 [@Bourguignon2010], the spatial distribution of soil macrofauna in
-undisturbed rainforests remains poorly documented. The aim of this study
-is therefore to address the lack of knowledge regarding the distribution
-of soil macrofauna in Paracou from a pedological perspective,
-specifically the soil texture and drainage. We seek to understand
-whether species abundance differs depending on whether the soil has free
-lateral drainage or vertical drainage, and whether bio-engineered
-species reflect this difference.
+undisturbed rainforests remains poorly documented.
 
-According to the principle of competitive exclusion, stable
-coexistence requires niche differentiation when species compete for
-limited resources [@Hardin1960; @Chesson2000]: differences in soil
-properties can promote distinct ecological niches among taxa. We
-therefore hypothesise that soil type and its layers contribute to the
-spatial differentiation of macrofauna taxa, owing to a varied soil
-texture that generates different resources and physico-chemical
-properties. Based on their diet and the environmental filter created by
-soil depth, we generally expect maximum abundance in the 0–10 cm layer,
-with ants being over-represented in the litter layer and termites and
-earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022; @Castro2024]. A well-drained soil with high infiltration rates will show
-more abundances, particularly in earthworm, ants and termite, due to
-their roles as bioturbations [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. 
+This study aims therefore to investigate whether soil macrofaunal abundance and
+community composition differ between soils with different drainage types and amongts soil layers
+in the undisturbed tropical rainforest of Paracou, French Guiana, paying particular attention to ecosystem-engineering taxa.
 
+<!-- According to the principle of competitive exclusion, stable
+coexistence requires niche differentiation when species compete for limited resources [@Hardin1960; @Chesson2000]: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer,
+with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022; @Castro2025]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbators [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. -->
+
+Following niche partitioning theory [@Hardin1960; @Chesson2000], differences in soil properties can generate distinct niches among taxa. We therefore hypothesise that (H1) macrofaunal abundance is highest in the 0-10 cm layer, with ants concentrated in the litter layer and termites and earthworms in the 0-10 cm layer [@Fragoso1992; @Ronchi2022; @Castro2025]; (H2) abundance is higher in well-drained soil types (Alt/DVD), particularly for ants, termites and earthworms, and community composition differs from poorly drained soils (SLD) [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015].
 
 # Material and Methods
 
@@ -1495,7 +1484,7 @@ en gros : Nos identifications montrent une dominance des bio ingénieurs du sol 
 
 This initial study of the macrofauna of Paracou enables us to confirm the great richness of its soils ??? ask Raph
 
-Contrary to our expectations, the type of water drainage and particle size distribution did not explain the specific distribution of our taxa in the soils of Paracou. The results show the same trends for taxa in general and when bioengineers are considered in isolation. We therefore do not confirm the findings of [@Lavelle2022]: soil texture does not influence the abundance of taxa in the soils of Paracou. In our study, only the soil layer determines this difference in abundance (figure), and as expected, the 0–10 cm layer is the most abundant (chiffres), both generally and for bioengineers (chiffres). Thus, the hypotheses of environmental filters and resource-based distribution appear more plausible. Indeed, studies showing differentiation between soil layers highlight a distribution based on dietary regimes and ecological strategies, rather than on soil texture. For example, earthworms are classified as epigeic, inhabiting the litter layer; endogeic, living within mineral soil horizons; and anecic, constructing deep burrows whilst feeding at the soil surface [@Bouche1977]. Depending on their diet, ants are more abundant in the litter layer, whilst termites and worms are more prevalent at a depth of 0–10 cm [@Ronchi2022; @Castro2024].
+Contrary to our expectations, the type of water drainage and particle size distribution did not explain the specific distribution of our taxa in the soils of Paracou. The results show the same trends for taxa in general and when bioengineers are considered in isolation. We therefore do not confirm the findings of [@Lavelle2022]: soil texture does not influence the abundance of taxa in the soils of Paracou. In our study, only the soil layer determines this difference in abundance (figure), and as expected, the 0–10 cm layer is the most abundant (chiffres), both generally and for bioengineers (chiffres). Thus, the hypotheses of environmental filters and resource-based distribution appear more plausible. Indeed, studies showing differentiation between soil layers highlight a distribution based on dietary regimes and ecological strategies, rather than on soil texture. For example, earthworms are classified as epigeic, inhabiting the litter layer; endogeic, living within mineral soil horizons; and anecic, constructing deep burrows whilst feeding at the soil surface [@Bouche1977]. Depending on their diet, ants are more abundant in the litter layer, whilst termites and worms are more prevalent at a depth of 0–10 cm [@Ronchi2022; @Castro2025].
 
 
 # Conclusion
