@@ -1,5 +1,5 @@
 ---
-title: "Effects of soil drainage types on macrofaunal community composition and density"
+title: "Effects of soil layers and drainage types on macrofaunal community composition and density"
 # Output formats
 format:
   stylisharticle-pdf:
