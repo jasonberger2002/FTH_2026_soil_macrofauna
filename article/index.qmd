@@ -263,10 +263,10 @@ structure and physicochemical properties [@Vasconcellos2013;
 @Ferrin2026; @Lavelle1992; @Collison2013; @Lavelle2022;
 @Loranger-Merciris2007; @Ramos2025].
 
-<!-- Relationships between soil texture and macrofauna -->
+<!-- Relationships between soil texture and macrofauna 
 %%%moi j'aurai mis aussi l'exemple avec la répartition des espèces selon
 granulo en riparian forest car c'est al seule étude sur ca mais bon à
-voir si ya la place... 
+voir si ya la place...-->
 
 Soil texture accounts for 3.9% of the variation
 in soil macrofaunal community structure at the global scale
