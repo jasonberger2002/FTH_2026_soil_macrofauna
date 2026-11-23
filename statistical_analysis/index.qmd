@@ -90,6 +90,13 @@ The code was subsequently modified and extended for the following analysis.
 
 ------------------------------------------------------------------------
 
+### Disclaimer:
+
+This document is to be seen as supplementary material to our report.
+Final conclusions and interpretations are to be taken from the report.
+The present document supplies additional steps in our analysis, such as the model selection and diagnostics.
+It can be rendered as PDF or HTML and all outputs and codes are retained.
+
 # Preparation
 
 ## Loading data
