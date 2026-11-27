@@ -82,7 +82,7 @@ author:
     email: konczaknelle@gmail.com
 # Abstract and Keywords
 abstract: |
-  <!--Background--> Soil macrofauna is essential to the functioning of ecosystems, with intricate interactions between the soil and its fauna. Rainforests host one of the largest soil macrofauna diversities in the world. <!--Objective--> Nevertheless, tropical soil macrofauna and its interdependence   with soil properties remain severely understudied. Therefore, this study aims to elucidate the distribution of soil taxa along soil layers and drainage types. <!--Methodo--> We studied abundance and community composition between soil layers and drainage types, with attention to ecosystem-engineering taxa (ants, termites, earthworms). At Paracou, French Guiana, we sampled 20 monoliths (TSBF method; litter, 0-10 and 10-20 cm layers) in well-drained (Alt/DVD) and laterally drained (SLD) soils, sorting 2,187 individuals into 27 coarse taxonomic groups. <!--Results--> Total abundance was highest in the 0-10 cm layer which was reflected by ant and termite abundances (GLMM). Layer explained 16.3% of compositional variation (PERMANOVA). We detected no effects of the soil drainage types on abundance or composition. <!--Conclusion--> Depth clearly structured communities and should be accounted for when investigating other drivers. Further soil types and variables should be tested to understand effects of soil drainage on macrofaunal communities.
+  <!--Background--> Soil macrofauna is essential to the functioning of ecosystems, with complex interactions between the soil and its fauna. Rainforests host one of the largest soil macrofauna diversities in the world. <!--Objective--> Nevertheless, tropical soil macrofauna and its interdependence   with soil properties remain severely understudied. Therefore, this study aims to explore the distribution of soil taxa along soil layers and drainage types. <!--Methodo--> At Paracou, French Guiana, we studied abundance and community composition between soil layers and drainage types, with attention to ecosystem-engineering taxa (ants, termites, earthworms). 20 monoliths (TSBF method; litter, 0-10 and 10-20 cm layers) were sampled in well-drained (Alt/DVD) and laterally drained (SLD) soils, sorting 2,187 individuals into 27 coarse taxonomic groups. <!--Results--> Total abundance was highest in the 0-10 cm layer which was reflected by ant and termite abundances (GLMM). 16.3% of compositional variation was explained by layer (PERMANOVA). Soil drainage type had no effect on abundance or composition. <!--Conclusion--> Depth clearly structured communities and should be accounted for when investigating other drivers. Further soil types and variables should be tested to understand effects of soil drainage on macrofaunal communities.
 
 keywords: [soil macrofauna, community composition, soil drainage, Paracou, Amazon forest, soil ecology]
 # Bibliography
@@ -245,12 +245,12 @@ gg_fontsize <- function(s = 1) {
 ```
 
 # Introduction
-
+<!-- %%% Timothy: sentence on macrofauna abundance signpost sentence at the beginning -->
 Tropical rainforests cover a small portion of the Earth’s land surface
-but are home to a disproportionately large portion of the world’s
+but house a disproportionately large portion of the world’s
 biodiversity, both above and below ground [@Chen2023; @Hu2022;
 @Myers2000]. This biodiversity includes trees but also soil organisms,
-which contains microbial communities and edaphic fauna, all of which
+including microbial communities and edaphic fauna, all of which
 play a significant role in ecosystem functioning [@Bever2010;
 @Robinson2024; @VanLangenhove2021].
 
@@ -277,14 +277,13 @@ tropical environments highlight a decline in the abundance of macrofauna
 from the litter layer down to deeper soil layers, with the highest
 abundance occurring between 0 and 10 cm due to a higher supply of
 organic matter at this depth [@Fragoso1992; @Ronchi2022; @Castro2025].
-Soil moisture also influences community composition, although responses
-vary among taxa. In the central Amazon, ant abundance and diversity
+Soil moisture also influences community composition. In the central Amazon, ant abundance and diversity
 decrease where the water table remains close to the soil surface for
 prolonged periods [@Baccaro2013]. Similarly, termite assemblages in
 French Guianan primary forests vary along moisture gradients, with swamp
 and lowland forests harbouring distinct communities from well-drained
-forests [@Bourguignon2010]. However, biotic interactions play also a
-role in this repartition: the ants' predation on termites leads to a
+forests [@Bourguignon2010]. However, biotic interactions also play a
+role: ants' predation on termites leads to a
 niche differentiation between the two species [@Tuma2020].
 
 <!-- Soil bioengineers and their effects on soil properties -->
@@ -293,35 +292,34 @@ Conversely, soil macrofauna can modify soil properties, including
 aggregate structure, porosity and hydraulic conductivity. Soil
 bioengineers are organisms that physically and chemically modify their
 environment through resource acquisition and habitat construction. Ants,
-termites and earthworms act as (1) bioturbators, redistributing soil
-particles and creating galleries; (2) aggregate modifiers, through
-processes such as earthworm cast production; and (3) mineral
+termites and earthworms act as: bioturbators, redistributing soil
+particles and creating galleries; aggregate modifiers, through
+processes such as earthworm cast production; and mineral
 transformers [@Bottinelli2015]. In Amazonian terra firme forests, ants
 and termites account for approximately one-third of soil animal biomass
 [@Fittkau1973]. Their engineering activities can substantially modify
 soil properties [@Lavelle1992; @Bottinelli2015]. Gallery or nest
-construction by ants, earthworms and termites increases macroporosity,
-enhance hydraulic conductivity and habitat heterogeneity in the soil
+construction by ants, earthworms and termites increases macroporosity, and enhances hydraulic conductivity and habitat heterogeneity in the soil
 [@Lavelle1992; @Marichal2014; @Cheik2019; @Pham2023; @Capowiez2024].
 Earthworms also modify aggregate-size distributions in topsoil and
 redistribute plant debris towards deeper soil horizons through
 bioturbation [@Zhukova2022].
 
-Although tropical forests harbour the greatest abundance and diversity
-of soil organisms compared with any other ecosystem [@Lavelle2022] and
+Although tropical forest ecosystems harbor the greatest abundance and diversity
+of soil organisms [@Lavelle2022] and
 French Guiana is recognised for its high diversity of soil engineers
 [@Bourguignon2010], the spatial distribution of soil macrofauna in
-undisturbed rainforests remains poorly documented.
+undisturbed rainforests is underdocumented.
 
 This study aims therefore to investigate whether soil macrofaunal abundance and
-community composition differ between soils with different drainage types and amongts soil layers
+community composition differ between soils with different drainage types and among soil layers
 in the undisturbed tropical rainforest of Paracou, French Guiana, paying particular attention to ecosystem-engineering taxa.
 
 <!-- According to the principle of competitive exclusion, stable
 coexistence requires niche differentiation when species compete for limited resources [@Hardin1960; @Chesson2000]: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer,
 with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022; @Castro2025]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbators [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. -->
 
-Following niche partitioning theory [@Hardin1960; @Chesson2000], differences in soil properties can generate distinct niches among taxa. We therefore hypothesise that (H1) macrofaunal abundance is highest in the 0-10 cm layer, with ants concentrated in the litter layer and termites and earthworms in the 0-10 cm layer [@Fragoso1992; @Ronchi2022; @Castro2025]; (H2) abundance is higher in well-drained soil types (Alt/DVD), particularly for ants, termites and earthworms, and community composition differs from poorly drained soils (SLD) [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015].
+Following niche partitioning theory [@Hardin1960; @Chesson2000], differences in soil properties can generate distinct niches among taxa. We therefore hypothesise that (1) macrofaunal abundance is highest in the 0-10 cm layer, with ants concentrated in the litter layer and termites and earthworms in the 0-10 cm layer [@Fragoso1992; @Ronchi2022; @Castro2025]; (2) abundance is higher in well-drained soil types (Alt/DVD), particularly for ants, termites and earthworms, and community composition differs from poorly drained soils (SLD) [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015].
 
 # Material and Methods
 
@@ -329,40 +327,38 @@ Following niche partitioning theory [@Hardin1960; @Chesson2000], differences in 
 
 ### Geographic Location
 
-This study was conducted in Amazonian primary tropical forest at the
-Paracou Research Station (5°16′38″N, 52°55′38″W). The average air
+This study was conducted at the
+Paracou Research Station (5°16′38″N, 52°55′38″W), in Amazonian primary tropical forest. The average air
 temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual
 rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season
 from December to July (between 300 and 500 mm per month) and a long dry
-season from mid-August to mid-November (\< 100 mm per month). In
-Paracou, a permanent forest dynamic experiment was established in 1984.
+season from mid-August to mid-November (\< 100 mm per month). A permanent forest dynamic experiment was established at Paracou in 1984.
 The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one
-plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in
+plot measuring 500 × 500 m² (25 ha). Our experiment was carried out in
 two of the unlogged control plots: Plot 1 (P1), installed in 1984, and
-Plot 15 (P15) in 1990 [@Gourlet-Fleury2004]. The geological substratum
+Plot 15 (P15) installed in 1990 [@Gourlet-Fleury2004]. The geological substratum
 of Paracou consists primarily of Precambrian schists intruded by
 pegmatite veins, belonging to the metamorphic Bonidoro Series
-[@Choubert1974]. The site exhibits a relatively low elevation (5 to 50 m
-a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary
+[@Choubert1974]. The site exhibits a relatively low elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary
 River [@Gourlet-Fleury2004].
 
 ### Soil Characteristics of Paracou
 
 The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite
 and gibbsite) [@FAO1998; @Driessen2001], characterized by a shallow
-depth limited by a more or less transformed loamy saprolite
+depth delimited by a partially transformed loamy saprolite
 [@Gourlet-Fleury2004].
 
-Soil distribution and drainage vary strongly in Paracou, as has been
+Soil distribution and drainage vary strongly in Paracou, influenced by the topographic gradient, as has been
 shown by prior mappings [@Soucemarianadin2004; @Weigel2006;
-@Roelens2007], influenced by the topographic gradient. This study
+@Roelens2007]. This study
 focuses on two soil types present at Paracou, namely soils with
 Superficial Lateral Drainage (SLD) and Deep Vertical Drainage/altered
 phase (Alt/DVD).
 
 Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located
 on flat hilltops or plateaus and feature a thick ferralitic cover that
-lets rainwater percolate freely in depth. The altered phase (Alt) begins
+lets rainwater percolate freely and deeply. The altered phase (Alt) begins
 where red, muscovite-rich alloterite appears above 1.2 m depth,
 signaling initial soil thinning [@Sabatier1997]. Plateau soils contain
 higher levels of carbon, nitrogen, and aluminum [@Allie2015], support
@@ -377,9 +373,6 @@ soils have higher bulk density and surface moisture, but lower organic
 carbon, root biomass, and soil respiration [@Epron2006].
 
 ## Sampling and Identification
-
-To evaluate how soil type influences macrofaunal communities, two
-contrasting ferralitic soil (DVS/Alt and SLD) types were compared.
 
 ### Soil Type Verification
 
@@ -397,26 +390,26 @@ Five macrofauna samples were collected in each soil type (Alt/DVD and
 SLD) per plot (P1 and P15) using the Tropical Soil Biology and Fertility
 (TSBF) method by @Anderson1994.
 
-To account for local topography, Alt/DVD (hilltop) samples were arranged
-in a cross-pattern, whereas SLD (mid-slope) samples were aligned along a
-transect following the slope. All sampling points were spaced at least
-10 m apart to reduce spatial dependance of macrofauna samples (see
+Alt/DVD (hilltop) samples were arranged
+in a standard cross-pattern, whereas SLD (mid-slope) samples were aligned along a
+transect following the slope to account for the topography. All sampling points were spaced at least
+10 m apart to reduce spatial dependence of macrofauna samples (see
 [Appendix](#sec-appendix) @fig-map for spatial representation).
 
-Following the TSBF method [@Anderson1994], a 25 × 25 × 10 cm metal frame
-was placed on the ground at for each sample (called monolith). First,
-the litter (L) was quickly removed, trying to avoid fauna to escape, and
-collected in a labeled bag. Next, the frame is pressed 10 cm deep into
-the soil to isolate a soil block. This process was performed twice to
+A 25 × 25 × 10 cm metal frame
+was placed on the ground at for each sample . First,
+the litter (L) was quickly removed, to avoid fauna escape, and
+collected in a labeled bag. Next, the frame was pressed 10 cm deep into
+the soil to isolate a soil block (called a monolith). This process was performed twice to
 collect the soil layers of 0 to 10 cm (10) and 10 to 20 cm (20) depth
 which were also collected in separate bags.
 
 ### Sample Sorting and Identification
 
 Samples were manually sorted at the field station and litter samples (L)
-processed first to avoid macrofauna from escaping. Soil was sorted by
+processed first to avoid macrofauna escaping. Soil was sorted by
 transferring around 200 g of substrate into a container. Each portion
-was observed for an average of 2 minutes by an observer. Macrofauna was
+was observed for an average of 2 minutes. Macrofauna was
 collected using a brush and stored in 90% ethanol, separated according
 to monolith and layer of soil. Subsequently, the organisms were
 identified on a coarse taxonomic level (refer to the data file in
