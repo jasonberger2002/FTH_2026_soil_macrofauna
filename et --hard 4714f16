@@ -1,0 +1,16 @@
+[33mcea3bfc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: commit: ok
+[33ma19dff2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: reset: moving to origin/main
+[33ma19dff2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: reset: moving to HEAD~1
+[33m4714f16[m HEAD@{3}: commit: ras
+[33ma19dff2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{4}: pull: Fast-forward
+[33me3e5098[m HEAD@{5}: pull: Merge made by the 'ort' strategy.
+[33mc46d1c3[m HEAD@{6}: commit: no a la ZIC
+[33m83d530d[m HEAD@{7}: commit: reformulation @Allie2015
+[33md035fc4[m HEAD@{8}: commit: mettoyag de la descritption de la repartition des pentes dans P1 et P15
+[33m1de8428[m HEAD@{9}: pull: Fast-forward
+[33m7b64109[m HEAD@{10}: pull: Merge made by the 'ort' strategy.
+[33ma518102[m HEAD@{11}: commit (merge): ajout des détails sur les DLS que j'avais pas ajouté précédement
+[33md8c29bb[m HEAD@{12}: commit: ok
+[33m6782b1b[m HEAD@{13}: commit (merge): resolve confict
+[33md3233f1[m HEAD@{14}: commit: MM avec citations
+[33m03b3cec[m HEAD@{15}: clone: from github.com:jasonberger2002/FTH_2026_soil_macrofauna.git
