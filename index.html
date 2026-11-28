@@ -132,15 +132,14 @@ window.Quarto = {
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
   <ul class="collapse">
-  <li><a href="#macrofauna-abundance" id="toc-macrofauna-abundance" class="nav-link" data-scroll-target="#macrofauna-abundance"><span class="header-section-number">3.1</span> Macrofauna abundance</a></li>
-  <li><a href="#glmm" id="toc-glmm" class="nav-link" data-scroll-target="#glmm"><span class="header-section-number">3.2</span> GLMM</a>
+  <li><a href="#macrofauna-abundance" id="toc-macrofauna-abundance" class="nav-link" data-scroll-target="#macrofauna-abundance"><span class="header-section-number">3.1</span> Macrofauna abundance</a>
   <ul class="collapse">
   <li><a href="#global-abundance" id="toc-global-abundance" class="nav-link" data-scroll-target="#global-abundance">Global Abundance</a></li>
   <li><a href="#formicidae" id="toc-formicidae" class="nav-link" data-scroll-target="#formicidae">Formicidae</a></li>
   <li><a href="#isoptera" id="toc-isoptera" class="nav-link" data-scroll-target="#isoptera">Isoptera</a></li>
   <li><a href="#lumbricina-oligochaetes" id="toc-lumbricina-oligochaetes" class="nav-link" data-scroll-target="#lumbricina-oligochaetes">Lumbricina Oligochaetes</a></li>
   </ul></li>
-  <li><a href="#community-composition" id="toc-community-composition" class="nav-link" data-scroll-target="#community-composition"><span class="header-section-number">3.3</span> Community composition</a></li>
+  <li><a href="#community-composition" id="toc-community-composition" class="nav-link" data-scroll-target="#community-composition"><span class="header-section-number">3.2</span> Community composition</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
@@ -354,9 +353,24 @@ Figure&nbsp;1: Total macrofauna density (ind. m⁻²) by soil layer (L = litter,
 </figcaption>
 </figure>
 </div>
-<p>Community composition changed more between layers than between soil types (<a href="#fig-comp" class="quarto-xref">Figure&nbsp;2</a>). In the litter, no Lumbricina were found in either soil type. Alt/DVD soils were home to a bigger proportion of Isoptera compared to Formicidae. Conversely, SLD soils hosted a greater proportion of Formicidae compared to Isoptera. Two groups dominated the 0-10 cm layer in both soil types : Isoptera and Formicidae that each made up for approximately half the composition of both soil type in this layer. Earthworms (Lumbricina) were a small part of the catch there (~2 % and ~5 %). Finally, in the 10-20 cm layer, Isoptera almost disappeared (0 % in Alt/DVD and 1 % in SLD) and Formicidae became clearly dominant, at about 70 % of individuals. They were followed by the other groups combined (about 18 %) and Lumbricina (9 % and 11 %).</p>
-<p>The litter was the only layer where the two soil types looked different. These proportions rest on small numbers, so a few samples can change them a lot.</p>
-<!-- %%% We ran a principal component analysis (PCA) on the abundances of all
+<!-- %%% Community composition changed more between layers than between soil
+types (@fig-comp). In the litter, no Lumbricina were found in either
+soil type. Alt/DVD soils were home to a bigger proportion of Isoptera
+compared to Formicidae. Conversely, SLD soils hosted a greater
+proportion of Formicidae compared to Isoptera. Two groups dominated the
+0-10 cm layer in both soil types : Isoptera and Formicidae that each
+made up for approximately half the composition of both soil type in this
+layer. Earthworms (Lumbricina) were a small part of the catch there (\~2
+% and \~5 %). Finally, in the 10-20 cm layer, Isoptera almost
+disappeared (0 % in Alt/DVD and 1 % in SLD) and Formicidae became
+clearly dominant, at about 70 % of individuals. They were followed by
+the other groups combined (about 18 %) and Lumbricina (9 % and 11 %).
+
+The litter was the only layer where the two soil types looked different.
+These proportions rest on small numbers, so a few samples can change
+them a lot.
+
+We ran a principal component analysis (PCA) on the abundances of all
 taxa, after a Hellinger transformation, to see whether samples from the
 two soil types differed in composition (@fig-pca). The first two axes
 explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1
@@ -384,11 +398,14 @@ show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
 are 95 % confidence ellipses for each soil type. Arrows show the taxa
 best represented on the first two axes. Their colour indicates the
 squared cosine (cos²) (values close to 1 mean a good representation of
-the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.-->
-</section>
-<section id="glmm" class="level2 page-columns page-full" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="glmm"><span class="header-section-number">3.2</span> GLMM</h2>
-<p>Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in <a href="#tbl-models" class="quarto-xref">Table&nbsp;1</a>.</p>
+the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
+
+
+## GLMM
+
+Effects of soil type and layer were tested on global, ant, termite and
+earthworm abundances. All retained models described below are listed in
+@tbl-models.-->
 <section id="global-abundance" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="global-abundance">Global Abundance</h3>
 <div id="tbl-models" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="table*">
@@ -1504,8 +1521,8 @@ Table&nbsp;2: Estimated marginal means and Tukey pairwise comparisons of abundan
 <p>For density boxplots for Formicidae, Isoptera and Lumbricina oligochaetes, see <a href="#sec-appendix">Appendix</a> <a href="#fig-density-taxa" class="quarto-xref">Figure&nbsp;5</a>.</p>
 </section>
 </section>
-<section id="community-composition" class="level2 page-columns page-full" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">3.3</span> Community composition</h2>
+<section id="community-composition" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">3.2</span> Community composition</h2>
 <p>Community composition varied visibly more among soil layers than between soil types (<a href="#fig-comp" class="quarto-xref">Figure&nbsp;2</a>). Lumbricina were absent from the litter in both soil types. The relative proportions of Isoptera and Formicidae appeared to differ between soil types: Isoptera were more abundant in Alt/DVD, whereas Formicidae represented a larger proportion in SLD. Two groups dominated the 0-10 cm layer in both soil types: Isoptera and Formicidae each made up for approximately half of the relative composition of both soil types. Earthworms (Lumbricina) represented a small part therein (~2% and ~5%). In the 10-20 cm layer, Isoptera were nearly absent (0 % in Alt/DVD and 1% in SLD) and Formicidae dominated, representing about 70% of individuals. Lumbricina represented around 9% and 11% of individuals in Alt/DVD and SLD, respectively, while all remaining taxa combined accounted for approximately 18%.</p>
 <p>An exploratory PCA macrofaunal abundances is provided in the <a href="#sec-appendix">Appendix</a> (<a href="#fig-pca" class="quarto-xref">Figure&nbsp;6</a>).</p>
 <div id="fig-comp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure">
@@ -2032,7 +2049,7 @@ Table&nbsp;3: Pairwise PERMANOVA for community composition comparisons between l
 </figcaption>
 </figure>
 </div>
-<div id="fig-pcoa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*" data-fig-pos="t">
+<div id="fig-pcoa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-pos="t" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
@@ -2259,7 +2276,7 @@ Zhukova, Y. O., &amp; Mytiai, I. S. (2022). Spatial organization of the soil mac
 </div>
 </section>
 </div>
-<div id="fig-map" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure" data-fig-pos="H">
+<div id="fig-map" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-pos="H" data-fig-env="figure">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
@@ -2279,7 +2296,7 @@ Figure&nbsp;4: Overview map of Paracou with the sampling locations. Location of 
 </figcaption>
 </figure>
 </div>
-<div id="fig-density-taxa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure" data-fig-pos="H">
+<div id="fig-density-taxa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-pos="H" data-fig-env="figure">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-density-taxa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
