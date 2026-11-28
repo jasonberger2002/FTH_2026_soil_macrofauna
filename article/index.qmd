@@ -719,7 +719,6 @@ pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5
 monoliths).
 :::
 
-<<<<<<< HEAD
 Community composition changed more between layers than between soil
 types (@fig-comp). In the litter, no Lumbricina were found in either
 soil type. Alt/DVD soils were home to a bigger proportion of Isoptera
@@ -736,82 +735,6 @@ the other groups combined (about 18 %) and Lumbricina (9 % and 11 %).
 The litter was the only layer where the two soil types looked different.
 These proportions rest on small numbers, so a few samples can change
 them a lot.
-
-::: {#fig-comp fig-env="figure"}
-```{r}
-#| label: Relative composition FIGURE
-#| include: true
-#| out-width: 100%
-
-# Group taxa into the three focal groups and others
-composition <- df_long %>%
-  mutate(
-    taxon_group = case_when(
-      taxon == "Formicidae" ~ "Formicidae",
-      taxon == "Isoptera" ~ "Isoptera",
-      taxon == "Lumbricina_oligochaetes" ~ "Lumbricina_oligochaetes",
-      TRUE ~ "Others"
-    ),
-    layer = factor(layer, levels = c("L", "10", "20")),
-    taxon_group = factor(
-      taxon_group,
-      levels = names(taxon_colors)
-    )
-  ) %>%
-  group_by(soil_type, layer, taxon_group) %>%
-  summarise(
-    total = sum(count, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  group_by(soil_type, layer) %>%
-  mutate(
-    proportion = total / sum(total)
-  ) %>%
-  ungroup()
-
-# Plot taxonomic composition
-fig_composition <- ggplot(
-  composition,
-  aes(x = soil_type, y = proportion, fill = taxon_group)
-) +
-  geom_col(colour = "white", width = 0.7, linewidth = 0.15) +
-  facet_wrap(~ layer) +
-  scale_y_continuous(
-    labels = scales::percent,
-    limits = c(0, 1),
-    expand = expansion(mult = c(0, 0.02))   # removes gap below 0%
-  ) +
-  scale_fill_manual(
-    values = taxon_colors,
-    drop = FALSE,
-    labels = c(
-      Formicidae              = "Formicidae",
-      Isoptera                = "Isoptera",
-      Lumbricina_oligochaetes = "Lumbricina",
-      Others                  = "Others"
-    ),
-    guide = guide_legend(nrow = 1, byrow = TRUE)
-  ) +
-  labs(x = "Soil type", y = "Proportion of individuals", fill = NULL) +
-  theme_bw() +
-  theme(
-    !!!gg_fontsize(),
-    legend.position   = "bottom",
-    legend.key.size   = unit(0.35, "cm"),
-    legend.text       = element_text(size = rel(0.85)),
-    legend.margin     = margin(0, 0, 0, 0),
-    legend.box.spacing = unit(2, "pt"),
-    aspect.ratio      = 1.3
-  )
-
-print(fig_composition)
-```
-
-Relative abundance of Formicidae, Isoptera, Lumbricina and all other
-taxa combined (Others), by soil layer (L = litter, 10 = 0-10 cm, 20 =
-10-20 cm) and soil type. Proportions are calculated from the total
-number of individuals found in all samples of each soil type and layer.
-:::
 
 We ran a principal component analysis (PCA) on the abundances of all
 taxa, after a Hellinger transformation, to see whether samples from the
@@ -1038,8 +961,6 @@ the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
 
 ## GLMM
 
-=======
->>>>>>> ac34becf11f2c267bdee6aab20b86a74002f8bfc
 Effects of soil type and layer were tested on global, ant, termite and
 earthworm abundances. All retained models described below are listed in
 @tbl-models.
