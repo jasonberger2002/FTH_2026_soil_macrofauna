@@ -1550,23 +1550,6 @@ plot(p)
 ```
 :::
 
-First two components of the Bray-Curtis PCoA representing 26.1% of the
-variation in macrofaunal community composition. Convex hulls indicate
-soil layers. Taxa singificantly associated (after BH correction) with
-the first two ordination axes are presented (arrows).
-
-In the Principal Coordinates Analysis (PCoA) based on Bray Curtis
-dissimilarities, the first two axes explained 26.1% of the corrected
-total variance (15.8% for PCoA1 and 10.3% for PCoA2). Convex hulls
-overlapped substantially in the projection.
-A subset of samples from the 10 cm layer extend toward positive PCoA1
-values. Vector fitting onto the PCoA ordination identified four taxa
-significantly correlated with the ordination space (Padj\<0.05,
-Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and
-Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1
-scores, indicating that higher abundances of these taxa drove the
-separation of these 10 cm layer samples along the first axis.
-
 # Discussion
 
 %%% TEXT - no differences in densities or community composition for soil
