@@ -96,12 +96,8 @@ The code was subsequently modified and extended for the following analysis.
 
 ```{r}
 #| label: Load and set variable types
-<<<<<<< HEAD
-df <- read_excel("../data/macrofaune_counts.xlsx")
-df<-read_excel("C:/Users/jujuk/OneDrive/Documents/M2 Kourou/PROJET PEDO/FTH_2026_soil_macrofauna/data/macrofaune_counts.xlsx")
-=======
+
 df <- read_excel("../data/macrofauna_counts.xlsx")
->>>>>>> e3e50986f9061afa4b2ecd5c917c2faead44377a
 df[7:ncol(df)] <- lapply(df[7:ncol(df)], as.numeric)
 df[c(1, 3:6)] <- lapply(df[c(1, 3:6)], as.factor)
 str(df)
@@ -286,6 +282,7 @@ The other groups have been gathered together because their respective small abun
 The abundances of the tree mains group seems changed between layers : Formicidae are more abundant in the 20 layer but seems dominated in each soil types and layers.
 Isoptera are nearly absent in the layer 20, but they dominate as Formicidae in the layer 10 and layer L in ALT.
 Lumbricina are absent in the layer L, and seem more abundant in the layer 20 than 10.
+(all relative contributions)
 
 ### PCA
 
@@ -766,7 +763,7 @@ Type II Wald chi-square tests revealed a highly significant effect of soil layer
 The effect of soil type was not significant ($\chi^2$ = 0.89, df = 1, p = 0.347).
 The estimated random-effect variance for monolith was effectively zero (8.22 × 10⁻⁹; SD = 0.00009), indicating virtually no remaining variation in baseline termite abundance among monoliths after accounting for the fixed effects.
 
-Pairwise comparisons with Tukey adjustment showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated richness for 20 nearing zero).
+Pairwise comparisons with Tukey adjustment showed that termite abundance was significantly higher in layer 10 than in layer L (18.08 times) and layer 20 (745.48 times; estimated abundance for 20 nearing zero).
 Abundance was also significantly higher in layer L than in layer 20 (41.23 times; all p \leq 0.0073).
 
 #### Lumbricina oligochaetes (Earthworms)
@@ -1022,6 +1019,7 @@ Significant differences were observed between L and 10 (F = 6.05, R² = 0.141, a
 pcoa_layer <- cmdscale(
   dist_layer, k = 2, eig = TRUE, add = TRUE
 ) # set k for number of dimensions +> k = 2 two dimensional
+# Cailliez correction applied
 
 # sample scores
 pcoa_df_perm <- data.frame(
@@ -1146,7 +1144,7 @@ print(p)
 ```
 
 ```{r}
-#| label: Print taxa significantly associated with ordination
+#| label: Print taxa significantly correlated with ordination (2 axes)
 taxa_results %>%
   filter(p_adjusted < 0.05) %>%
   arrange(p_adjusted)
@@ -1157,8 +1155,8 @@ The first two PCoA axes accounted for 26.1% of the variation in macrofauna commu
 The ordination showed partial separation of communities among soil layers.
 Samples from layers L and 20 exhibited substantial overlap, whereas samples from layer 10 were more distinctly shifted towards the right of the ordination.
 
-The envfit analysis identified four taxa significantly associated with the ordination: Isoptera (R² = 0.501, adjusted p = 0.0014), Chilopoda (R² = 0.183, adjusted p = 0.0014), Opiliones (R² = 0.155, adjusted p = 0.0103) and Lumbricina_oligochaetes (R² = 0.238, adjusted p = 0.0154).
-Isoptera showed the strongest association with the ordination.
+The envfit analysis identified four taxa significantly correlated with the ordination (first two dimensions): Isoptera (R² = 0.501, adjusted p = 0.0014), Chilopoda (R² = 0.183, adjusted p = 0.0014), Opiliones (R² = 0.155, adjusted p = 0.0103) and Lumbricina_oligochaetes (R² = 0.238, adjusted p = 0.0154).
+Isoptera showed the strongest correlation with the ordination.
 
 ### PERMANOVA for soil types
 

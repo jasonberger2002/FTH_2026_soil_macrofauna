@@ -4,8 +4,11 @@
 % Print the title and abstract box
 \maketitle
 
-% Print the contents section
+% Print the contents section (modified Jason Berger 20.11.2026, to remove toc)
+$if(toc)$
 \tableofcontents
+$endif$
 
 % Remove page numbering from the first page
 \thispagestyle{empty}
+

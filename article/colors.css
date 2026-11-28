@@ -16,3 +16,13 @@ table caption {
   text-align: center;
   font-weight: bold;
 }
+
+/* Main section headings */
+h1 {
+  color: #285B45;
+}
+
+/* Subsection headings */
+h2 {
+  color: #285B45;
+}

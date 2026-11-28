@@ -50,7 +50,7 @@
 % Headers
 \lhead{}%
 \chead{}%
-\rhead{\small\sffamily\bfseries\@PaperTitle\  --- \thepage/\pageref{LastPage}}
+\rhead{\small\sffamily\bfseries\@PaperTitle\  --- \thepage/\ifinappendix\appendixpages\else\mainpages\fi}	%JB201126: change ref_page
 % Footers
 \lfoot{}%
 \cfoot{}%
