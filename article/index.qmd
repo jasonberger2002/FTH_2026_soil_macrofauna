@@ -603,7 +603,7 @@ pseudo-logarithmic scale. Each box represents 10 samples (2 plots x 5
 monoliths).
 :::
 
-Community composition changed more between layers than between soil
+<!-- %%% Community composition changed more between layers than between soil
 types (@fig-comp). In the litter, no Lumbricina were found in either
 soil type. Alt/DVD soils were home to a bigger proportion of Isoptera
 compared to Formicidae. Conversely, SLD soils hosted a greater
@@ -620,7 +620,7 @@ The litter was the only layer where the two soil types looked different.
 These proportions rest on small numbers, so a few samples can change
 them a lot.
 
-<!-- %%% We ran a principal component analysis (PCA) on the abundances of all
+We ran a principal component analysis (PCA) on the abundances of all
 taxa, after a Hellinger transformation, to see whether samples from the
 two soil types differed in composition (@fig-pca). The first two axes
 explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1
@@ -648,14 +648,14 @@ show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
 are 95 % confidence ellipses for each soil type. Arrows show the taxa
 best represented on the first two axes. Their colour indicates the
 squared cosine (cos²) (values close to 1 mean a good representation of
-the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.-->
+the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.
 
 
 ## GLMM
 
 Effects of soil type and layer were tested on global, ant, termite and
 earthworm abundances. All retained models described below are listed in
-@tbl-models.
+@tbl-models.-->
 
 ### Global Abundance
 
