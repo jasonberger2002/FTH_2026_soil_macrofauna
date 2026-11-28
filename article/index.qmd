@@ -649,7 +649,7 @@ are 95 % confidence ellipses for each soil type. Arrows show the taxa
 best represented on the first two axes. Their colour indicates the
 squared cosine (cos²) (values close to 1 mean a good representation of
 the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.-->
-:::
+
 
 ## GLMM
 
