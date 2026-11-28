@@ -1583,7 +1583,7 @@ the Quarto file used to produce this article, is available from
 # References {.unnumbered}
 
 ::: {#refs}
-
+:::
 <!-- dissolve column structure, reset page and figure counters, create new counter with prefix A for Appendix section -->
 
 \markmainend
@@ -1601,7 +1601,7 @@ the Quarto file used to produce this article, is available from
 \setcounter{table}{0}
 
 # Appendix {#sec-appendix .unnumbered}
-:::
+
 ::: {#fig-map fig-env="figure" fig-pos="H"}
 ```{r}
 #| label: map FIGURE
