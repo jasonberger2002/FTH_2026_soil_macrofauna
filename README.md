@@ -1,4 +1,6 @@
-# FTH_2026_soil_macrofauna
+# [FTH_2026_soil_macrofauna](https://jasonberger2002.github.io/FTH_2026_soil_macrofauna/)
+*(click above to access the rendered HTML website of the article)*
+
 #### Students: Jason BERGER; Nina FARAH; Juliette KIFFER; Nelle KONCZAK
 
 #### Project supervisors: Vincent FREYCON; Raphaël MARICHAL; Ariane MIRABEL
