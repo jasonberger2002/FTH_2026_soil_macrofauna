@@ -1599,7 +1599,6 @@ the Quarto file used to produce this article, is available from
 # References {.unnumbered}
 
 ::: {#refs}
-:::
 
 <!-- dissolve column structure, reset page and figure counters, create new counter with prefix A for Appendix section -->
 
