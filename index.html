@@ -132,21 +132,21 @@ window.Quarto = {
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
   <ul class="collapse">
-  <li><a href="#macrofauna-abundance" id="toc-macrofauna-abundance" class="nav-link" data-scroll-target="#macrofauna-abundance"><span class="header-section-number">3.1</span> Macrofauna abundance</a>
+  <li><a href="#macrofauna-abundance" id="toc-macrofauna-abundance" class="nav-link" data-scroll-target="#macrofauna-abundance"><span class="header-section-number">3.1</span> Macrofauna abundance</a></li>
+  <li><a href="#glmm" id="toc-glmm" class="nav-link" data-scroll-target="#glmm"><span class="header-section-number">3.2</span> GLMM</a>
   <ul class="collapse">
   <li><a href="#global-abundance" id="toc-global-abundance" class="nav-link" data-scroll-target="#global-abundance">Global Abundance</a></li>
   <li><a href="#formicidae" id="toc-formicidae" class="nav-link" data-scroll-target="#formicidae">Formicidae</a></li>
   <li><a href="#isoptera" id="toc-isoptera" class="nav-link" data-scroll-target="#isoptera">Isoptera</a></li>
   <li><a href="#lumbricina-oligochaetes" id="toc-lumbricina-oligochaetes" class="nav-link" data-scroll-target="#lumbricina-oligochaetes">Lumbricina Oligochaetes</a></li>
   </ul></li>
-  <li><a href="#community-composition" id="toc-community-composition" class="nav-link" data-scroll-target="#community-composition"><span class="header-section-number">3.2</span> Community composition</a></li>
+  <li><a href="#community-composition" id="toc-community-composition" class="nav-link" data-scroll-target="#community-composition"><span class="header-section-number">3.3</span> Community composition</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">6</span> Acknowledgements</a></li>
   <li><a href="#sec-supp" id="toc-sec-supp" class="nav-link" data-scroll-target="#sec-supp"><span class="header-section-number">7</span> Supplementary Material</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix">Appendix</a>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
   <ul class="collapse">
   <li><a href="#additional-exploratory-analysis" id="toc-additional-exploratory-analysis" class="nav-link" data-scroll-target="#additional-exploratory-analysis">Additional exploratory analysis:</a></li>
   </ul></li>
@@ -235,15 +235,41 @@ window.Quarto = {
 %%%moi j'aurai mis aussi l'exemple avec la répartition des espèces selon
 granulo en riparian forest car c'est al seule étude sur ca mais bon à
 voir si ya la place...-->
-<p>Soil texture accounts for 3.9% of the variation in soil macrofaunal community structure at the global scale <span class="citation" data-cites="Lavelle2022">(<a href="#ref-Lavelle2022" role="doc-biblioref">Lavelle et al., 2022</a>)</span>. Macrofauna is also distributed according to size within soil pores + further reading is needed on the texture and preferences of macrofauna in general <span class="citation" data-cites="Velazco2023">(<a href="#ref-Velazco2023" role="doc-biblioref">Velazco et al., 2023</a>)</span>. The few studies carried out in tropical environments highlight a decline in the abundance of macrofauna from the litter layer down to deeper soil layers, with the highest abundance occurring between 0 and 10 cm due to a higher supply of organic matter at this depth <span class="citation" data-cites="Fragoso1992 Ronchi2022 Castro2025">(<a href="#ref-Castro2025" role="doc-biblioref">Castro et al., 2025</a>; <a href="#ref-Fragoso1992" role="doc-biblioref">Fragoso &amp; Lavelle, 1992</a>; <a href="#ref-Ronchi2022" role="doc-biblioref">Ronchi et al., 2022</a>)</span>. Soil moisture also influences community composition. In the central Amazon, ant abundance and diversity decrease where the water table remains close to the soil surface for prolonged periods <span class="citation" data-cites="Baccaro2013">(<a href="#ref-Baccaro2013" role="doc-biblioref">Baccaro et al., 2013</a>)</span>. Similarly, termite assemblages in French Guianan primary forests vary along moisture gradients, with swamp and lowland forests harbouring distinct communities from well-drained forests <span class="citation" data-cites="Bourguignon2010">(<a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>)</span>. However, biotic interactions also play a role: ants’ predation on termites leads to a niche differentiation between the two species <span class="citation" data-cites="Tuma2020">(<a href="#ref-Tuma2020" role="doc-biblioref">Tuma et al., 2020</a>)</span>.</p>
+<p>Soil texture accounts for 3.9% of the variation in soil macrofaunal community structure at the global scale <span class="citation" data-cites="Lavelle2022">(<a href="#ref-Lavelle2022" role="doc-biblioref">Lavelle et al., 2022</a>)</span>. Macrofauna is also distributed according to size within soil pores + further reading is needed on the texture and preferences of macrofauna in general <span class="citation" data-cites="Velazco2023">(<a href="#ref-Velazco2023" role="doc-biblioref">Velazco et al., 2023</a>)</span>. The few studies carried out in tropical environments highlight a decline in the abundance of macrofauna from the litter layer down to deeper soil layers, with the highest abundance occurring between 0 and 10 cm due to a higher supply of organic matter at this depth <span class="citation" data-cites="Fragoso1992 Ronchi2022 Castro2025">(<a href="#ref-Castro2025" role="doc-biblioref">Castro et al., 2025</a>; <a href="#ref-Ronchi2022" role="doc-biblioref">Ronchi et al., 2022</a>; <a href="#ref-Fragoso1992" role="doc-biblioref"><strong>Fragoso1992?</strong></a>)</span>. Soil moisture also influences community composition. In the central Amazon, ant abundance and diversity decrease where the water table remains close to the soil surface for prolonged periods <span class="citation" data-cites="Baccaro2013">(<a href="#ref-Baccaro2013" role="doc-biblioref">Baccaro et al., 2013</a>)</span>. Similarly, termite assemblages in French Guianan primary forests vary along moisture gradients, with swamp and lowland forests harbouring distinct communities from well-drained forests <span class="citation" data-cites="Bourguignon2010">(<a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>)</span>. However, biotic interactions also play a role: ants’ predation on termites leads to a niche differentiation between the two species <span class="citation" data-cites="Tuma2020">(<a href="#ref-Tuma2020" role="doc-biblioref">Tuma et al., 2020</a>)</span>.</p>
 <!-- Soil bioengineers and their effects on soil properties -->
 <p>Conversely, soil macrofauna can modify soil properties, including aggregate structure, porosity and hydraulic conductivity. Soil bioengineers are organisms that physically and chemically modify their environment through resource acquisition and habitat construction. Ants, termites and earthworms act as: bioturbators, redistributing soil particles and creating galleries; aggregate modifiers, through processes such as earthworm cast production; and mineral transformers <span class="citation" data-cites="Bottinelli2015">(<a href="#ref-Bottinelli2015" role="doc-biblioref">Bottinelli et al., 2015</a>)</span>. In Amazonian terra firme forests, ants and termites account for approximately one-third of soil animal biomass <span class="citation" data-cites="Fittkau1973">(<a href="#ref-Fittkau1973" role="doc-biblioref">Fittkau &amp; Klinge, 1973</a>)</span>. Their engineering activities can substantially modify soil properties <span class="citation" data-cites="Lavelle1992 Bottinelli2015">(<a href="#ref-Bottinelli2015" role="doc-biblioref">Bottinelli et al., 2015</a>; <a href="#ref-Lavelle1992" role="doc-biblioref">Lavelle et al., 1992</a>)</span>. Gallery or nest construction by ants, earthworms and termites increases macroporosity, and enhances hydraulic conductivity and habitat heterogeneity in the soil <span class="citation" data-cites="Lavelle1992 Marichal2014 Cheik2019 Pham2023 Capowiez2024">(<a href="#ref-Capowiez2024" role="doc-biblioref">Capowiez et al., 2024</a>; <a href="#ref-Cheik2019" role="doc-biblioref">Cheik et al., 2019</a>; <a href="#ref-Lavelle1992" role="doc-biblioref">Lavelle et al., 1992</a>; <a href="#ref-Marichal2014" role="doc-biblioref">Marichal et al., 2014</a>; <a href="#ref-Pham2023" role="doc-biblioref">Pham et al., 2023</a>)</span>. Earthworms also modify aggregate-size distributions in topsoil and redistribute plant debris towards deeper soil horizons through bioturbation <span class="citation" data-cites="Zhukova2022">(<a href="#ref-Zhukova2022" role="doc-biblioref">Zhukova &amp; Mytiai, 2022</a>)</span>.</p>
+<p>More than 100 termite species have been recorded in French Guiana <span class="citation" data-cites="Bourguignon2010">(<a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>)</span>, highlighting the high diversity of soil engineers in this region. However, the spatial distribution of soil macrofauna in undisturbed tropical rainforests remains poorly documented. According to the principle of competitive exclusion, stable coexistence requires niche differentiation when species compete for limited resources <span class="citation" data-cites="Hardin1960 Chesson2000">(<a href="#ref-Chesson2000" role="doc-biblioref">Chesson, 2000</a>; <a href="#ref-Hardin1960" role="doc-biblioref">Hardin, 1960</a>)</span>: differences in soil properties can promote distinct ecological niches among taxa, which could contribute to their coexistence. We therefore hypothesise that soil type and ressources provided contributes to the spatial differentiation of macrofaunal taxa and may help explain their coexistence. We hypothesize that there is a</p>
 <p>Although tropical forest ecosystems harbor the greatest abundance and diversity of soil organisms <span class="citation" data-cites="Lavelle2022">(<a href="#ref-Lavelle2022" role="doc-biblioref">Lavelle et al., 2022</a>)</span> and French Guiana is recognised for its high diversity of soil engineers <span class="citation" data-cites="Bourguignon2010">(<a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>)</span>, the spatial distribution of soil macrofauna in undisturbed rainforests is underdocumented.</p>
+<!-- We hypothesize that there is a
+relationship between the soil texture and the composition and abundance
+of soil communities [@Lavelle2022; @Zhukova2022] ; a well-drained soil
+will be richer, particularly in soil engineers, due to their roles as
+bioturbators [@Bourguignon2010; @Bottinelli2015] and that infiltration
+rates are likely to be higher where earthworm and termite communities
+are present, due to their roles as bioturbators [@Zhukova2022;
+@Cheik2019]. Considering interactions, because of the ants predation on
+termites, we are expecting niche differentiation between the
+both[@Tuma2020].
+
+The aim of this study is therefore to address the lack of knowledge
+regarding the distribution of soil macrofauna in Paracou from a
+pedological perspective. We seek to understand whether species abundance
+differs depending on whether the soil has free lateral drainage or
+vertical drainage, and whether bio-engineered species reflect this
+difference. To this end, the TSBF protocol is employed to identify
+taxonomic families according to soil layers and soil type. The data are
+analysed using principal component analysis (PCA) and generalised linear
+mixed models (GLMM), and the communities are compared using Permanova.
+We first consider the total taxa, then analyse the bioengineers
+(termites, ants and earthworms) separately.
+termites, we are expecting niche differentiation between the both[@Tuma2020]. -->
+<p>Juju : According to the principle of competitive exclusion, stable coexistence requires niche differentiation when species compete for limited resources <span class="citation" data-cites="Hardin1960 Chesson2000">(<a href="#ref-Chesson2000" role="doc-biblioref">Chesson, 2000</a>; <a href="#ref-Hardin1960" role="doc-biblioref">Hardin, 1960</a>)</span>: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer, with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [<span class="citation" data-cites="Fragoso1992">(<a href="#ref-Fragoso1992" role="doc-biblioref"><strong>Fragoso1992?</strong></a>)</span>; <span class="citation" data-cites="Ronchi2022">Ronchi et al. (<a href="#ref-Ronchi2022" role="doc-biblioref">2022</a>)</span> ; Castro2024]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbations <span class="citation" data-cites="Bourgignon2010 Zhukova2022 Cheik2019 Bottinelli2015">(<a href="#ref-Bottinelli2015" role="doc-biblioref">Bottinelli et al., 2015</a>; <a href="#ref-Cheik2019" role="doc-biblioref">Cheik et al., 2019</a>; <a href="#ref-Zhukova2022" role="doc-biblioref">Zhukova &amp; Mytiai, 2022</a>; <a href="#ref-Bourgignon2010" role="doc-biblioref"><strong>Bourgignon2010?</strong></a>)</span>. To this end, the TSBF protocol is used for free lateral drainage and vertical drainage at three depth levels at two sites in Paracou. Identification is carried out at the taxonomic family level. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using the Permanova method. We first examine the set of taxa as a whole, then analyse the bio-engineers (termites, ants and earthworms) separately.</p>
+<p>Juju : According to the principle of competitive exclusion, stable coexistence requires niche differentiation when species compete for limited resources <span class="citation" data-cites="Hardin1960 Chesson2000">(<a href="#ref-Chesson2000" role="doc-biblioref">Chesson, 2000</a>; <a href="#ref-Hardin1960" role="doc-biblioref">Hardin, 1960</a>)</span>: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer, with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [<span class="citation" data-cites="Fragoso1992">(<a href="#ref-Fragoso1992" role="doc-biblioref"><strong>Fragoso1992?</strong></a>)</span>; <span class="citation" data-cites="Ronchi2022">Ronchi et al. (<a href="#ref-Ronchi2022" role="doc-biblioref">2022</a>)</span> ; Castro2024]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbations <span class="citation" data-cites="Bourguignon2010 Zhukova2022 Cheik2019 Bottinelli2015">(<a href="#ref-Bottinelli2015" role="doc-biblioref">Bottinelli et al., 2015</a>; <a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>; <a href="#ref-Cheik2019" role="doc-biblioref">Cheik et al., 2019</a>; <a href="#ref-Zhukova2022" role="doc-biblioref">Zhukova &amp; Mytiai, 2022</a>)</span>. To this end, the TSBF protocol is used for free lateral drainage and vertical drainage at three depth levels at two sites in Paracou. Identification is carried out at the taxonomic family level. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using the Permanova method. We first examine the set of taxa as a whole, then analyse the bio-engineers (termites, ants and earthworms) separately.</p>
 <p>This study aims therefore to investigate whether soil macrofaunal abundance and community composition differ between soils with different drainage types and among soil layers in the undisturbed tropical rainforest of Paracou, French Guiana, paying particular attention to ecosystem-engineering taxa.</p>
 <!-- According to the principle of competitive exclusion, stable
 coexistence requires niche differentiation when species compete for limited resources [@Hardin1960; @Chesson2000]: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer,
 with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022; @Castro2025]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbators [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. -->
-<p>Following niche partitioning theory <span class="citation" data-cites="Hardin1960 Chesson2000">(<a href="#ref-Chesson2000" role="doc-biblioref">Chesson, 2000</a>; <a href="#ref-Hardin1960" role="doc-biblioref">Hardin, 1960</a>)</span>, differences in soil properties can generate distinct niches among taxa. We therefore hypothesise that (1) macrofaunal abundance is highest in the 0-10 cm layer, with ants concentrated in the litter layer and termites and earthworms in the 0-10 cm layer <span class="citation" data-cites="Fragoso1992 Ronchi2022 Castro2025">(<a href="#ref-Castro2025" role="doc-biblioref">Castro et al., 2025</a>; <a href="#ref-Fragoso1992" role="doc-biblioref">Fragoso &amp; Lavelle, 1992</a>; <a href="#ref-Ronchi2022" role="doc-biblioref">Ronchi et al., 2022</a>)</span>; (2) abundance is higher in well-drained soil types (Alt/DVD), particularly for ants, termites and earthworms, and community composition differs from poorly drained soils (SLD) <span class="citation" data-cites="Bourguignon2010 Zhukova2022 Cheik2019 Bottinelli2015">(<a href="#ref-Bottinelli2015" role="doc-biblioref">Bottinelli et al., 2015</a>; <a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>; <a href="#ref-Cheik2019" role="doc-biblioref">Cheik et al., 2019</a>; <a href="#ref-Zhukova2022" role="doc-biblioref">Zhukova &amp; Mytiai, 2022</a>)</span>.</p>
+<p>Following niche partitioning theory <span class="citation" data-cites="Hardin1960 Chesson2000">(<a href="#ref-Chesson2000" role="doc-biblioref">Chesson, 2000</a>; <a href="#ref-Hardin1960" role="doc-biblioref">Hardin, 1960</a>)</span>, differences in soil properties can generate distinct niches among taxa. We therefore hypothesise that (1) macrofaunal abundance is highest in the 0-10 cm layer, with ants concentrated in the litter layer and termites and earthworms in the 0-10 cm layer <span class="citation" data-cites="Fragoso1992 Ronchi2022 Castro2025">(<a href="#ref-Castro2025" role="doc-biblioref">Castro et al., 2025</a>; <a href="#ref-Ronchi2022" role="doc-biblioref">Ronchi et al., 2022</a>; <a href="#ref-Fragoso1992" role="doc-biblioref"><strong>Fragoso1992?</strong></a>)</span>; (2) abundance is higher in well-drained soil types (Alt/DVD), particularly for ants, termites and earthworms, and community composition differs from poorly drained soils (SLD) <span class="citation" data-cites="Bourguignon2010 Zhukova2022 Cheik2019 Bottinelli2015">(<a href="#ref-Bottinelli2015" role="doc-biblioref">Bottinelli et al., 2015</a>; <a href="#ref-Bourguignon2010" role="doc-biblioref">Bourguignon et al., 2010</a>; <a href="#ref-Cheik2019" role="doc-biblioref">Cheik et al., 2019</a>; <a href="#ref-Zhukova2022" role="doc-biblioref">Zhukova &amp; Mytiai, 2022</a>)</span>.</p>
 </section>
 <section id="material-and-methods" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Material and Methods</h1>
@@ -251,14 +277,14 @@ with ants being over-represented in the litter layer and termites and earthworms
 <h2 data-number="2.1" class="anchored" data-anchor-id="study-site"><span class="header-section-number">2.1</span> Study Site</h2>
 <section id="geographic-location" class="level3">
 <h3 class="anchored" data-anchor-id="geographic-location">Geographic Location</h3>
-<p>This study was conducted at the Paracou Research Station (5°16′38″N, 52°55′38″W), in Amazonian primary tropical forest. The average air temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season from December to July (between 300 and 500 mm per month) and a long dry season from mid-August to mid-November (&lt; 100 mm per month). A permanent forest dynamic experiment was established at Paracou in 1984. The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one plot measuring 500 × 500 m² (25 ha). Our experiment was carried out in two of the unlogged control plots: Plot 1 (P1), installed in 1984, and Plot 15 (P15) installed in 1990 <span class="citation" data-cites="Gourlet-Fleury2004">(<a href="#ref-Gourlet-Fleury2004" role="doc-biblioref">Gourlet-Fleury et al., 2004</a>)</span>. The geological substratum of Paracou consists primarily of Precambrian schists intruded by pegmatite veins, belonging to the metamorphic Bonidoro Series <span class="citation" data-cites="Choubert1974">(<a href="#ref-Choubert1974" role="doc-biblioref">Choubert, 1974</a>)</span>. The site exhibits a relatively low elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River <span class="citation" data-cites="Gourlet-Fleury2004">(<a href="#ref-Gourlet-Fleury2004" role="doc-biblioref">Gourlet-Fleury et al., 2004</a>)</span>.</p>
+<p>This study was conducted at the Paracou Research Station (5°16′38″N, 52°55′38″W), in Amazonian primary tropical forest. The average air temperature is 25.7 °C ± 0.1 °C (from 2004 to 2014). Average annual rainfall is 3,102 mm ± 70 mm, with heavy rains during the wet season from December to July (between 300 and 500 mm per month) and a long dry season from mid-August to mid-November (&lt; 100 mm per month). A permanent forest dynamic experiment was established at Paracou in 1984. The site comprises 15 plots measuring 250 × 250 m² (6.25 ha) and one plot measuring 500 × 500 m² (25 ha). Our experiment was carried-out in two of the unlogged control plots: Plot 1 (P1), installed in 1984, and Plot 15 (P15) installed in 1990 <span class="citation" data-cites="Gourlet-Fleury2004">(<a href="#ref-Gourlet-Fleury2004" role="doc-biblioref">Gourlet-Fleury et al., 2004</a>)</span>. The geological substratum of Paracou consists primarily of Precambrian schists intruded by pegmatite veins, belonging to the metamorphic Bonidoro Series <span class="citation" data-cites="Choubert1974">(<a href="#ref-Choubert1974" role="doc-biblioref">Choubert, 1974</a>)</span>. The site exhibits a relatively low elevation (5 to 50 m a.s.l.), dissected by deep drainage gullies flowing into the Sinnamary River <span class="citation" data-cites="Gourlet-Fleury2004">(<a href="#ref-Gourlet-Fleury2004" role="doc-biblioref">Gourlet-Fleury et al., 2004</a>)</span>.</p>
 </section>
 <section id="soil-characteristics-of-paracou" class="level3">
 <h3 class="anchored" data-anchor-id="soil-characteristics-of-paracou">Soil Characteristics of Paracou</h3>
 <p>The predominant soils are nutrient-poor Acrisols (sesquioxide, kaolinite and gibbsite) <span class="citation" data-cites="FAO1998 Driessen2001">(<a href="#ref-Driessen2001" role="doc-biblioref">Driessen et al., 2001</a>; <a href="#ref-FAO1998" role="doc-biblioref">FAO et al., 1998</a>)</span>, characterized by a shallow depth delimited by a partially transformed loamy saprolite <span class="citation" data-cites="Gourlet-Fleury2004">(<a href="#ref-Gourlet-Fleury2004" role="doc-biblioref">Gourlet-Fleury et al., 2004</a>)</span>.</p>
-<p>Soil distribution and drainage vary strongly in Paracou, influenced by the topographic gradient, as has been shown by prior mappings <span class="citation" data-cites="Soucemarianadin2004 Weigel2006 Roelens2007">(<a href="#ref-Roelens2007" role="doc-biblioref">Roelens, 2007</a>; <a href="#ref-Soucemarianadin2004" role="doc-biblioref">Soucémarianadin, 2004</a>; <a href="#ref-Weigel2006" role="doc-biblioref">Weigel, 2006</a>)</span>. This study focuses on two soil types present at Paracou, namely soils with Superficial Lateral Drainage (SLD) and Deep Vertical Drainage/altered phase (Alt/DVD).</p>
-<p>Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat hilltops or plateaus and feature a thick ferralitic cover that lets rainwater percolate freely and deeply. The altered phase (Alt) begins where red, muscovite-rich alloterite appears above 1.2 m depth, signaling initial soil thinning <span class="citation" data-cites="Sabatier1997">(<a href="#ref-Sabatier1997" role="doc-biblioref">Sabatier et al., 1997</a>)</span>. Plateau soils contain higher levels of carbon, nitrogen, and aluminum <span class="citation" data-cites="Allie2015">(<a href="#ref-Allie2015" role="doc-biblioref">Allié et al., 2015</a>)</span>, support greater root biomass and soil respiration <span class="citation" data-cites="Epron2006">(<a href="#ref-Epron2006" role="doc-biblioref">Epron et al., 2006</a>)</span>, and host nearly half of the local tree species in Paracou <span class="citation" data-cites="Allie2015">(<a href="#ref-Allie2015" role="doc-biblioref">Allié et al., 2015</a>)</span>.</p>
-<p>Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these soils reflect a more advanced thinning and compaction of the ferralitic cover. Because deep percolation is blocked, water flows laterally near the surface <span class="citation" data-cites="Sabatier1997">(<a href="#ref-Sabatier1997" role="doc-biblioref">Sabatier et al., 1997</a>)</span>. Compared to plateau soils, these slope soils have higher bulk density and surface moisture, but lower organic carbon, root biomass, and soil respiration <span class="citation" data-cites="Epron2006">(<a href="#ref-Epron2006" role="doc-biblioref">Epron et al., 2006</a>)</span>.</p>
+<p>Soil distribution and drainage vary strongly in Paracou, influenced by the topographic gradient, as has been shown by prior mappings <span class="citation" data-cites="Soucemarianadin2004 Weigel2006 Roelens2007">(<a href="#ref-Roelens2007" role="doc-biblioref">Roelens, 2007</a>; <a href="#ref-Soucemarianadin2004" role="doc-biblioref">Soucémarianadin, 2004</a>; <a href="#ref-Weigel2006" role="doc-biblioref">Weigel, 2006</a>)</span>. According to <span class="citation" data-cites="Soucemarinanadin2004">(<a href="#ref-Soucemarinanadin2004" role="doc-biblioref"><strong>Soucemarinanadin2004?</strong></a>)</span>, Plot 1 comprised of 45 % Superficial Lateral Drainage (SLD), 35 % Surface Hydromorphy (SH), 15 % Downhill System (DhS), and 5 % Deep Vertical Drainage/altered phase (Alt/DVD). Meanwhile, soils of P15 are comprised of 60 % SLD, 20 % DhS, 15 % SH and 5 % Alt/DVD.</p>
+<p>This study focuses on two soil types present at Paracou, namely soils with Superficial Lateral Drainage (SLD) and Deep Vertical Drainage/altered phase (Alt/DVD). Alt/DVD are a type of well-drained soils (hypoferralic acrisols) located on flat hilltops or plateaus and feature a thick ferralitic cover that lets rainwater percolate freely and deeply. The altered phase (Alt) begins where red, muscovite-rich alloterite appears above 1.2 m depth,signaling initial soil thinning <span class="citation" data-cites="Sabatier1997">(<a href="#ref-Sabatier1997" role="doc-biblioref">Sabatier et al., 1997</a>)</span>. Plateau soils contain higher levels of carbon, nitrogen, and aluminum <span class="citation" data-cites="Allie2015">(<a href="#ref-Allie2015" role="doc-biblioref">Allié et al., 2015</a>)</span>, support greater root biomass and soil respiration <span class="citation" data-cites="Epron2006">(<a href="#ref-Epron2006" role="doc-biblioref">Epron et al., 2006</a>)</span>, and host nearly half of the local tree species in Paracou <span class="citation" data-cites="Allie2015">(<a href="#ref-Allie2015" role="doc-biblioref">Allié et al., 2015</a>)</span>.</p>
+<p>Superficial Lateral Drainage soils (SLD) are found on mid-slopes, these soils reflect a more advanced thinning and compaction of the ferralitic cover. Because deep percolation is blocked, water flows laterally and near the surface <span class="citation" data-cites="Sabatier1997">(<a href="#ref-Sabatier1997" role="doc-biblioref">Sabatier et al., 1997</a>)</span>. Compared to plateau soils, these slope soils have higher bulk density and surface moisture, but lower organic carbon, root biomass, and soil respiration <span class="citation" data-cites="Epron2006">(<a href="#ref-Epron2006" role="doc-biblioref">Epron et al., 2006</a>)</span>.</p>
 </section>
 </section>
 <section id="sampling-and-identification" class="level2" data-number="2.2">
@@ -275,7 +301,7 @@ with ants being over-represented in the litter layer and termites and earthworms
 </section>
 <section id="sample-sorting-and-identification" class="level3">
 <h3 class="anchored" data-anchor-id="sample-sorting-and-identification">Sample Sorting and Identification</h3>
-<p>Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes. Macrofauna was collected using a brush and stored in 90% ethanol, separated according to monolith and layer of soil. Subsequently, the organisms were identified on a coarse taxonomic level (refer to the data file in <a href="#sec-supp" class="quarto-xref">Section&nbsp;7</a> for details), with ants (Formicidae) and termites (Isoptera) treated separately from other Hymenoptera and Blattodea.</p>
+<p>Samples were manually sorted at the field station and litter samples (L) processed first to avoid macrofauna escaping. Soil was sorted by transferring around 200 g of substrate into a container. Each portion was observed for an average of 2 minutes. Macrofauna was collected using a brush and stored in 90 % ethanol, separated according to monolith and layer of soil. Subsequently, the organisms were identified on a coarse taxonomic level (refer to the data file in <a href="#sec-supp" class="quarto-xref">Section&nbsp;7</a> for details), with ants (Formicidae) and termites (Isoptera) treated separately from other Hymenoptera and Blattodea.</p>
 <p>In total, 60 samples were collected (2 plots x 2 soils x 5 monoliths x 3 layers) and 27 groups of macrofauna were identified and unidentified individuals grouped as “indet”, yielding a total of 2187 individuals.</p>
 </section>
 </section>
@@ -328,6 +354,40 @@ Figure&nbsp;1: Total macrofauna density (ind. m⁻²) by soil layer (L = litter,
 </figcaption>
 </figure>
 </div>
+<p>Community composition changed more between layers than between soil types (<a href="#fig-comp" class="quarto-xref">Figure&nbsp;2</a>). In the litter, no Lumbricina were found in either soil type. Alt/DVD soils were home to a bigger proportion of Isoptera compared to Formicidae. Conversely, SLD soils hosted a greater proportion of Formicidae compared to Isoptera. Two groups dominated the 0-10 cm layer in both soil types : Isoptera and Formicidae that each made up for approximately half the composition of both soil type in this layer. Earthworms (Lumbricina) were a small part of the catch there (~2 % and ~5 %). Finally, in the 10-20 cm layer, Isoptera almost disappeared (0 % in Alt/DVD and 1 % in SLD) and Formicidae became clearly dominant, at about 70 % of individuals. They were followed by the other groups combined (about 18 %) and Lumbricina (9 % and 11 %).</p>
+<p>The litter was the only layer where the two soil types looked different. These proportions rest on small numbers, so a few samples can change them a lot.</p>
+<!-- %%% We ran a principal component analysis (PCA) on the abundances of all
+taxa, after a Hellinger transformation, to see whether samples from the
+two soil types differed in composition (@fig-pca). The first two axes
+explained 33.2 % and 18.6 % of the variance, so 51.8 % together. PC1
+opposed samples rich in Isoptera (right side) to samples dominated by
+Formicidae (left side). PC2 was mostly related to Lumbricina, which
+pointed toward the top of the plot. Formicidae and Isoptera were well
+represented on these two axes (high cos², which measures how well a
+taxon is represented by the axes), while Lumbricina were less well
+represented (lower cos²).
+
+Alt/DVD and SLD samples were not separated on these two axes. The two
+ellipses overlapped almost completely, and samples of both soil types
+were found across the whole plot. We did not see a clear structure by
+soil layer either. Samples from the litter, the 0-10 cm layer and the
+10-20 cm layer were mixed along both axes. The 10-20 cm samples were
+almost all in the left half of the plot which fit with the absence of
+isoptera at this depth, and the highest PC2 values were mostly from this
+layer, where earthworms were found. Overall, no clear trend could be
+taken out fo it and they overlapped with many litter and 0-10 cm
+samples. 
+
+PCA ordination based on Hellinger-transformed community matrix of
+macrofauna composition (60 samples). Colours show soil type and shapes
+show soil layer (L = litter, 10 = 0-10 cm, 20 = 10-20 cm). Dashed lines
+are 95 % confidence ellipses for each soil type. Arrows show the taxa
+best represented on the first two axes. Their colour indicates the
+squared cosine (cos²) (values close to 1 mean a good representation of
+the taxon by these two axes). Only taxa with cos² \> 0.1 are presented.-->
+</section>
+<section id="glmm" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="glmm"><span class="header-section-number">3.2</span> GLMM</h2>
 <p>Effects of soil type and layer were tested on global, ant, termite and earthworm abundances. All retained models described below are listed in <a href="#tbl-models" class="quarto-xref">Table&nbsp;1</a>.</p>
 <section id="global-abundance" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="global-abundance">Global Abundance</h3>
@@ -1444,8 +1504,8 @@ Table&nbsp;2: Estimated marginal means and Tukey pairwise comparisons of abundan
 <p>For density boxplots for Formicidae, Isoptera and Lumbricina oligochaetes, see <a href="#sec-appendix">Appendix</a> <a href="#fig-density-taxa" class="quarto-xref">Figure&nbsp;5</a>.</p>
 </section>
 </section>
-<section id="community-composition" class="level2 page-columns page-full" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">3.2</span> Community composition</h2>
+<section id="community-composition" class="level2 page-columns page-full" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">3.3</span> Community composition</h2>
 <p>Community composition varied visibly more among soil layers than between soil types (<a href="#fig-comp" class="quarto-xref">Figure&nbsp;2</a>). Lumbricina were absent from the litter in both soil types. The relative proportions of Isoptera and Formicidae appeared to differ between soil types: Isoptera were more abundant in Alt/DVD, whereas Formicidae represented a larger proportion in SLD. Two groups dominated the 0-10 cm layer in both soil types: Isoptera and Formicidae each made up for approximately half of the relative composition of both soil types. Earthworms (Lumbricina) represented a small part therein (~2% and ~5%). In the 10-20 cm layer, Isoptera were nearly absent (0 % in Alt/DVD and 1% in SLD) and Formicidae dominated, representing about 70% of individuals. Lumbricina represented around 9% and 11% of individuals in Alt/DVD and SLD, respectively, while all remaining taxa combined accounted for approximately 18%.</p>
 <p>An exploratory PCA macrofaunal abundances is provided in the <a href="#sec-appendix">Appendix</a> (<a href="#fig-pca" class="quarto-xref">Figure&nbsp;6</a>).</p>
 <div id="fig-comp" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure">
@@ -1972,7 +2032,7 @@ Table&nbsp;3: Pairwise PERMANOVA for community composition comparisons between l
 </figcaption>
 </figure>
 </div>
-<div id="fig-pcoa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-pos="t" data-fig-env="figure*">
+<div id="fig-pcoa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*" data-fig-pos="t">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
@@ -1985,13 +2045,14 @@ Table&nbsp;3: Pairwise PERMANOVA for community composition comparisons between l
 </div>
 </div>
 </div>
-<p></p>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: First two components of the Bray-Curtis PCoA representing 26.1% of the variation in macrofaunal community composition. Convex hulls indicate soil layers. Taxa singificantly associated (after BH correction) with the first two ordination axes are presented (arrows).
+Figure&nbsp;3:
 </figcaption>
 </figure>
 </div>
+<p>First two components of the Bray-Curtis PCoA representing 26.1% of the variation in macrofaunal community composition. Convex hulls indicate soil layers. Taxa singificantly associated (after BH correction) with the first two ordination axes are presented (arrows).</p>
+<p>In the Principal Coordinates Analysis (PCoA) based on Bray Curtis dissimilarities, the first two axes explained 26.1% of the corrected total variance (15.8% for PCoA1 and 10.3% for PCoA2). Convex hulls overlapped substantially in the projection. A subset of samples from the 10 cm layer extend toward positive PCoA1 values. Vector fitting onto the PCoA ordination identified four taxa significantly correlated with the ordination space (Padj&lt;0.05, Benjamini–Hochberg corrected): Isoptera, Opiliones, Chilopoda, and Lumbricina oligochaetes. All four vectors pointed toward positive PCoA1 scores, indicating that higher abundances of these taxa drove the separation of these 10 cm layer samples along the first axis.</p>
 </section>
 </section>
 <section id="discussion" class="level1" data-number="4">
@@ -2013,9 +2074,12 @@ Figure&nbsp;3: First two components of the Bray-Curtis PCoA representing 26.1% o
 <h1 data-number="7"><span class="header-section-number">7</span> Supplementary Material</h1>
 <p>Supplementary material, including detailed statistical analysis, scripts, data, QGIS layers, additional software attribution as well as the Quarto file used to produce this article, is available from <a href="https://github.com/jasonberger2002/FTH_2026_soil_macrofauna" class="uri">https://github.com/jasonberger2002/FTH_2026_soil_macrofauna</a>.</p>
 </section>
-<section id="references" class="level1 unnumbered">
+<section id="references" class="level1 unnumbered page-columns page-full">
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<!-- dissolve column structure, reset page and figure counters, create new counter with prefix A for Appendix section -->
+<section id="sec-appendix" class="level1 unnumbered">
+<h1 class="unnumbered">Appendix</h1>
 <div id="ref-Allie2015" class="csl-entry" role="listitem">
 Allié, E., Pélissier, R., Engel, J., Petronelli, P., Freycon, V., Deblauwe, V., Soucémarianadin, L., Weigel, J., &amp; Baraloto, C. (2015). <span>Pervasive Local-Scale Tree-Soil Habitat Association in a Tropical Forest Community</span>. <em>PLOS ONE</em>, <em>10</em>(11), e0141488. <a href="https://doi.org/10.1371/journal.pone.0141488">https://doi.org/10.1371/journal.pone.0141488</a>
 </div>
@@ -2096,9 +2160,6 @@ Fox, J., &amp; Weisberg, S. (2019). <em>An <span>R</span> companion to applied r
 </div>
 <div id="ref-Fox2026" class="csl-entry" role="listitem">
 Fox, J., Weisberg, S., &amp; Price, B. (2026). <em>Car: <span>Companion</span> to applied regression</em> [Manual].
-</div>
-<div id="ref-Fragoso1992" class="csl-entry" role="listitem">
-Fragoso, C., &amp; Lavelle, P. (1992). Earthworm communities of tropical rain forests. <em>Soil Biology and Biochemistry</em>, <em>24</em>(12), 1397–1408. <a href="https://doi.org/10.1016/0038-0717(92)90124-G">https://doi.org/10.1016/0038-0717(92)90124-G</a>
 </div>
 <div id="ref-Gourlet-Fleury2004" class="csl-entry" role="listitem">
 Gourlet-Fleury, S., Ferry, B., Molino, J. F., Petronelli, P., &amp; Schmitt, L. (2004). Experimental plots : Key features. In <em>Ecology and management of a neotropical rainforest : Lessons drawn from <span>Paracou</span>, a long-term experimental research site in <span>French Guiana</span> / <span>Gourlet-Fleury Sylvie</span> (ed.), <span>Guehl Jean-Marc</span> (ed.), <span>Laroussinie Olivier</span> (ed.)</em> (pp. 3–60). Elsevier.
@@ -2196,12 +2257,9 @@ Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., G
 <div id="ref-Zhukova2022" class="csl-entry" role="listitem">
 Zhukova, Y. O., &amp; Mytiai, I. S. (2022). Spatial organization of the soil macrofauna community in a floodplain forest. <em>IOP Conference Series: Earth and Environmental Science</em>, <em>1049</em>(1), 012064. <a href="https://doi.org/10.1088/1755-1315/1049/1/012064">https://doi.org/10.1088/1755-1315/1049/1/012064</a>
 </div>
-</div>
-<!-- dissolve column structure, reset page and figure counters, create new counter with prefix A for Appendix section -->
 </section>
-<section id="sec-appendix" class="level1 unnumbered page-columns page-full">
-<h1 class="unnumbered">Appendix</h1>
-<div id="fig-map" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-pos="H" data-fig-env="figure">
+</div>
+<div id="fig-map" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
@@ -2221,7 +2279,7 @@ Figure&nbsp;4: Overview map of Paracou with the sampling locations. Location of 
 </figcaption>
 </figure>
 </div>
-<div id="fig-density-taxa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-pos="H" data-fig-env="figure">
+<div id="fig-density-taxa" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-density-taxa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p></p>
