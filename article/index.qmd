@@ -305,8 +305,6 @@ Earthworms also modify aggregate-size distributions in topsoil and
 redistribute plant debris towards deeper soil horizons through
 bioturbation [@Zhukova2022].
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 More than 100 termite species have been recorded in French Guiana
 [@Bourguignon2010], highlighting the high diversity of soil engineers in
 this region. However, the spatial distribution of soil macrofauna in
@@ -318,21 +316,14 @@ distinct ecological niches among taxa, which could contribute to their
 coexistence. We therefore hypothesise that soil type and ressources
 provided contributes to the spatial differentiation of macrofaunal taxa
 and may help explain their coexistence. We hypothesize that there is a
-=======
-Although tropical forests harbour the greatest abundance and diversity
-of soil organisms compared with any other ecosystem [@Lavelle2022] and
-=======
+
 Although tropical forest ecosystems harbor the greatest abundance and diversity
 of soil organisms [@Lavelle2022] and
->>>>>>> 1ce86d9f1d0bf39b28662f673d43a8d85877fba2
 French Guiana is recognised for its high diversity of soil engineers
 [@Bourguignon2010], the spatial distribution of soil macrofauna in
 undisturbed rainforests is underdocumented.
 
-<<<<<<< HEAD
-```{=html}
 <!-- We hypothesize that there is a
->>>>>>> ac34becf11f2c267bdee6aab20b86a74002f8bfc
 relationship between the soil texture and the composition and abundance
 of soil communities [@Lavelle2022; @Zhukova2022] ; a well-drained soil
 will be richer, particularly in soil engineers, due to their roles as
@@ -340,7 +331,6 @@ bioturbators [@Bourguignon2010; @Bottinelli2015] and that infiltration
 rates are likely to be higher where earthworm and termite communities
 are present, due to their roles as bioturbators [@Zhukova2022;
 @Cheik2019]. Considering interactions, because of the ants predation on
-<<<<<<< HEAD
 termites, we are expecting niche differentiation between the
 both[@Tuma2020].
 
@@ -355,11 +345,8 @@ analysed using principal component analysis (PCA) and generalised linear
 mixed models (GLMM), and the communities are compared using Permanova.
 We first consider the total taxa, then analyse the bioengineers
 (termites, ants and earthworms) separately.
-=======
 termites, we are expecting niche differentiation between the both[@Tuma2020]. -->
-```
 
-<<<<<<< HEAD
 Juju : According to the principle of competitive exclusion, stable
 coexistence requires niche differentiation when species compete for
 limited resources [@Hardin1960; @Chesson2000]: differences in soil
@@ -382,11 +369,9 @@ and generalised linear mixed models (GLMM), and the communities are
 compared using the Permanova method. We first examine the set of taxa as
 a whole, then analyse the bio-engineers (termites, ants and earthworms)
 separately.
-=======
+
 Juju : According to the principle of competitive exclusion, stable coexistence requires niche differentiation when species compete for limited resources [@Hardin1960; @Chesson2000]: differences in soil properties can promote distinct ecological niches among taxa. We therefore hypothesise that soil type and its layers contribute to the spatial differentiation of macrofauna taxa, owing to a varied soil texture that generates different resources and physico-chemical properties. Based on their diet and the environmental filter created by soil depth, we generally expect maximum abundance in the 0–10 cm layer, with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022 ; Castro2024]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbations [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. To this end, the TSBF protocol is used for free lateral drainage and vertical drainage at three depth levels at two sites in Paracou. Identification is carried out at the taxonomic family level. The data are analysed using principal component analysis (PCA) and generalised linear mixed models (GLMM), and the communities are compared using the Permanova method. We first examine the set of taxa as a whole, then analyse the bio-engineers (termites, ants and earthworms) separately.
->>>>>>> 64bb73a48d7d666f4332543934268fdc85171e74
->>>>>>> ac34becf11f2c267bdee6aab20b86a74002f8bfc
-=======
+
 This study aims therefore to investigate whether soil macrofaunal abundance and
 community composition differ between soils with different drainage types and among soil layers
 in the undisturbed tropical rainforest of Paracou, French Guiana, paying particular attention to ecosystem-engineering taxa.
@@ -396,7 +381,6 @@ coexistence requires niche differentiation when species compete for limited reso
 with ants being over-represented in the litter layer and termites and earthworms in the 0–10 cm layer. [@Fragoso1992; @Ronchi2022; @Castro2025]. A well-drained soil with high infiltration rates will show more abundances, particularly in earthworm, ants and termite, due to their roles as bioturbators [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015]. -->
 
 Following niche partitioning theory [@Hardin1960; @Chesson2000], differences in soil properties can generate distinct niches among taxa. We therefore hypothesise that (1) macrofaunal abundance is highest in the 0-10 cm layer, with ants concentrated in the litter layer and termites and earthworms in the 0-10 cm layer [@Fragoso1992; @Ronchi2022; @Castro2025]; (2) abundance is higher in well-drained soil types (Alt/DVD), particularly for ants, termites and earthworms, and community composition differs from poorly drained soils (SLD) [@Bourguignon2010; @Zhukova2022; @Cheik2019; @Bottinelli2015].
->>>>>>> 1ce86d9f1d0bf39b28662f673d43a8d85877fba2
 
 # Material and Methods
 
